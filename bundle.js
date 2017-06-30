@@ -120,18 +120,6 @@
 		}
 
 		_createClass(Main, [{
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps() {
-				//console.log('will mount');
-				if (document.getElementById('content-left') && document.getElementById('content-right')) {
-					if (window.location.pathname !== '/') {
-						document.getElementById('content-left').style.opacity = "0";
-						document.getElementById('content-right').style.opacity = "0";
-						console.log('-----content left and right hidden');
-					}
-				}
-			}
-		}, {
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
@@ -30685,6 +30673,18 @@
 	            return "" !== this.props.slug ? '/' + this.props.slug : '';
 	        }
 	    }, {
+	        key: 'hideComponents',
+	        value: function hideComponents() {
+	            console.log('link onclick');
+	            if (document.getElementById('content-left') && document.getElementById('content-right')) {
+	                if (window.location.pathname !== '/') {
+	                    document.getElementById('content-left').style.opacity = "0";
+	                    document.getElementById('content-right').style.opacity = "0";
+	                    console.log('-----content left and right hidden');
+	                }
+	            }
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            //console.log(this);
@@ -30704,7 +30704,7 @@
 	            //if (((4 + (this.props.pageNum - 1)*8) || 1) <= this.props.total) {
 	            nextButton = _react2.default.createElement(
 	                _reactRouterDom.Link,
-	                { to: this.getNextPage(), className: 'nav-link more' },
+	                { to: this.getNextPage(), onClick: this.hideComponents, className: 'nav-link more' },
 	                'More'
 	            );
 	            //}
