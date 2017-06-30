@@ -121,12 +121,13 @@
 
 		_createClass(Main, [{
 			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps(nextProps) {
+			value: function componentWillReceiveProps() {
 				//console.log('will mount');
 				if (document.getElementById('content-left') && document.getElementById('content-right')) {
 					if (window.location.pathname !== '/') {
 						document.getElementById('content-left').style.opacity = "0";
 						document.getElementById('content-right').style.opacity = "0";
+						console.log('-----content left and right hidden');
 					}
 				}
 			}
@@ -30412,7 +30413,7 @@
 					setTimeout(function () {
 						document.getElementById('content-left').style.opacity = "1";
 						document.getElementById('content-right').style.opacity = "1";
-						console.log('index featured triggered display');
+						console.log('+++++index featured triggered display');
 						window.leftloaded = false;
 						window.rightloaded = false;
 					}, 250);
@@ -30575,7 +30576,7 @@
 					setTimeout(function () {
 						document.getElementById('content-left').style.opacity = "1";
 						document.getElementById('content-right').style.opacity = "1";
-						console.log('blog right triggered display');
+						console.log('+++++blog right triggered display');
 						window.rightloaded = false;
 						window.leftloaded = false;
 					}, 250);
@@ -30953,7 +30954,7 @@
 					setTimeout(function () {
 						document.getElementById('content-left').style.opacity = "1";
 						document.getElementById('content-right').style.opacity = "1";
-						console.log('blog left triggered display');
+						console.log('+++++blog left triggered display');
 						window.leftloaded = false;
 						window.rightloaded = false;
 					}, 250);

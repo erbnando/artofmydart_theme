@@ -54,7 +54,7 @@ class BlogRight extends Component {
 			setTimeout(function() {
 				document.getElementById('content-left').style.opacity = "1";
 				document.getElementById('content-right').style.opacity = "1";
-				console.log('blog right triggered display');
+				console.log('+++++blog right triggered display');
 				window.rightloaded = false;
 				window.leftloaded = false;
 			}, 250);

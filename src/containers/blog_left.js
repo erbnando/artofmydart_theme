@@ -50,7 +50,7 @@ class BlogLeft extends Component {
 			setTimeout(function() {
 				document.getElementById('content-left').style.opacity = "1";
 				document.getElementById('content-right').style.opacity = "1";
-				console.log('blog left triggered display');
+				console.log('+++++blog left triggered display');
 				window.leftloaded = false;
 				window.rightloaded = false;
 			}, 250);

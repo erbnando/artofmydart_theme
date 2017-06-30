@@ -22,12 +22,13 @@ class App extends Component {
 }
 
 class Main extends Component {
-	componentWillReceiveProps(nextProps) {
+	componentWillReceiveProps() {
         //console.log('will mount');
         if (document.getElementById('content-left') && document.getElementById('content-right')){
             if (window.location.pathname !== '/') {
                 document.getElementById('content-left').style.opacity = "0";
                 document.getElementById('content-right').style.opacity = "0";
+                console.log('-----content left and right hidden');
             }
         }
 	}
