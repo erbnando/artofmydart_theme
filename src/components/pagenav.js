@@ -25,12 +25,12 @@ export default class PageNav extends Component {
     }
 
     hideComponents() {
-        console.log('link onclick');
+        //console.log('link onclick');
         if (document.getElementById('content-left') && document.getElementById('content-right')){
             if (window.location.pathname !== '/') {
                 document.getElementById('content-left').style.opacity = "0";
                 document.getElementById('content-right').style.opacity = "0";
-                console.log('-----content left and right hidden');
+                //console.log('-----content left and right hidden');
             }
         }
     }
@@ -51,7 +51,7 @@ export default class PageNav extends Component {
 
         var nextButton = '';
         //if (((4 + (this.props.pageNum - 1)*8) || 1) <= this.props.total) {
-        nextButton = <Link to={this.getNextPage()} onClick={this.hideComponents} className="nav-link more">More</Link>;
+        nextButton = <Link to={this.getNextPage()} /*onClick={this.hideComponents}*/ className="nav-link more">More</Link>;
         //}
 
         return (

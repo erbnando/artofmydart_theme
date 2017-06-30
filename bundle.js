@@ -30395,13 +30395,13 @@
 			value: function imgLoaded() {
 				window.leftloaded = true;
 				if (window.rightloaded !== true) {
-					console.log('index featured loaded first');
+					//console.log('index featured loaded first');
 					//console.log('blog left:', window.leftloaded, 'blog right:', window.rightloaded);
 				} else {
 					setTimeout(function () {
 						document.getElementById('content-left').style.opacity = "1";
 						document.getElementById('content-right').style.opacity = "1";
-						console.log('+++++index featured triggered display');
+						//console.log('+++++index featured triggered display');
 						window.leftloaded = false;
 						window.rightloaded = false;
 					}, 250);
@@ -30558,13 +30558,13 @@
 				//console.log('did update');
 				window.rightloaded = true;
 				if (window.leftloaded !== true) {
-					console.log('blog right loaded first');
+					//console.log('blog right loaded first');
 					//console.log('blog left:', window.rightloaded, 'blog right:', window.leftloaded);
 				} else {
 					setTimeout(function () {
 						document.getElementById('content-left').style.opacity = "1";
 						document.getElementById('content-right').style.opacity = "1";
-						console.log('+++++blog right triggered display');
+						//console.log('+++++blog right triggered display');
 						window.rightloaded = false;
 						window.leftloaded = false;
 					}, 250);
@@ -30675,12 +30675,12 @@
 	    }, {
 	        key: 'hideComponents',
 	        value: function hideComponents() {
-	            console.log('link onclick');
+	            //console.log('link onclick');
 	            if (document.getElementById('content-left') && document.getElementById('content-right')) {
 	                if (window.location.pathname !== '/') {
 	                    document.getElementById('content-left').style.opacity = "0";
 	                    document.getElementById('content-right').style.opacity = "0";
-	                    console.log('-----content left and right hidden');
+	                    //console.log('-----content left and right hidden');
 	                }
 	            }
 	        }
@@ -30704,7 +30704,7 @@
 	            //if (((4 + (this.props.pageNum - 1)*8) || 1) <= this.props.total) {
 	            nextButton = _react2.default.createElement(
 	                _reactRouterDom.Link,
-	                { to: this.getNextPage(), onClick: this.hideComponents, className: 'nav-link more' },
+	                { to: this.getNextPage() /*onClick={this.hideComponents}*/, className: 'nav-link more' },
 	                'More'
 	            );
 	            //}
@@ -30948,13 +30948,13 @@
 			value: function componentDidUpdate() {
 				window.leftloaded = true;
 				if (window.rightloaded !== true) {
-					console.log('blog left loaded first');
+					//console.log('blog left loaded first');
 					//console.log('blog left:', window.leftloaded, 'blog right:', window.rightloaded);
 				} else {
 					setTimeout(function () {
 						document.getElementById('content-left').style.opacity = "1";
 						document.getElementById('content-right').style.opacity = "1";
-						console.log('+++++blog left triggered display');
+						//console.log('+++++blog left triggered display');
 						window.leftloaded = false;
 						window.rightloaded = false;
 					}, 250);

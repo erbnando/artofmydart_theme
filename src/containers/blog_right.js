@@ -48,13 +48,13 @@ class BlogRight extends Component {
 		//console.log('did update');
 		window.rightloaded = true;
 		if (window.leftloaded !== true) {
-			console.log('blog right loaded first');
+			//console.log('blog right loaded first');
 			//console.log('blog left:', window.rightloaded, 'blog right:', window.leftloaded);
 		} else {
 			setTimeout(function() {
 				document.getElementById('content-left').style.opacity = "1";
 				document.getElementById('content-right').style.opacity = "1";
-				console.log('+++++blog right triggered display');
+				//console.log('+++++blog right triggered display');
 				window.rightloaded = false;
 				window.leftloaded = false;
 			}, 250);
