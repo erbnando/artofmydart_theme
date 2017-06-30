@@ -5,6 +5,6 @@ import logger from 'redux-logger';
 
 import combinedReducers from './reducers';
 
-const appliedMiddleware = applyMiddleware(promise(), thunk, logger());
+const appliedMiddleware = applyMiddleware(promise(), thunk/*, logger()*/);
 
 export default createStore(combinedReducers, appliedMiddleware);

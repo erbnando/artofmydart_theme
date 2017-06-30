@@ -28,12 +28,13 @@ class Featured extends Component {
 	imgLoaded() {
 		window.leftloaded = true;
 		if (window.rightloaded !== true) {
+			console.log('index featured loaded first');
 			//console.log('blog left:', window.leftloaded, 'blog right:', window.rightloaded);
 		} else {
 			setTimeout(function() {
 				document.getElementById('content-left').style.opacity = "1";
 				document.getElementById('content-right').style.opacity = "1";
-			//	console.log('blog left triggered display');
+				console.log('index featured triggered display');
 				window.leftloaded = false;
 				window.rightloaded = false;
 			}, 250);

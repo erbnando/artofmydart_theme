@@ -23,7 +23,7 @@ class App extends Component {
 
 class Main extends Component {
 	componentWillReceiveProps(nextProps) {
-        console.log('will mount');
+        //console.log('will mount');
         if (document.getElementById('content-left') && document.getElementById('content-right')){
             if (window.location.pathname !== '/') {
                 document.getElementById('content-left').style.opacity = "0";
