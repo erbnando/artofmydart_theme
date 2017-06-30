@@ -1,0 +1,29 @@
+body {
+	margin: 0;
+	#app {
+		.container {
+			max-width: 1440px;
+			display: block;
+			margin: 0 auto;
+			.content {
+				display: table;
+				margin: 0 auto;
+				position: relative;
+				margin-top: -47px;
+				padding: 0 40px 120px;
+				min-height: 465px;
+				transition: opacity .05s linear;
+				@media only screen and (max-width: 1124px) {
+					margin-top: 30px;
+				}
+				@media only screen and (max-width: 809px) {
+					margin-top: 25px;
+					width: 280px;
+				}
+				@media only screen and (max-width: 399px) {
+					padding: 0 20px 120px;
+				}
+			}
+		}
+	}
+}
