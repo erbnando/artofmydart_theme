@@ -30660,12 +30660,24 @@
 	    }
 
 	    _createClass(PageNav, [{
-	        key: 'getPrevPage',
-	        value: function getPrevPage() {
+	        key: 'getPageNumber',
+
+
+	        /*
+	        getPrevPage() {
 	            if (parseInt(this.props.pageNum) > 2) {
-	                return '/page/' + (parseInt(this.props.pageNum) - 1);
+	                return `/page/${parseInt(this.props.pageNum) - 1}`;
 	            } else {
-	                return '/';
+	                return `/`;
+	            }
+	         }
+	        */
+
+	        value: function getPageNumber() {
+	            if (this.props.pageNum == '1') {
+	                return 'More';
+	            } else {
+	                return;
 	            }
 	        }
 	    }, {
@@ -30716,7 +30728,7 @@
 	            nextButton = _react2.default.createElement(
 	                _reactRouterDom.Link,
 	                { to: this.getNextPage() /*onClick={this.hideComponents}*/, className: 'nav-link more' },
-	                'More'
+	                this.getPageNumber()
 	            );
 	            //}
 

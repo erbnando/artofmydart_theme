@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default class PageNav extends Component {
 
+    /*
     getPrevPage() {
         if (parseInt(this.props.pageNum) > 2) {
             return `/page/${parseInt(this.props.pageNum) - 1}`;
@@ -10,6 +11,15 @@ export default class PageNav extends Component {
             return `/`;
         }
 
+    }
+    */
+
+    getPageNumber() {
+        if (this.props.pageNum == '1') {
+            return 'More'
+        } else {
+            return
+        }
     }
 
     getNextPage() {
@@ -51,7 +61,7 @@ export default class PageNav extends Component {
 
         var nextButton = '';
         //if (((4 + (this.props.pageNum - 1)*8) || 1) <= this.props.total) {
-        nextButton = <Link to={this.getNextPage()} /*onClick={this.hideComponents}*/ className="nav-link more">More</Link>;
+        nextButton = <Link to={this.getNextPage()} /*onClick={this.hideComponents}*/ className="nav-link more">{this.getPageNumber()}</Link>;
         //}
 
         return (
