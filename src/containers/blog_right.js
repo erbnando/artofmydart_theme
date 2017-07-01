@@ -47,6 +47,15 @@ class BlogRight extends Component {
 	componentDidUpdate() {
 		//console.log('did update');
 		window.rightloaded = true;
+		if (document.getElementById('blog-right')) {
+			if (this.props.odd_posts.items.length == 0) {
+				document.getElementById('blog-right').style.display = "block";
+				document.getElementById('blog-right').style.padding = "0";
+				document.getElementById('blog-right').style.height = "0";
+			} else {
+				document.getElementById('blog-right').style.display = "inherit";
+			}
+		}
 		if (window.leftloaded !== true) {
 			//console.log('blog right loaded first');
 			//console.log('blog left:', window.rightloaded, 'blog right:', window.leftloaded);
@@ -54,6 +63,8 @@ class BlogRight extends Component {
 			setTimeout(function() {
 				document.getElementById('content-left').style.opacity = "1";
 				document.getElementById('content-right').style.opacity = "1";
+				//scroll to top
+				window.scrollTo(0, 0);
 				//console.log('+++++blog right triggered display');
 				window.rightloaded = false;
 				window.leftloaded = false;
@@ -62,10 +73,10 @@ class BlogRight extends Component {
 	}
 
 	render() {
+		//this.shouldRender();
 		//console.log('render');
 		//console.log(this.props.odd_posts.headers['x-wp-total']);
 		//console.log(((this.props.page * 8)-4) <= this.props.odd_posts.headers['x-wp-total']);
-		//if (this.props.page < 2 || this.props.page == null) {
 		if (this.props.odd_posts.items) {
 			return (
                 <div>

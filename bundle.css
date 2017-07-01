@@ -76,6 +76,7 @@ body {
   max-width: 50%;
   width: 365px;
   display: table-cell;
+  vertical-align: top;
   border-left: 4px solid #e9e8e8;
   position: relative; }
   @media only screen and (max-width: 809px) {
@@ -95,36 +96,36 @@ body {
     font-weight: 900;
     margin: 0;
     margin-bottom: 30px; }
-  .grid-two.index-home-left {
+  .grid-two:first-child {
     padding: 0 111px 0 40px; }
     @media only screen and (max-width: 809px) {
-      .grid-two.index-home-left {
+      .grid-two:first-child {
         padding: 0 40px 25px;
         margin-bottom: 40px; } }
-    .grid-two.index-home-left #content-left .featured {
-      text-align: center; }
-      .grid-two.index-home-left #content-left .featured img {
-        float: left;
-        margin-bottom: 25px;
-        width: auto;
-        max-width: 100%;
-        max-height: 300px;
-        vertical-align: bottom; }
-      .grid-two.index-home-left #content-left .featured a {
-        text-decoration: none; }
-        .grid-two.index-home-left #content-left .featured a h1 {
-          font-family: Lato;
-          font-size: 18px;
-          color: black;
-          font-weight: 900;
-          margin-top: 25px;
-          margin-bottom: 7px; }
-      .grid-two.index-home-left #content-left .featured p {
+  .grid-two.index-home-left #content-left .featured {
+    text-align: center; }
+    .grid-two.index-home-left #content-left .featured img {
+      float: left;
+      margin-bottom: 25px;
+      width: auto;
+      max-width: 100%;
+      max-height: 300px;
+      vertical-align: bottom; }
+    .grid-two.index-home-left #content-left .featured a {
+      text-decoration: none; }
+      .grid-two.index-home-left #content-left .featured a h1 {
         font-family: Lato;
-        font-size: 10px;
-        color: #bbb;
+        font-size: 18px;
+        color: black;
         font-weight: 900;
-        margin-bottom: 0; }
+        margin-top: 25px;
+        margin-bottom: 7px; }
+    .grid-two.index-home-left #content-left .featured p {
+      font-family: Lato;
+      font-size: 10px;
+      color: #bbb;
+      font-weight: 900;
+      margin-bottom: 0; }
   .grid-two:first-child:before {
     content: '';
     bottom: 0;
@@ -158,6 +159,8 @@ body {
       font-weight: 400;
       margin-top: 3px;
       margin-bottom: 0; }
+  .grid-two.blog-right {
+    padding-top: 36px; }
 
 .nav {
   position: absolute;

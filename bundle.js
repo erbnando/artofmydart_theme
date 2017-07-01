@@ -30401,6 +30401,8 @@
 					setTimeout(function () {
 						document.getElementById('content-left').style.opacity = "1";
 						document.getElementById('content-right').style.opacity = "1";
+						//scroll to top
+						window.scrollTo(0, 0);
 						//console.log('+++++index featured triggered display');
 						window.leftloaded = false;
 						window.rightloaded = false;
@@ -30557,6 +30559,15 @@
 			value: function componentDidUpdate() {
 				//console.log('did update');
 				window.rightloaded = true;
+				if (document.getElementById('blog-right')) {
+					if (this.props.odd_posts.items.length == 0) {
+						document.getElementById('blog-right').style.display = "block";
+						document.getElementById('blog-right').style.padding = "0";
+						document.getElementById('blog-right').style.height = "0";
+					} else {
+						document.getElementById('blog-right').style.display = "inherit";
+					}
+				}
 				if (window.leftloaded !== true) {
 					//console.log('blog right loaded first');
 					//console.log('blog left:', window.rightloaded, 'blog right:', window.leftloaded);
@@ -30564,6 +30575,8 @@
 					setTimeout(function () {
 						document.getElementById('content-left').style.opacity = "1";
 						document.getElementById('content-right').style.opacity = "1";
+						//scroll to top
+						window.scrollTo(0, 0);
 						//console.log('+++++blog right triggered display');
 						window.rightloaded = false;
 						window.leftloaded = false;
@@ -30573,10 +30586,10 @@
 		}, {
 			key: 'render',
 			value: function render() {
+				//this.shouldRender();
 				//console.log('render');
 				//console.log(this.props.odd_posts.headers['x-wp-total']);
 				//console.log(((this.props.page * 8)-4) <= this.props.odd_posts.headers['x-wp-total']);
-				//if (this.props.page < 2 || this.props.page == null) {
 				if (this.props.odd_posts.items) {
 					return _react2.default.createElement(
 						'div',
@@ -30819,11 +30832,11 @@
 					{ className: 'content', id: 'content' },
 					_react2.default.createElement(
 						'div',
-						{ className: 'grid-two' },
+						{ className: 'grid-two blog-left' },
 						_react2.default.createElement(
 							'p',
 							{ className: 'section-title' },
-							'Current'
+							'Index'
 						),
 						_react2.default.createElement(
 							'div',
@@ -30834,12 +30847,7 @@
 					),
 					_react2.default.createElement(
 						'div',
-						{ className: 'grid-two' },
-						_react2.default.createElement(
-							'p',
-							{ className: 'section-title' },
-							'Recent'
-						),
+						{ className: 'grid-two blog-right', id: 'blog-right' },
 						_react2.default.createElement(
 							'div',
 							{ id: 'content-right' },
@@ -30946,6 +30954,7 @@
 		}, {
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
+				//set left flag to true
 				window.leftloaded = true;
 				if (window.rightloaded !== true) {
 					//console.log('blog left loaded first');
@@ -30954,6 +30963,8 @@
 					setTimeout(function () {
 						document.getElementById('content-left').style.opacity = "1";
 						document.getElementById('content-right').style.opacity = "1";
+						//scroll to top
+						window.scrollTo(0, 0);
 						//console.log('+++++blog left triggered display');
 						window.leftloaded = false;
 						window.rightloaded = false;
@@ -31026,7 +31037,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var appliedMiddleware = (0, _redux.applyMiddleware)((0, _reduxPromiseMiddleware2.default)(), _reduxThunk2.default /*, logger()*/);
+	var appliedMiddleware = (0, _redux.applyMiddleware)((0, _reduxPromiseMiddleware2.default)(), _reduxThunk2.default, (0, _reduxLogger2.default)());
 
 	exports.default = (0, _redux.createStore)(_reducers2.default, appliedMiddleware);
 

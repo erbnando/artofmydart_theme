@@ -34,6 +34,8 @@ class Featured extends Component {
 			setTimeout(function() {
 				document.getElementById('content-left').style.opacity = "1";
 				document.getElementById('content-right').style.opacity = "1";
+				//scroll to top
+				window.scrollTo(0, 0);
 				//console.log('+++++index featured triggered display');
 				window.leftloaded = false;
 				window.rightloaded = false;

@@ -4,6 +4,7 @@
 	max-width: 50%;
 	width: 365px;
 	display: table-cell;
+	vertical-align: top;
 	border-left: 4px solid #e9e8e8;
 	position: relative;
 	@media only screen and (max-width: 809px) {
@@ -25,12 +26,14 @@
 		margin: 0;
 		margin-bottom: 30px;
 	}
-	&.index-home-left {
+	&:first-child {
 		padding:  0 111px 0 40px;
 		@media only screen and (max-width: 809px) {
 			padding:  0 40px 25px;
 			margin-bottom: 40px;
-		}
+		}		
+	}
+	&.index-home-left {
 		#content-left {
 			.featured {
 				text-align: center;
@@ -108,6 +111,9 @@
 				}
 			}
 		}
+	}
+	&.blog-right {
+		padding-top: 36px;
 	}
 }
 .nav {

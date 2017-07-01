@@ -39,15 +39,14 @@ class Blog extends Component {
 		//console.log(this.props);
 		return (
 			<div className="content" id="content">
-				<div className="grid-two">
-					<p className="section-title">Current</p>
+				<div className="grid-two blog-left">
+					<p className="section-title">Index</p>
 					<div id="content-left">
 						<BlogLeft page={this.getPage()}
 								  props={this.props}/>
 					</div>
 				</div>
-				<div className="grid-two">
-					<p className="section-title">Recent</p>
+				<div className="grid-two blog-right" id="blog-right">
 					<div id="content-right">
 						<BlogRight page={this.getPage()}
 								   props={this.props}/>
