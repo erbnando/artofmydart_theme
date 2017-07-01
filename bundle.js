@@ -30561,11 +30561,9 @@
 				window.rightloaded = true;
 				if (document.getElementById('blog-right')) {
 					if (this.props.odd_posts.items.length == 0) {
-						document.getElementById('blog-right').style.display = "block";
-						document.getElementById('blog-right').style.padding = "0";
-						document.getElementById('blog-right').style.height = "0";
+						document.getElementById('blog-right').className = "grid-two blog-right blog-right-hidden";
 					} else {
-						document.getElementById('blog-right').style.display = "inherit";
+						document.getElementById('blog-right').className = "grid-two blog-right";
 					}
 				}
 				if (window.leftloaded !== true) {

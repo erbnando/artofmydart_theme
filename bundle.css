@@ -161,6 +161,10 @@ body {
       margin-bottom: 0; }
   .grid-two.blog-right {
     padding-top: 36px; }
+    .grid-two.blog-right.blog-right-hidden {
+      padding: 0 !important;
+      height: 0 !important;
+      display: block; }
 
 .nav {
   position: absolute;
