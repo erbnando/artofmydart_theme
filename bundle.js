@@ -31247,8 +31247,17 @@
 					//console.log(this.props.page.page.content.rendered);
 					return _react2.default.createElement(
 						'div',
-						{ className: 'content', id: 'content' },
-						_react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.props.page.page.content.rendered } })
+						{ className: 'content page', id: 'content' },
+						_react2.default.createElement(
+							'div',
+							null,
+							_react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.props.page.page.content.rendered } }),
+							_react2.default.createElement(
+								'a',
+								{ className: 'page-contact', href: 'http://google.com' },
+								'Contact'
+							)
+						)
 					);
 				} else {
 					return _react2.default.createElement('span', null);

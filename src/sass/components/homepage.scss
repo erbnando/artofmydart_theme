@@ -70,7 +70,7 @@
 			}
 		}
 	}
-	&:first-child:before {
+	&.index-home-left:before {
 		content: '';
 		bottom: 0;
 		left: 0;

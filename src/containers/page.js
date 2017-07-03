@@ -25,8 +25,10 @@ class Page extends Component {
 		if(this.props.page.page !== undefined){
 			//console.log(this.props.page.page.content.rendered);
 			return (
-				<div className="content" id="content">
-					<div dangerouslySetInnerHTML={{__html: this.props.page.page.content.rendered}}>
+				<div className="content page" id="content">
+					<div>
+						<div dangerouslySetInnerHTML={{__html: this.props.page.page.content.rendered}} />
+						<a className="page-contact" href="http://google.com">Contact</a>
 					</div>
 				</div>
 			);

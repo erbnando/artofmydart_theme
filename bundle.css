@@ -1,5 +1,6 @@
 body {
-  margin: 0; }
+  margin: 0;
+  min-width: 320px; }
   body #app .container {
     max-width: 1440px;
     display: block;
@@ -22,6 +23,20 @@ body {
       @media only screen and (max-width: 399px) {
         body #app .container .content {
           padding: 0 20px 120px; } }
+  body h3 {
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 24px;
+    margin-top: 0;
+    margin-bottom: 25px; }
+  body p {
+    font-family: Poly;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-top: 0;
+    margin-bottom: 20px; }
 
 .container > header {
   position: relative;
@@ -130,7 +145,7 @@ body {
         color: #bbb;
         font-weight: 900;
         margin-bottom: 0; }
-  .grid-two:first-child:before {
+  .grid-two.index-home-left:before {
     content: '';
     bottom: 0;
     left: 0;
@@ -196,3 +211,39 @@ body {
         position: absolute;
         right: 0px;
         bottom: 0; }
+
+.page {
+  width: 810px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: -47px;
+  padding: 0 40px 120px;
+  transition: opacity .05s linear;
+  box-sizing: border-box; }
+  @media only screen and (max-width: 1124px) {
+    .page {
+      margin-top: 30px; } }
+  @media only screen and (max-width: 809px) {
+    .page {
+      margin-top: 25px;
+      width: 100% !important; } }
+  @media only screen and (max-width: 399px) {
+    .page {
+      padding: 0 20px 120px; } }
+  .page > div {
+    padding: 40px 50px;
+    border-left: 4px solid #e9e8e8;
+    display: inline-block;
+    max-width: 630px;
+    width: 100% !important;
+    box-sizing: border-box; }
+    @media only screen and (max-width: 809px) {
+      .page > div {
+        padding: 30px 30px; } }
+    .page > div .page-contact {
+      font-family: Lato;
+      font-size: 10px;
+      color: #bbb;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none; }
