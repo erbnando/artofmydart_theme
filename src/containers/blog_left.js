@@ -50,8 +50,12 @@ class BlogLeft extends Component {
 			//console.log('blog left:', window.leftloaded, 'blog right:', window.rightloaded);
 		} else {
 			setTimeout(function() {
-				document.getElementById('content-left').style.opacity = "1";
-				document.getElementById('content-right').style.opacity = "1";
+				if(document.getElementById('content-left')) {
+					document.getElementById('content-left').style.opacity = "1";
+				}
+				if(document.getElementById('content-right')) {
+					document.getElementById('content-right').style.opacity = "1";
+				}
 				//scroll to top
 				//window.scrollTo(0, 0);
 				//console.log('+++++blog left triggered display');
