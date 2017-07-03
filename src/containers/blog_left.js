@@ -22,9 +22,11 @@ class BlogLeft extends Component {
 	}
 
 	getPosts(props, willMount = false) {
-		//console.log(props);
+		if(this.props.nav == true) { 
+			var type = 'index';
+		}
 		if (props.page !== this.props.page || willMount /*|| this.props.props.location.pathname !== props.props.location.pathname*/) {
-			this.props.fetchEvenPosts(props.page || 1);
+			this.props.fetchEvenPosts(props.page || 1, 'books', type);
 		}
 
 	}
@@ -51,7 +53,7 @@ class BlogLeft extends Component {
 				document.getElementById('content-left').style.opacity = "1";
 				document.getElementById('content-right').style.opacity = "1";
 				//scroll to top
-				window.scrollTo(0, 0);
+				//window.scrollTo(0, 0);
 				//console.log('+++++blog left triggered display');
 				window.leftloaded = false;
 				window.rightloaded = false;
@@ -59,15 +61,34 @@ class BlogLeft extends Component {
 		}
 	}
 
+	shouldRender() {
+		return ((this.props.page * 8) < this.props.even_posts.headers['x-wp-total']);
+	}
+
+	getNav() {
+		if(this.props.nav == true) {
+			return <PageNav pageNum={this.props.page}
+							total={this.props.even_posts.headers['x-wp-total']}
+					 		shouldRender={this.shouldRender()}
+							route={this.props.route || ''}
+							slug={this.props.slug || ''}
+							type="index"/>
+		} else {
+			return
+		}
+	}
+
 	render() {
 		//console.log(this.props.even_posts.items);
 		//if (this.props.page < 2 || this.props.page == null) {
+		//console.log(this.props);
 		if (this.props.even_posts.items) {
 			return (
                 <div>
 	                <main className="posts">
 	                    {this.renderEvenPosts(this.props.even_posts.items)}
 	                </main>
+					{this.getNav()}
 				</div>
 			);
 		} else {

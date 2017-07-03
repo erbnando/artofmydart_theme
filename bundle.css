@@ -10,7 +10,7 @@ body {
       position: relative;
       margin-top: -47px;
       padding: 0 40px 120px;
-      min-height: 465px;
+      height: 470px;
       transition: opacity .05s linear; }
       @media only screen and (max-width: 1124px) {
         body #app .container .content {
@@ -96,36 +96,40 @@ body {
     font-weight: 900;
     margin: 0;
     margin-bottom: 30px; }
-  .grid-two:first-child {
+  @media only screen and (max-width: 809px) {
+    .grid-two.blog-left {
+      padding: 0 40px 25px;
+      margin-bottom: 40px; } }
+  .grid-two.index-home-left {
     padding: 0 111px 0 40px; }
     @media only screen and (max-width: 809px) {
-      .grid-two:first-child {
+      .grid-two.index-home-left {
         padding: 0 40px 25px;
         margin-bottom: 40px; } }
-  .grid-two.index-home-left #content-left .featured {
-    text-align: center; }
-    .grid-two.index-home-left #content-left .featured img {
-      float: left;
-      margin-bottom: 25px;
-      width: auto;
-      max-width: 100%;
-      max-height: 300px;
-      vertical-align: bottom; }
-    .grid-two.index-home-left #content-left .featured a {
-      text-decoration: none; }
-      .grid-two.index-home-left #content-left .featured a h1 {
+    .grid-two.index-home-left #content-left .featured {
+      text-align: center; }
+      .grid-two.index-home-left #content-left .featured img {
+        float: left;
+        margin-bottom: 25px;
+        width: auto;
+        max-width: 100%;
+        max-height: 300px;
+        vertical-align: bottom; }
+      .grid-two.index-home-left #content-left .featured a {
+        text-decoration: none; }
+        .grid-two.index-home-left #content-left .featured a h1 {
+          font-family: Lato;
+          font-size: 18px;
+          color: black;
+          font-weight: 900;
+          margin-top: 25px;
+          margin-bottom: 7px; }
+      .grid-two.index-home-left #content-left .featured p {
         font-family: Lato;
-        font-size: 18px;
-        color: black;
+        font-size: 10px;
+        color: #bbb;
         font-weight: 900;
-        margin-top: 25px;
-        margin-bottom: 7px; }
-    .grid-two.index-home-left #content-left .featured p {
-      font-family: Lato;
-      font-size: 10px;
-      color: #bbb;
-      font-weight: 900;
-      margin-bottom: 0; }
+        margin-bottom: 0; }
   .grid-two:first-child:before {
     content: '';
     bottom: 0;

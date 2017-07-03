@@ -1,27 +1,24 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchPosts} from '../actions/index';
-import Header from '../components/header';
-import Main from '../components/main';
 import Featured from './featured';
-import BlogLeft from './blog_left';
 import BlogRight from './blog_right';
 
-class About extends Component {
+class Home extends Component {
 	componentWillMount() {
-		//console.log('B will mount');
+		//console.log('I will mount');
 	}
 
 	componentDidMount() {
-		//console.log('B did mount');
+		//console.log('I did mount');
 	}
 
 	componentDidUpdate() {
-		//console.log('B did update');
+		//console.log('I did update');
 	}
 
 	componentWillReceiveProps() {
-		//console.log('B will receive props');
+		//console.log('I will receive props');
 	}
 
 	getPage() {
@@ -39,17 +36,18 @@ class About extends Component {
 		//console.log(this.props);
 		return (
 			<div className="content" id="content">
-				<div className="grid-two blog-left">
-					<p className="section-title">Index</p>
+				<div className="grid-two index-home-left">
+					<p className="section-title">Current</p>
 					<div id="content-left">
-						<BlogLeft page={this.getPage()}
-								  props={this.props}/>
+						<Featured />
 					</div>
 				</div>
-				<div className="grid-two blog-right" id="blog-right">
+				<div className="grid-two">
+					<p className="section-title">Recent</p>
 					<div id="content-right">
 						<BlogRight page={this.getPage()}
-								   props={this.props}/>
+								   props={this.props}
+								   nav={true}/>
 					</div>
 				</div>
 			</div>
@@ -57,4 +55,4 @@ class About extends Component {
 	}
 }
 
-module.exports = About;
+module.exports = Home;

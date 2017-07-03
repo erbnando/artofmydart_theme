@@ -9,7 +9,7 @@ class BlogRight extends Component {
 		//console.log('will mount');
 		//console.log(this.props);
 		//console.log('will mount');
-        this.getPosts(this.props, true);
+		this.getPosts(this.props, true);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -32,17 +32,17 @@ class BlogRight extends Component {
 		}
 	}
 
-    renderOddPosts(posts) {
-        return posts.map(post => {
-            return <Article key={post.id}
-                            type={post.type}
-                            pId={post.id}
-                            title={post.title.rendered}
-                            author={post.acf.author}
-                            date={post.acf.date}
-                            link={post.link}/>
-        });
-    }
+	renderOddPosts(posts) {
+		return posts.map(post => {
+			return <Article key={post.id}
+							type={post.type}
+							pId={post.id}
+							title={post.title.rendered}
+							author={post.acf.author}
+							date={post.acf.date}
+							link={post.link}/>
+		});
+	}
 
 	componentDidUpdate() {
 		//console.log('did update');
@@ -62,7 +62,7 @@ class BlogRight extends Component {
 				document.getElementById('content-left').style.opacity = "1";
 				document.getElementById('content-right').style.opacity = "1";
 				//scroll to top
-				window.scrollTo(0, 0);
+				//window.scrollTo(0, 0);
 				//console.log('+++++blog right triggered display');
 				window.rightloaded = false;
 				window.leftloaded = false;
@@ -70,22 +70,35 @@ class BlogRight extends Component {
 		}
 	}
 
+	shouldRender() {
+		return ((this.props.page * 8)-4) < this.props.odd_posts.headers['x-wp-total']
+	}
+
+	getNav() {
+		//console.log(this.props);
+		if(this.props.nav == true) {
+			return <PageNav pageNum={this.props.page}
+							total={this.props.odd_posts.headers['x-wp-total']}
+					 		shouldRender={this.shouldRender()}
+							route={this.props.route || ''}
+							slug={this.props.slug || ''}
+							type="blog"/>
+		} else {
+			return
+		}
+	}
+
 	render() {
-		//this.shouldRender();
 		//console.log('render');
 		//console.log(this.props.odd_posts.headers['x-wp-total']);
 		//console.log(((this.props.page * 8)-4) <= this.props.odd_posts.headers['x-wp-total']);
 		if (this.props.odd_posts.items) {
 			return (
-                <div>
-	                <main className="posts">
-	                    {this.renderOddPosts(this.props.odd_posts.items)}
-	                </main>
-					<PageNav pageNum={this.props.page}
-							 total={this.props.odd_posts.headers['x-wp-total']}
-							 shouldRender={((this.props.page * 8)-4) < this.props.odd_posts.headers['x-wp-total']}
-							 route={this.props.route || ''}
-                      		 slug={this.props.slug || ''}/>
+				<div>
+					<main className="posts">
+						{this.renderOddPosts(this.props.odd_posts.items)}
+					</main>
+					{this.getNav()}
 				</div>
 			);
 		} else {

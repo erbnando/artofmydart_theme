@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchPosts} from '../actions/index';
-import Header from '../components/header';
-import Main from '../components/main';
-import Featured from './featured';
+import BlogLeft from './blog_left';
 import BlogRight from './blog_right';
 
 class Index extends Component {
@@ -24,12 +22,12 @@ class Index extends Component {
 	}
 
 	getPage() {
-		if (window.location.pathname === '/') {
+		if (window.location.pathname === '/index/' || window.location.pathname === '/index') {
 			//console.log('1');
-			return 1;
+			return 1
 		} else {
 			//console.log(window.location.pathname.replace("/page/", '').replace("/", '') || 1);
-			return window.location.pathname.replace("/page/", '').replace("/", '');
+			return window.location.pathname.replace("/index/page/", '').replace("/", '');
 
 		}
 	}
@@ -38,17 +36,19 @@ class Index extends Component {
 		//console.log(this.props);
 		return (
 			<div className="content" id="content">
-				<div className="grid-two index-home-left">
-					<p className="section-title">Current</p>
+				<div className="grid-two blog-left">
+					<p className="section-title">Index</p>
 					<div id="content-left">
-						<Featured />
+						<BlogRight page={this.getPage() || 1}
+								   props={this.props}
+								   nav={false}/>
 					</div>
 				</div>
-				<div className="grid-two">
-					<p className="section-title">Recent</p>
+				<div className="grid-two blog-right" id="blog-right">
 					<div id="content-right">
-						<BlogRight page={this.getPage()}
-								   props={this.props}/>
+						<BlogLeft page={this.getPage() || 2}
+								  props={this.props}
+								  nav={true}/>
 					</div>
 				</div>
 			</div>

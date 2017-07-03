@@ -1,9 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchPosts} from '../actions/index';
-import Header from '../components/header';
-import Main from '../components/main';
-import Featured from './featured';
 import BlogLeft from './blog_left';
 import BlogRight from './blog_right';
 
@@ -25,6 +21,7 @@ class Blog extends Component {
 	}
 
 	getPage() {
+		//console.log(window.location.pathname);
 		if (window.location.pathname === '/') {
 			//console.log('1');
 			return 1;
@@ -40,16 +37,18 @@ class Blog extends Component {
 		return (
 			<div className="content" id="content">
 				<div className="grid-two blog-left">
-					<p className="section-title">Index</p>
+					<p className="section-title">Recent</p>
 					<div id="content-left">
 						<BlogLeft page={this.getPage()}
-								  props={this.props}/>
+								  props={this.props}
+								  nav={false}/>
 					</div>
 				</div>
 				<div className="grid-two blog-right" id="blog-right">
 					<div id="content-right">
 						<BlogRight page={this.getPage()}
-								   props={this.props}/>
+								   props={this.props}
+								   nav={true}/>
 					</div>
 				</div>
 			</div>

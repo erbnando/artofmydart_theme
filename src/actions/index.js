@@ -4,16 +4,21 @@ export const FETCH_ODD_POSTS = 'FETCH_ODD_POSTS';
 export const FETCH_EVEN_POSTS = 'FETCH_EVEN_POSTS';
 export const FETCH_FEAT_BOOK = 'FETCH_FEAT_BOOK';
 export const FETCH_POST = 'FETCH_POST';
+export const FETCH_PAGE = 'FETCH_PAGE';
 export const FETCH_MENU = 'FETCH_MENU';
 
 const WP_API_ENDPOINT = `${RT_API.root}wp/v2`;
 const PRETTYPERMALINK_ENDPOINT = `${RT_API.root}react-theme/v1/prettyPermalink/`;
 const MENU_ENDPOINT = `${RT_API.root}react-theme/v1/menu-locations/`;
 
-export function fetchOddPosts(pageNum = 1, post_type = 'books') {
+export function fetchOddPosts(pageNum = 1, post_type = 'books', type = 'blog') {
 	return function (dispatch) {
-		pageNum = parseInt(pageNum) + (parseInt(pageNum) - 1);
-		//console.log(pageNum);
+		if (type == 'blog') {
+			pageNum = parseInt(pageNum) + (parseInt(pageNum) - 1);
+		} else if (type == 'index') {
+			pageNum = parseInt(pageNum) + (parseInt(pageNum)/2 - .5);
+		}
+		//console.log('page odd:', pageNum);
 		axios.get(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4`)
 			.then(response => {
 				//console.log('\nmposts response:');
@@ -28,10 +33,14 @@ export function fetchOddPosts(pageNum = 1, post_type = 'books') {
 	}
 }
 
-export function fetchEvenPosts(pageNum = 2, post_type = 'books') {
+export function fetchEvenPosts(pageNum = 2, post_type = 'books', type = 'blog') {
 	return function (dispatch) {
-		pageNum = parseInt(pageNum) + (parseInt(pageNum) - 2);
-		//console.log(pageNum);
+		if (type == 'blog') {
+			pageNum = parseInt(pageNum) + (parseInt(pageNum) - 2);
+		} else if (type == 'index') {
+			pageNum = parseInt(pageNum)*2;
+		}
+		//console.log('page even:', pageNum);
 		axios.get(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4`)
 			.then(response => {
 				//console.log('\nmposts response:');
@@ -99,6 +108,21 @@ export function fetchFeatBook() {
 				payload: {featured: response.data}
 			});
 		});
+	}
+}
+
+export function fetchPage(slug) {
+	return function (dispatch) {
+		axios.get(`${WP_API_ENDPOINT}/pages?slug=${slug}`)
+			.then(response => {
+				//console.log('\nmposts response:');
+				//console.log(response.data[0]);
+				//console.log('odd', `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4`);
+				dispatch({
+					type: FETCH_PAGE,
+					payload: {page: response.data[0]}
+				});
+			});
 	}
 }
 
