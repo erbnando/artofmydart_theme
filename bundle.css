@@ -45,8 +45,13 @@ body {
   min-width: 320px;
   top: 0;
   opacity: 0;
-  transition: opacity .05s linear;
-  height: 127px; }
+  transition: opacity .05s linear; }
+  @media only screen and (min-width: 810px) {
+    .container > header {
+      height: 127px; } }
+  @media only screen and (max-width: 809px) {
+    .container > header {
+      height: 72px; } }
   .container > header .logo {
     display: inline-block;
     margin: 25px 0 0 30px; }
