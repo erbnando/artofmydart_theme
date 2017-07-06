@@ -54,16 +54,22 @@ class Featured extends Component {
 			//console.log(this.props.feat_book.featured);
 			return (
 				<div className="featured">
-					<img 
-					id='featured-image'
-					onLoad={this.imgLoaded}
-					src={this.props.feat_book.featured.better_featured_image.media_details.sizes.home.source_url}
-					/>
 					<Link 
 					to={this.props.feat_book.featured.link}>
-					<h1>{this.props.feat_book.featured.title.rendered}</h1>
+						<div className="featured-image">
+							<img 
+							id='featured-image'
+							onLoad={this.imgLoaded}
+							src={this.props.feat_book.featured.better_featured_image.media_details.sizes.home.source_url}
+							/>
+						</div>
+						<div className="featured-details">
+							<div>
+								<h1>{this.props.feat_book.featured.title.rendered}</h1>
+								<p>{this.props.feat_book.featured.acf.author}</p>
+							</div>
+						</div>
 					</Link>
-					<p>{this.props.feat_book.featured.acf.author}</p>
 				</div>
 			);
 		} else {

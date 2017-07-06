@@ -30207,25 +30207,37 @@
 					return _react2.default.createElement(
 						'div',
 						{ className: 'featured' },
-						_react2.default.createElement('img', {
-							id: 'featured-image',
-							onLoad: this.imgLoaded,
-							src: this.props.feat_book.featured.better_featured_image.media_details.sizes.home.source_url
-						}),
 						_react2.default.createElement(
 							_reactRouterDom.Link,
 							{
 								to: this.props.feat_book.featured.link },
 							_react2.default.createElement(
-								'h1',
-								null,
-								this.props.feat_book.featured.title.rendered
+								'div',
+								{ className: 'featured-image' },
+								_react2.default.createElement('img', {
+									id: 'featured-image',
+									onLoad: this.imgLoaded,
+									src: this.props.feat_book.featured.better_featured_image.media_details.sizes.home.source_url
+								})
+							),
+							_react2.default.createElement(
+								'div',
+								{ className: 'featured-details' },
+								_react2.default.createElement(
+									'div',
+									null,
+									_react2.default.createElement(
+										'h1',
+										null,
+										this.props.feat_book.featured.title.rendered
+									),
+									_react2.default.createElement(
+										'p',
+										null,
+										this.props.feat_book.featured.acf.author
+									)
+								)
 							)
-						),
-						_react2.default.createElement(
-							'p',
-							null,
-							this.props.feat_book.featured.acf.author
 						)
 					);
 				} else {
