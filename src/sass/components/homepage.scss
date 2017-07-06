@@ -35,7 +35,7 @@
 	&.index-home-left {
 		padding:  0 111px 0 40px;
 		@media only screen and (max-width: 809px) {
-			padding:  0 40px 25px;
+			padding:  0 40px!important;
 			margin-bottom: 40px;
 		}
 		.section-title {
