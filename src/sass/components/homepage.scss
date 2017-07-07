@@ -10,9 +10,13 @@
 	@media only screen and (max-width: 809px) {
     	height: 465px;
 		display: inherit;
-		width: 280px;
+		//width: 280px;
 		padding:  0 0 0 30px!important;
 		max-width: 100%;
+		width: 294px;
+	}
+	@media only screen and (max-width: 400px) {
+		width: 280px;
 	}
 	#content-left, #content-right {
 		opacity: 0;
@@ -33,6 +37,7 @@
 		}
 	}
 	&.index-home-left {
+		//border: 1px solid red;
 		padding:  0 111px 0 40px;
 		@media only screen and (max-width: 809px) {
 			padding:  0 40px!important;
@@ -53,7 +58,7 @@
 				a {
 					display: block;
 					text-decoration: none;
-					height: 413px;
+					height: 418px;
 					.featured-image {
 						height: 300px;
 	   					margin-top: 25px;
@@ -65,7 +70,7 @@
 							vertical-align: bottom;
 						    position: absolute;
 						    left: 0;
-							top: 0;
+						    right: 0;
 						    bottom: 0;
 						    margin: auto;
 						}

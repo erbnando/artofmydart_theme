@@ -47,20 +47,20 @@ class Featured extends Component {
 		}
 	}
 
-	render(nextprops) {
-		//console.log(this.props);
-		if (typeof this.props.feat_book.featured.better_featured_image != 'undefined') {
+	render() {
+		console.log(this.props);
+		if (typeof this.props.feat_book.featured.acf != 'undefined') {
 			//console.log(this.props.feat_book.featured.better_featured_image.media_details.sizes.home.source_url);
 			//console.log(this.props.feat_book.featured);
 			return (
 				<div className="featured">
 					<Link 
-					to={this.props.feat_book.featured.link}>
+					to={"/books/" + this.props.feat_book.featured.slug}>
 						<div className="featured-image">
 							<img 
 							id='featured-image'
 							onLoad={this.imgLoaded}
-							src={this.props.feat_book.featured.better_featured_image.media_details.sizes.home.source_url}
+							src={this.props.feat_book.featured.acf.book_cover.sizes.home}
 							/>
 						</div>
 						<div className="featured-details">

@@ -30199,9 +30199,9 @@
 			}
 		}, {
 			key: 'render',
-			value: function render(nextprops) {
-				//console.log(this.props);
-				if (typeof this.props.feat_book.featured.better_featured_image != 'undefined') {
+			value: function render() {
+				console.log(this.props);
+				if (typeof this.props.feat_book.featured.acf != 'undefined') {
 					//console.log(this.props.feat_book.featured.better_featured_image.media_details.sizes.home.source_url);
 					//console.log(this.props.feat_book.featured);
 					return _react2.default.createElement(
@@ -30210,14 +30210,14 @@
 						_react2.default.createElement(
 							_reactRouterDom.Link,
 							{
-								to: this.props.feat_book.featured.link },
+								to: "/books/" + this.props.feat_book.featured.slug },
 							_react2.default.createElement(
 								'div',
 								{ className: 'featured-image' },
 								_react2.default.createElement('img', {
 									id: 'featured-image',
 									onLoad: this.imgLoaded,
-									src: this.props.feat_book.featured.better_featured_image.media_details.sizes.home.source_url
+									src: this.props.feat_book.featured.acf.book_cover.sizes.home
 								})
 							),
 							_react2.default.createElement(

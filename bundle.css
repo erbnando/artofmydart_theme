@@ -104,9 +104,12 @@ body {
     .grid-two {
       height: 465px;
       display: inherit;
-      width: 280px;
       padding: 0 0 0 30px !important;
-      max-width: 100%; } }
+      max-width: 100%;
+      width: 294px; } }
+  @media only screen and (max-width: 400px) {
+    .grid-two {
+      width: 280px; } }
   .grid-two #content-left, .grid-two #content-right {
     opacity: 0;
     transition: opacity .25s linear; }
@@ -141,7 +144,7 @@ body {
         .grid-two.index-home-left #content-left .featured a {
           display: block;
           text-decoration: none;
-          height: 413px; }
+          height: 418px; }
           .grid-two.index-home-left #content-left .featured a .featured-image {
             height: 300px;
             margin-top: 25px;
@@ -153,7 +156,7 @@ body {
               vertical-align: bottom;
               position: absolute;
               left: 0;
-              top: 0;
+              right: 0;
               bottom: 0;
               margin: auto; }
           .grid-two.index-home-left #content-left .featured a .featured-details {
