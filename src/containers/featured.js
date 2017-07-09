@@ -47,11 +47,20 @@ class Featured extends Component {
 		}
 	}
 
+	getFeaturedImage() {
+		if (this.props.feat_book.featured.acf.book_cover) {
+			return this.props.feat_book.featured.acf.book_cover.sizes.home;
+		} else {
+			return 'http://placehold.it/200x200?text=featured%20book';
+		}
+
+	}
+
 	render() {
 		console.log(this.props);
 		if (typeof this.props.feat_book.featured.acf != 'undefined') {
 			//console.log(this.props.feat_book.featured.better_featured_image.media_details.sizes.home.source_url);
-			//console.log(this.props.feat_book.featured);
+			console.log(this.props.feat_book.featured);
 			return (
 				<div className="featured">
 					<Link 
@@ -60,13 +69,13 @@ class Featured extends Component {
 							<img 
 							id='featured-image'
 							onLoad={this.imgLoaded}
-							src={this.props.feat_book.featured.acf.book_cover.sizes.home}
+							src={this.getFeaturedImage()}
 							/>
 						</div>
 						<div className="featured-details">
 							<div>
-								<h1>{this.props.feat_book.featured.title.rendered}</h1>
-								<p>{this.props.feat_book.featured.acf.author}</p>
+								<h3>{this.props.feat_book.featured.title.rendered}</h3>
+								<p>{this.props.feat_book.featured.acf.author_single_line}</p>
 							</div>
 						</div>
 					</Link>

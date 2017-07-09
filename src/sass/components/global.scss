@@ -18,7 +18,7 @@ body {
 					margin-top: 30px;
 				}
 				@media only screen and (max-width: 809px) {
-					margin-top: 25px;
+					margin-top: 40px;
 					width: 280px;
 				}
 				@media only screen and (max-width: 399px) {
@@ -27,20 +27,29 @@ body {
 			}
 		}
 	}
-	h3 {
-		font-family: Lato;
-		font-size: 18px;
-		font-weight: 900;
-		line-height: 24px;
-		margin-top: 0;
-		margin-bottom: 25px;
-	}
-	p {
-		font-family: Poly;
-		font-size: 13px;
-		font-weight: 400;
-		line-height: 18px;
-		margin-top: 0;
-		margin-bottom: 20px;
-	}
+}
+
+h2 {
+	font-family: Lato;
+	font-size: 28px;
+	font-weight: 900;
+	line-height: 32px;
+}
+
+h3 {
+	font-family: Lato;
+	font-size: 18px;
+	font-weight: 900;
+	line-height: 24px;
+	margin-top: 0;
+	margin-bottom: 25px;
+}
+
+p {
+	font-family: Poly;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 18px;
+	margin-top: 0;
+	margin-bottom: 20px;
 }

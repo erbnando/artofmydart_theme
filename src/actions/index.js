@@ -3,8 +3,8 @@ export const FETCH_POSTS = 'FETCH_POSTS';
 export const FETCH_ODD_POSTS = 'FETCH_ODD_POSTS';
 export const FETCH_EVEN_POSTS = 'FETCH_EVEN_POSTS';
 export const FETCH_FEAT_BOOK = 'FETCH_FEAT_BOOK';
-export const FETCH_POST = 'FETCH_POST';
 export const FETCH_PAGE = 'FETCH_PAGE';
+export const FETCH_BOOK = 'FETCH_BOOK';
 export const FETCH_MENU = 'FETCH_MENU';
 
 const WP_API_ENDPOINT = `${RT_API.root}wp/v2`;
@@ -121,6 +121,21 @@ export function fetchPage(slug) {
 				dispatch({
 					type: FETCH_PAGE,
 					payload: {page: response.data[0]}
+				});
+			});
+	}
+}
+
+export function fetchBook(slug) {
+	return function (dispatch) {
+		axios.get(`${WP_API_ENDPOINT}/books?slug=${slug}`)
+			.then(response => {
+				//console.log('\nmposts response:');
+				//console.log(response.data[0]);
+				//console.log('odd', `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4`);
+				dispatch({
+					type: FETCH_BOOK,
+					payload: {book: response.data[0]}
 				});
 			});
 	}

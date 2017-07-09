@@ -38,7 +38,7 @@ class BlogRight extends Component {
 							type={post.type}
 							pId={post.id}
 							title={post.title.rendered}
-							author={post.acf.author}
+							author={post.acf.author_single_line}
 							date={post.acf.date}
 							link={post.link}/>
 		});

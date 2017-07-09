@@ -10,6 +10,7 @@ import Index from './containers/index';
 import Blog from './containers/blog';
 import NotFound from './containers/notfound';
 import Page from './containers/page';
+import Book from './containers/book';
 import store from './store';
 
 class App extends Component {
@@ -30,9 +31,11 @@ class Main extends Component {
 			<Switch>
 				<Route exact path="/" component={Home} />
 				<Route path="/page/:pageNum" page=":pageNum" component={Blog} />
-				<Route path="/index" page="1" component={Index}/>
-				<Route path="/index/page/:pageNum" page=":pageNum" component={Index}/>
+				<Route path="/index/page/:pageNum" component={Index}/>
+				<Route path="/index" component={Index}/>
 				<Route path="/about" component={Page}/>
+				<Route path="/books/:slug/:pageNum" component={Book} />
+				<Route path="/books/:slug/" component={Book} />
 				<Route path="*" component={NotFound}/>
 			</Switch>
 		);

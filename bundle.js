@@ -84,7 +84,11 @@
 
 	var _page2 = _interopRequireDefault(_page);
 
-	var _store = __webpack_require__(301);
+	var _book = __webpack_require__(301);
+
+	var _book2 = _interopRequireDefault(_book);
+
+	var _store = __webpack_require__(303);
 
 	var _store2 = _interopRequireDefault(_store);
 
@@ -96,7 +100,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(317);
+	__webpack_require__(320);
 
 	var App = function (_Component) {
 		_inherits(App, _Component);
@@ -139,9 +143,11 @@
 					null,
 					_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _home2.default }),
 					_react2.default.createElement(_reactRouterDom.Route, { path: '/page/:pageNum', page: ':pageNum', component: _blog2.default }),
-					_react2.default.createElement(_reactRouterDom.Route, { path: '/index', page: '1', component: _index2.default }),
-					_react2.default.createElement(_reactRouterDom.Route, { path: '/index/page/:pageNum', page: ':pageNum', component: _index2.default }),
+					_react2.default.createElement(_reactRouterDom.Route, { path: '/index/page/:pageNum', component: _index2.default }),
+					_react2.default.createElement(_reactRouterDom.Route, { path: '/index', component: _index2.default }),
 					_react2.default.createElement(_reactRouterDom.Route, { path: '/about', component: _page2.default }),
+					_react2.default.createElement(_reactRouterDom.Route, { path: '/books/:slug/:pageNum', component: _book2.default }),
+					_react2.default.createElement(_reactRouterDom.Route, { path: '/books/:slug/', component: _book2.default }),
 					_react2.default.createElement(_reactRouterDom.Route, { path: '*', component: _notfound2.default })
 				);
 			}
@@ -28162,12 +28168,13 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.FETCH_MENU = exports.FETCH_PAGE = exports.FETCH_POST = exports.FETCH_FEAT_BOOK = exports.FETCH_EVEN_POSTS = exports.FETCH_ODD_POSTS = exports.FETCH_POSTS = undefined;
+	exports.FETCH_MENU = exports.FETCH_BOOK = exports.FETCH_PAGE = exports.FETCH_FEAT_BOOK = exports.FETCH_EVEN_POSTS = exports.FETCH_ODD_POSTS = exports.FETCH_POSTS = undefined;
 	exports.fetchOddPosts = fetchOddPosts;
 	exports.fetchEvenPosts = fetchEvenPosts;
 	exports.fetchPosts = fetchPosts;
 	exports.fetchFeatBook = fetchFeatBook;
 	exports.fetchPage = fetchPage;
+	exports.fetchBook = fetchBook;
 	exports.fetchMenu = fetchMenu;
 
 	var _axios = __webpack_require__(263);
@@ -28180,8 +28187,8 @@
 	var FETCH_ODD_POSTS = exports.FETCH_ODD_POSTS = 'FETCH_ODD_POSTS';
 	var FETCH_EVEN_POSTS = exports.FETCH_EVEN_POSTS = 'FETCH_EVEN_POSTS';
 	var FETCH_FEAT_BOOK = exports.FETCH_FEAT_BOOK = 'FETCH_FEAT_BOOK';
-	var FETCH_POST = exports.FETCH_POST = 'FETCH_POST';
 	var FETCH_PAGE = exports.FETCH_PAGE = 'FETCH_PAGE';
+	var FETCH_BOOK = exports.FETCH_BOOK = 'FETCH_BOOK';
 	var FETCH_MENU = exports.FETCH_MENU = 'FETCH_MENU';
 
 	var WP_API_ENDPOINT = RT_API.root + 'wp/v2';
@@ -28302,6 +28309,20 @@
 				dispatch({
 					type: FETCH_PAGE,
 					payload: { page: response.data[0] }
+				});
+			});
+		};
+	}
+
+	function fetchBook(slug) {
+		return function (dispatch) {
+			_axios2.default.get(WP_API_ENDPOINT + '/books?slug=' + slug).then(function (response) {
+				//console.log('\nmposts response:');
+				//console.log(response.data[0]);
+				//console.log('odd', `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4`);
+				dispatch({
+					type: FETCH_BOOK,
+					payload: { book: response.data[0] }
 				});
 			});
 		};
@@ -30198,12 +30219,21 @@
 				}
 			}
 		}, {
+			key: 'getFeaturedImage',
+			value: function getFeaturedImage() {
+				if (this.props.feat_book.featured.acf.book_cover) {
+					return this.props.feat_book.featured.acf.book_cover.sizes.home;
+				} else {
+					return 'http://placehold.it/200x200?text=featured%20book';
+				}
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				console.log(this.props);
 				if (typeof this.props.feat_book.featured.acf != 'undefined') {
 					//console.log(this.props.feat_book.featured.better_featured_image.media_details.sizes.home.source_url);
-					//console.log(this.props.feat_book.featured);
+					console.log(this.props.feat_book.featured);
 					return _react2.default.createElement(
 						'div',
 						{ className: 'featured' },
@@ -30217,7 +30247,7 @@
 								_react2.default.createElement('img', {
 									id: 'featured-image',
 									onLoad: this.imgLoaded,
-									src: this.props.feat_book.featured.acf.book_cover.sizes.home
+									src: this.getFeaturedImage()
 								})
 							),
 							_react2.default.createElement(
@@ -30227,14 +30257,14 @@
 									'div',
 									null,
 									_react2.default.createElement(
-										'h1',
+										'h3',
 										null,
 										this.props.feat_book.featured.title.rendered
 									),
 									_react2.default.createElement(
 										'p',
 										null,
-										this.props.feat_book.featured.acf.author
+										this.props.feat_book.featured.acf.author_single_line
 									)
 								)
 							)
@@ -30349,7 +30379,7 @@
 						type: post.type,
 						pId: post.id,
 						title: post.title.rendered,
-						author: post.acf.author,
+						author: post.acf.author_single_line,
 						date: post.acf.date,
 						link: post.link });
 				});
@@ -30576,8 +30606,7 @@
 	            return _react2.default.createElement(
 	                _reactRouterDom.Link,
 	                { to: this.extractPath(this.props.link) },
-	                _react2.default.createElement('h1', {
-	                    dangerouslySetInnerHTML: { __html: this.props.children } })
+	                _react2.default.createElement('h3', { dangerouslySetInnerHTML: { __html: this.props.children } })
 	            );
 	        }
 	    }]);
@@ -30920,7 +30949,7 @@
 						type: post.type,
 						pId: post.id,
 						title: post.title.rendered,
-						author: post.acf.author,
+						author: post.acf.author_single_line,
 						date: post.acf.date,
 						link: post.link });
 				});
@@ -31080,7 +31109,7 @@
 		}, {
 			key: 'render',
 			value: function render() {
-				//console.log(this.props);
+				console.log(this.props);
 				return _react2.default.createElement(
 					'div',
 					{ className: 'content', id: 'content' },
@@ -31307,24 +31336,288 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(184);
+
+	var _index = __webpack_require__(262);
+
+	var _booknav = __webpack_require__(302);
+
+	var _booknav2 = _interopRequireDefault(_booknav);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Book = function (_Component) {
+		_inherits(Book, _Component);
+
+		function Book() {
+			_classCallCheck(this, Book);
+
+			return _possibleConstructorReturn(this, (Book.__proto__ || Object.getPrototypeOf(Book)).apply(this, arguments));
+		}
+
+		_createClass(Book, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				//console.log('\nmenu willmount:');
+				//console.log(this.props.book);
+				this.props.fetchBook(this.props.match.params.slug);
+			}
+		}, {
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				//console.log('B did mount');
+			}
+		}, {
+			key: 'componentDidUpdate',
+			value: function componentDidUpdate() {
+				//console.log('B did update');
+			}
+		}, {
+			key: 'componentWillReceiveProps',
+			value: function componentWillReceiveProps() {
+				//console.log('B will receive props');
+			}
+		}, {
+			key: 'getPage',
+			value: function getPage() {
+				//console.log(this.props);
+				if (this.props.match.params.pageNum == undefined) {
+					var page = 1;
+				} else {
+					var page = this.props.match.params.pageNum;
+				}
+				if (this.props.book.book !== undefined && this.props.book.book.acf.book_cover !== undefined) {
+					if (page == 1) {
+						return _react2.default.createElement(
+							'div',
+							{ className: 'content book', id: 'content' },
+							_react2.default.createElement(
+								'div',
+								null,
+								_react2.default.createElement(
+									'div',
+									{ className: 'img-wrapper' },
+									_react2.default.createElement('img', { src: this.props.book.book.acf.book_cover.sizes.book_cover })
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'title-wrapper' },
+									_react2.default.createElement(
+										'h2',
+										null,
+										this.props.book.book.title.rendered
+									)
+								)
+							),
+							_react2.default.createElement(_booknav2.default, { page: '1' })
+						);
+					} else {
+						return _react2.default.createElement(
+							'div',
+							{ className: 'content book', id: 'content' },
+							_react2.default.createElement(
+								'p',
+								null,
+								'page ',
+								page
+							),
+							_react2.default.createElement(_booknav2.default, { slug: this.props.match.params.slug, page: this.props.match.params.pageNum })
+						);
+					}
+				} else {
+					return _react2.default.createElement(
+						'div',
+						{ className: 'content book', id: 'content' },
+						_react2.default.createElement(
+							'span',
+							null,
+							'loading...'
+						)
+					);
+				}
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					this.getPage()
+				);
+			}
+		}]);
+
+		return Book;
+	}(_react.Component);
+
+	function mapStateToProps(_ref) {
+		var book = _ref.book;
+
+		return { book: book };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchBook: _index.fetchBook })(Book);
+
+/***/ }),
+/* 302 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouterDom = __webpack_require__(224);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var BookNav = function (_Component) {
+		_inherits(BookNav, _Component);
+
+		function BookNav() {
+			_classCallCheck(this, BookNav);
+
+			return _possibleConstructorReturn(this, (BookNav.__proto__ || Object.getPrototypeOf(BookNav)).apply(this, arguments));
+		}
+
+		_createClass(BookNav, [{
+			key: 'getNextPage',
+
+
+			/*
+	  getPrevPage() {
+	  	if (parseInt(this.props.pageNum) > 2) {
+	  		return `/page/${parseInt(this.props.pageNum) - 1}`;
+	  	} else {
+	  		return `/`;
+	  	}
+	  	}
+	  	getPageNumber() {
+	  	if (this.props.type == 'blog') {
+	  		if (this.props.pageNum == '1') {
+	  			return 'More'
+	  		} else {
+	  			return
+	  		}
+	  	} else {
+	  		return
+	  	}
+	  }
+	  	getNextPage() {
+	  	//console.log(`/${this.getArchiveType()}${this.getArchiveSlug()}/${parseInt(this.props.pageNum) + 1}`);
+	  	return `/${this.getArchiveType()}${this.getArchiveSlug()}/${parseInt(this.props.pageNum) + 1}`;
+	  }
+	  	getArchiveType() {
+	  	//console.log(this.props.type);
+	  	if (this.props.type == 'blog') {
+	  		return 'page';
+	  	} else {
+	  		return 'index/page';
+	  	}
+	  }
+	  	getArchiveSlug() {
+	  	return "" !== this.props.slug ? `/${this.props.slug}` : '';
+	  }
+	  	hideComponents() {
+	  	//console.log('link onclick');
+	  	if (document.getElementById('content-left') && document.getElementById('content-right')){
+	  		if (window.location.pathname !== '/') {
+	  			document.getElementById('content-left').style.opacity = "0";
+	  			document.getElementById('content-right').style.opacity = "0";
+	  			//console.log('-----content left and right hidden');
+	  		}
+	  	}
+	  }
+	  */
+
+			value: function getNextPage() {
+				return '/books/' + this.props.slug + '/' + (parseInt(this.props.page) + 1);
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				//console.log(this.props.shouldRender);
+				/*
+	   if (!this.props.shouldRender) {
+	   	return <span />;
+	   }
+	   	var previousButton = '';
+	   if (1 < this.props.pageNum) {
+	   	previousButton = <Link to={this.getPrevPage()} className="nav-link">Previous</Link>;
+	   }
+	   */
+
+				//var nextButton = '';
+				//if (((4 + (this.props.pageNum - 1)*8) || 1) <= this.props.total) {
+				//nextButton = <Link to={this.getNextPage()} /*onClick={this.hideComponents}*/ className="nav-link more">{this.getPageNumber()}</Link>;
+				//}
+
+				return _react2.default.createElement(
+					'div',
+					{ className: 'book-nav' },
+					_react2.default.createElement(_reactRouterDom.Link, { className: 'next', to: this.getNextPage() })
+				);
+			}
+		}]);
+
+		return BookNav;
+	}(_react.Component);
+
+	exports.default = BookNav;
+
+/***/ }),
+/* 303 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
 	var _redux = __webpack_require__(197);
 
-	var _reduxThunk = __webpack_require__(302);
+	var _reduxThunk = __webpack_require__(304);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _reduxPromiseMiddleware = __webpack_require__(303);
+	var _reduxPromiseMiddleware = __webpack_require__(305);
 
 	var _reduxPromiseMiddleware2 = _interopRequireDefault(_reduxPromiseMiddleware);
 
-	var _reduxLogger = __webpack_require__(305);
+	var _reduxLogger = __webpack_require__(307);
 
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-	var _reducers = __webpack_require__(311);
+	var _reducers = __webpack_require__(313);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -31335,7 +31628,7 @@
 	exports.default = (0, _redux.createStore)(_reducers2.default, appliedMiddleware);
 
 /***/ }),
-/* 302 */
+/* 304 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -31363,7 +31656,7 @@
 	exports['default'] = thunk;
 
 /***/ }),
-/* 303 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31381,7 +31674,7 @@
 
 	exports.default = promiseMiddleware;
 
-	var _isPromise = __webpack_require__(304);
+	var _isPromise = __webpack_require__(306);
 
 	var _isPromise2 = _interopRequireDefault(_isPromise);
 
@@ -31548,7 +31841,7 @@
 	}
 
 /***/ }),
-/* 304 */
+/* 306 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -31569,7 +31862,7 @@
 	}
 
 /***/ }),
-/* 305 */
+/* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31581,11 +31874,11 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _core = __webpack_require__(306);
+	var _core = __webpack_require__(308);
 
-	var _helpers = __webpack_require__(307);
+	var _helpers = __webpack_require__(309);
 
-	var _defaults = __webpack_require__(310);
+	var _defaults = __webpack_require__(312);
 
 	var _defaults2 = _interopRequireDefault(_defaults);
 
@@ -31707,7 +32000,7 @@
 
 
 /***/ }),
-/* 306 */
+/* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31720,9 +32013,9 @@
 
 	exports.printBuffer = printBuffer;
 
-	var _helpers = __webpack_require__(307);
+	var _helpers = __webpack_require__(309);
 
-	var _diff = __webpack_require__(308);
+	var _diff = __webpack_require__(310);
 
 	var _diff2 = _interopRequireDefault(_diff);
 
@@ -31853,7 +32146,7 @@
 	}
 
 /***/ }),
-/* 307 */
+/* 309 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -31877,7 +32170,7 @@
 	var timer = exports.timer = typeof performance !== "undefined" && performance !== null && typeof performance.now === "function" ? performance : Date;
 
 /***/ }),
-/* 308 */
+/* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31887,7 +32180,7 @@
 	});
 	exports.default = diffLogger;
 
-	var _deepDiff = __webpack_require__(309);
+	var _deepDiff = __webpack_require__(311);
 
 	var _deepDiff2 = _interopRequireDefault(_deepDiff);
 
@@ -31976,7 +32269,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 309 */
+/* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -32405,7 +32698,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 310 */
+/* 312 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -32456,7 +32749,7 @@
 	module.exports = exports["default"];
 
 /***/ }),
-/* 311 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32467,25 +32760,29 @@
 
 	var _redux = __webpack_require__(197);
 
-	var _menu_reducer = __webpack_require__(312);
+	var _menu_reducer = __webpack_require__(314);
 
 	var _menu_reducer2 = _interopRequireDefault(_menu_reducer);
 
-	var _feat_book_reducer = __webpack_require__(313);
+	var _feat_book_reducer = __webpack_require__(315);
 
 	var _feat_book_reducer2 = _interopRequireDefault(_feat_book_reducer);
 
-	var _odd_posts_reducer = __webpack_require__(314);
+	var _odd_posts_reducer = __webpack_require__(316);
 
 	var _odd_posts_reducer2 = _interopRequireDefault(_odd_posts_reducer);
 
-	var _even_posts_reducer = __webpack_require__(315);
+	var _even_posts_reducer = __webpack_require__(317);
 
 	var _even_posts_reducer2 = _interopRequireDefault(_even_posts_reducer);
 
-	var _page_reducer = __webpack_require__(316);
+	var _page_reducer = __webpack_require__(318);
 
 	var _page_reducer2 = _interopRequireDefault(_page_reducer);
+
+	var _book_reducer = __webpack_require__(319);
+
+	var _book_reducer2 = _interopRequireDefault(_book_reducer);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32494,11 +32791,12 @@
 	    feat_book: _feat_book_reducer2.default,
 	    odd_posts: _odd_posts_reducer2.default,
 	    even_posts: _even_posts_reducer2.default,
-	    page: _page_reducer2.default
+	    page: _page_reducer2.default,
+	    book: _book_reducer2.default
 	});
 
 /***/ }),
-/* 312 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -32521,7 +32819,7 @@
 	var _actions = __webpack_require__(262);
 
 /***/ }),
-/* 313 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32545,7 +32843,7 @@
 	var _actions = __webpack_require__(262);
 
 /***/ }),
-/* 314 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32568,7 +32866,7 @@
 	var _actions = __webpack_require__(262);
 
 /***/ }),
-/* 315 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32592,7 +32890,7 @@
 	var _actions = __webpack_require__(262);
 
 /***/ }),
-/* 316 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32616,7 +32914,31 @@
 	var _actions = __webpack_require__(262);
 
 /***/ }),
-/* 317 */
+/* 319 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	exports.default = function () {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case _actions.FETCH_BOOK:
+	            //console.log('feat book reducer');
+	            return action.payload;
+	    }
+	    return state;
+	};
+
+	var _actions = __webpack_require__(262);
+
+/***/ }),
+/* 320 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

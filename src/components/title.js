@@ -11,8 +11,8 @@ export default class Title extends Component {
 
     render() {
         return (
-            <Link to={this.extractPath(this.props.link)}><h1
-                dangerouslySetInnerHTML={ {__html: this.props.children} }/>
+            <Link to={this.extractPath(this.props.link)}>
+            <h3 dangerouslySetInnerHTML={ {__html: this.props.children} }/>
             </Link>
         );
     }

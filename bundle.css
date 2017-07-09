@@ -18,25 +18,33 @@ body {
           margin-top: 30px; } }
       @media only screen and (max-width: 809px) {
         body #app .container .content {
-          margin-top: 25px;
+          margin-top: 40px;
           width: 280px; } }
       @media only screen and (max-width: 399px) {
         body #app .container .content {
           padding: 0 20px 120px; } }
-  body h3 {
-    font-family: Lato;
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 24px;
-    margin-top: 0;
-    margin-bottom: 25px; }
-  body p {
-    font-family: Poly;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 18px;
-    margin-top: 0;
-    margin-bottom: 20px; }
+
+h2 {
+  font-family: Lato;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 32px; }
+
+h3 {
+  font-family: Lato;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 24px;
+  margin-top: 0;
+  margin-bottom: 25px; }
+
+p {
+  font-family: Poly;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-top: 0;
+  margin-bottom: 20px; }
 
 .container > header {
   position: relative;
@@ -168,7 +176,7 @@ body {
               position: relative;
               top: 50%;
               transform: translateY(-50%); }
-              .grid-two.index-home-left #content-left .featured a .featured-details div h1 {
+              .grid-two.index-home-left #content-left .featured a .featured-details div h3 {
                 font-family: Lato;
                 font-size: 18px;
                 color: black;
@@ -194,7 +202,7 @@ body {
       margin-bottom: 0; }
     .grid-two:not(.index-home-left) #content-left .posts .post a, .grid-two:not(.index-home-left) #content-right .posts .post a {
       text-decoration: none; }
-      .grid-two:not(.index-home-left) #content-left .posts .post a h1, .grid-two:not(.index-home-left) #content-right .posts .post a h1 {
+      .grid-two:not(.index-home-left) #content-left .posts .post a h3, .grid-two:not(.index-home-left) #content-right .posts .post a h3 {
         font-family: Lato;
         font-size: 18px;
         color: black;
@@ -286,3 +294,82 @@ body {
       font-weight: 900;
       text-transform: uppercase;
       text-decoration: none; }
+
+@media only screen and (max-width: 809px) {
+  .book {
+    margin-top: 40px !important; } }
+
+@media only screen and (max-width: 480px) {
+  .book {
+    padding: 0 20px !important;
+    height: 400px !important; } }
+
+.book > div:first-child {
+  width: 400px;
+  box-sizing: border-box;
+  border-left: 4px solid #e9e8e8;
+  position: relative; }
+  @media only screen and (max-width: 480px) {
+    .book > div:first-child {
+      width: 280px; } }
+  .book > div:first-child:before {
+    content: '';
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 93%;
+    border-bottom: 4px solid #e9e8e8; }
+  .book > div:first-child > .img-wrapper {
+    height: 395px;
+    position: relative; }
+    @media only screen and (max-width: 480px) {
+      .book > div:first-child > .img-wrapper {
+        height: 310px; } }
+    .book > div:first-child > .img-wrapper img {
+      padding: 0 60px;
+      width: 100%;
+      vertical-align: bottom;
+      box-sizing: border-box;
+      position: absolute;
+      bottom: 0; }
+      @media only screen and (max-width: 480px) {
+        .book > div:first-child > .img-wrapper img {
+          padding: 0 30px; } }
+  .book > div:first-child .title-wrapper {
+    position: relative;
+    height: 120px; }
+    @media only screen and (max-width: 480px) {
+      .book > div:first-child .title-wrapper {
+        height: 90px; } }
+    .book > div:first-child .title-wrapper h2 {
+      top: 40%;
+      transform: translateY(-50%);
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 60px;
+      text-align: center;
+      margin: 0; }
+      @media only screen and (max-width: 480px) {
+        .book > div:first-child .title-wrapper h2 {
+          font-size: 18px;
+          line-height: 24px;
+          padding: 0 30px; } }
+
+.book .book-nav {
+  text-align: center;
+  margin-top: 40px; }
+  .book .book-nav .next {
+    width: 36px;
+    height: 11px;
+    display: block;
+    margin: 0 auto; }
+    .book .book-nav .next:after {
+      content: '';
+      width: 36px;
+      height: 11px;
+      display: block;
+      background: url(img/more_2.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute; }
