@@ -56,6 +56,7 @@ export default class BookNav extends Component {
 */
 
 	getNextPage() {
+		console.log(this.props);
 		return `/books/${this.props.slug}/${parseInt(this.props.page) + 1}`;
 	}
 

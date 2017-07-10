@@ -23,7 +23,7 @@ class Book extends Component {
 	}
 
 	getPage() {
-		//console.log(this.props);
+		console.log(this.props);
 		if (this.props.match.params.pageNum == undefined) {
 			var page = 1;
 		} else {
@@ -41,7 +41,7 @@ class Book extends Component {
 								<h2>{this.props.book.book.title.rendered}</h2>
 							</div>
 						</div>
-						<BookNav page="1" />
+						<BookNav page="1" slug={this.props.match.params.slug} />
 					</div>
 				);
 			} else {

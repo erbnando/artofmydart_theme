@@ -31395,7 +31395,7 @@
 		}, {
 			key: 'getPage',
 			value: function getPage() {
-				//console.log(this.props);
+				console.log(this.props);
 				if (this.props.match.params.pageNum == undefined) {
 					var page = 1;
 				} else {
@@ -31424,7 +31424,7 @@
 									)
 								)
 							),
-							_react2.default.createElement(_booknav2.default, { page: '1' })
+							_react2.default.createElement(_booknav2.default, { page: '1', slug: this.props.match.params.slug })
 						);
 					} else {
 						return _react2.default.createElement(
@@ -31559,6 +31559,7 @@
 	  */
 
 			value: function getNextPage() {
+				console.log(this.props);
 				return '/books/' + this.props.slug + '/' + (parseInt(this.props.page) + 1);
 			}
 		}, {
