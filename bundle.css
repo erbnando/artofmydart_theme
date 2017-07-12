@@ -295,75 +295,14 @@ p {
       text-transform: uppercase;
       text-decoration: none; }
 
-@media only screen and (max-width: 809px) {
-  .book {
-    margin-top: 40px !important; } }
-
-@media only screen and (max-width: 480px) {
-  .book {
-    padding: 0 20px !important;
-    height: 400px !important; } }
-
-.book > div:first-child {
-  width: 400px;
-  box-sizing: border-box;
-  border-left: 4px solid #e9e8e8;
-  position: relative; }
-  @media only screen and (max-width: 480px) {
-    .book > div:first-child {
-      width: 280px; } }
-  .book > div:first-child:before {
-    content: '';
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    width: 93%;
-    border-bottom: 4px solid #e9e8e8; }
-  .book > div:first-child > .img-wrapper {
-    height: 395px;
-    position: relative; }
-    @media only screen and (max-width: 480px) {
-      .book > div:first-child > .img-wrapper {
-        height: 310px; } }
-    .book > div:first-child > .img-wrapper img {
-      padding: 0 60px;
-      width: 100%;
-      vertical-align: bottom;
-      box-sizing: border-box;
-      position: absolute;
-      bottom: 0; }
-      @media only screen and (max-width: 480px) {
-        .book > div:first-child > .img-wrapper img {
-          padding: 0 30px; } }
-  .book > div:first-child .title-wrapper {
-    position: relative;
-    height: 120px; }
-    @media only screen and (max-width: 480px) {
-      .book > div:first-child .title-wrapper {
-        height: 90px; } }
-    .book > div:first-child .title-wrapper h2 {
-      top: 40%;
-      transform: translateY(-50%);
-      position: relative;
-      width: 100%;
-      box-sizing: border-box;
-      padding: 0 60px;
-      text-align: center;
-      margin: 0; }
-      @media only screen and (max-width: 480px) {
-        .book > div:first-child .title-wrapper h2 {
-          font-size: 18px;
-          line-height: 24px;
-          padding: 0 30px; } }
-
 .book .book-nav {
   text-align: center;
   margin-top: 40px; }
   .book .book-nav .next {
     width: 36px;
     height: 11px;
-    display: block;
-    margin: 0 auto; }
+    display: inline-block;
+    margin: 0 12px; }
     .book .book-nav .next:after {
       content: '';
       width: 36px;
@@ -373,3 +312,155 @@ p {
       background-repeat: no-repeat;
       background-size: contain;
       position: absolute; }
+  .book .book-nav .prev {
+    width: 36px;
+    height: 11px;
+    display: inline-block;
+    margin: 0 12px; }
+    .book .book-nav .prev:after {
+      content: '';
+      width: 36px;
+      height: 11px;
+      display: block;
+      background: url(img/more_2.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      -ms-transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg); }
+
+@media only screen and (max-width: 809px) {
+  .book:not(.title) {
+    margin-top: 40px !important; } }
+
+@media only screen and (max-width: 480px) {
+  .book:not(.title) {
+    padding: 0 20px !important;
+    height: 400px !important; } }
+
+.book:not(.title) > div:first-child {
+  width: 400px;
+  box-sizing: border-box;
+  border-left: 4px solid #e9e8e8;
+  position: relative; }
+  @media only screen and (max-width: 480px) {
+    .book:not(.title) > div:first-child {
+      width: 280px; } }
+  .book:not(.title) > div:first-child:before {
+    content: '';
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 93%;
+    border-bottom: 4px solid #e9e8e8; }
+  .book:not(.title) > div:first-child > .img-wrapper {
+    height: 395px;
+    position: relative; }
+    @media only screen and (max-width: 480px) {
+      .book:not(.title) > div:first-child > .img-wrapper {
+        height: 310px; } }
+    .book:not(.title) > div:first-child > .img-wrapper img {
+      padding: 0 60px;
+      width: 100%;
+      vertical-align: bottom;
+      box-sizing: border-box;
+      position: absolute;
+      bottom: 0; }
+      @media only screen and (max-width: 480px) {
+        .book:not(.title) > div:first-child > .img-wrapper img {
+          padding: 0 30px; } }
+  .book:not(.title) > div:first-child .title-wrapper {
+    position: relative;
+    height: 120px; }
+    @media only screen and (max-width: 480px) {
+      .book:not(.title) > div:first-child .title-wrapper {
+        height: 90px; } }
+    .book:not(.title) > div:first-child .title-wrapper h2 {
+      top: 40%;
+      transform: translateY(-50%);
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 60px;
+      text-align: center;
+      margin: 0; }
+      @media only screen and (max-width: 480px) {
+        .book:not(.title) > div:first-child .title-wrapper h2 {
+          font-size: 18px;
+          line-height: 24px;
+          padding: 0 30px; } }
+
+.title {
+  width: 810px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: -47px;
+  padding: 0 40px 120px;
+  transition: opacity .05s linear;
+  box-sizing: border-box; }
+  @media only screen and (max-width: 1124px) {
+    .title {
+      margin-top: 30px; } }
+  @media only screen and (max-width: 809px) {
+    .title {
+      margin-top: 25px;
+      width: 100% !important; } }
+  @media only screen and (max-width: 399px) {
+    .title {
+      padding: 0 20px 120px; } }
+  .title > div:first-child {
+    height: 515px;
+    border-left: 4px solid #e9e8e8;
+    display: table;
+    width: 100% !important;
+    position: relative;
+    box-sizing: border-box; }
+    @media only screen and (max-width: 809px) {
+      .title > div:first-child {
+        padding: 30px 30px; } }
+    .title > div:first-child:before {
+      content: '';
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      border-bottom: 4px solid #e9e8e8; }
+  .title .book-grid-two {
+    box-sizing: border-box;
+    max-width: 50%;
+    width: 365px;
+    display: table-cell;
+    vertical-align: top;
+    position: relative;
+    vertical-align: middle; }
+    @media only screen and (max-width: 809px) {
+      .title .book-grid-two {
+        height: 465px;
+        display: inherit;
+        padding: 0 0 0 30px !important;
+        max-width: 100%;
+        width: 294px; } }
+    .title .book-grid-two:last-child div {
+      height: 50%;
+      border-left: 4px solid #e9e8e8;
+      padding-top: 45px;
+      padding-left: 45px; }
+      .title .book-grid-two:last-child div .author-title {
+        font-family: Lato;
+        font-size: 10px;
+        color: #bbb;
+        font-weight: 900;
+        margin-bottom: 4px;
+        text-transform: uppercase; }
+      .title .book-grid-two:last-child div .author-name {
+        font-family: Poly;
+        font-size: 16px;
+        font-style: italic;
+        font-weight: 400;
+        margin-bottom: 40px; }
+      .title .book-grid-two:last-child div .book-title {
+        font-family: Lato;
+        font-size: 28px;
+        color: black;
+        font-weight: 900; }

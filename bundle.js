@@ -31427,17 +31427,51 @@
 							_react2.default.createElement(_booknav2.default, { page: '1', slug: this.props.match.params.slug })
 						);
 					} else {
-						return _react2.default.createElement(
-							'div',
-							{ className: 'content book', id: 'content' },
-							_react2.default.createElement(
-								'p',
-								null,
-								'page ',
-								page
-							),
-							_react2.default.createElement(_booknav2.default, { slug: this.props.match.params.slug, page: this.props.match.params.pageNum })
-						);
+						if (this.props.book.book.acf.book_pages[parseInt(page - 2)] && this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'title') {
+							return _react2.default.createElement(
+								'div',
+								{ className: 'content book title', id: 'content' },
+								_react2.default.createElement(
+									'div',
+									null,
+									_react2.default.createElement('div', { className: 'book-grid-two' }),
+									_react2.default.createElement(
+										'div',
+										{ className: 'book-grid-two' },
+										_react2.default.createElement(
+											'div',
+											null,
+											_react2.default.createElement(
+												'p',
+												{ className: 'author-title' },
+												this.props.book.book.acf.author_title
+											),
+											_react2.default.createElement(
+												'p',
+												{ className: 'author-name' },
+												this.props.book.book.acf.author_name
+											),
+											_react2.default.createElement(
+												'p',
+												{ className: 'book-title' },
+												this.props.book.book.title.rendered
+											)
+										)
+									)
+								),
+								_react2.default.createElement(_booknav2.default, { slug: this.props.match.params.slug, page: this.props.match.params.pageNum })
+							);
+						} else {
+							return _react2.default.createElement(
+								'div',
+								{ className: 'content book', id: 'content' },
+								_react2.default.createElement(
+									'span',
+									null,
+									'no content'
+								)
+							);
+						}
 					}
 				} else {
 					return _react2.default.createElement(
@@ -31559,8 +31593,17 @@
 	  */
 
 			value: function getNextPage() {
-				console.log(this.props);
-				return '/books/' + this.props.slug + '/' + (parseInt(this.props.page) + 1);
+				//console.log(this.props);
+				return _react2.default.createElement(_reactRouterDom.Link, { className: 'next', to: '/books/' + this.props.slug + '/' + (parseInt(this.props.page) + 1) });
+			}
+		}, {
+			key: 'getPrevPage',
+			value: function getPrevPage() {
+				if (this.props.page > 1) {
+					return _react2.default.createElement(_reactRouterDom.Link, { className: 'prev', to: '/books/' + this.props.slug + '/' + (parseInt(this.props.page) - 1) });
+				} else {
+					return _react2.default.createElement('span', null);
+				}
 			}
 		}, {
 			key: 'render',
@@ -31584,7 +31627,8 @@
 				return _react2.default.createElement(
 					'div',
 					{ className: 'book-nav' },
-					_react2.default.createElement(_reactRouterDom.Link, { className: 'next', to: this.getNextPage() })
+					this.getPrevPage(),
+					this.getNextPage()
 				);
 			}
 		}]);

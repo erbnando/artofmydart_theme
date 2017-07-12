@@ -56,8 +56,16 @@ export default class BookNav extends Component {
 */
 
 	getNextPage() {
-		console.log(this.props);
-		return `/books/${this.props.slug}/${parseInt(this.props.page) + 1}`;
+		//console.log(this.props);
+		return <Link className="next" to={`/books/${this.props.slug}/${parseInt(this.props.page) + 1}`} ></Link>;
+	}
+
+	getPrevPage() {
+		if (this.props.page > 1) {
+			return <Link className="prev" to={`/books/${this.props.slug}/${parseInt(this.props.page) - 1}`} ></Link>;
+		} else {
+			return <span />
+		}
 	}
 
 	render() {
@@ -80,7 +88,8 @@ export default class BookNav extends Component {
 
 		return (
 			<div className="book-nav">
-				<Link className="next" to={this.getNextPage()} ></Link>
+				{this.getPrevPage()}
+				{this.getNextPage()}
 			</div>
 		);
 	}

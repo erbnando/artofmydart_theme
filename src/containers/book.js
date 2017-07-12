@@ -45,12 +45,30 @@ class Book extends Component {
 					</div>
 				);
 			} else {
-				return (
-					<div className="content book" id="content">
-						<p>page {page}</p>
-						<BookNav slug={this.props.match.params.slug} page={this.props.match.params.pageNum} />
-					</div>
-				);
+				if (this.props.book.book.acf.book_pages[parseInt(page - 2)] && this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'title') {
+					return (
+						<div className="content book title" id="content">
+							<div>
+								<div className="book-grid-two">
+								</div>
+								<div className="book-grid-two">
+									<div>
+										<p className="author-title">{this.props.book.book.acf.author_title}</p>
+										<p className="author-name">{this.props.book.book.acf.author_name}</p>
+										<p className="book-title">{this.props.book.book.title.rendered}</p>
+									</div>
+								</div>
+							</div>
+							<BookNav slug={this.props.match.params.slug} page={this.props.match.params.pageNum} />
+						</div>
+					);
+				} else {
+					return (
+						<div className="content book" id="content">
+							<span>no content</span>
+						</div>
+					);
+				}
 			}
 		} else {
 			return (
