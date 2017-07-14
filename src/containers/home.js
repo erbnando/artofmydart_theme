@@ -35,7 +35,7 @@ class Home extends Component {
 	render() {
 		//console.log(this.props);
 		return (
-			<div className="content" id="content">
+			<div className="content home" id="content">
 				<div className="grid-two index-home-left">
 					<p className="section-title">Current</p>
 					<div id="content-left">

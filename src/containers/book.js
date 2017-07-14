@@ -23,7 +23,7 @@ class Book extends Component {
 	}
 
 	getPage() {
-		console.log(this.props);
+		//console.log(this.props);
 		if (this.props.match.params.pageNum == undefined) {
 			var page = 1;
 		} else {
@@ -32,7 +32,7 @@ class Book extends Component {
 		if(this.props.book.book !== undefined && this.props.book.book.acf.book_cover !== undefined){
 			if (page == 1) {
 				return (
-					<div className="content book" id="content">
+					<div className="content book cover" id="content">
 						<div>
 							<div className="img-wrapper">
 								<img src={this.props.book.book.acf.book_cover.sizes.book_cover} />
@@ -55,7 +55,7 @@ class Book extends Component {
 									<div>
 										<p className="author-title">{this.props.book.book.acf.author_title}</p>
 										<p className="author-name">{this.props.book.book.acf.author_name}</p>
-										<p className="book-title">{this.props.book.book.title.rendered}</p>
+										<h1 className="book-title">{this.props.book.book.title.rendered}</h1>
 									</div>
 								</div>
 							</div>

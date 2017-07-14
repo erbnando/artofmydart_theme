@@ -35,7 +35,7 @@ class Index extends Component {
 	render() {
 		//console.log(this.props);
 		return (
-			<div className="content" id="content">
+			<div className="content index" id="content">
 				<div className="grid-two blog-left">
 					<p className="section-title">Index</p>
 					<div id="content-left">

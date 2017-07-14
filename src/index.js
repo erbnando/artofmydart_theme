@@ -12,8 +12,14 @@ import NotFound from './containers/notfound';
 import Page from './containers/page';
 import Book from './containers/book';
 import store from './store';
+import MobileDetect from '../node_modules/mobile-detect';
 
 class App extends Component {
+	componentWillMount() {
+		var md = new MobileDetect(window.navigator.userAgent);
+		console.log( md.mobile() );
+	}
+
 	render() {
 		return (
 			<div className="container">

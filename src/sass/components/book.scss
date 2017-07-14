@@ -1,4 +1,10 @@
 .book {
+	> div {
+	    margin: 0 auto;
+	}
+	@media only screen and (max-width: 809px) {
+		margin-top: 40px!important;
+	}
 	.book-nav {
 		 text-align: center;
 		 margin-top: 40px;
@@ -39,11 +45,8 @@
 		}
 	}	
 }
-.book:not(.title) {
-	@media only screen and (max-width: 809px) {
-		margin-top: 40px!important;
-	}
-	@media only screen and (max-width: 480px) {
+.book.cover {
+	@media only screen and (max-width: 479px) {
 		padding: 0 20px!important;
 		height: 400px!important;
 	}
@@ -52,7 +55,7 @@
 		box-sizing: border-box;
 		border-left: 4px solid #e9e8e8;
 		position: relative;
-		@media only screen and (max-width: 480px) {
+		@media only screen and (max-width: 479px) {
 			width: 280px;
 		}
 		&:before {
@@ -66,7 +69,7 @@
 		> .img-wrapper {
 			height: 395px;
 			position: relative;
-			@media only screen and (max-width: 480px) {
+			@media only screen and (max-width: 479px) {
 				height: 310px;
 			}
 			img {
@@ -76,7 +79,7 @@
 				box-sizing: border-box;
 				position: absolute;
 				bottom: 0;
-				@media only screen and (max-width: 480px) {
+				@media only screen and (max-width: 479px) {
 					padding: 0 30px;
 				}
 			}			
@@ -84,19 +87,19 @@
 		.title-wrapper {
 			position: relative;
 			height: 120px;
-			@media only screen and (max-width: 480px) {
+			@media only screen and (max-width: 479px) {
 				height: 90px;
 			}
 			h2 {
-			    top: 40%;
+			    top: 42%;
 			    transform: translateY(-50%);
 				position: relative;
 			    width: 100%;
 			    box-sizing: border-box;
-				padding: 0 60px;
+				padding: 0 40px;
 				text-align: center;
 				margin: 0;
-				@media only screen and (max-width: 480px) {
+				@media only screen and (max-width: 479px) {
 					font-size: 18px;
 					line-height: 24px;
 					padding: 0 30px;
@@ -106,22 +109,21 @@
 	}
 }
 .title {
-	width: 810px;
+	width: 730px;
 	margin: 0 auto;
 	position: relative;
-	margin-top: -47px;
 	padding: 0 40px 120px;
 	transition: opacity .05s linear;
-	box-sizing: border-box;
+	box-sizing: content-box;
 	@media only screen and (max-width: 1124px) {
 		margin-top: 30px;
 	}
 	@media only screen and (max-width: 809px) {
-		margin-top: 25px;
-		width: 100%!important;
+		width: 400px!important;
 	}
-	@media only screen and (max-width: 399px) {
-		padding: 0 20px 120px;
+	@media only screen and (max-width: 479px) {
+		padding: 0 20px 120px!important;
+		width: 280px!important;
 	}
 	> div:first-child {
 		height: 515px;
@@ -133,6 +135,9 @@
 		box-sizing: border-box;
 		@media only screen and (max-width: 809px) {
 			padding: 30px 30px;
+		}
+		@media only screen and (max-width: 479px) {
+			height: 400px;
 		}
 		&:before {
 			content: '';
@@ -152,19 +157,27 @@
 		position: relative;
 		vertical-align: middle;
 		@media only screen and (max-width: 809px) {
-	    	height: 465px;
-			display: inherit;
-			//width: 280px;
-			padding:  0 0 0 30px!important;
-			max-width: 100%;
-			width: 294px;
+			padding-left: 15px;
+		}
+		@media only screen and (max-width: 479px) {
+			height: 340px;
+		}
+		&:first-child {
+			@media only screen and (max-width: 809px) {
+				display: none;
+			}
 		}
 		&:last-child {
 			div {
 			    height: 50%;	
 				border-left: 4px solid #e9e8e8;
-				padding-top: 45px;
-				padding-left: 45px;
+				padding: 45px 10px 10px 45px;
+				@media only screen and (max-width: 809px) {
+					padding: 0!important;
+					border-left: none!important;
+				    display: table-cell;
+				    vertical-align: middle;
+				}
 				.author-title {
 					font-family: Lato;
 					font-size: 10px;
@@ -185,6 +198,7 @@
 					font-size: 28px;
 					color: black;
 					font-weight: 900;
+					margin-bottom: 30px;
 				}
 			}
 		}
