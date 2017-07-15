@@ -22,11 +22,8 @@ class BlogRight extends Component {
 	}
 
 	getPosts(props, willMount = false) {
-		if(this.props.nav == true) {
-			var type = 'index';
-		}
 		if (props.page !== this.props.page || willMount /*|| this.props.props.location.pathname !== props.props.location.pathname*/) {
-			this.props.fetchEvenPosts(props.page || 1, 'books', type);
+			this.props.fetchEvenPosts(props.page || 1, 'books');
 		}
 
 	}
@@ -42,6 +39,7 @@ class BlogRight extends Component {
                             link={post.link}/>
         });
     }
+
 	componentDidUpdate() {
 		//set right flag to true
 		window.rightloaded = true;

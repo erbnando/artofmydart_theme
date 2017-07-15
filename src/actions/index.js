@@ -1,5 +1,4 @@
 import axios from 'axios';
-export const FETCH_POSTS = 'FETCH_POSTS';
 export const FETCH_ODD_POSTS = 'FETCH_ODD_POSTS';
 export const FETCH_EVEN_POSTS = 'FETCH_EVEN_POSTS';
 export const FETCH_FEAT_BOOK = 'FETCH_FEAT_BOOK';
@@ -14,12 +13,19 @@ const MENU_ENDPOINT = `${RT_API.root}react-theme/v1/menu-locations/`;
 export function fetchOddPosts(pageNum = 1, post_type = 'books', type = 'home') {
 	return function (dispatch) {
 		if (type == 'home') {
+			//console.log('home');
 			pageNum = 1;
-		} else if (type == 'index') {
-			pageNum = parseInt(pageNum)*2 - 1;
-		}
-		//console.log('page odd:', pageNum);
-		axios.get(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4`)
+			axios({
+				method: 'get',
+				url: `${WP_API_ENDPOINT}/frontpage`,
+			})
+			.then(response => {
+				//console.log(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4&exclude=${response.data.acf.current_book}`);
+				return axios({
+					method: 'get',
+					url: `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4&exclude=${response.data.acf.current_book}`
+				});
+			})
 			.then(response => {
 				//console.log('\nmposts response:');
 				//console.log(response);
@@ -30,10 +36,25 @@ export function fetchOddPosts(pageNum = 1, post_type = 'books', type = 'home') {
 					payload: {items: response.data, headers: response.headers}
 				});
 			});
+		} else {
+			//console.log('index');
+			pageNum = parseInt(pageNum)*2 - 1;
+			axios.get(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4`)
+				.then(response => {
+					//console.log('\nmposts response:');
+					//console.log(response);
+					//console.log('odd', `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4`);
+					dispatch({
+						type: FETCH_ODD_POSTS,
+						//payload: response.data
+						payload: {items: response.data, headers: response.headers}
+					});
+				});
+		}
 	}
 }
 
-export function fetchEvenPosts(pageNum = 2, post_type = 'books') {
+export function fetchEvenPosts(pageNum = 1, post_type = 'books') {
 	return function (dispatch) {
 		pageNum = parseInt(pageNum)*2;
 		//console.log('page even:', pageNum);

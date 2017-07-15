@@ -139,7 +139,8 @@
                         "id": ""
                     },
                     "choices": {
-                        "title": "Title Page"
+                        "title": "Title Page",
+                        "regular": "Regular Page"
                     },
                     "default_value": [],
                     "allow_null": 0,
@@ -151,13 +152,50 @@
                     "readonly": 0
                 },
                 {
-                    "key": "field_59625cb34f6c8",
-                    "label": "Page Test",
-                    "name": "page_test",
+                    "key": "field_59684f1b29f34",
+                    "label": "Left Content",
+                    "name": "left_content",
                     "type": "text",
                     "instructions": "",
-                    "required": "",
-                    "conditional_logic": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_59684ff229f35",
+                    "label": "Right Content",
+                    "name": "right_content",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -194,5 +232,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1499618501
+    "modified": 1500148205
 }

@@ -28,7 +28,11 @@ class BlogLeft extends Component {
 	getPosts(props, willMount = false) {
 		//console.log(props.page);
 		if (props.page !== this.props.page || willMount /*|| this.props.props.location.pathname !== props.props.location.pathname*/) {
-			this.props.fetchOddPosts(props.page || 1, 'books', 'index');
+			if(this.props.nav == true) {
+				this.props.fetchOddPosts(props.page || 1, 'books', 'home')
+			} else {
+				this.props.fetchOddPosts(props.page || 1, 'books', 'index');
+			}
 		}
 	}
 

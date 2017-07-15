@@ -28172,7 +28172,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.FETCH_MENU = exports.FETCH_BOOK = exports.FETCH_PAGE = exports.FETCH_FEAT_BOOK = exports.FETCH_EVEN_POSTS = exports.FETCH_ODD_POSTS = exports.FETCH_POSTS = undefined;
+	exports.FETCH_MENU = exports.FETCH_BOOK = exports.FETCH_PAGE = exports.FETCH_FEAT_BOOK = exports.FETCH_EVEN_POSTS = exports.FETCH_ODD_POSTS = undefined;
 	exports.fetchOddPosts = fetchOddPosts;
 	exports.fetchEvenPosts = fetchEvenPosts;
 	exports.fetchPosts = fetchPosts;
@@ -28187,7 +28187,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var FETCH_POSTS = exports.FETCH_POSTS = 'FETCH_POSTS';
 	var FETCH_ODD_POSTS = exports.FETCH_ODD_POSTS = 'FETCH_ODD_POSTS';
 	var FETCH_EVEN_POSTS = exports.FETCH_EVEN_POSTS = 'FETCH_EVEN_POSTS';
 	var FETCH_FEAT_BOOK = exports.FETCH_FEAT_BOOK = 'FETCH_FEAT_BOOK';
@@ -28206,26 +28205,46 @@
 
 		return function (dispatch) {
 			if (type == 'home') {
+				//console.log('home');
 				pageNum = 1;
-			} else if (type == 'index') {
-				pageNum = parseInt(pageNum) * 2 - 1;
-			}
-			//console.log('page odd:', pageNum);
-			_axios2.default.get(WP_API_ENDPOINT + '/' + post_type + '?_embed&page=' + pageNum + '&per_page=4').then(function (response) {
-				//console.log('\nmposts response:');
-				//console.log(response);
-				//console.log('odd', `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4`);
-				dispatch({
-					type: FETCH_ODD_POSTS,
-					//payload: response.data
-					payload: { items: response.data, headers: response.headers }
+				(0, _axios2.default)({
+					method: 'get',
+					url: WP_API_ENDPOINT + '/frontpage'
+				}).then(function (response) {
+					//console.log(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4&exclude=${response.data.acf.current_book}`);
+					return (0, _axios2.default)({
+						method: 'get',
+						url: WP_API_ENDPOINT + '/' + post_type + '?_embed&page=' + pageNum + '&per_page=4&exclude=' + response.data.acf.current_book
+					});
+				}).then(function (response) {
+					//console.log('\nmposts response:');
+					//console.log(response);
+					//console.log('odd', `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4`);
+					dispatch({
+						type: FETCH_ODD_POSTS,
+						//payload: response.data
+						payload: { items: response.data, headers: response.headers }
+					});
 				});
-			});
+			} else {
+				//console.log('index');
+				pageNum = parseInt(pageNum) * 2 - 1;
+				_axios2.default.get(WP_API_ENDPOINT + '/' + post_type + '?_embed&page=' + pageNum + '&per_page=4').then(function (response) {
+					//console.log('\nmposts response:');
+					//console.log(response);
+					//console.log('odd', `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4`);
+					dispatch({
+						type: FETCH_ODD_POSTS,
+						//payload: response.data
+						payload: { items: response.data, headers: response.headers }
+					});
+				});
+			}
 		};
 	}
 
 	function fetchEvenPosts() {
-		var pageNum = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 2;
+		var pageNum = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
 		var post_type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'books';
 
 		return function (dispatch) {
@@ -30367,7 +30386,11 @@
 
 				//console.log(props.page);
 				if (props.page !== this.props.page || willMount /*|| this.props.props.location.pathname !== props.props.location.pathname*/) {
-						this.props.fetchOddPosts(props.page || 1, 'books', 'index');
+						if (this.props.nav == true) {
+							this.props.fetchOddPosts(props.page || 1, 'books', 'home');
+						} else {
+							this.props.fetchOddPosts(props.page || 1, 'books', 'index');
+						}
 					}
 			}
 		}, {
@@ -30923,11 +30946,8 @@
 			value: function getPosts(props) {
 				var willMount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
-				if (this.props.nav == true) {
-					var type = 'index';
-				}
 				if (props.page !== this.props.page || willMount /*|| this.props.props.location.pathname !== props.props.location.pathname*/) {
-						this.props.fetchEvenPosts(props.page || 1, 'books', type);
+						this.props.fetchEvenPosts(props.page || 1, 'books');
 					}
 			}
 		}, {

@@ -46,8 +46,8 @@ class Home extends Component {
 					<p className="section-title">Recent</p>
 					<div id="content-right">
 						<BlogLeft page={this.getPage()}
-								   props={this.props}
-								   nav={true}/>
+								  props={this.props}
+								  nav={true}/>
 					</div>
 				</div>
 			</div>
