@@ -57,10 +57,10 @@ class Featured extends Component {
 	}
 
 	render() {
-		console.log(this.props);
+		//console.log(this.props);
 		if (typeof this.props.feat_book.featured.acf != 'undefined') {
 			//console.log(this.props.feat_book.featured.better_featured_image.media_details.sizes.home.source_url);
-			console.log(this.props.feat_book.featured);
+			//console.log(this.props.feat_book.featured);
 			return (
 				<div className="featured">
 					<Link 

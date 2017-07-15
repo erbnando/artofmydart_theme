@@ -7,7 +7,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Header from './components/header';
 import Home from './containers/home';
 import Index from './containers/index';
-import Blog from './containers/blog';
 import NotFound from './containers/notfound';
 import Page from './containers/page';
 import Book from './containers/book';
@@ -17,7 +16,7 @@ import MobileDetect from '../node_modules/mobile-detect';
 class App extends Component {
 	componentWillMount() {
 		var md = new MobileDetect(window.navigator.userAgent);
-		console.log( md.mobile() );
+		//console.log( md.mobile() );
 	}
 
 	render() {
@@ -36,7 +35,6 @@ class Main extends Component {
 		return (
 			<Switch>
 				<Route exact path="/" component={Home} />
-				<Route path="/page/:pageNum" page=":pageNum" component={Blog} />
 				<Route path="/index/page/:pageNum" component={Index}/>
 				<Route path="/index" component={Index}/>
 				<Route path="/about" component={Page}/>

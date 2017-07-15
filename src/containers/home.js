@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchPosts} from '../actions/index';
 import Featured from './featured';
-import BlogRight from './blog_right';
+import BlogLeft from './blog_left';
 
 class Home extends Component {
 	componentWillMount() {
@@ -45,7 +45,7 @@ class Home extends Component {
 				<div className="grid-two">
 					<p className="section-title">Recent</p>
 					<div id="content-right">
-						<BlogRight page={this.getPage()}
+						<BlogLeft page={this.getPage()}
 								   props={this.props}
 								   nav={true}/>
 					</div>

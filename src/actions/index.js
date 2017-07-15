@@ -11,12 +11,12 @@ const WP_API_ENDPOINT = `${RT_API.root}wp/v2`;
 const PRETTYPERMALINK_ENDPOINT = `${RT_API.root}react-theme/v1/prettyPermalink/`;
 const MENU_ENDPOINT = `${RT_API.root}react-theme/v1/menu-locations/`;
 
-export function fetchOddPosts(pageNum = 1, post_type = 'books', type = 'blog') {
+export function fetchOddPosts(pageNum = 1, post_type = 'books', type = 'home') {
 	return function (dispatch) {
-		if (type == 'blog') {
-			pageNum = parseInt(pageNum) + (parseInt(pageNum) - 1);
+		if (type == 'home') {
+			pageNum = 1;
 		} else if (type == 'index') {
-			pageNum = parseInt(pageNum) + (parseInt(pageNum)/2 - .5);
+			pageNum = parseInt(pageNum)*2 - 1;
 		}
 		//console.log('page odd:', pageNum);
 		axios.get(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4`)
@@ -33,13 +33,9 @@ export function fetchOddPosts(pageNum = 1, post_type = 'books', type = 'blog') {
 	}
 }
 
-export function fetchEvenPosts(pageNum = 2, post_type = 'books', type = 'blog') {
+export function fetchEvenPosts(pageNum = 2, post_type = 'books') {
 	return function (dispatch) {
-		if (type == 'blog') {
-			pageNum = parseInt(pageNum) + (parseInt(pageNum) - 2);
-		} else if (type == 'index') {
-			pageNum = parseInt(pageNum)*2;
-		}
+		pageNum = parseInt(pageNum)*2;
 		//console.log('page even:', pageNum);
 		axios.get(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4`)
 			.then(response => {

@@ -188,7 +188,8 @@ p {
                 font-size: 10px;
                 color: #bbb;
                 font-weight: 900;
-                margin-bottom: 0; }
+                margin-bottom: 0;
+                text-transform: uppercase; }
   .grid-two.index-home-left:before {
     content: '';
     bottom: 0;
@@ -214,7 +215,8 @@ p {
       font-size: 10px;
       color: #bbb;
       font-weight: 900;
-      margin: 0; }
+      margin: 0;
+      text-transform: uppercase; }
     .grid-two:not(.index-home-left) #content-left .posts .post .date, .grid-two:not(.index-home-left) #content-right .posts .post .date {
       font-family: Poly;
       font-size: 13px;

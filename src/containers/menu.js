@@ -36,7 +36,6 @@ class Menu extends Component {
         if (url === window.location.origin) {
             return '/';
         }
-
         return url.substr(window.location.origin.length);
     }
 

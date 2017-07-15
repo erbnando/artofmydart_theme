@@ -72,27 +72,23 @@
 
 	var _index2 = _interopRequireDefault(_index);
 
-	var _blog = __webpack_require__(298);
-
-	var _blog2 = _interopRequireDefault(_blog);
-
-	var _notfound = __webpack_require__(299);
+	var _notfound = __webpack_require__(298);
 
 	var _notfound2 = _interopRequireDefault(_notfound);
 
-	var _page = __webpack_require__(300);
+	var _page = __webpack_require__(299);
 
 	var _page2 = _interopRequireDefault(_page);
 
-	var _book = __webpack_require__(301);
+	var _book = __webpack_require__(300);
 
 	var _book2 = _interopRequireDefault(_book);
 
-	var _store = __webpack_require__(303);
+	var _store = __webpack_require__(302);
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _mobileDetect = __webpack_require__(320);
+	var _mobileDetect = __webpack_require__(319);
 
 	var _mobileDetect2 = _interopRequireDefault(_mobileDetect);
 
@@ -104,7 +100,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(322);
+	__webpack_require__(321);
 
 	var App = function (_Component) {
 		_inherits(App, _Component);
@@ -119,7 +115,7 @@
 			key: 'componentWillMount',
 			value: function componentWillMount() {
 				var md = new _mobileDetect2.default(window.navigator.userAgent);
-				console.log(md.mobile());
+				//console.log( md.mobile() );
 			}
 		}, {
 			key: 'render',
@@ -152,7 +148,6 @@
 					_reactRouterDom.Switch,
 					null,
 					_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _home2.default }),
-					_react2.default.createElement(_reactRouterDom.Route, { path: '/page/:pageNum', page: ':pageNum', component: _blog2.default }),
 					_react2.default.createElement(_reactRouterDom.Route, { path: '/index/page/:pageNum', component: _index2.default }),
 					_react2.default.createElement(_reactRouterDom.Route, { path: '/index', component: _index2.default }),
 					_react2.default.createElement(_reactRouterDom.Route, { path: '/about', component: _page2.default }),
@@ -28153,7 +28148,6 @@
 	            if (url === window.location.origin) {
 	                return '/';
 	            }
-
 	            return url.substr(window.location.origin.length);
 	        }
 	    }]);
@@ -28208,13 +28202,13 @@
 	function fetchOddPosts() {
 		var pageNum = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
 		var post_type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'books';
-		var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'blog';
+		var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'home';
 
 		return function (dispatch) {
-			if (type == 'blog') {
-				pageNum = parseInt(pageNum) + (parseInt(pageNum) - 1);
+			if (type == 'home') {
+				pageNum = 1;
 			} else if (type == 'index') {
-				pageNum = parseInt(pageNum) + (parseInt(pageNum) / 2 - .5);
+				pageNum = parseInt(pageNum) * 2 - 1;
 			}
 			//console.log('page odd:', pageNum);
 			_axios2.default.get(WP_API_ENDPOINT + '/' + post_type + '?_embed&page=' + pageNum + '&per_page=4').then(function (response) {
@@ -28233,14 +28227,9 @@
 	function fetchEvenPosts() {
 		var pageNum = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 2;
 		var post_type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'books';
-		var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'blog';
 
 		return function (dispatch) {
-			if (type == 'blog') {
-				pageNum = parseInt(pageNum) + (parseInt(pageNum) - 2);
-			} else if (type == 'index') {
-				pageNum = parseInt(pageNum) * 2;
-			}
+			pageNum = parseInt(pageNum) * 2;
 			//console.log('page even:', pageNum);
 			_axios2.default.get(WP_API_ENDPOINT + '/' + post_type + '?_embed&page=' + pageNum + '&per_page=4').then(function (response) {
 				//console.log('\nmposts response:');
@@ -30042,9 +30031,9 @@
 
 	var _featured2 = _interopRequireDefault(_featured);
 
-	var _blog_right = __webpack_require__(292);
+	var _blog_left = __webpack_require__(292);
 
-	var _blog_right2 = _interopRequireDefault(_blog_right);
+	var _blog_left2 = _interopRequireDefault(_blog_left);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30126,7 +30115,7 @@
 						_react2.default.createElement(
 							'div',
 							{ id: 'content-right' },
-							_react2.default.createElement(_blog_right2.default, { page: this.getPage(),
+							_react2.default.createElement(_blog_left2.default, { page: this.getPage(),
 								props: this.props,
 								nav: true })
 						)
@@ -30240,10 +30229,10 @@
 		}, {
 			key: 'render',
 			value: function render() {
-				console.log(this.props);
+				//console.log(this.props);
 				if (typeof this.props.feat_book.featured.acf != 'undefined') {
 					//console.log(this.props.feat_book.featured.better_featured_image.media_details.sizes.home.source_url);
-					console.log(this.props.feat_book.featured);
+					//console.log(this.props.feat_book.featured);
 					return _react2.default.createElement(
 						'div',
 						{ className: 'featured' },
@@ -30339,16 +30328,16 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var BlogRight = function (_Component) {
-		_inherits(BlogRight, _Component);
+	var BlogLeft = function (_Component) {
+		_inherits(BlogLeft, _Component);
 
-		function BlogRight() {
-			_classCallCheck(this, BlogRight);
+		function BlogLeft() {
+			_classCallCheck(this, BlogLeft);
 
-			return _possibleConstructorReturn(this, (BlogRight.__proto__ || Object.getPrototypeOf(BlogRight)).apply(this, arguments));
+			return _possibleConstructorReturn(this, (BlogLeft.__proto__ || Object.getPrototypeOf(BlogLeft)).apply(this, arguments));
 		}
 
-		_createClass(BlogRight, [{
+		_createClass(BlogLeft, [{
 			key: 'componentWillMount',
 			value: function componentWillMount() {
 				//console.log('will mount');
@@ -30376,9 +30365,9 @@
 			value: function getPosts(props) {
 				var willMount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
-				//console.log(this.props);
+				//console.log(props.page);
 				if (props.page !== this.props.page || willMount /*|| this.props.props.location.pathname !== props.props.location.pathname*/) {
-						this.props.fetchOddPosts(props.page || 1);
+						this.props.fetchOddPosts(props.page || 1, 'books', 'index');
 					}
 			}
 		}, {
@@ -30398,30 +30387,30 @@
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
 				//console.log('did update');
-				window.rightloaded = true;
-				if (document.getElementById('blog-right')) {
+				window.leftloaded = true;
+				if (document.getElementById('blog-left')) {
 					if (this.props.odd_posts.items.length == 0) {
-						document.getElementById('blog-right').className = "grid-two blog-right blog-right-hidden";
+						document.getElementById('blog-left').className = "grid-two blog-left blog-left-hidden";
 					} else {
-						document.getElementById('blog-right').className = "grid-two blog-right";
+						document.getElementById('blog-left').className = "grid-two blog-left";
 					}
 				}
 				if (window.leftloaded !== true) {
-					//console.log('blog right loaded first');
-					//console.log('blog left:', window.rightloaded, 'blog right:', window.leftloaded);
+					//console.log('blog left loaded first');
+					//console.log('blog right:', window.rightloaded, 'blog left:', window.rightloaded);
 				} else {
 					setTimeout(function () {
-						if (document.getElementById('content-left')) {
-							document.getElementById('content-left').style.opacity = "1";
-						}
 						if (document.getElementById('content-right')) {
 							document.getElementById('content-right').style.opacity = "1";
 						}
+						if (document.getElementById('content-left')) {
+							document.getElementById('content-left').style.opacity = "1";
+						}
 						//scroll to top
 						//window.scrollTo(0, 0);
-						//console.log('+++++blog right triggered display');
-						window.rightloaded = false;
+						//console.log('+++++blog left triggered display');
 						window.leftloaded = false;
+						window.rightloaded = false;
 					}, 250);
 				}
 			}
@@ -30440,7 +30429,7 @@
 						shouldRender: this.shouldRender(),
 						route: this.props.route || '',
 						slug: this.props.slug || '',
-						type: 'blog' });
+						type: 'home' });
 				} else {
 					return;
 				}
@@ -30472,7 +30461,7 @@
 			}
 		}]);
 
-		return BlogRight;
+		return BlogLeft;
 	}(_react.Component);
 
 	function mapStateToProps(_ref) {
@@ -30481,7 +30470,7 @@
 		return { odd_posts: odd_posts };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchOddPosts: _index.fetchOddPosts })(BlogRight);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchOddPosts: _index.fetchOddPosts })(BlogLeft);
 
 /***/ }),
 /* 293 */
@@ -30676,7 +30665,8 @@
 	  */
 
 			value: function getPageNumber() {
-				if (this.props.type == 'blog') {
+				//console.log(this.props.type);
+				if (this.props.type == 'home') {
 					if (this.props.pageNum == '1') {
 						return 'More';
 					} else {
@@ -30689,23 +30679,12 @@
 		}, {
 			key: 'getNextPage',
 			value: function getNextPage() {
-				//console.log(`/${this.getArchiveType()}${this.getArchiveSlug()}/${parseInt(this.props.pageNum) + 1}`);
-				return '/' + this.getArchiveType() + this.getArchiveSlug() + '/' + (parseInt(this.props.pageNum) + 1);
-			}
-		}, {
-			key: 'getArchiveType',
-			value: function getArchiveType() {
-				//console.log(this.props.type);
-				if (this.props.type == 'blog') {
-					return 'page';
+				if (this.props.type == 'home') {
+					return '/index';
 				} else {
-					return 'index/page';
+					//console.log(`/${this.getArchiveType()}${this.getArchiveSlug()}/${parseInt(this.props.pageNum) + 1}`);
+					return '/index/page/' + (parseInt(this.props.pageNum) + 1);
 				}
-			}
-		}, {
-			key: 'getArchiveSlug',
-			value: function getArchiveSlug() {
-				return "" !== this.props.slug ? '/' + this.props.slug : '';
 			}
 		}, {
 			key: 'hideComponents',
@@ -30776,11 +30755,11 @@
 
 	var _index = __webpack_require__(262);
 
-	var _blog_left = __webpack_require__(297);
+	var _blog_left = __webpack_require__(292);
 
 	var _blog_left2 = _interopRequireDefault(_blog_left);
 
-	var _blog_right = __webpack_require__(292);
+	var _blog_right = __webpack_require__(297);
 
 	var _blog_right2 = _interopRequireDefault(_blog_right);
 
@@ -30828,14 +30807,14 @@
 					//console.log('1');
 					return 1;
 				} else {
-					//console.log(window.location.pathname.replace("/page/", '').replace("/", '') || 1);
+					//console.log(window.location.pathname.replace("/index/page/", '').replace("/", ''));
 					return window.location.pathname.replace("/index/page/", '').replace("/", '');
 				}
 			}
 		}, {
 			key: 'render',
 			value: function render() {
-				//console.log(this.props);
+				//console.log(this.getPage());
 				return _react2.default.createElement(
 					'div',
 					{ className: 'content index', id: 'content' },
@@ -30850,7 +30829,7 @@
 						_react2.default.createElement(
 							'div',
 							{ id: 'content-left' },
-							_react2.default.createElement(_blog_right2.default, { page: this.getPage() || 1,
+							_react2.default.createElement(_blog_left2.default, { page: this.getPage(),
 								props: this.props,
 								nav: false })
 						)
@@ -30861,7 +30840,7 @@
 						_react2.default.createElement(
 							'div',
 							{ id: 'content-right' },
-							_react2.default.createElement(_blog_left2.default, { page: this.getPage() || 2,
+							_react2.default.createElement(_blog_right2.default, { page: this.getPage(),
 								props: this.props,
 								nav: true })
 						)
@@ -30911,16 +30890,16 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var BlogLeft = function (_Component) {
-		_inherits(BlogLeft, _Component);
+	var BlogRight = function (_Component) {
+		_inherits(BlogRight, _Component);
 
-		function BlogLeft() {
-			_classCallCheck(this, BlogLeft);
+		function BlogRight() {
+			_classCallCheck(this, BlogRight);
 
-			return _possibleConstructorReturn(this, (BlogLeft.__proto__ || Object.getPrototypeOf(BlogLeft)).apply(this, arguments));
+			return _possibleConstructorReturn(this, (BlogRight.__proto__ || Object.getPrototypeOf(BlogRight)).apply(this, arguments));
 		}
 
-		_createClass(BlogLeft, [{
+		_createClass(BlogRight, [{
 			key: 'componentWillMount',
 			value: function componentWillMount() {
 				//console.log(this.props);
@@ -30967,24 +30946,24 @@
 		}, {
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
-				//set left flag to true
-				window.leftloaded = true;
-				if (window.rightloaded !== true) {
-					//console.log('blog left loaded first');
-					//console.log('blog left:', window.leftloaded, 'blog right:', window.rightloaded);
+				//set right flag to true
+				window.rightloaded = true;
+				if (window.leftloaded !== true) {
+					//console.log('blog right loaded first');
+					//console.log('blog right:', window.rightloaded, 'blog left:', window.leftloaded);
 				} else {
 					setTimeout(function () {
-						if (document.getElementById('content-left')) {
-							document.getElementById('content-left').style.opacity = "1";
-						}
 						if (document.getElementById('content-right')) {
 							document.getElementById('content-right').style.opacity = "1";
 						}
+						if (document.getElementById('content-left')) {
+							document.getElementById('content-left').style.opacity = "1";
+						}
 						//scroll to top
 						//window.scrollTo(0, 0);
-						//console.log('+++++blog left triggered display');
-						window.leftloaded = false;
+						//console.log('+++++blog right triggered display');
 						window.rightloaded = false;
+						window.leftloaded = false;
 					}, 250);
 				}
 			}
@@ -31034,7 +31013,7 @@
 			}
 		}]);
 
-		return BlogLeft;
+		return BlogRight;
 	}(_react.Component);
 
 	function mapStateToProps(_ref) {
@@ -31043,124 +31022,10 @@
 		return { even_posts: even_posts };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchEvenPosts: _index.fetchEvenPosts })(BlogLeft);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchEvenPosts: _index.fetchEvenPosts })(BlogRight);
 
 /***/ }),
 /* 298 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(184);
-
-	var _blog_left = __webpack_require__(297);
-
-	var _blog_left2 = _interopRequireDefault(_blog_left);
-
-	var _blog_right = __webpack_require__(292);
-
-	var _blog_right2 = _interopRequireDefault(_blog_right);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Blog = function (_Component) {
-		_inherits(Blog, _Component);
-
-		function Blog() {
-			_classCallCheck(this, Blog);
-
-			return _possibleConstructorReturn(this, (Blog.__proto__ || Object.getPrototypeOf(Blog)).apply(this, arguments));
-		}
-
-		_createClass(Blog, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {
-				//console.log('B will mount');
-			}
-		}, {
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				//console.log('B did mount');
-			}
-		}, {
-			key: 'componentDidUpdate',
-			value: function componentDidUpdate() {
-				//console.log('B did update');
-			}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps() {
-				//console.log('B will receive props');
-			}
-		}, {
-			key: 'getPage',
-			value: function getPage() {
-				//console.log(window.location.pathname);
-				if (window.location.pathname === '/') {
-					//console.log('1');
-					return 1;
-				} else {
-					//console.log(window.location.pathname.replace("/page/", '').replace("/", '') || 1);
-					return window.location.pathname.replace("/page/", '').replace("/", '');
-				}
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				console.log(this.props);
-				return _react2.default.createElement(
-					'div',
-					{ className: 'content blog', id: 'content' },
-					_react2.default.createElement(
-						'div',
-						{ className: 'grid-two blog-left' },
-						_react2.default.createElement(
-							'p',
-							{ className: 'section-title' },
-							'Recent'
-						),
-						_react2.default.createElement(
-							'div',
-							{ id: 'content-left' },
-							_react2.default.createElement(_blog_left2.default, { page: this.getPage(),
-								props: this.props,
-								nav: false })
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'grid-two blog-right', id: 'blog-right' },
-						_react2.default.createElement(
-							'div',
-							{ id: 'content-right' },
-							_react2.default.createElement(_blog_right2.default, { page: this.getPage(),
-								props: this.props,
-								nav: true })
-						)
-					)
-				);
-			}
-		}]);
-
-		return Blog;
-	}(_react.Component);
-
-	module.exports = Blog;
-
-/***/ }),
-/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31245,7 +31110,7 @@
 	module.exports = Index;
 
 /***/ }),
-/* 300 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31340,7 +31205,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchPage: _index.fetchPage })(Page);
 
 /***/ }),
-/* 301 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31359,7 +31224,7 @@
 
 	var _index = __webpack_require__(262);
 
-	var _booknav = __webpack_require__(302);
+	var _booknav = __webpack_require__(301);
 
 	var _booknav2 = _interopRequireDefault(_booknav);
 
@@ -31518,7 +31383,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchBook: _index.fetchBook })(Book);
 
 /***/ }),
-/* 302 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31649,7 +31514,7 @@
 	exports.default = BookNav;
 
 /***/ }),
-/* 303 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31660,19 +31525,19 @@
 
 	var _redux = __webpack_require__(197);
 
-	var _reduxThunk = __webpack_require__(304);
+	var _reduxThunk = __webpack_require__(303);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _reduxPromiseMiddleware = __webpack_require__(305);
+	var _reduxPromiseMiddleware = __webpack_require__(304);
 
 	var _reduxPromiseMiddleware2 = _interopRequireDefault(_reduxPromiseMiddleware);
 
-	var _reduxLogger = __webpack_require__(307);
+	var _reduxLogger = __webpack_require__(306);
 
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-	var _reducers = __webpack_require__(313);
+	var _reducers = __webpack_require__(312);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -31683,7 +31548,7 @@
 	exports.default = (0, _redux.createStore)(_reducers2.default, appliedMiddleware);
 
 /***/ }),
-/* 304 */
+/* 303 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -31711,7 +31576,7 @@
 	exports['default'] = thunk;
 
 /***/ }),
-/* 305 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31729,7 +31594,7 @@
 
 	exports.default = promiseMiddleware;
 
-	var _isPromise = __webpack_require__(306);
+	var _isPromise = __webpack_require__(305);
 
 	var _isPromise2 = _interopRequireDefault(_isPromise);
 
@@ -31896,7 +31761,7 @@
 	}
 
 /***/ }),
-/* 306 */
+/* 305 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -31917,7 +31782,7 @@
 	}
 
 /***/ }),
-/* 307 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31929,11 +31794,11 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _core = __webpack_require__(308);
+	var _core = __webpack_require__(307);
 
-	var _helpers = __webpack_require__(309);
+	var _helpers = __webpack_require__(308);
 
-	var _defaults = __webpack_require__(312);
+	var _defaults = __webpack_require__(311);
 
 	var _defaults2 = _interopRequireDefault(_defaults);
 
@@ -32055,7 +31920,7 @@
 
 
 /***/ }),
-/* 308 */
+/* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32068,9 +31933,9 @@
 
 	exports.printBuffer = printBuffer;
 
-	var _helpers = __webpack_require__(309);
+	var _helpers = __webpack_require__(308);
 
-	var _diff = __webpack_require__(310);
+	var _diff = __webpack_require__(309);
 
 	var _diff2 = _interopRequireDefault(_diff);
 
@@ -32201,7 +32066,7 @@
 	}
 
 /***/ }),
-/* 309 */
+/* 308 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -32225,7 +32090,7 @@
 	var timer = exports.timer = typeof performance !== "undefined" && performance !== null && typeof performance.now === "function" ? performance : Date;
 
 /***/ }),
-/* 310 */
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32235,7 +32100,7 @@
 	});
 	exports.default = diffLogger;
 
-	var _deepDiff = __webpack_require__(311);
+	var _deepDiff = __webpack_require__(310);
 
 	var _deepDiff2 = _interopRequireDefault(_deepDiff);
 
@@ -32324,7 +32189,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 311 */
+/* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -32753,7 +32618,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 312 */
+/* 311 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -32804,7 +32669,7 @@
 	module.exports = exports["default"];
 
 /***/ }),
-/* 313 */
+/* 312 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32815,27 +32680,27 @@
 
 	var _redux = __webpack_require__(197);
 
-	var _menu_reducer = __webpack_require__(314);
+	var _menu_reducer = __webpack_require__(313);
 
 	var _menu_reducer2 = _interopRequireDefault(_menu_reducer);
 
-	var _feat_book_reducer = __webpack_require__(315);
+	var _feat_book_reducer = __webpack_require__(314);
 
 	var _feat_book_reducer2 = _interopRequireDefault(_feat_book_reducer);
 
-	var _odd_posts_reducer = __webpack_require__(316);
+	var _odd_posts_reducer = __webpack_require__(315);
 
 	var _odd_posts_reducer2 = _interopRequireDefault(_odd_posts_reducer);
 
-	var _even_posts_reducer = __webpack_require__(317);
+	var _even_posts_reducer = __webpack_require__(316);
 
 	var _even_posts_reducer2 = _interopRequireDefault(_even_posts_reducer);
 
-	var _page_reducer = __webpack_require__(318);
+	var _page_reducer = __webpack_require__(317);
 
 	var _page_reducer2 = _interopRequireDefault(_page_reducer);
 
-	var _book_reducer = __webpack_require__(319);
+	var _book_reducer = __webpack_require__(318);
 
 	var _book_reducer2 = _interopRequireDefault(_book_reducer);
 
@@ -32851,7 +32716,7 @@
 	});
 
 /***/ }),
-/* 314 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -32874,7 +32739,7 @@
 	var _actions = __webpack_require__(262);
 
 /***/ }),
-/* 315 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32898,7 +32763,7 @@
 	var _actions = __webpack_require__(262);
 
 /***/ }),
-/* 316 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32921,7 +32786,7 @@
 	var _actions = __webpack_require__(262);
 
 /***/ }),
-/* 317 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32945,7 +32810,7 @@
 	var _actions = __webpack_require__(262);
 
 /***/ }),
-/* 318 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32969,7 +32834,7 @@
 	var _actions = __webpack_require__(262);
 
 /***/ }),
-/* 319 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32993,7 +32858,7 @@
 	var _actions = __webpack_require__(262);
 
 /***/ }),
-/* 320 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// THIS FILE IS GENERATED - DO NOT EDIT!
@@ -33979,7 +33844,7 @@
 	    if (typeof module !== 'undefined' && module.exports) {
 	        return function (factory) { module.exports = factory(); };
 	    } else if (true) {
-	        return __webpack_require__(321);
+	        return __webpack_require__(320);
 	    } else if (typeof window !== 'undefined') {
 	        return function (factory) { window.MobileDetect = factory(); };
 	    } else {
@@ -33989,14 +33854,14 @@
 	})());
 
 /***/ }),
-/* 321 */
+/* 320 */
 /***/ (function(module, exports) {
 
 	module.exports = function() { throw new Error("define cannot be used indirect"); };
 
 
 /***/ }),
-/* 322 */
+/* 321 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

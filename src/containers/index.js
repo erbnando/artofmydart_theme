@@ -26,29 +26,29 @@ class Index extends Component {
 			//console.log('1');
 			return 1
 		} else {
-			//console.log(window.location.pathname.replace("/page/", '').replace("/", '') || 1);
+			//console.log(window.location.pathname.replace("/index/page/", '').replace("/", ''));
 			return window.location.pathname.replace("/index/page/", '').replace("/", '');
 
 		}
 	}
 
 	render() {
-		//console.log(this.props);
+		//console.log(this.getPage());
 		return (
 			<div className="content index" id="content">
 				<div className="grid-two blog-left">
 					<p className="section-title">Index</p>
 					<div id="content-left">
-						<BlogRight page={this.getPage() || 1}
-								   props={this.props}
-								   nav={false}/>
+						<BlogLeft page={this.getPage()}
+								  props={this.props}
+								  nav={false}/>
 					</div>
 				</div>
 				<div className="grid-two blog-right" id="blog-right">
 					<div id="content-right">
-						<BlogLeft page={this.getPage() || 2}
-								  props={this.props}
-								  nav={true}/>
+						<BlogRight page={this.getPage()}
+								   props={this.props}
+								   nav={true}/>
 					</div>
 				</div>
 			</div>

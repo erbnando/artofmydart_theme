@@ -15,7 +15,8 @@ export default class PageNav extends Component {
 	*/
 
 	getPageNumber() {
-		if (this.props.type == 'blog') {
+		//console.log(this.props.type);
+		if (this.props.type == 'home') {
 			if (this.props.pageNum == '1') {
 				return 'More'
 			} else {
@@ -27,21 +28,12 @@ export default class PageNav extends Component {
 	}
 
 	getNextPage() {
-		//console.log(`/${this.getArchiveType()}${this.getArchiveSlug()}/${parseInt(this.props.pageNum) + 1}`);
-		return `/${this.getArchiveType()}${this.getArchiveSlug()}/${parseInt(this.props.pageNum) + 1}`;
-	}
-
-	getArchiveType() {
-		//console.log(this.props.type);
-		if (this.props.type == 'blog') {
-			return 'page';
+		if (this.props.type == 'home') {
+			return `/index`;
 		} else {
-			return 'index/page';
+			//console.log(`/${this.getArchiveType()}${this.getArchiveSlug()}/${parseInt(this.props.pageNum) + 1}`);
+			return `/index/page/${parseInt(this.props.pageNum) + 1}`;
 		}
-	}
-
-	getArchiveSlug() {
-		return "" !== this.props.slug ? `/${this.props.slug}` : '';
 	}
 
 	hideComponents() {
