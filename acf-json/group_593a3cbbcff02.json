@@ -122,7 +122,7 @@
             "collapsed": "",
             "min": "",
             "max": "",
-            "layout": "row",
+            "layout": "block",
             "button_label": "Add Page",
             "sub_fields": [
                 {
@@ -155,7 +155,7 @@
                     "key": "field_59684f1b29f34",
                     "label": "Left Content",
                     "name": "left_content",
-                    "type": "text",
+                    "type": "select",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": [
@@ -172,19 +172,23 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
+                    "choices": {
+                        "blank": "Blank"
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
+                    "disabled": 0,
+                    "readonly": 0
                 },
                 {
                     "key": "field_59684ff229f35",
                     "label": "Right Content",
                     "name": "right_content",
-                    "type": "text",
+                    "type": "select",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": [
@@ -201,13 +205,17 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
+                    "choices": {
+                        "blank": "Blank"
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
+                    "disabled": 0,
+                    "readonly": 0
                 }
             ]
         }
@@ -232,5 +240,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1500148205
+    "modified": 1500178012
 }

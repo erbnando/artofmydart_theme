@@ -28175,7 +28175,6 @@
 	exports.FETCH_MENU = exports.FETCH_BOOK = exports.FETCH_PAGE = exports.FETCH_FEAT_BOOK = exports.FETCH_EVEN_POSTS = exports.FETCH_ODD_POSTS = undefined;
 	exports.fetchOddPosts = fetchOddPosts;
 	exports.fetchEvenPosts = fetchEvenPosts;
-	exports.fetchPosts = fetchPosts;
 	exports.fetchFeatBook = fetchFeatBook;
 	exports.fetchPage = fetchPage;
 	exports.fetchBook = fetchBook;
@@ -28214,7 +28213,7 @@
 					//console.log(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4&exclude=${response.data.acf.current_book}`);
 					return (0, _axios2.default)({
 						method: 'get',
-						url: WP_API_ENDPOINT + '/' + post_type + '?_embed&page=' + pageNum + '&per_page=4&exclude=' + response.data.acf.current_book
+						url: WP_API_ENDPOINT + '/' + post_type + '?_embed&page=' + pageNum + '&per_page=4&exclude=' + response.data.acf.current_book + '&orderby=date'
 					});
 				}).then(function (response) {
 					//console.log('\nmposts response:');
@@ -28260,38 +28259,6 @@
 					payload: { items: response.data, headers: response.headers }
 				});
 			});
-		};
-	}
-
-	function fetchPosts() {
-		var pageNum = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-		var post_type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'books';
-
-		return function (dispatch) {
-			if (pageNum < 2 || pageNum == null) {
-				_axios2.default.get(WP_API_ENDPOINT + '/' + post_type + '?_embed&page=' + pageNum + '&per_page=4').then(function (response) {
-					//console.log('\nmposts response:');
-					//console.log(response);
-					//console.log(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}`);
-					dispatch({
-						type: FETCH_POSTS,
-						//payload: response.data
-						payload: { items: response.data, headers: response.headers }
-					});
-				});
-			} else {
-				var offset = (pageNum - 1) * 8 - 4;
-				_axios2.default.get(WP_API_ENDPOINT + '/' + post_type + '?_embed&page=' + pageNum + '&per_page=8&offset=' + offset).then(function (response) {
-					//console.log('\nmposts response:');
-					//console.log(response);
-					//console.log(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=8&offset=` + offset);
-					dispatch({
-						type: FETCH_POSTS,
-						//payload: response.data
-						payload: { items: response.data, headers: response.headers }
-					});
-				});
-			}
 		};
 	}
 

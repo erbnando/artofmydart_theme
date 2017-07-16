@@ -23,7 +23,7 @@ export function fetchOddPosts(pageNum = 1, post_type = 'books', type = 'home') {
 				//console.log(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4&exclude=${response.data.acf.current_book}`);
 				return axios({
 					method: 'get',
-					url: `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4&exclude=${response.data.acf.current_book}`
+					url: `${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4&exclude=${response.data.acf.current_book}&orderby=date`
 				});
 			})
 			.then(response => {
@@ -69,37 +69,6 @@ export function fetchEvenPosts(pageNum = 1, post_type = 'books') {
 					payload: {items: response.data, headers: response.headers}
 				});
 			});
-	}
-}
-
-export function fetchPosts(pageNum = 1, post_type = 'books') {
-	return function (dispatch) {
-		if (pageNum < 2 || pageNum == null) {
-			axios.get(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=4`)
-				.then(response => {
-					//console.log('\nmposts response:');
-					//console.log(response);
-					//console.log(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}`);
-					dispatch({
-						type: FETCH_POSTS,
-						//payload: response.data
-						payload: {items: response.data, headers: response.headers}
-					});
-				});
-		} else {
-			var offset = (((pageNum-1)*8)-4);
-			axios.get(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=8&offset=` + offset)
-				.then(response => {
-					//console.log('\nmposts response:');
-					//console.log(response);
-					//console.log(`${WP_API_ENDPOINT}/${post_type}?_embed&page=${pageNum}&per_page=8&offset=` + offset);
-					dispatch({
-						type: FETCH_POSTS,
-						//payload: response.data
-						payload: {items: response.data, headers: response.headers}
-					});
-				});
-		}
 	}
 }
 
