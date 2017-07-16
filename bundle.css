@@ -85,6 +85,9 @@ p {
       .container > header nav ul li {
         display: inline-block;
         margin-left: 14px; }
+        @media only screen and (max-width: 479px) {
+          .container > header nav ul li {
+            margin-left: 10px; } }
         .container > header nav ul li a {
           font-family: Lato;
           color: black;
@@ -92,12 +95,18 @@ p {
           text-transform: uppercase;
           font-weight: 900;
           font-size: 12px; }
+          @media only screen and (max-width: 479px) {
+            .container > header nav ul li a {
+              font-size: 10px; } }
       .container > header nav ul li:first-child {
         margin-left: 0; }
       .container > header nav ul .fa:before {
         vertical-align: middle; }
       .container > header nav ul .social-first {
         margin-left: 20px; }
+        @media only screen and (max-width: 479px) {
+          .container > header nav ul .social-first {
+            margin-left: 16px; } }
 
 .grid-two {
   box-sizing: border-box;
