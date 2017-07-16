@@ -145,7 +145,7 @@ p {
     padding: 0 111px 0 40px; }
     @media only screen and (max-width: 809px) {
       .grid-two.index-home-left {
-        padding: 0 40px !important;
+        padding: 0 30px !important;
         margin-bottom: 40px; } }
     .grid-two.index-home-left .section-title {
       margin-bottom: 0;
