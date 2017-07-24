@@ -38,7 +38,7 @@
 	}
 	&.index-home-left {
 		//border: 1px solid red;
-		padding:  0 111px 0 40px;
+		padding:  0 100px 0 40px;
 		@media only screen and (max-width: 809px) {
 			padding:  0 30px!important;
 			margin-bottom: 40px;
@@ -55,35 +55,40 @@
 				text-align: center;
 				display: inline-block;
 				width: 100%;
-				a {
-					display: block;
-					text-decoration: none;
-					height: 418px;
-					.featured-image {
-						height: 300px;
-	   					margin-top: 25px;
-	   					position: relative;
-						img {
-							width: auto;
-							max-width: 100%;
-							max-height: 300px;
-							vertical-align: bottom;
-						    position: absolute;
-						    left: 0;
-						    right: 0;
-						    bottom: 0;
-						    margin: auto;
-						}
+				.featured-image {
+					height: 320px;
+   					margin-top: 25px;
+   					position: relative;
+					img {
+						width: auto;
+						max-width: 100%;
+						max-height: 320px;
+						vertical-align: bottom;
+					    position: absolute;
+					    left: 0;
+					    right: 0;
+					    bottom: 0;
+					    margin: auto;
 					}
-					.featured-details {
-						display: inline-block;
-						height: 118px;
-						width: 100%;
-						position: relative;
-						div {
-						    position: relative;
-						    top: 50%;
-						    transform: translateY(-50%);
+				}
+				.featured-details {
+					display: inline-block;
+					height: 98px;
+					width: 100%;
+					position: relative;
+					div {
+					    position: relative;
+					    top: 48%;
+					    transform: translateY(-50%);
+						margin-left: -20px;
+						margin-right: -20px;
+						@media only screen and (max-width: 809px) {
+							margin-left: -10px;
+							margin-right: -10px;
+						}						
+						a {
+							display: block;
+							text-decoration: none;
 							h3 {
 								font-family: Lato;
 								font-size: 18px;
@@ -91,6 +96,7 @@
 								font-weight: 900;
 								margin-bottom: 7px;
 								margin-top: 0;
+								line-height: 22px;
 							}
 							p {
 								font-family: Lato;
@@ -99,6 +105,7 @@
 								font-weight: 900;
 								margin-bottom: 0;
 								text-transform: uppercase;
+								line-height: 15px;
 							}
 						}
 					}
@@ -113,6 +120,9 @@
 		position: absolute;
 		width: 75%;
 		border-bottom: 4px solid #e9e8e8;
+		@media only screen and (max-width: 809px) {
+			width: 95%;
+		}
 	}
 	&:not(.index-home-left) {
 		#content-left, #content-right {

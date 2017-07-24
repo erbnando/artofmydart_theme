@@ -1,9 +1,9 @@
 .book {
-	> div {
-	    margin: 0 auto;
-	}
 	@media only screen and (max-width: 809px) {
 		margin-top: 40px!important;
+	}
+	> div {
+	    margin: 0 auto;
 	}
 	.book-nav {
 		 text-align: center;
@@ -44,162 +44,344 @@
 			}
 		}
 	}	
-}
-.book.cover {
-	@media only screen and (max-width: 479px) {
-		padding: 0 20px!important;
-		height: 400px!important;
-	}
-	> div:first-child {
-		width: 400px;
-		box-sizing: border-box;
-		border-left: 4px solid #e9e8e8;
-		position: relative;
+	&.cover {
 		@media only screen and (max-width: 479px) {
-			width: 280px;
+			padding: 0 20px!important;
+			height: 400px!important;
 		}
-		&:before {
-			content: '';
-			bottom: 0;
-			left: 0;
-			position: absolute;
-			width: 93%;
-			border-bottom: 4px solid #e9e8e8;
-		}
-		> .img-wrapper {
-			height: 395px;
+		> div:first-child {
+			width: 400px;
+			box-sizing: border-box;
+			border-left: 4px solid #e9e8e8;
 			position: relative;
 			@media only screen and (max-width: 479px) {
-				height: 310px;
+				width: 280px;
 			}
-			img {
-				padding: 0 60px;
-				width: 100%;
-				vertical-align: bottom;
-				box-sizing: border-box;
-				position: absolute;
+			&:before {
+				content: '';
 				bottom: 0;
-				@media only screen and (max-width: 479px) {
-					padding: 0 30px;
-				}
-			}			
-		}
-		.title-wrapper {
-			position: relative;
-			height: 120px;
-			@media only screen and (max-width: 479px) {
-				height: 90px;
+				left: 0;
+				position: absolute;
+				width: 93%;
+				border-bottom: 4px solid #e9e8e8;
 			}
-			h2 {
-			    top: 42%;
-			    transform: translateY(-50%);
+			> .img-wrapper {
+				height: 395px;
 				position: relative;
-			    width: 100%;
-			    box-sizing: border-box;
-				padding: 0 40px;
-				text-align: center;
-				margin: 0;
 				@media only screen and (max-width: 479px) {
-					font-size: 18px;
-					line-height: 24px;
-					padding: 0 30px;
+					height: 310px;
+				}
+				img {
+					padding: 0 60px;
+					width: 100%;
+					vertical-align: bottom;
+					box-sizing: border-box;
+					position: absolute;
+					bottom: 0;
+					@media only screen and (max-width: 479px) {
+						padding: 0 30px;
+					}
+				}			
+			}
+			.title-wrapper {
+				position: relative;
+				height: 120px;
+				@media only screen and (max-width: 479px) {
+					height: 90px;
+				}
+				h2 {
+				    top: 42%;
+				    transform: translateY(-50%);
+					position: relative;
+				    width: 100%;
+				    box-sizing: border-box;
+					padding: 0 40px;
+					text-align: center;
+					margin: 0;
+					@media only screen and (max-width: 479px) {
+						font-size: 18px;
+						line-height: 24px;
+						padding: 0 30px;
+					}
 				}
 			}
 		}
 	}
-}
-.title {
-	width: 730px;
-	margin: 0 auto;
-	position: relative;
-	padding: 0 40px 120px;
-	transition: opacity .05s linear;
-	box-sizing: content-box;
-	@media only screen and (max-width: 1124px) {
-		margin-top: 30px;
-	}
-	@media only screen and (max-width: 809px) {
-		width: 400px!important;
-	}
-	@media only screen and (max-width: 479px) {
-		padding: 0 20px 120px!important;
-		width: 280px!important;
-	}
-	> div:first-child {
-		height: 515px;
-		//padding: 40px 50px;
-		border-left: 4px solid #e9e8e8;
-		display: table;
-		width: 100%!important;
+	&.title {
+		width: 730px;
+		margin: 0 auto;
 		position: relative;
-		box-sizing: border-box;
+		padding: 0 40px 120px;
+		transition: opacity .05s linear;
+		box-sizing: content-box;
+		@media only screen and (max-width: 1124px) {
+			margin-top: 30px;
+		}
 		@media only screen and (max-width: 809px) {
-			padding: 30px 30px;
+			width: 400px!important;
 		}
 		@media only screen and (max-width: 479px) {
-			height: 400px;
+			padding: 0 20px 120px!important;
+			width: 280px!important;
 		}
-		&:before {
-			content: '';
-			bottom: 0;
-			left: 0;
-			position: absolute;
-			width: 100%;
-			border-bottom: 4px solid #e9e8e8;
-		}
-	}
-	.book-grid-two {
-		box-sizing: border-box;
-		max-width: 50%;
-		width: 365px;
-		display: table-cell;
-		vertical-align: top;
-		position: relative;
-		vertical-align: middle;
-		@media only screen and (max-width: 809px) {
-			padding-left: 15px;
-		}
-		@media only screen and (max-width: 479px) {
-			height: 340px;
-		}
-		&:first-child {
+		> div:first-child {
+			height: 515px;
+			//padding: 40px 50px;
+			border-left: 4px solid #e9e8e8;
+			display: table;
+			width: 100%!important;
+			position: relative;
+			box-sizing: border-box;
 			@media only screen and (max-width: 809px) {
-				display: none;
+				padding: 30px 30px;
+				box-sizing: border-box;			}
+			@media only screen and (max-width: 479px) {
+				height: 400px;
+			}
+			&:before {
+				content: '';
+				bottom: 0;
+				left: 0;
+				position: absolute;
+				width: 100%;
+				border-bottom: 4px solid #e9e8e8;
+			}
+			.book-grid-two {
+				box-sizing: border-box;
+				max-width: 50%;
+				display: table-cell;
+				vertical-align: top;
+				position: relative;
+				vertical-align: middle;
+				@media only screen and (max-width: 809px) {
+					padding-left: 15px;
+				}
+				@media only screen and (max-width: 479px) {
+					height: 340px;
+				}
+				&:first-child {
+					width: 361px;
+					@media only screen and (max-width: 809px) {
+						display: none;
+					}
+				}
+				&:last-child {
+					width: 365px;
+				}
+				&:last-child {
+					@media only screen and (min-width: 810px) {
+						&:before {
+							content: '';
+							border-left: 4px solid #e9e8e8;
+							position: absolute;
+							height: 50%;
+		    				top: 50%;
+			    			transform: translateY(-50%);
+						}
+					}
+					div {
+					    height: 258px;	
+						padding: 45px 10px 10px 45px;
+						@media only screen and (max-width: 809px) {
+							padding: 0!important;
+							border-left: none!important;
+						    display: table-cell;
+						    vertical-align: middle;
+						}
+						.author-title {
+							font-family: Lato;
+							font-size: 10px;
+							color: #bbb;
+							font-weight: 900;
+							margin-bottom: 4px;
+							text-transform: uppercase;
+						}
+						.author-name {
+							font-family: Poly;
+							font-size: 16px;
+							font-style: italic;
+							font-weight: 400;
+							margin-bottom: 40px;
+						}
+						.book-title {
+							font-family: Lato;
+							font-size: 28px;
+							color: black;
+							font-weight: 900;
+							margin-bottom: 30px;
+						}
+					}
+				}
 			}
 		}
-		&:last-child {
-			div {
-			    height: 50%;	
-				border-left: 4px solid #e9e8e8;
-				padding: 45px 10px 10px 45px;
+	}
+	&.regular {
+		width: 730px;
+		margin: 0 auto;
+		position: relative;
+		padding: 0 40px 120px;
+		transition: opacity .05s linear;
+		box-sizing: content-box;
+		@media only screen and (max-width: 1124px) {
+			margin-top: 30px;
+		}
+		@media only screen and (max-width: 809px) {
+			width: 400px!important;
+		}
+		@media only screen and (max-width: 479px) {
+			padding: 0 20px 120px!important;
+			width: 280px!important;
+		}
+		> div:first-child {
+			border-left: 4px solid #e9e8e8;
+			@media only screen and (max-width: 809px) {
+				border-left: none!important;
+			}
+		}
+		> div:not(:last-child) {
+			height: 515px;
+			display: table;
+			width: 100%!important;
+			position: relative;
+			box-sizing: border-box;
+			@media only screen and (max-width: 809px) {
+				padding: 0;
+			}
+			@media only screen and (max-width: 479px) {
+				height: 400px;
+			}
+			&:before {
+				content: '';
+				bottom: 0;
+				left: 0;
+				position: absolute;
+				width: 100%;
+				border-bottom: 4px solid #e9e8e8;
+			}
+			.book-grid-two {
+				box-sizing: border-box;
+				max-width: 50%;
+				display: table-cell;
+				vertical-align: middle;
+				position: relative;
+				&:first-child {
+					width: 361px;
+					@media only screen and (max-width: 809px) {
+						margin-bottom: 40px;
+					}
+				}
+				&:last-child {
+					width: 365px;
+				}
+				@media only screen and (min-width: 810px) {
+					&:last-child:before {
+						content: '';
+						border-left: 4px solid #e9e8e8;
+						position: absolute;
+						height: 50%;
+	    				top: 50%;
+		    			transform: translateY(-50%);
+					}
+				}
 				@media only screen and (max-width: 809px) {
-					padding: 0!important;
-					border-left: none!important;
-				    display: table-cell;
-				    vertical-align: middle;
+					border-left: 4px solid #e9e8e8;
+					padding-left: 15px;
+					display: block;
+					max-width: none;
+					width: 100%!important;
+					padding-left: 0;
+					height: 515px;
+					padding: 40px;
+					> div {
+						> div {
+							padding: 0!important;
+						}
+					}
 				}
-				.author-title {
-					font-family: Lato;
-					font-size: 10px;
-					color: #bbb;
-					font-weight: 900;
-					margin-bottom: 4px;
-					text-transform: uppercase;
+				@media only screen and (max-width: 479px) {
+					height: 400px;
+					padding: 20px;
 				}
-				.author-name {
-					font-family: Poly;
+				> div {
+					min-height: 50%;
+					display: table;
+					@media only screen and (max-width: 809px) {
+						height: 435px;
+					}
+					@media only screen and (max-width: 479px) {
+						height: 360px;
+					}
+					> div {
+						padding: 40px;
+						display: table-cell;
+						vertical-align: middle;
+						p {
+							margin-bottom: 2px;
+							line-height: 21px;
+						}
+						:last-child {
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	&.lastpage {
+		width: 365px;
+		margin: 0 auto;
+		position: relative;
+		padding: 0 40px 120px;
+		transition: opacity .05s linear;
+		box-sizing: content-box;
+		@media only screen and (max-width: 1124px) {
+			margin-top: 30px;
+		}
+		@media only screen and (max-width: 809px) {
+			width: 400px!important;
+		}
+		@media only screen and (max-width: 479px) {
+			padding: 0 20px 120px!important;
+			width: 280px!important;
+		}
+		> div:first-child {
+			border-left: 4px solid #e9e8e8;
+			height: 515px;
+			display: table;
+			width: 100%!important;
+			position: relative;
+			box-sizing: border-box;
+			&:before {
+				content: '';
+				bottom: 0;
+				left: 0;
+				position: absolute;
+				width: 100%;
+				border-bottom: 4px solid #e9e8e8;
+			}
+			@media only screen and (max-width: 809px) {
+				padding: 30px 30px;
+			}
+			@media only screen and (max-width: 479px) {
+				height: 400px;
+			}
+			> div {
+				display: table-cell;
+				vertical-align: middle;
+				padding: 40px;
+				text-align: center;
+				p {
 					font-size: 16px;
+					font-family: Poly;
 					font-style: italic;
-					font-weight: 400;
-					margin-bottom: 40px;
 				}
-				.book-title {
-					font-family: Lato;
-					font-size: 28px;
-					color: black;
-					font-weight: 900;
-					margin-bottom: 30px;
-				}
+			}
+			> a {
+			    position: absolute;
+			    bottom: 40px;
+			    left: 0;
+			    right: 0;
+			    text-align: center;
 			}
 		}
 	}

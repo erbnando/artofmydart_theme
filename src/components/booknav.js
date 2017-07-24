@@ -56,8 +56,12 @@ export default class BookNav extends Component {
 */
 
 	getNextPage() {
-		//console.log(this.props);
-		return <Link className="next" to={`/books/${this.props.slug}/${parseInt(this.props.page) + 1}`} ></Link>;
+		if(!this.props.lastpage) {
+			//console.log(this.props);
+			return <Link className="next" to={`/books/${this.props.slug}/${parseInt(this.props.page) + 1}`} ></Link>;			
+		} else {
+			return
+		}
 	}
 
 	getPrevPage() {

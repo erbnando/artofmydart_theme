@@ -5,13 +5,14 @@ body {
     max-width: 1440px;
     display: block;
     margin: 0 auto; }
+    body #app .container .content:not(.book) {
+      height: 465px; }
     body #app .container .content {
       display: table;
       margin: 0 auto;
       position: relative;
       margin-top: -47px;
       padding: 0 40px 120px;
-      height: 465px;
       transition: opacity .05s linear; }
       @media only screen and (max-width: 1124px) {
         body #app .container .content {
@@ -38,6 +39,15 @@ h3 {
   margin-top: 0;
   margin-bottom: 25px; }
 
+h5 {
+  margin-top: 0;
+  font-family: Lato;
+  font-size: 10px;
+  color: #bbb;
+  font-weight: 900;
+  margin-bottom: 5px;
+  text-transform: uppercase; }
+
 p {
   font-family: Poly;
   font-size: 13px;
@@ -45,6 +55,9 @@ p {
   line-height: 18px;
   margin-top: 0;
   margin-bottom: 20px; }
+
+a {
+  text-decoration: none; }
 
 .container > header {
   position: relative;
@@ -142,7 +155,7 @@ p {
       padding: 0 40px 25px;
       margin-bottom: 40px; } }
   .grid-two.index-home-left {
-    padding: 0 111px 0 40px; }
+    padding: 0 100px 0 40px; }
     @media only screen and (max-width: 809px) {
       .grid-two.index-home-left {
         padding: 0 30px !important;
@@ -158,47 +171,54 @@ p {
         text-align: center;
         display: inline-block;
         width: 100%; }
-        .grid-two.index-home-left #content-left .featured a {
-          display: block;
-          text-decoration: none;
-          height: 418px; }
-          .grid-two.index-home-left #content-left .featured a .featured-image {
-            height: 300px;
-            margin-top: 25px;
-            position: relative; }
-            .grid-two.index-home-left #content-left .featured a .featured-image img {
-              width: auto;
-              max-width: 100%;
-              max-height: 300px;
-              vertical-align: bottom;
-              position: absolute;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              margin: auto; }
-          .grid-two.index-home-left #content-left .featured a .featured-details {
-            display: inline-block;
-            height: 118px;
-            width: 100%;
-            position: relative; }
-            .grid-two.index-home-left #content-left .featured a .featured-details div {
-              position: relative;
-              top: 50%;
-              transform: translateY(-50%); }
-              .grid-two.index-home-left #content-left .featured a .featured-details div h3 {
+        .grid-two.index-home-left #content-left .featured .featured-image {
+          height: 320px;
+          margin-top: 25px;
+          position: relative; }
+          .grid-two.index-home-left #content-left .featured .featured-image img {
+            width: auto;
+            max-width: 100%;
+            max-height: 320px;
+            vertical-align: bottom;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto; }
+        .grid-two.index-home-left #content-left .featured .featured-details {
+          display: inline-block;
+          height: 98px;
+          width: 100%;
+          position: relative; }
+          .grid-two.index-home-left #content-left .featured .featured-details div {
+            position: relative;
+            top: 48%;
+            transform: translateY(-50%);
+            margin-left: -20px;
+            margin-right: -20px; }
+            @media only screen and (max-width: 809px) {
+              .grid-two.index-home-left #content-left .featured .featured-details div {
+                margin-left: -10px;
+                margin-right: -10px; } }
+            .grid-two.index-home-left #content-left .featured .featured-details div a {
+              display: block;
+              text-decoration: none; }
+              .grid-two.index-home-left #content-left .featured .featured-details div a h3 {
                 font-family: Lato;
                 font-size: 18px;
                 color: black;
                 font-weight: 900;
                 margin-bottom: 7px;
-                margin-top: 0; }
-              .grid-two.index-home-left #content-left .featured a .featured-details div p {
+                margin-top: 0;
+                line-height: 22px; }
+              .grid-two.index-home-left #content-left .featured .featured-details div a p {
                 font-family: Lato;
                 font-size: 10px;
                 color: #bbb;
                 font-weight: 900;
                 margin-bottom: 0;
-                text-transform: uppercase; }
+                text-transform: uppercase;
+                line-height: 15px; }
   .grid-two.index-home-left:before {
     content: '';
     bottom: 0;
@@ -206,6 +226,9 @@ p {
     position: absolute;
     width: 75%;
     border-bottom: 4px solid #e9e8e8; }
+    @media only screen and (max-width: 809px) {
+      .grid-two.index-home-left:before {
+        width: 95%; } }
   .grid-two:not(.index-home-left) #content-left .posts .post, .grid-two:not(.index-home-left) #content-right .posts .post {
     margin-bottom: 33px; }
     .grid-two:not(.index-home-left) #content-left .posts .post:last-child, .grid-two:not(.index-home-left) #content-right .posts .post:last-child {
@@ -306,12 +329,12 @@ p {
       text-transform: uppercase;
       text-decoration: none; }
 
-.book > div {
-  margin: 0 auto; }
-
 @media only screen and (max-width: 809px) {
   .book {
     margin-top: 40px !important; } }
+
+.book > div {
+  margin: 0 auto; }
 
 .book .book-nav {
   text-align: center;
@@ -405,7 +428,7 @@ p {
           line-height: 24px;
           padding: 0 30px; } }
 
-.title {
+.book.title {
   width: 730px;
   margin: 0 auto;
   position: relative;
@@ -413,16 +436,16 @@ p {
   transition: opacity .05s linear;
   box-sizing: content-box; }
   @media only screen and (max-width: 1124px) {
-    .title {
+    .book.title {
       margin-top: 30px; } }
   @media only screen and (max-width: 809px) {
-    .title {
+    .book.title {
       width: 400px !important; } }
   @media only screen and (max-width: 479px) {
-    .title {
+    .book.title {
       padding: 0 20px 120px !important;
       width: 280px !important; } }
-  .title > div:first-child {
+  .book.title > div:first-child {
     height: 515px;
     border-left: 4px solid #e9e8e8;
     display: table;
@@ -430,61 +453,222 @@ p {
     position: relative;
     box-sizing: border-box; }
     @media only screen and (max-width: 809px) {
-      .title > div:first-child {
-        padding: 30px 30px; } }
+      .book.title > div:first-child {
+        padding: 30px 30px;
+        box-sizing: border-box; } }
     @media only screen and (max-width: 479px) {
-      .title > div:first-child {
+      .book.title > div:first-child {
         height: 400px; } }
-    .title > div:first-child:before {
+    .book.title > div:first-child:before {
       content: '';
       bottom: 0;
       left: 0;
       position: absolute;
       width: 100%;
       border-bottom: 4px solid #e9e8e8; }
-  .title .book-grid-two {
-    box-sizing: border-box;
-    max-width: 50%;
-    width: 365px;
-    display: table-cell;
-    vertical-align: top;
-    position: relative;
-    vertical-align: middle; }
-    @media only screen and (max-width: 809px) {
-      .title .book-grid-two {
-        padding-left: 15px; } }
-    @media only screen and (max-width: 479px) {
-      .title .book-grid-two {
-        height: 340px; } }
-    @media only screen and (max-width: 809px) {
-      .title .book-grid-two:first-child {
-        display: none; } }
-    .title .book-grid-two:last-child div {
-      height: 50%;
-      border-left: 4px solid #e9e8e8;
-      padding: 45px 10px 10px 45px; }
+    .book.title > div:first-child .book-grid-two {
+      box-sizing: border-box;
+      max-width: 50%;
+      display: table-cell;
+      vertical-align: top;
+      position: relative;
+      vertical-align: middle; }
       @media only screen and (max-width: 809px) {
-        .title .book-grid-two:last-child div {
-          padding: 0 !important;
-          border-left: none !important;
+        .book.title > div:first-child .book-grid-two {
+          padding-left: 15px; } }
+      @media only screen and (max-width: 479px) {
+        .book.title > div:first-child .book-grid-two {
+          height: 340px; } }
+      .book.title > div:first-child .book-grid-two:first-child {
+        width: 361px; }
+        @media only screen and (max-width: 809px) {
+          .book.title > div:first-child .book-grid-two:first-child {
+            display: none; } }
+      .book.title > div:first-child .book-grid-two:last-child {
+        width: 365px; }
+      @media only screen and (min-width: 810px) {
+        .book.title > div:first-child .book-grid-two:last-child:before {
+          content: '';
+          border-left: 4px solid #e9e8e8;
+          position: absolute;
+          height: 50%;
+          top: 50%;
+          transform: translateY(-50%); } }
+      .book.title > div:first-child .book-grid-two:last-child div {
+        height: 258px;
+        padding: 45px 10px 10px 45px; }
+        @media only screen and (max-width: 809px) {
+          .book.title > div:first-child .book-grid-two:last-child div {
+            padding: 0 !important;
+            border-left: none !important;
+            display: table-cell;
+            vertical-align: middle; } }
+        .book.title > div:first-child .book-grid-two:last-child div .author-title {
+          font-family: Lato;
+          font-size: 10px;
+          color: #bbb;
+          font-weight: 900;
+          margin-bottom: 4px;
+          text-transform: uppercase; }
+        .book.title > div:first-child .book-grid-two:last-child div .author-name {
+          font-family: Poly;
+          font-size: 16px;
+          font-style: italic;
+          font-weight: 400;
+          margin-bottom: 40px; }
+        .book.title > div:first-child .book-grid-two:last-child div .book-title {
+          font-family: Lato;
+          font-size: 28px;
+          color: black;
+          font-weight: 900;
+          margin-bottom: 30px; }
+
+.book.regular {
+  width: 730px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 40px 120px;
+  transition: opacity .05s linear;
+  box-sizing: content-box; }
+  @media only screen and (max-width: 1124px) {
+    .book.regular {
+      margin-top: 30px; } }
+  @media only screen and (max-width: 809px) {
+    .book.regular {
+      width: 400px !important; } }
+  @media only screen and (max-width: 479px) {
+    .book.regular {
+      padding: 0 20px 120px !important;
+      width: 280px !important; } }
+  .book.regular > div:first-child {
+    border-left: 4px solid #e9e8e8; }
+    @media only screen and (max-width: 809px) {
+      .book.regular > div:first-child {
+        border-left: none !important; } }
+  .book.regular > div:not(:last-child) {
+    height: 515px;
+    display: table;
+    width: 100% !important;
+    position: relative;
+    box-sizing: border-box; }
+    @media only screen and (max-width: 809px) {
+      .book.regular > div:not(:last-child) {
+        padding: 0; } }
+    @media only screen and (max-width: 479px) {
+      .book.regular > div:not(:last-child) {
+        height: 400px; } }
+    .book.regular > div:not(:last-child):before {
+      content: '';
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      border-bottom: 4px solid #e9e8e8; }
+    .book.regular > div:not(:last-child) .book-grid-two {
+      box-sizing: border-box;
+      max-width: 50%;
+      display: table-cell;
+      vertical-align: middle;
+      position: relative; }
+      .book.regular > div:not(:last-child) .book-grid-two:first-child {
+        width: 361px; }
+        @media only screen and (max-width: 809px) {
+          .book.regular > div:not(:last-child) .book-grid-two:first-child {
+            margin-bottom: 40px; } }
+      .book.regular > div:not(:last-child) .book-grid-two:last-child {
+        width: 365px; }
+      @media only screen and (min-width: 810px) {
+        .book.regular > div:not(:last-child) .book-grid-two:last-child:before {
+          content: '';
+          border-left: 4px solid #e9e8e8;
+          position: absolute;
+          height: 50%;
+          top: 50%;
+          transform: translateY(-50%); } }
+      @media only screen and (max-width: 809px) {
+        .book.regular > div:not(:last-child) .book-grid-two {
+          border-left: 4px solid #e9e8e8;
+          padding-left: 15px;
+          display: block;
+          max-width: none;
+          width: 100% !important;
+          padding-left: 0;
+          height: 515px;
+          padding: 40px; }
+          .book.regular > div:not(:last-child) .book-grid-two > div > div {
+            padding: 0 !important; } }
+      @media only screen and (max-width: 479px) {
+        .book.regular > div:not(:last-child) .book-grid-two {
+          height: 400px;
+          padding: 20px; } }
+      .book.regular > div:not(:last-child) .book-grid-two > div {
+        min-height: 50%;
+        display: table; }
+        @media only screen and (max-width: 809px) {
+          .book.regular > div:not(:last-child) .book-grid-two > div {
+            height: 435px; } }
+        @media only screen and (max-width: 479px) {
+          .book.regular > div:not(:last-child) .book-grid-two > div {
+            height: 360px; } }
+        .book.regular > div:not(:last-child) .book-grid-two > div > div {
+          padding: 40px;
           display: table-cell;
-          vertical-align: middle; } }
-      .title .book-grid-two:last-child div .author-title {
-        font-family: Lato;
-        font-size: 10px;
-        color: #bbb;
-        font-weight: 900;
-        margin-bottom: 4px;
-        text-transform: uppercase; }
-      .title .book-grid-two:last-child div .author-name {
-        font-family: Poly;
+          vertical-align: middle; }
+          .book.regular > div:not(:last-child) .book-grid-two > div > div p {
+            margin-bottom: 2px;
+            line-height: 21px; }
+          .book.regular > div:not(:last-child) .book-grid-two > div > div :last-child {
+            margin-bottom: 0; }
+
+.book.lastpage {
+  width: 365px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 40px 120px;
+  transition: opacity .05s linear;
+  box-sizing: content-box; }
+  @media only screen and (max-width: 1124px) {
+    .book.lastpage {
+      margin-top: 30px; } }
+  @media only screen and (max-width: 809px) {
+    .book.lastpage {
+      width: 400px !important; } }
+  @media only screen and (max-width: 479px) {
+    .book.lastpage {
+      padding: 0 20px 120px !important;
+      width: 280px !important; } }
+  .book.lastpage > div:first-child {
+    border-left: 4px solid #e9e8e8;
+    height: 515px;
+    display: table;
+    width: 100% !important;
+    position: relative;
+    box-sizing: border-box; }
+    .book.lastpage > div:first-child:before {
+      content: '';
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      border-bottom: 4px solid #e9e8e8; }
+    @media only screen and (max-width: 809px) {
+      .book.lastpage > div:first-child {
+        padding: 30px 30px; } }
+    @media only screen and (max-width: 479px) {
+      .book.lastpage > div:first-child {
+        height: 400px; } }
+    .book.lastpage > div:first-child > div {
+      display: table-cell;
+      vertical-align: middle;
+      padding: 40px;
+      text-align: center; }
+      .book.lastpage > div:first-child > div p {
         font-size: 16px;
-        font-style: italic;
-        font-weight: 400;
-        margin-bottom: 40px; }
-      .title .book-grid-two:last-child div .book-title {
-        font-family: Lato;
-        font-size: 28px;
-        color: black;
-        font-weight: 900;
-        margin-bottom: 30px; }
+        font-family: Poly;
+        font-style: italic; }
+    .book.lastpage > div:first-child > a {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      text-align: center; }

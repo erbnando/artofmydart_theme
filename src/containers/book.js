@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchBook} from '../actions/index';
 import BookNav from '../components/booknav';
+import ContentLeft from '../components/content_left';
+import ContentRight from '../components/content_right';
+import {Link} from 'react-router-dom'
 
 class Book extends Component {
     componentWillMount() {
@@ -20,6 +23,14 @@ class Book extends Component {
 
 	componentWillReceiveProps() {
 		//console.log('B will receive props');
+	}
+
+	lastPage(page) {
+		if (parseInt(page) - 1 === this.props.book.book.acf.book_pages.length )	{
+			return true
+		} else {
+			return false
+		}
 	}
 
 	getPage() {
@@ -41,33 +52,59 @@ class Book extends Component {
 								<h2>{this.props.book.book.title.rendered}</h2>
 							</div>
 						</div>
-						<BookNav page="1" slug={this.props.match.params.slug} />
+						<BookNav page="1" slug={this.props.match.params.slug} lastpage={this.lastPage()}/>
 					</div>
 				);
 			} else {
-				if (this.props.book.book.acf.book_pages[parseInt(page - 2)] && this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'title') {
-					return (
-						<div className="content book title" id="content">
-							<div>
-								<div className="book-grid-two">
-								</div>
-								<div className="book-grid-two">
-									<div>
-										<p className="author-title">{this.props.book.book.acf.author_title}</p>
-										<p className="author-name">{this.props.book.book.acf.author_name}</p>
-										<h1 className="book-title">{this.props.book.book.title.rendered}</h1>
+				if (this.props.book.book.acf.book_pages[parseInt(page - 2)]) {
+					if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'title') {
+						return (
+							<div className="content book title" id="content">
+								<div>
+									<div className="book-grid-two">
+									</div>
+									<div className="book-grid-two">
+										<div>
+											<p className="author-title">{this.props.book.book.acf.author_title}</p>
+											<p className="author-name">{this.props.book.book.acf.author_name}</p>
+											<h1 className="book-title">{this.props.book.book.title.rendered}</h1>
+										</div>
 									</div>
 								</div>
+								<BookNav slug={this.props.match.params.slug} page={this.props.match.params.pageNum} lastpage={this.lastPage(page)} />
 							</div>
-							<BookNav slug={this.props.match.params.slug} page={this.props.match.params.pageNum} />
-						</div>
-					);
-				} else {
-					return (
-						<div className="content book" id="content">
-							<span>no content</span>
-						</div>
-					);
+						);
+					} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'regular') {
+						//console.log(this.props);
+						return (
+							<div className="content book regular" id="content">
+								<div>
+									<div className="book-grid-two">
+										<ContentLeft content={this.props.book.book.acf.book_pages[parseInt(page - 2)].text_content_left} />
+									</div>
+									<div className="book-grid-two">
+										<ContentRight content={this.props.book.book.acf.book_pages[parseInt(page - 2)].text_content_right} />
+									</div>
+								</div>
+								<BookNav slug={this.props.match.params.slug} page={this.props.match.params.pageNum} lastpage={this.lastPage(page)} />
+							</div>
+						);
+					} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'lastpage') {
+						//console.log(this.props);
+						return (
+							<div className="content book lastpage" id="content">
+								<div>
+									<div dangerouslySetInnerHTML={{__html: this.props.book.book.acf.book_pages[parseInt(page - 2)].last_page_content}} />
+									<Link to={`/index/`}><h5>Back to Index</h5></Link>
+								</div>
+								<BookNav slug={this.props.match.params.slug} page={this.props.match.params.pageNum} lastpage={this.lastPage(page)} />
+							</div>
+						);
+					} else {
+						return (
+							<span />
+						);
+					}
 				}
 			}
 		} else {
@@ -80,6 +117,7 @@ class Book extends Component {
 	}
 
 	render() {
+		//console.log(this.props);
 		return (
 			<div>
 				{this.getPage()}
