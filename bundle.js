@@ -31273,6 +31273,16 @@
 				}
 			}
 		}, {
+			key: 'separatingLine',
+			value: function separatingLine(page) {
+				console.log(this.props.book.book.acf.book_pages[parseInt(page - 2)]);
+				if (this.props.book.book.acf.book_pages[parseInt(page - 2)].separating_line == true) {
+					return "book-grid-two sep";
+				} else {
+					return "book-grid-two";
+				}
+			}
+		}, {
 			key: 'getPage',
 			value: function getPage() {
 				//console.log(this.props);
@@ -31357,7 +31367,7 @@
 										),
 										_react2.default.createElement(
 											'div',
-											{ className: 'book-grid-two' },
+											{ className: this.separatingLine(page) },
 											_react2.default.createElement(_content_right2.default, { content: this.props.book.book.acf.book_pages[parseInt(page - 2)].text_content_right })
 										)
 									),

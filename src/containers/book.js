@@ -33,6 +33,15 @@ class Book extends Component {
 		}
 	}
 
+	separatingLine(page) {
+		console.log(this.props.book.book.acf.book_pages[parseInt(page - 2)]);
+		if (this.props.book.book.acf.book_pages[parseInt(page - 2)].separating_line == true) {
+			return "book-grid-two sep"
+		} else {
+			return "book-grid-two"
+		}
+	}
+
 	getPage() {
 		//console.log(this.props);
 		if (this.props.match.params.pageNum == undefined) {
@@ -82,7 +91,7 @@ class Book extends Component {
 									<div className="book-grid-two">
 										<ContentLeft content={this.props.book.book.acf.book_pages[parseInt(page - 2)].text_content_left} />
 									</div>
-									<div className="book-grid-two">
+									<div className={this.separatingLine(page)}>
 										<ContentRight content={this.props.book.book.acf.book_pages[parseInt(page - 2)].text_content_right} />
 									</div>
 								</div>

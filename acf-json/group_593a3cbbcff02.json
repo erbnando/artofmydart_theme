@@ -122,7 +122,7 @@
             "collapsed": "",
             "min": "",
             "max": "",
-            "layout": "block",
+            "layout": "row",
             "button_label": "Add Page",
             "sub_fields": [
                 {
@@ -225,13 +225,6 @@
                                 "field": "field_5961b746e788e",
                                 "operator": "==",
                                 "value": "regular"
-                            }
-                        ],
-                        [
-                            {
-                                "field": "field_5961b746e788e",
-                                "operator": "==",
-                                "value": "title"
                             }
                         ]
                     ],
@@ -352,5 +345,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1500843928
+    "modified": 1500876500
 }

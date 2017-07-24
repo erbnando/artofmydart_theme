@@ -578,7 +578,7 @@ a {
       .book.regular > div:not(:last-child) .book-grid-two:last-child {
         width: 365px; }
       @media only screen and (min-width: 810px) {
-        .book.regular > div:not(:last-child) .book-grid-two:last-child:before {
+        .book.regular > div:not(:last-child) .book-grid-two.sep:before {
           content: '';
           border-left: 4px solid #e9e8e8;
           position: absolute;
