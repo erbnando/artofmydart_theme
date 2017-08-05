@@ -1423,8 +1423,8 @@
                     "return_format": "array",
                     "preview_size": "thumbnail",
                     "library": "all",
-                    "min_width": 460,
-                    "min_height": 460,
+                    "min_width": 360,
+                    "min_height": 360,
                     "min_size": "",
                     "max_width": "",
                     "max_height": "",
@@ -1586,5 +1586,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1501965876
+    "modified": 1501974955
 }
