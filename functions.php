@@ -28,8 +28,15 @@ function enqueue_font_awesome() {
 add_action( 'wp_enqueue_scripts', 'enqueue_font_awesome' );
 
 add_image_size( 'home', 600, 600 );
-
 add_image_size( 'book_cover', 552 );
+add_image_size( 'small', 460, 460 );
+add_image_size( 'medium', 562, 862 );
+add_image_size( 'large', 642, 942 );
+add_image_size( 'full', 722, 1022 );
+add_image_size( 'fullsize', 1452, 1022 );
+add_image_size( 'doublesmall', 360, 360 );
+add_image_size( 'doublemedium', 620, 410 );
+add_image_size( 'doublefull', 722, 511 );
 
 add_action('after_setup_theme', 'remove_admin_bar');
 function remove_admin_bar() {
@@ -38,17 +45,12 @@ function remove_admin_bar() {
 
 function image_crop_dimensions($default, $orig_w, $orig_h, $new_w, $new_h, $crop){
     if ( !$crop ) return null; // let the wordpress default function handle this
-
     $aspect_ratio = $orig_w / $orig_h;
     $size_ratio = max($new_w / $orig_w, $new_h / $orig_h);
-
     $crop_w = round($new_w / $size_ratio);
     $crop_h = round($new_h / $size_ratio);
-
     $s_x = floor( ($orig_w - $crop_w) / 2 );
     $s_y = floor( ($orig_h - $crop_h) / 2 );
-
     return array( 0, 0, (int) $s_x, (int) $s_y, (int) $new_w, (int) $new_h, (int) $crop_w, (int) $crop_h );
 }
 add_filter('image_resize_dimensions', 'image_crop_dimensions', 10, 6);
-

@@ -20,17 +20,28 @@ class App extends Component {
 	}
 
 	render() {
-		return (
-			<div className="container">
-				<Header />
-				<Main />
-			</div>
-
-		);
+		if (window.location.href.indexOf("/books/") > -1) {
+			return (
+				<div className="container grayheader">
+					<Header />
+					<Main />
+				</div>
+			);
+		} else {
+			return (
+				<div className="container">
+					<Header />
+					<Main />
+				</div>			
+			);
+		}
 	}
 }
 
 class Main extends Component {
+	componentDidUpdate() {
+	}
+
 	render() {
 		return (
 			<Switch>

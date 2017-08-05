@@ -6,6 +6,11 @@ body {
 			max-width: 1440px;
 			display: block;
 			margin: 0 auto;
+			&.grayheader {
+				#main_header {
+					opacity: .2!important;
+				}
+			}
 			.content:not(.book) {
 				height: 465px;
 			}
@@ -68,4 +73,8 @@ p {
 
 a {
 	text-decoration: none;
+}
+
+img {
+	vertical-align: bottom;
 }

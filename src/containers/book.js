@@ -34,11 +34,11 @@ class Book extends Component {
 	}
 
 	separatingLine(page) {
-		console.log(this.props.book.book.acf.book_pages[parseInt(page - 2)]);
+		//console.log(this.props.book.book.acf.book_pages[parseInt(page - 2)]);
 		if (this.props.book.book.acf.book_pages[parseInt(page - 2)].separating_line == true) {
-			return "book-grid-two sep"
+			return true
 		} else {
-			return "book-grid-two"
+			return false
 		}
 	}
 
@@ -84,16 +84,20 @@ class Book extends Component {
 							</div>
 						);
 					} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'regular') {
-						//console.log(this.props);
 						return (
 							<div className="content book regular" id="content">
 								<div>
-									<div className="book-grid-two">
-										<ContentLeft content={this.props.book.book.acf.book_pages[parseInt(page - 2)].text_content_left} />
-									</div>
-									<div className={this.separatingLine(page)}>
-										<ContentRight content={this.props.book.book.acf.book_pages[parseInt(page - 2)].text_content_right} />
-									</div>
+									<ContentLeft content={this.props.book.book.acf.book_pages[parseInt(page - 2)]} />
+									<ContentRight sep={this.separatingLine(page)} content={this.props.book.book.acf.book_pages[parseInt(page - 2)]} />
+								</div>
+								<BookNav slug={this.props.match.params.slug} page={this.props.match.params.pageNum} lastpage={this.lastPage(page)} />
+							</div>
+						);
+					} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'fullimage') {
+						return (
+							<div className="content book regular fullimage" id="content">
+								<div>
+									<img src={this.props.book.book.acf.book_pages[parseInt(page - 2)].full_sized_image.sizes.fullsize} />
 								</div>
 								<BookNav slug={this.props.match.params.slug} page={this.props.match.params.pageNum} lastpage={this.lastPage(page)} />
 							</div>

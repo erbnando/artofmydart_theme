@@ -47,26 +47,19 @@
 	&.cover {
 		@media only screen and (max-width: 479px) {
 			padding: 0 20px!important;
-			height: 400px!important;
 		}
 		> div:first-child {
 			width: 400px;
 			box-sizing: border-box;
 			border-left: 4px solid #e9e8e8;
+			border-bottom: 4px solid #e9e8e8;
+			border-bottom-width: 93%;
 			position: relative;
 			@media only screen and (max-width: 479px) {
 				width: 280px;
 			}
-			&:before {
-				content: '';
-				bottom: 0;
-				left: 0;
-				position: absolute;
-				width: 93%;
-				border-bottom: 4px solid #e9e8e8;
-			}
 			> .img-wrapper {
-				height: 395px;
+				height: 391px;
 				position: relative;
 				@media only screen and (max-width: 479px) {
 					height: 310px;
@@ -128,6 +121,7 @@
 			height: 515px;
 			//padding: 40px 50px;
 			border-left: 4px solid #e9e8e8;
+			border-bottom: 4px solid #e9e8e8;
 			display: table;
 			width: 100%!important;
 			position: relative;
@@ -138,14 +132,6 @@
 			@media only screen and (max-width: 479px) {
 				height: 400px;
 			}
-			&:before {
-				content: '';
-				bottom: 0;
-				left: 0;
-				position: absolute;
-				width: 100%;
-				border-bottom: 4px solid #e9e8e8;
-			}
 			.book-grid-two {
 				box-sizing: border-box;
 				max-width: 50%;
@@ -153,7 +139,7 @@
 				vertical-align: top;
 				position: relative;
 				vertical-align: middle;
-				@media only screen and (max-width: 809px) {
+				@media only screen and (min-width: 480px) and (max-width: 809px) {
 					padding-left: 15px;
 				}
 				@media only screen and (max-width: 479px) {
@@ -180,8 +166,9 @@
 						}
 					}
 					div {
-					    height: 258px;	
+					    height: 258px;
 						padding: 45px 10px 10px 45px;
+						box-sizing: border-box;
 						@media only screen and (max-width: 809px) {
 							padding: 0!important;
 							border-left: none!important;
@@ -234,29 +221,26 @@
 		}
 		> div:first-child {
 			border-left: 4px solid #e9e8e8;
+			border-bottom: 4px solid #e9e8e8;
 			@media only screen and (max-width: 809px) {
 				border-left: none!important;
 			}
 		}
 		> div:not(:last-child) {
-			height: 515px;
 			display: table;
 			width: 100%!important;
 			position: relative;
 			box-sizing: border-box;
+			@media only screen and (min-width: 810px) {
+				height: 515px;
+			}
 			@media only screen and (max-width: 809px) {
 				padding: 0;
 			}
-			@media only screen and (max-width: 479px) {
-				height: 400px;
-			}
-			&:before {
-				content: '';
-				bottom: 0;
-				left: 0;
-				position: absolute;
-				width: 100%;
-				border-bottom: 4px solid #e9e8e8;
+			.book-grid-two.blank + .book-grid-two {
+				@media only screen and (max-width: 809px) {
+					margin-top: 0;
+				}
 			}
 			.book-grid-two {
 				box-sizing: border-box;
@@ -266,21 +250,146 @@
 				position: relative;
 				&:first-child {
 					width: 361px;
-					@media only screen and (max-width: 809px) {
-						margin-bottom: 40px;
-					}
 				}
 				&:last-child {
 					width: 365px;
+					@media only screen and (min-width: 810px) {
+						padding-left: 4px;
+					}
+					@media only screen and (max-width: 809px) {
+						margin-top: 40px;
+						height: 511px;
+						> div {
+							height: 511px;
+						}
+					}
+					@media only screen and (max-width: 479px) {
+						height: 400px;
+						> div {
+							height: 400px;
+						}
+					}
 				}
-				@media only screen and (min-width: 810px) {
-					&.sep:before {
-						content: '';
-						border-left: 4px solid #e9e8e8;
-						position: absolute;
-						height: 50%;
-	    				top: 50%;
-		    			transform: translateY(-50%);
+				&.bottom {
+					vertical-align: bottom;
+				}
+				&.top {
+					vertical-align: top;
+				}
+				&.left {
+					> div {
+						float: left;
+					}
+				}
+				&.right {
+					> div {
+						float: right;
+					}
+				}
+				&.top-left {
+					vertical-align: top;
+					> div {
+						float: left;
+					}
+				}
+				&.top-right {
+					vertical-align: top;
+					> div {
+						float: right;
+					}
+				}
+				&.bottom-left {
+					vertical-align: bottom;
+					> div {
+						float: left;
+					}
+				}
+				&.bottom-right {
+					vertical-align: bottom;
+					> div {
+						float: right;
+					}
+				}
+				&.quote {
+					> div {
+						> div {
+							@media only screen and (min-width: 480px) {
+								padding-right: 110px;
+							}
+							.quote-text, .quote-text p {
+								font-size: 16px;
+								font-family: Poly;
+								font-style: italic;
+								line-height: 20px;
+								margin-bottom: 20px;
+							}
+							.quote-author {
+								font-size: 13px;
+								font-family: Lato;
+								font-weight: 900;
+								line-height: 18px;
+							}
+							.quote-source {
+								font-size: 13px;
+								font-family: Lato;
+								font-style: italic;
+								font-weight: 900;
+								line-height: 18px;
+							}
+						}
+					}
+				}
+				&.double {
+					height: 511px;
+					width: 361px;
+					> div {
+						height: inherit;
+						width: inherit;
+						> div {
+							height: inherit;
+							width: inherit;
+							padding: 0;
+							> div {
+								height: 50%;
+								width: inherit;
+								text-align: center;
+								display: table;
+								vertical-align: middle;
+								> div {
+									display: table-cell;
+									vertical-align: middle;
+								}
+							}
+							.small {
+								img {
+									max-width: 180px;
+									max-height: 180px;
+								}
+							}
+							.medium {
+								img {
+									max-width: 310px;
+									max-height: 205px;
+								}
+							}
+							.full {
+								img {
+									max-width: 361px;
+									max-height: 255.5px;
+								}
+							}
+						}
+					}
+				}
+				&.blank {
+					@media only screen and (max-width: 809px) {
+						display: none;
+					}
+				}
+				@media only screen and (max-width: 479px) {
+					height: 400px!important;
+					> div {
+						height: 400px!important;
 					}
 				}
 				@media only screen and (max-width: 809px) {
@@ -290,26 +399,30 @@
 					max-width: none;
 					width: 100%!important;
 					padding-left: 0;
-					height: 515px;
-					padding: 40px;
+					height: 511px;
 					> div {
 						> div {
-							padding: 0!important;
 						}
 					}
 				}
-				@media only screen and (max-width: 479px) {
-					height: 400px;
-					padding: 20px;
+				@media only screen and (min-width: 810px) {
+					&.sep:before {
+						content: '';
+						border-left: 4px solid #e9e8e8;
+						position: absolute;
+						height: 50%;
+	    				top: 50%;
+		    			transform: translateY(-50%);
+		    			left: 0;
+					}
 				}
 				> div {
-					min-height: 50%;
 					display: table;
-					@media only screen and (max-width: 809px) {
-						height: 435px;
-					}
 					@media only screen and (max-width: 479px) {
-						height: 360px;
+						height: 400px;
+					}
+					@media only screen and (max-width: 809px) {
+						height: 511px;
 					}
 					> div {
 						padding: 40px;
@@ -324,6 +437,80 @@
 						}
 					}
 				}
+				.content-left, .content-right {
+   					> div {
+						padding: 40px;
+						@media only screen and (max-width: 479px) {
+							padding: 25px;
+			    		}
+					}
+				}
+				.content-image {
+				    margin: 0 auto;
+				    position: relative;
+				    div {
+				    	padding: 0!important;
+				    }
+				    &.small {
+				    	div {
+				    		img {
+								max-width: 230px;
+								max-height: 230px;
+								@media only screen and (max-width: 479px) {
+									max-width: 180px;
+									max-height: 180px;
+				    			}
+				    		}
+				    	}
+				    }
+				    &.medium {
+				    	div {
+				    		img {
+								max-width: 281px;
+								max-height: 431px;
+								@media only screen and (max-width: 479px) {
+									max-width: 216px;
+									max-height: 340px;
+								}
+				    		}
+				    	}
+				    }
+				    &.large {
+				    	div {
+				    		img {
+								max-width: 321px;
+								max-height: 471px;
+								@media only screen and (max-width: 479px) {
+									max-width: 236px;
+									max-height: 360px;
+								}
+				    		}
+				    	}
+				    }
+				    &.full {
+				    	div {
+				    		img {
+								max-width: 100%;
+								max-height: 511px;
+								@media only screen and (max-width: 479px) {
+									max-width: 100%;
+									max-height: 400px;
+								}
+				    		}
+				    	}
+				    }
+				}
+			}
+		}
+	}
+	&.fullimage {
+		div {
+			text-align: center;
+			height: auto!important;
+			img {
+				max-width: 726px;
+				max-height: 511px;
+				max-width: 100%;
 			}
 		}
 	}
@@ -346,24 +533,17 @@
 		}
 		> div:first-child {
 			border-left: 4px solid #e9e8e8;
+			border-bottom: 4px solid #e9e8e8;
 			height: 515px;
 			display: table;
 			width: 100%!important;
 			position: relative;
 			box-sizing: border-box;
-			&:before {
-				content: '';
-				bottom: 0;
-				left: 0;
-				position: absolute;
-				width: 100%;
-				border-bottom: 4px solid #e9e8e8;
-			}
 			@media only screen and (max-width: 809px) {
 				padding: 30px 30px;
 			}
 			@media only screen and (max-width: 479px) {
-				height: 400px;
+				height: 404px;
 			}
 			> div {
 				display: table-cell;

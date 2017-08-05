@@ -5,6 +5,8 @@ body {
     max-width: 1440px;
     display: block;
     margin: 0 auto; }
+    body #app .container.grayheader #main_header {
+      opacity: 0.2 !important; }
     body #app .container .content:not(.book) {
       height: 465px; }
     body #app .container .content {
@@ -59,49 +61,52 @@ p {
 a {
   text-decoration: none; }
 
-.container > header {
+img {
+  vertical-align: bottom; }
+
+header {
   position: relative;
   max-width: 1440px;
   width: 100%;
   min-width: 320px;
   top: 0;
   opacity: 0;
-  transition: opacity .05s linear; }
+  transition: opacity .5s linear; }
   @media only screen and (min-width: 810px) {
-    .container > header {
+    header {
       height: 127px; } }
   @media only screen and (max-width: 809px) {
-    .container > header {
+    header {
       height: 72px; } }
-  .container > header .logo {
+  header .logo {
     display: inline-block;
     margin: 25px 0 0 30px; }
     @media only screen and (max-width: 809px) {
-      .container > header .logo {
+      header .logo {
         margin: 16px 0 0 17px; } }
-    .container > header .logo img {
+    header .logo img {
       width: 114px; }
       @media only screen and (max-width: 809px) {
-        .container > header .logo img {
+        header .logo img {
           width: 60px; } }
-  .container > header nav {
+  header nav {
     float: right;
     margin: 20px 50px 0 0; }
     @media only screen and (max-width: 809px) {
-      .container > header nav {
+      header nav {
         margin: 16px 14px 0 0; } }
-    .container > header nav ul {
+    header nav ul {
       list-style-type: none;
       padding: 0;
       margin: 0;
       font-size: 0; }
-      .container > header nav ul li {
+      header nav ul li {
         display: inline-block;
         margin-left: 14px; }
         @media only screen and (max-width: 479px) {
-          .container > header nav ul li {
+          header nav ul li {
             margin-left: 10px; } }
-        .container > header nav ul li a {
+        header nav ul li a {
           font-family: Lato;
           color: black;
           text-decoration: none;
@@ -109,16 +114,16 @@ a {
           font-weight: 900;
           font-size: 12px; }
           @media only screen and (max-width: 479px) {
-            .container > header nav ul li a {
+            header nav ul li a {
               font-size: 10px; } }
-      .container > header nav ul li:first-child {
+      header nav ul li:first-child {
         margin-left: 0; }
-      .container > header nav ul .fa:before {
+      header nav ul .fa:before {
         vertical-align: middle; }
-      .container > header nav ul .social-first {
+      header nav ul .social-first {
         margin-left: 20px; }
         @media only screen and (max-width: 479px) {
-          .container > header nav ul .social-first {
+          header nav ul .social-first {
             margin-left: 16px; } }
 
 .grid-two {
@@ -373,26 +378,20 @@ a {
 
 @media only screen and (max-width: 479px) {
   .book.cover {
-    padding: 0 20px !important;
-    height: 400px !important; } }
+    padding: 0 20px !important; } }
 
 .book.cover > div:first-child {
   width: 400px;
   box-sizing: border-box;
   border-left: 4px solid #e9e8e8;
+  border-bottom: 4px solid #e9e8e8;
+  border-bottom-width: 93%;
   position: relative; }
   @media only screen and (max-width: 479px) {
     .book.cover > div:first-child {
       width: 280px; } }
-  .book.cover > div:first-child:before {
-    content: '';
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    width: 93%;
-    border-bottom: 4px solid #e9e8e8; }
   .book.cover > div:first-child > .img-wrapper {
-    height: 395px;
+    height: 391px;
     position: relative; }
     @media only screen and (max-width: 479px) {
       .book.cover > div:first-child > .img-wrapper {
@@ -448,6 +447,7 @@ a {
   .book.title > div:first-child {
     height: 515px;
     border-left: 4px solid #e9e8e8;
+    border-bottom: 4px solid #e9e8e8;
     display: table;
     width: 100% !important;
     position: relative;
@@ -459,13 +459,6 @@ a {
     @media only screen and (max-width: 479px) {
       .book.title > div:first-child {
         height: 400px; } }
-    .book.title > div:first-child:before {
-      content: '';
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      width: 100%;
-      border-bottom: 4px solid #e9e8e8; }
     .book.title > div:first-child .book-grid-two {
       box-sizing: border-box;
       max-width: 50%;
@@ -473,7 +466,7 @@ a {
       vertical-align: top;
       position: relative;
       vertical-align: middle; }
-      @media only screen and (max-width: 809px) {
+      @media only screen and (min-width: 480px) and (max-width: 809px) {
         .book.title > div:first-child .book-grid-two {
           padding-left: 15px; } }
       @media only screen and (max-width: 479px) {
@@ -496,7 +489,8 @@ a {
           transform: translateY(-50%); } }
       .book.title > div:first-child .book-grid-two:last-child div {
         height: 258px;
-        padding: 45px 10px 10px 45px; }
+        padding: 45px 10px 10px 45px;
+        box-sizing: border-box; }
         @media only screen and (max-width: 809px) {
           .book.title > div:first-child .book-grid-two:last-child div {
             padding: 0 !important;
@@ -541,29 +535,25 @@ a {
       padding: 0 20px 120px !important;
       width: 280px !important; } }
   .book.regular > div:first-child {
-    border-left: 4px solid #e9e8e8; }
+    border-left: 4px solid #e9e8e8;
+    border-bottom: 4px solid #e9e8e8; }
     @media only screen and (max-width: 809px) {
       .book.regular > div:first-child {
         border-left: none !important; } }
   .book.regular > div:not(:last-child) {
-    height: 515px;
     display: table;
     width: 100% !important;
     position: relative;
     box-sizing: border-box; }
+    @media only screen and (min-width: 810px) {
+      .book.regular > div:not(:last-child) {
+        height: 515px; } }
     @media only screen and (max-width: 809px) {
       .book.regular > div:not(:last-child) {
         padding: 0; } }
-    @media only screen and (max-width: 479px) {
-      .book.regular > div:not(:last-child) {
-        height: 400px; } }
-    .book.regular > div:not(:last-child):before {
-      content: '';
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      width: 100%;
-      border-bottom: 4px solid #e9e8e8; }
+    @media only screen and (max-width: 809px) {
+      .book.regular > div:not(:last-child) .book-grid-two.blank + .book-grid-two {
+        margin-top: 0; } }
     .book.regular > div:not(:last-child) .book-grid-two {
       box-sizing: border-box;
       max-width: 50%;
@@ -572,19 +562,102 @@ a {
       position: relative; }
       .book.regular > div:not(:last-child) .book-grid-two:first-child {
         width: 361px; }
-        @media only screen and (max-width: 809px) {
-          .book.regular > div:not(:last-child) .book-grid-two:first-child {
-            margin-bottom: 40px; } }
       .book.regular > div:not(:last-child) .book-grid-two:last-child {
         width: 365px; }
-      @media only screen and (min-width: 810px) {
-        .book.regular > div:not(:last-child) .book-grid-two.sep:before {
-          content: '';
-          border-left: 4px solid #e9e8e8;
-          position: absolute;
-          height: 50%;
-          top: 50%;
-          transform: translateY(-50%); } }
+        @media only screen and (min-width: 810px) {
+          .book.regular > div:not(:last-child) .book-grid-two:last-child {
+            padding-left: 4px; } }
+        @media only screen and (max-width: 809px) {
+          .book.regular > div:not(:last-child) .book-grid-two:last-child {
+            margin-top: 40px;
+            height: 511px; }
+            .book.regular > div:not(:last-child) .book-grid-two:last-child > div {
+              height: 511px; } }
+        @media only screen and (max-width: 479px) {
+          .book.regular > div:not(:last-child) .book-grid-two:last-child {
+            height: 400px; }
+            .book.regular > div:not(:last-child) .book-grid-two:last-child > div {
+              height: 400px; } }
+      .book.regular > div:not(:last-child) .book-grid-two.bottom {
+        vertical-align: bottom; }
+      .book.regular > div:not(:last-child) .book-grid-two.top {
+        vertical-align: top; }
+      .book.regular > div:not(:last-child) .book-grid-two.left > div {
+        float: left; }
+      .book.regular > div:not(:last-child) .book-grid-two.right > div {
+        float: right; }
+      .book.regular > div:not(:last-child) .book-grid-two.top-left {
+        vertical-align: top; }
+        .book.regular > div:not(:last-child) .book-grid-two.top-left > div {
+          float: left; }
+      .book.regular > div:not(:last-child) .book-grid-two.top-right {
+        vertical-align: top; }
+        .book.regular > div:not(:last-child) .book-grid-two.top-right > div {
+          float: right; }
+      .book.regular > div:not(:last-child) .book-grid-two.bottom-left {
+        vertical-align: bottom; }
+        .book.regular > div:not(:last-child) .book-grid-two.bottom-left > div {
+          float: left; }
+      .book.regular > div:not(:last-child) .book-grid-two.bottom-right {
+        vertical-align: bottom; }
+        .book.regular > div:not(:last-child) .book-grid-two.bottom-right > div {
+          float: right; }
+      @media only screen and (min-width: 480px) {
+        .book.regular > div:not(:last-child) .book-grid-two.quote > div > div {
+          padding-right: 110px; } }
+      .book.regular > div:not(:last-child) .book-grid-two.quote > div > div .quote-text, .book.regular > div:not(:last-child) .book-grid-two.quote > div > div .quote-text p {
+        font-size: 16px;
+        font-family: Poly;
+        font-style: italic;
+        line-height: 20px;
+        margin-bottom: 20px; }
+      .book.regular > div:not(:last-child) .book-grid-two.quote > div > div .quote-author {
+        font-size: 13px;
+        font-family: Lato;
+        font-weight: 900;
+        line-height: 18px; }
+      .book.regular > div:not(:last-child) .book-grid-two.quote > div > div .quote-source {
+        font-size: 13px;
+        font-family: Lato;
+        font-style: italic;
+        font-weight: 900;
+        line-height: 18px; }
+      .book.regular > div:not(:last-child) .book-grid-two.double {
+        height: 511px;
+        width: 361px; }
+        .book.regular > div:not(:last-child) .book-grid-two.double > div {
+          height: inherit;
+          width: inherit; }
+          .book.regular > div:not(:last-child) .book-grid-two.double > div > div {
+            height: inherit;
+            width: inherit;
+            padding: 0; }
+            .book.regular > div:not(:last-child) .book-grid-two.double > div > div > div {
+              height: 50%;
+              width: inherit;
+              text-align: center;
+              display: table;
+              vertical-align: middle; }
+              .book.regular > div:not(:last-child) .book-grid-two.double > div > div > div > div {
+                display: table-cell;
+                vertical-align: middle; }
+            .book.regular > div:not(:last-child) .book-grid-two.double > div > div .small img {
+              max-width: 180px;
+              max-height: 180px; }
+            .book.regular > div:not(:last-child) .book-grid-two.double > div > div .medium img {
+              max-width: 310px;
+              max-height: 205px; }
+            .book.regular > div:not(:last-child) .book-grid-two.double > div > div .full img {
+              max-width: 361px;
+              max-height: 255.5px; }
+      @media only screen and (max-width: 809px) {
+        .book.regular > div:not(:last-child) .book-grid-two.blank {
+          display: none; } }
+      @media only screen and (max-width: 479px) {
+        .book.regular > div:not(:last-child) .book-grid-two {
+          height: 400px !important; }
+          .book.regular > div:not(:last-child) .book-grid-two > div {
+            height: 400px !important; } }
       @media only screen and (max-width: 809px) {
         .book.regular > div:not(:last-child) .book-grid-two {
           border-left: 4px solid #e9e8e8;
@@ -593,23 +666,24 @@ a {
           max-width: none;
           width: 100% !important;
           padding-left: 0;
-          height: 515px;
-          padding: 40px; }
-          .book.regular > div:not(:last-child) .book-grid-two > div > div {
-            padding: 0 !important; } }
-      @media only screen and (max-width: 479px) {
-        .book.regular > div:not(:last-child) .book-grid-two {
-          height: 400px;
-          padding: 20px; } }
+          height: 511px; } }
+      @media only screen and (min-width: 810px) {
+        .book.regular > div:not(:last-child) .book-grid-two.sep:before {
+          content: '';
+          border-left: 4px solid #e9e8e8;
+          position: absolute;
+          height: 50%;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0; } }
       .book.regular > div:not(:last-child) .book-grid-two > div {
-        min-height: 50%;
         display: table; }
-        @media only screen and (max-width: 809px) {
-          .book.regular > div:not(:last-child) .book-grid-two > div {
-            height: 435px; } }
         @media only screen and (max-width: 479px) {
           .book.regular > div:not(:last-child) .book-grid-two > div {
-            height: 360px; } }
+            height: 400px; } }
+        @media only screen and (max-width: 809px) {
+          .book.regular > div:not(:last-child) .book-grid-two > div {
+            height: 511px; } }
         .book.regular > div:not(:last-child) .book-grid-two > div > div {
           padding: 40px;
           display: table-cell;
@@ -619,6 +693,52 @@ a {
             line-height: 21px; }
           .book.regular > div:not(:last-child) .book-grid-two > div > div :last-child {
             margin-bottom: 0; }
+      .book.regular > div:not(:last-child) .book-grid-two .content-left > div, .book.regular > div:not(:last-child) .book-grid-two .content-right > div {
+        padding: 40px; }
+        @media only screen and (max-width: 479px) {
+          .book.regular > div:not(:last-child) .book-grid-two .content-left > div, .book.regular > div:not(:last-child) .book-grid-two .content-right > div {
+            padding: 25px; } }
+      .book.regular > div:not(:last-child) .book-grid-two .content-image {
+        margin: 0 auto;
+        position: relative; }
+        .book.regular > div:not(:last-child) .book-grid-two .content-image div {
+          padding: 0 !important; }
+        .book.regular > div:not(:last-child) .book-grid-two .content-image.small div img {
+          max-width: 230px;
+          max-height: 230px; }
+          @media only screen and (max-width: 479px) {
+            .book.regular > div:not(:last-child) .book-grid-two .content-image.small div img {
+              max-width: 180px;
+              max-height: 180px; } }
+        .book.regular > div:not(:last-child) .book-grid-two .content-image.medium div img {
+          max-width: 281px;
+          max-height: 431px; }
+          @media only screen and (max-width: 479px) {
+            .book.regular > div:not(:last-child) .book-grid-two .content-image.medium div img {
+              max-width: 216px;
+              max-height: 340px; } }
+        .book.regular > div:not(:last-child) .book-grid-two .content-image.large div img {
+          max-width: 321px;
+          max-height: 471px; }
+          @media only screen and (max-width: 479px) {
+            .book.regular > div:not(:last-child) .book-grid-two .content-image.large div img {
+              max-width: 236px;
+              max-height: 360px; } }
+        .book.regular > div:not(:last-child) .book-grid-two .content-image.full div img {
+          max-width: 100%;
+          max-height: 511px; }
+          @media only screen and (max-width: 479px) {
+            .book.regular > div:not(:last-child) .book-grid-two .content-image.full div img {
+              max-width: 100%;
+              max-height: 400px; } }
+
+.book.fullimage div {
+  text-align: center;
+  height: auto !important; }
+  .book.fullimage div img {
+    max-width: 726px;
+    max-height: 511px;
+    max-width: 100%; }
 
 .book.lastpage {
   width: 365px;
@@ -639,24 +759,18 @@ a {
       width: 280px !important; } }
   .book.lastpage > div:first-child {
     border-left: 4px solid #e9e8e8;
+    border-bottom: 4px solid #e9e8e8;
     height: 515px;
     display: table;
     width: 100% !important;
     position: relative;
     box-sizing: border-box; }
-    .book.lastpage > div:first-child:before {
-      content: '';
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      width: 100%;
-      border-bottom: 4px solid #e9e8e8; }
     @media only screen and (max-width: 809px) {
       .book.lastpage > div:first-child {
         padding: 30px 30px; } }
     @media only screen and (max-width: 479px) {
       .book.lastpage > div:first-child {
-        height: 400px; } }
+        height: 404px; } }
     .book.lastpage > div:first-child > div {
       display: table-cell;
       vertical-align: middle;
