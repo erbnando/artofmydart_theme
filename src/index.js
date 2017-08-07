@@ -19,6 +19,25 @@ class App extends Component {
 		//console.log( md.mobile() );
 	}
 
+	componentWillMount() {
+		window.url = window.location.href;
+	}
+
+	componentWillUpdate() {
+		if (window.location.href != window.url) {
+			console.log('new page');
+			if(document.getElementById('content-right')) {
+				document.getElementById('content-right').style.opacity = "0";
+			}
+			if(document.getElementById('content-left')) {
+				document.getElementById('content-left').style.opacity = "0";
+			}
+		} else {
+			console.log('same page');
+		}
+		window.url = window.location.href;
+	}
+
 	render() {
 		if (window.location.href.indexOf("/books/") > -1) {
 			return (

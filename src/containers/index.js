@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchPosts} from '../actions/index';
-import BlogLeft from './blog_left';
-import BlogRight from './blog_right';
+import BlogLeft from '../components/index_left';
+import BlogRight from '../components/index_right';
 
 class Index extends Component {
 	componentWillMount() {

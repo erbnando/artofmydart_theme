@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchPosts} from '../actions/index';
-import Featured from './featured';
-import BlogLeft from './blog_left';
+import Featured from '../components/featured';
+import BlogLeft from '../components/index_left';
 
 class Home extends Component {
 	componentWillMount() {

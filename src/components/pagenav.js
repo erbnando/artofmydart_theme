@@ -38,6 +38,7 @@ export default class PageNav extends Component {
 
 	hideComponents() {
 		//console.log('link onclick');
+		/*
 		if (document.getElementById('content-left') && document.getElementById('content-right')){
 			if (window.location.pathname !== '/') {
 				document.getElementById('content-left').style.opacity = "0";
@@ -45,6 +46,7 @@ export default class PageNav extends Component {
 				//console.log('-----content left and right hidden');
 			}
 		}
+		*/
 	}
 
 	render() {

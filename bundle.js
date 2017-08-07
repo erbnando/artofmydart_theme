@@ -118,6 +118,27 @@
 				//console.log( md.mobile() );
 			}
 		}, {
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				window.url = window.location.href;
+			}
+		}, {
+			key: 'componentWillUpdate',
+			value: function componentWillUpdate() {
+				if (window.location.href != window.url) {
+					console.log('new page');
+					if (document.getElementById('content-right')) {
+						document.getElementById('content-right').style.opacity = "0";
+					}
+					if (document.getElementById('content-left')) {
+						document.getElementById('content-left').style.opacity = "0";
+					}
+				} else {
+					console.log('same page');
+				}
+				window.url = window.location.href;
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				if (window.location.href.indexOf("/books/") > -1) {
@@ -30025,13 +30046,13 @@
 
 	var _index = __webpack_require__(262);
 
-	var _featured = __webpack_require__(291);
+	var _featured = __webpack_require__(328);
 
 	var _featured2 = _interopRequireDefault(_featured);
 
-	var _blog_left = __webpack_require__(292);
+	var _index_left = __webpack_require__(327);
 
-	var _blog_left2 = _interopRequireDefault(_blog_left);
+	var _index_left2 = _interopRequireDefault(_index_left);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30113,7 +30134,7 @@
 						_react2.default.createElement(
 							'div',
 							{ id: 'content-right' },
-							_react2.default.createElement(_blog_left2.default, { page: this.getPage(),
+							_react2.default.createElement(_index_left2.default, { page: this.getPage(),
 								props: this.props,
 								nav: true })
 						)
@@ -30128,352 +30149,8 @@
 	module.exports = Home;
 
 /***/ }),
-/* 291 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouterDom = __webpack_require__(224);
-
-	var _reactRedux = __webpack_require__(184);
-
-	var _actions = __webpack_require__(262);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Featured = function (_Component) {
-		_inherits(Featured, _Component);
-
-		function Featured() {
-			_classCallCheck(this, Featured);
-
-			return _possibleConstructorReturn(this, (Featured.__proto__ || Object.getPrototypeOf(Featured)).apply(this, arguments));
-		}
-
-		_createClass(Featured, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {
-				//console.log('F will mount');
-				this.props.fetchFeatBook();
-			}
-		}, {
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				//console.log('F did mount');
-			}
-		}, {
-			key: 'componentDidUpdate',
-			value: function componentDidUpdate() {
-				//console.log('F did mount');
-			}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps() {
-				//console.log('F will receive props');
-			}
-		}, {
-			key: 'componentWillUnmount',
-			value: function componentWillUnmount() {
-				//console.log('F will unmount');		
-			}
-		}, {
-			key: 'imgLoaded',
-			value: function imgLoaded() {
-				window.leftloaded = true;
-				if (window.rightloaded !== true) {
-					//console.log('index featured loaded first');
-					//console.log('blog left:', window.leftloaded, 'blog right:', window.rightloaded);
-				} else {
-					setTimeout(function () {
-						if (document.getElementById('content-left')) {
-							document.getElementById('content-left').style.opacity = "1";
-						}
-						if (document.getElementById('content-right')) {
-							document.getElementById('content-right').style.opacity = "1";
-						}
-						//scroll to top
-						//window.scrollTo(0, 0);
-						//console.log('+++++index featured triggered display');
-						window.leftloaded = false;
-						window.rightloaded = false;
-					}, 250);
-				}
-			}
-		}, {
-			key: 'getFeaturedImage',
-			value: function getFeaturedImage() {
-				if (this.props.feat_book.featured.acf.book_cover) {
-					return this.props.feat_book.featured.acf.book_cover.sizes.home;
-				} else {
-					return 'http://placehold.it/200x200?text=featured%20book';
-				}
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				//console.log(this.props);
-				if (typeof this.props.feat_book.featured.acf != 'undefined') {
-					//console.log(this.props.feat_book.featured.better_featured_image.media_details.sizes.home.source_url);
-					//console.log(this.props.feat_book.featured);
-					return _react2.default.createElement(
-						'div',
-						{ className: 'featured' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'featured-image' },
-							_react2.default.createElement('img', {
-								id: 'featured-image',
-								onLoad: this.imgLoaded,
-								src: this.getFeaturedImage()
-							})
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'featured-details' },
-							_react2.default.createElement(
-								'div',
-								null,
-								_react2.default.createElement(
-									_reactRouterDom.Link,
-									{ to: "/books/" + this.props.feat_book.featured.slug },
-									_react2.default.createElement(
-										'h3',
-										null,
-										this.props.feat_book.featured.title.rendered
-									),
-									_react2.default.createElement(
-										'p',
-										null,
-										this.props.feat_book.featured.acf.author_single_line
-									)
-								)
-							)
-						)
-					);
-				} else {
-					//console.log('undefined');
-					return _react2.default.createElement(
-						'p',
-						null,
-						'loading...'
-					);
-				}
-			}
-		}]);
-
-		return Featured;
-	}(_react.Component);
-
-	function mapStateToProps(_ref) {
-		var feat_book = _ref.feat_book;
-
-		//console.log('mapStateToProps');
-		return { feat_book: feat_book };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchFeatBook: _actions.fetchFeatBook }, null, { pure: true })(Featured);
-
-/***/ }),
-/* 292 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(184);
-
-	var _index = __webpack_require__(262);
-
-	var _article = __webpack_require__(293);
-
-	var _article2 = _interopRequireDefault(_article);
-
-	var _pagenav = __webpack_require__(295);
-
-	var _pagenav2 = _interopRequireDefault(_pagenav);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var BlogLeft = function (_Component) {
-		_inherits(BlogLeft, _Component);
-
-		function BlogLeft() {
-			_classCallCheck(this, BlogLeft);
-
-			return _possibleConstructorReturn(this, (BlogLeft.__proto__ || Object.getPrototypeOf(BlogLeft)).apply(this, arguments));
-		}
-
-		_createClass(BlogLeft, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {
-				//console.log('will mount');
-				//console.log(this.props);
-				//console.log('will mount');
-				this.getPosts(this.props, true);
-			}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps(nextProps) {
-				//console.log('will receive props');
-				//console.log(nextProps);
-				this.getPosts(nextProps);
-			}
-		}, {
-			key: 'shouldComponentUpdate',
-			value: function shouldComponentUpdate(nextProps) {
-				//console.log(this.props.odd_posts.items);
-				//console.log(nextProps.odd_posts.items);
-				//console.log(this.props.odd_posts !== nextProps.odd_posts);
-				return this.props.odd_posts !== nextProps.odd_posts;
-			}
-		}, {
-			key: 'getPosts',
-			value: function getPosts(props) {
-				var willMount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
-				//console.log(props.page);
-				if (props.page !== this.props.page || willMount /*|| this.props.props.location.pathname !== props.props.location.pathname*/) {
-						if (this.props.nav == true) {
-							this.props.fetchOddPosts(props.page || 1, 'books', 'home');
-						} else {
-							this.props.fetchOddPosts(props.page || 1, 'books', 'index');
-						}
-					}
-			}
-		}, {
-			key: 'renderOddPosts',
-			value: function renderOddPosts(posts) {
-				return posts.map(function (post) {
-					return _react2.default.createElement(_article2.default, { key: post.id,
-						type: post.type,
-						pId: post.id,
-						title: post.title.rendered,
-						author: post.acf.author_single_line,
-						date: post.acf.date,
-						link: post.link });
-				});
-			}
-		}, {
-			key: 'componentDidUpdate',
-			value: function componentDidUpdate() {
-				//console.log('did update');
-				window.leftloaded = true;
-				if (document.getElementById('blog-left')) {
-					if (this.props.odd_posts.items.length == 0) {
-						document.getElementById('blog-left').className = "grid-two blog-left blog-left-hidden";
-					} else {
-						document.getElementById('blog-left').className = "grid-two blog-left";
-					}
-				}
-				if (window.leftloaded !== true) {
-					//console.log('blog left loaded first');
-					//console.log('blog right:', window.rightloaded, 'blog left:', window.rightloaded);
-				} else {
-					setTimeout(function () {
-						if (document.getElementById('content-right')) {
-							document.getElementById('content-right').style.opacity = "1";
-						}
-						if (document.getElementById('content-left')) {
-							document.getElementById('content-left').style.opacity = "1";
-						}
-						//scroll to top
-						//window.scrollTo(0, 0);
-						//console.log('+++++blog left triggered display');
-						window.leftloaded = false;
-						window.rightloaded = false;
-					}, 250);
-				}
-			}
-		}, {
-			key: 'shouldRender',
-			value: function shouldRender() {
-				return this.props.page * 8 - 4 < this.props.odd_posts.headers['x-wp-total'];
-			}
-		}, {
-			key: 'getNav',
-			value: function getNav() {
-				//console.log(this.props);
-				if (this.props.nav == true) {
-					return _react2.default.createElement(_pagenav2.default, { pageNum: this.props.page,
-						total: this.props.odd_posts.headers['x-wp-total'],
-						shouldRender: this.shouldRender(),
-						route: this.props.route || '',
-						slug: this.props.slug || '',
-						type: 'home' });
-				} else {
-					return;
-				}
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				//console.log('render');
-				//console.log(this.props.odd_posts.headers['x-wp-total']);
-				//console.log(((this.props.page * 8)-4) <= this.props.odd_posts.headers['x-wp-total']);
-				if (this.props.odd_posts.items) {
-					return _react2.default.createElement(
-						'div',
-						null,
-						_react2.default.createElement(
-							'main',
-							{ className: 'posts' },
-							this.renderOddPosts(this.props.odd_posts.items)
-						),
-						this.getNav()
-					);
-				} else {
-					return _react2.default.createElement(
-						'p',
-						null,
-						'loading...'
-					);
-				}
-			}
-		}]);
-
-		return BlogLeft;
-	}(_react.Component);
-
-	function mapStateToProps(_ref) {
-		var odd_posts = _ref.odd_posts;
-
-		return { odd_posts: odd_posts };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchOddPosts: _index.fetchOddPosts })(BlogLeft);
-
-/***/ }),
+/* 291 */,
+/* 292 */,
 /* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30691,13 +30368,15 @@
 			key: 'hideComponents',
 			value: function hideComponents() {
 				//console.log('link onclick');
-				if (document.getElementById('content-left') && document.getElementById('content-right')) {
-					if (window.location.pathname !== '/') {
-						document.getElementById('content-left').style.opacity = "0";
-						document.getElementById('content-right').style.opacity = "0";
-						//console.log('-----content left and right hidden');
-					}
-				}
+				/*
+	   if (document.getElementById('content-left') && document.getElementById('content-right')){
+	   	if (window.location.pathname !== '/') {
+	   		document.getElementById('content-left').style.opacity = "0";
+	   		document.getElementById('content-right').style.opacity = "0";
+	   		//console.log('-----content left and right hidden');
+	   	}
+	   }
+	   */
 			}
 		}, {
 			key: 'render',
@@ -30756,13 +30435,13 @@
 
 	var _index = __webpack_require__(262);
 
-	var _blog_left = __webpack_require__(292);
+	var _index_left = __webpack_require__(327);
 
-	var _blog_left2 = _interopRequireDefault(_blog_left);
+	var _index_left2 = _interopRequireDefault(_index_left);
 
-	var _blog_right = __webpack_require__(297);
+	var _index_right = __webpack_require__(326);
 
-	var _blog_right2 = _interopRequireDefault(_blog_right);
+	var _index_right2 = _interopRequireDefault(_index_right);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30830,7 +30509,7 @@
 						_react2.default.createElement(
 							'div',
 							{ id: 'content-left' },
-							_react2.default.createElement(_blog_left2.default, { page: this.getPage(),
+							_react2.default.createElement(_index_left2.default, { page: this.getPage(),
 								props: this.props,
 								nav: false })
 						)
@@ -30841,7 +30520,7 @@
 						_react2.default.createElement(
 							'div',
 							{ id: 'content-right' },
-							_react2.default.createElement(_blog_right2.default, { page: this.getPage(),
+							_react2.default.createElement(_index_right2.default, { page: this.getPage(),
 								props: this.props,
 								nav: true })
 						)
@@ -30856,173 +30535,7 @@
 	module.exports = Index;
 
 /***/ }),
-/* 297 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(184);
-
-	var _index = __webpack_require__(262);
-
-	var _article = __webpack_require__(293);
-
-	var _article2 = _interopRequireDefault(_article);
-
-	var _pagenav = __webpack_require__(295);
-
-	var _pagenav2 = _interopRequireDefault(_pagenav);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var BlogRight = function (_Component) {
-		_inherits(BlogRight, _Component);
-
-		function BlogRight() {
-			_classCallCheck(this, BlogRight);
-
-			return _possibleConstructorReturn(this, (BlogRight.__proto__ || Object.getPrototypeOf(BlogRight)).apply(this, arguments));
-		}
-
-		_createClass(BlogRight, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {
-				//console.log(this.props);
-				this.getPosts(this.props, true);
-			}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps(nextProps) {
-				this.getPosts(nextProps);
-				//console.log('will receive props');
-			}
-		}, {
-			key: 'shouldComponentUpdate',
-			value: function shouldComponentUpdate(nextProps) {
-				//console.log(this.props.even_posts);
-				//console.log(nextProps.even_posts);
-				return this.props.even_posts !== nextProps.even_posts;
-			}
-		}, {
-			key: 'getPosts',
-			value: function getPosts(props) {
-				var willMount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
-				if (props.page !== this.props.page || willMount /*|| this.props.props.location.pathname !== props.props.location.pathname*/) {
-						this.props.fetchEvenPosts(props.page || 1, 'books');
-					}
-			}
-		}, {
-			key: 'renderEvenPosts',
-			value: function renderEvenPosts(posts) {
-				return posts.map(function (post) {
-					return _react2.default.createElement(_article2.default, { key: post.id,
-						type: post.type,
-						pId: post.id,
-						title: post.title.rendered,
-						author: post.acf.author_single_line,
-						date: post.acf.date,
-						link: post.link });
-				});
-			}
-		}, {
-			key: 'componentDidUpdate',
-			value: function componentDidUpdate() {
-				//set right flag to true
-				window.rightloaded = true;
-				if (window.leftloaded !== true) {
-					//console.log('blog right loaded first');
-					//console.log('blog right:', window.rightloaded, 'blog left:', window.leftloaded);
-				} else {
-					setTimeout(function () {
-						if (document.getElementById('content-right')) {
-							document.getElementById('content-right').style.opacity = "1";
-						}
-						if (document.getElementById('content-left')) {
-							document.getElementById('content-left').style.opacity = "1";
-						}
-						//scroll to top
-						//window.scrollTo(0, 0);
-						//console.log('+++++blog right triggered display');
-						window.rightloaded = false;
-						window.leftloaded = false;
-					}, 250);
-				}
-			}
-		}, {
-			key: 'shouldRender',
-			value: function shouldRender() {
-				return this.props.page * 8 < this.props.even_posts.headers['x-wp-total'];
-			}
-		}, {
-			key: 'getNav',
-			value: function getNav() {
-				if (this.props.nav == true) {
-					return _react2.default.createElement(_pagenav2.default, { pageNum: this.props.page,
-						total: this.props.even_posts.headers['x-wp-total'],
-						shouldRender: this.shouldRender(),
-						route: this.props.route || '',
-						slug: this.props.slug || '',
-						type: 'index' });
-				} else {
-					return;
-				}
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				//console.log(this.props.even_posts.items);
-				//if (this.props.page < 2 || this.props.page == null) {
-				//console.log(this.props);
-				if (this.props.even_posts.items) {
-					return _react2.default.createElement(
-						'div',
-						null,
-						_react2.default.createElement(
-							'main',
-							{ className: 'posts' },
-							this.renderEvenPosts(this.props.even_posts.items)
-						),
-						this.getNav()
-					);
-				} else {
-					return _react2.default.createElement(
-						'p',
-						null,
-						'loading...'
-					);
-				}
-			}
-		}]);
-
-		return BlogRight;
-	}(_react.Component);
-
-	function mapStateToProps(_ref) {
-		var even_posts = _ref.even_posts;
-
-		return { even_posts: even_posts };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchEvenPosts: _index.fetchEvenPosts })(BlogRight);
-
-/***/ }),
+/* 297 */,
 /* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31295,6 +30808,14 @@
 				}
 			}
 		}, {
+			key: 'imgLoaded',
+			value: function imgLoaded() {
+				if (document.getElementById('content')) {
+					console.log('loaded');
+					document.getElementById('content').style.opacity = "1";
+				}
+			}
+		}, {
 			key: 'getPage',
 			value: function getPage() {
 				//console.log(this.props);
@@ -31314,7 +30835,9 @@
 								_react2.default.createElement(
 									'div',
 									{ className: 'img-wrapper' },
-									_react2.default.createElement('img', { src: this.props.book.book.acf.book_cover.sizes.book_cover })
+									_react2.default.createElement('img', {
+										src: this.props.book.book.acf.book_cover.sizes.book_cover,
+										onLoad: this.imgLoaded })
 								),
 								_react2.default.createElement(
 									'div',
@@ -31417,11 +30940,7 @@
 					return _react2.default.createElement(
 						'div',
 						{ className: 'content book', id: 'content' },
-						_react2.default.createElement(
-							'span',
-							null,
-							'loading...'
-						)
+						_react2.default.createElement('span', null)
 					);
 				}
 			}
@@ -34315,6 +33834,511 @@
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 324 */,
+/* 325 */,
+/* 326 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(184);
+
+	var _index = __webpack_require__(262);
+
+	var _article = __webpack_require__(293);
+
+	var _article2 = _interopRequireDefault(_article);
+
+	var _pagenav = __webpack_require__(295);
+
+	var _pagenav2 = _interopRequireDefault(_pagenav);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var BlogRight = function (_Component) {
+		_inherits(BlogRight, _Component);
+
+		function BlogRight() {
+			_classCallCheck(this, BlogRight);
+
+			return _possibleConstructorReturn(this, (BlogRight.__proto__ || Object.getPrototypeOf(BlogRight)).apply(this, arguments));
+		}
+
+		_createClass(BlogRight, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				//console.log(this.props);
+				this.getPosts(this.props, true);
+			}
+		}, {
+			key: 'componentWillReceiveProps',
+			value: function componentWillReceiveProps(nextProps) {
+				this.getPosts(nextProps);
+				//console.log('will receive props');
+			}
+		}, {
+			key: 'shouldComponentUpdate',
+			value: function shouldComponentUpdate(nextProps) {
+				//console.log(this.props.even_posts);
+				//console.log(nextProps.even_posts);
+				return this.props.even_posts !== nextProps.even_posts;
+			}
+		}, {
+			key: 'getPosts',
+			value: function getPosts(props) {
+				var willMount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+				if (props.page !== this.props.page || willMount /*|| this.props.props.location.pathname !== props.props.location.pathname*/) {
+						this.props.fetchEvenPosts(props.page || 1, 'books');
+					}
+			}
+		}, {
+			key: 'renderEvenPosts',
+			value: function renderEvenPosts(posts) {
+				return posts.map(function (post) {
+					return _react2.default.createElement(_article2.default, { key: post.id,
+						type: post.type,
+						pId: post.id,
+						title: post.title.rendered,
+						author: post.acf.author_single_line,
+						date: post.acf.date,
+						link: post.link });
+				});
+			}
+		}, {
+			key: 'componentDidUpdate',
+			value: function componentDidUpdate() {
+				//set right flag to true
+				window.rightloaded = true;
+				if (window.leftloaded !== true) {
+					//console.log('blog right loaded first');
+					//console.log('blog right:', window.rightloaded, 'blog left:', window.leftloaded);
+				} else {
+					setTimeout(function () {
+						if (document.getElementById('content-right')) {
+							document.getElementById('content-right').style.opacity = "1";
+						}
+						if (document.getElementById('content-left')) {
+							document.getElementById('content-left').style.opacity = "1";
+						}
+						//scroll to top
+						//window.scrollTo(0, 0);
+						//console.log('+++++blog right triggered display');
+						window.rightloaded = false;
+						window.leftloaded = false;
+					}, 250);
+				}
+			}
+		}, {
+			key: 'shouldRender',
+			value: function shouldRender() {
+				return this.props.page * 8 < this.props.even_posts.headers['x-wp-total'];
+			}
+		}, {
+			key: 'getNav',
+			value: function getNav() {
+				if (this.props.nav == true) {
+					return _react2.default.createElement(_pagenav2.default, { pageNum: this.props.page,
+						total: this.props.even_posts.headers['x-wp-total'],
+						shouldRender: this.shouldRender(),
+						route: this.props.route || '',
+						slug: this.props.slug || '',
+						type: 'index' });
+				} else {
+					return;
+				}
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				//console.log(this.props.even_posts.items);
+				//if (this.props.page < 2 || this.props.page == null) {
+				//console.log(this.props);
+				if (this.props.even_posts.items) {
+					return _react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(
+							'main',
+							{ className: 'posts' },
+							this.renderEvenPosts(this.props.even_posts.items)
+						),
+						this.getNav()
+					);
+				} else {
+					return _react2.default.createElement(
+						'p',
+						null,
+						'loading...'
+					);
+				}
+			}
+		}]);
+
+		return BlogRight;
+	}(_react.Component);
+
+	function mapStateToProps(_ref) {
+		var even_posts = _ref.even_posts;
+
+		return { even_posts: even_posts };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchEvenPosts: _index.fetchEvenPosts })(BlogRight);
+
+/***/ }),
+/* 327 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(184);
+
+	var _index = __webpack_require__(262);
+
+	var _article = __webpack_require__(293);
+
+	var _article2 = _interopRequireDefault(_article);
+
+	var _pagenav = __webpack_require__(295);
+
+	var _pagenav2 = _interopRequireDefault(_pagenav);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var BlogLeft = function (_Component) {
+		_inherits(BlogLeft, _Component);
+
+		function BlogLeft() {
+			_classCallCheck(this, BlogLeft);
+
+			return _possibleConstructorReturn(this, (BlogLeft.__proto__ || Object.getPrototypeOf(BlogLeft)).apply(this, arguments));
+		}
+
+		_createClass(BlogLeft, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				//console.log('will mount');
+				//console.log(this.props);
+				//console.log('will mount');
+				this.getPosts(this.props, true);
+			}
+		}, {
+			key: 'componentWillReceiveProps',
+			value: function componentWillReceiveProps(nextProps) {
+				//console.log('will receive props');
+				//console.log(nextProps);
+				this.getPosts(nextProps);
+			}
+		}, {
+			key: 'shouldComponentUpdate',
+			value: function shouldComponentUpdate(nextProps) {
+				//console.log(this.props.odd_posts.items);
+				//console.log(nextProps.odd_posts.items);
+				//console.log(this.props.odd_posts !== nextProps.odd_posts);
+				return this.props.odd_posts !== nextProps.odd_posts;
+			}
+		}, {
+			key: 'getPosts',
+			value: function getPosts(props) {
+				var willMount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+				//console.log(props.page);
+				if (props.page !== this.props.page || willMount /*|| this.props.props.location.pathname !== props.props.location.pathname*/) {
+						if (this.props.nav == true) {
+							this.props.fetchOddPosts(props.page || 1, 'books', 'home');
+						} else {
+							this.props.fetchOddPosts(props.page || 1, 'books', 'index');
+						}
+					}
+			}
+		}, {
+			key: 'renderOddPosts',
+			value: function renderOddPosts(posts) {
+				return posts.map(function (post) {
+					return _react2.default.createElement(_article2.default, { key: post.id,
+						type: post.type,
+						pId: post.id,
+						title: post.title.rendered,
+						author: post.acf.author_single_line,
+						date: post.acf.date,
+						link: post.link });
+				});
+			}
+		}, {
+			key: 'componentDidUpdate',
+			value: function componentDidUpdate() {
+				//console.log('did update');
+				window.leftloaded = true;
+				if (document.getElementById('blog-left')) {
+					if (this.props.odd_posts.items.length == 0) {
+						document.getElementById('blog-left').className = "grid-two blog-left blog-left-hidden";
+					} else {
+						document.getElementById('blog-left').className = "grid-two blog-left";
+					}
+				}
+				if (window.leftloaded === true) {
+					if (document.getElementById('content-right')) {
+						document.getElementById('content-right').style.opacity = "1";
+					}
+					if (document.getElementById('content-left')) {
+						document.getElementById('content-left').style.opacity = "1";
+					}
+					window.leftloaded = false;
+					window.rightloaded = false;
+				}
+			}
+		}, {
+			key: 'shouldRender',
+			value: function shouldRender() {
+				return this.props.page * 8 - 4 < this.props.odd_posts.headers['x-wp-total'];
+			}
+		}, {
+			key: 'getNav',
+			value: function getNav() {
+				//console.log(this.props);
+				if (this.props.nav == true) {
+					return _react2.default.createElement(_pagenav2.default, { pageNum: this.props.page,
+						total: this.props.odd_posts.headers['x-wp-total'],
+						shouldRender: this.shouldRender(),
+						route: this.props.route || '',
+						slug: this.props.slug || '',
+						type: 'home' });
+				} else {
+					return;
+				}
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				//console.log('render');
+				//console.log(this.props.odd_posts.headers['x-wp-total']);
+				//console.log(((this.props.page * 8)-4) <= this.props.odd_posts.headers['x-wp-total']);
+				if (this.props.odd_posts.items) {
+					return _react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(
+							'main',
+							{ className: 'posts' },
+							this.renderOddPosts(this.props.odd_posts.items)
+						),
+						this.getNav()
+					);
+				} else {
+					return _react2.default.createElement(
+						'p',
+						null,
+						'loading...'
+					);
+				}
+			}
+		}]);
+
+		return BlogLeft;
+	}(_react.Component);
+
+	function mapStateToProps(_ref) {
+		var odd_posts = _ref.odd_posts;
+
+		return { odd_posts: odd_posts };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchOddPosts: _index.fetchOddPosts })(BlogLeft);
+
+/***/ }),
+/* 328 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouterDom = __webpack_require__(224);
+
+	var _reactRedux = __webpack_require__(184);
+
+	var _actions = __webpack_require__(262);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Featured = function (_Component) {
+		_inherits(Featured, _Component);
+
+		function Featured() {
+			_classCallCheck(this, Featured);
+
+			return _possibleConstructorReturn(this, (Featured.__proto__ || Object.getPrototypeOf(Featured)).apply(this, arguments));
+		}
+
+		_createClass(Featured, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				//console.log('F will mount');
+				this.props.fetchFeatBook();
+			}
+		}, {
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				//console.log('F did mount');
+			}
+		}, {
+			key: 'componentDidUpdate',
+			value: function componentDidUpdate() {
+				//console.log('F did mount');
+			}
+		}, {
+			key: 'componentWillReceiveProps',
+			value: function componentWillReceiveProps() {
+				//console.log('F will receive props');
+			}
+		}, {
+			key: 'componentWillUnmount',
+			value: function componentWillUnmount() {
+				//console.log('F will unmount');		
+			}
+		}, {
+			key: 'imgLoaded',
+			value: function imgLoaded() {
+				window.leftloaded = true;
+				if (window.rightloaded !== true) {
+					//console.log('index featured loaded first');
+					//console.log('blog left:', window.leftloaded, 'blog right:', window.rightloaded);
+				} else {
+					if (document.getElementById('content-left')) {
+						document.getElementById('content-left').style.opacity = "1";
+					}
+					if (document.getElementById('content-right')) {
+						document.getElementById('content-right').style.opacity = "1";
+					}
+					//scroll to top
+					//window.scrollTo(0, 0);
+					//console.log('+++++index featured triggered display');
+					window.leftloaded = false;
+					window.rightloaded = false;
+				}
+			}
+		}, {
+			key: 'getFeaturedImage',
+			value: function getFeaturedImage() {
+				if (this.props.feat_book.featured.acf.book_cover) {
+					return this.props.feat_book.featured.acf.book_cover.sizes.home;
+				} else {
+					return 'http://placehold.it/200x200?text=featured%20book';
+				}
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				//console.log(this.props);
+				if (typeof this.props.feat_book.featured.acf != 'undefined') {
+					//console.log(this.props.feat_book.featured.better_featured_image.media_details.sizes.home.source_url);
+					//console.log(this.props.feat_book.featured);
+					return _react2.default.createElement(
+						'div',
+						{ className: 'featured' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'featured-image' },
+							_react2.default.createElement('img', {
+								id: 'featured-image',
+								onLoad: this.imgLoaded,
+								src: this.getFeaturedImage()
+							})
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'featured-details' },
+							_react2.default.createElement(
+								'div',
+								null,
+								_react2.default.createElement(
+									_reactRouterDom.Link,
+									{ to: "/books/" + this.props.feat_book.featured.slug },
+									_react2.default.createElement(
+										'h3',
+										null,
+										this.props.feat_book.featured.title.rendered
+									),
+									_react2.default.createElement(
+										'p',
+										null,
+										this.props.feat_book.featured.acf.author_single_line
+									)
+								)
+							)
+						)
+					);
+				} else {
+					//console.log('undefined');
+					return _react2.default.createElement(
+						'p',
+						null,
+						'loading...'
+					);
+				}
+			}
+		}]);
+
+		return Featured;
+	}(_react.Component);
+
+	function mapStateToProps(_ref) {
+		var feat_book = _ref.feat_book;
+
+		//console.log('mapStateToProps');
+		return { feat_book: feat_book };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchFeatBook: _actions.fetchFeatBook }, null, { pure: true })(Featured);
 
 /***/ })
 /******/ ]);

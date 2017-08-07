@@ -31,19 +31,17 @@ class Featured extends Component {
 			//console.log('index featured loaded first');
 			//console.log('blog left:', window.leftloaded, 'blog right:', window.rightloaded);
 		} else {
-			setTimeout(function() {
-				if(document.getElementById('content-left')) {
-					document.getElementById('content-left').style.opacity = "1";
-				}
-				if(document.getElementById('content-right')) {
-					document.getElementById('content-right').style.opacity = "1";
-				}
-				//scroll to top
-				//window.scrollTo(0, 0);
-				//console.log('+++++index featured triggered display');
-				window.leftloaded = false;
-				window.rightloaded = false;
-			}, 250);
+			if(document.getElementById('content-left')) {
+				document.getElementById('content-left').style.opacity = "1";
+			}
+			if(document.getElementById('content-right')) {
+				document.getElementById('content-right').style.opacity = "1";
+			}
+			//scroll to top
+			//window.scrollTo(0, 0);
+			//console.log('+++++index featured triggered display');
+			window.leftloaded = false;
+			window.rightloaded = false;
 		}
 	}
 

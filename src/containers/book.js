@@ -42,6 +42,13 @@ class Book extends Component {
 		}
 	}
 
+	imgLoaded() {
+		if(document.getElementById('content')) {
+			console.log('loaded');
+			document.getElementById('content').style.opacity = "1";
+		}
+	}
+
 	getPage() {
 		//console.log(this.props);
 		if (this.props.match.params.pageNum == undefined) {
@@ -55,7 +62,9 @@ class Book extends Component {
 					<div className="content book cover" id="content">
 						<div>
 							<div className="img-wrapper">
-								<img src={this.props.book.book.acf.book_cover.sizes.book_cover} />
+								<img 
+								src={this.props.book.book.acf.book_cover.sizes.book_cover}
+								onLoad={this.imgLoaded}/>
 							</div>
 							<div className="title-wrapper">
 								<h2>{this.props.book.book.title.rendered}</h2>
@@ -123,7 +132,7 @@ class Book extends Component {
 		} else {
 			return (
 				<div className="content book" id="content">
-					<span>loading...</span>
+					<span />
 				</div>
 			);
 		}
