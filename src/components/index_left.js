@@ -49,8 +49,6 @@ class BlogLeft extends Component {
 	}
 
 	componentDidUpdate() {
-		//console.log('did update');
-		window.leftloaded = true;
 		if (document.getElementById('blog-left')) {
 			if (this.props.odd_posts.items.length == 0) {
 				document.getElementById('blog-left').className = "grid-two blog-left blog-left-hidden";
@@ -58,15 +56,35 @@ class BlogLeft extends Component {
 				document.getElementById('blog-left').className = "grid-two blog-left";
 			}
 		}
-		if (window.leftloaded === true) {
-			if(document.getElementById('content-right')) {
-				document.getElementById('content-right').style.opacity = "1";
+
+		if (this.props.props.location.pathname == '/') {
+			window.rightloaded = true;
+			if (window.leftloaded === true) {
+				setTimeout(function() {
+					if(document.getElementById('content-right')) {
+						document.getElementById('content-right').style.opacity = "1";
+					}
+					if(document.getElementById('content-left')) {
+						document.getElementById('content-left').style.opacity = "1";
+					}
+					window.leftloaded = false;
+					window.rightloaded = false;
+				}, 250);
 			}
-			if(document.getElementById('content-left')) {
-				document.getElementById('content-left').style.opacity = "1";
+		} else {
+			window.leftloaded = true;
+			if (window.rightloaded === true) {
+				setTimeout(function() {
+					if(document.getElementById('content-right')) {
+						document.getElementById('content-right').style.opacity = "1";
+					}
+					if(document.getElementById('content-left')) {
+						document.getElementById('content-left').style.opacity = "1";
+					}
+					window.leftloaded = false;
+					window.rightloaded = false;
+				}, 250);
 			}
-			window.leftloaded = false;
-			window.rightloaded = false;
 		}
 	}
 

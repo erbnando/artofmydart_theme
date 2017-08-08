@@ -30201,7 +30201,7 @@
 		}, {
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
-				//console.log('F did mount');
+				//console.log('F did mount');s
 			}
 		}, {
 			key: 'componentWillReceiveProps',
@@ -30217,21 +30217,17 @@
 			key: 'imgLoaded',
 			value: function imgLoaded() {
 				window.leftloaded = true;
-				if (window.rightloaded !== true) {
-					//console.log('index featured loaded first');
-					//console.log('blog left:', window.leftloaded, 'blog right:', window.rightloaded);
-				} else {
-					if (document.getElementById('content-left')) {
-						document.getElementById('content-left').style.opacity = "1";
-					}
-					if (document.getElementById('content-right')) {
-						document.getElementById('content-right').style.opacity = "1";
-					}
-					//scroll to top
-					//window.scrollTo(0, 0);
-					//console.log('+++++index featured triggered display');
-					window.leftloaded = false;
-					window.rightloaded = false;
+				if (window.rightloaded === true) {
+					setTimeout(function () {
+						if (document.getElementById('content-left')) {
+							document.getElementById('content-left').style.opacity = "1";
+						}
+						if (document.getElementById('content-right')) {
+							document.getElementById('content-right').style.opacity = "1";
+						}
+						window.leftloaded = false;
+						window.rightloaded = false;
+					}, 250);
 				}
 			}
 		}, {
@@ -30406,8 +30402,6 @@
 		}, {
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
-				//console.log('did update');
-				window.leftloaded = true;
 				if (document.getElementById('blog-left')) {
 					if (this.props.odd_posts.items.length == 0) {
 						document.getElementById('blog-left').className = "grid-two blog-left blog-left-hidden";
@@ -30415,15 +30409,35 @@
 						document.getElementById('blog-left').className = "grid-two blog-left";
 					}
 				}
-				if (window.leftloaded === true) {
-					if (document.getElementById('content-right')) {
-						document.getElementById('content-right').style.opacity = "1";
+
+				if (this.props.props.location.pathname == '/') {
+					window.rightloaded = true;
+					if (window.leftloaded === true) {
+						setTimeout(function () {
+							if (document.getElementById('content-right')) {
+								document.getElementById('content-right').style.opacity = "1";
+							}
+							if (document.getElementById('content-left')) {
+								document.getElementById('content-left').style.opacity = "1";
+							}
+							window.leftloaded = false;
+							window.rightloaded = false;
+						}, 250);
 					}
-					if (document.getElementById('content-left')) {
-						document.getElementById('content-left').style.opacity = "1";
+				} else {
+					window.leftloaded = true;
+					if (window.rightloaded === true) {
+						setTimeout(function () {
+							if (document.getElementById('content-right')) {
+								document.getElementById('content-right').style.opacity = "1";
+							}
+							if (document.getElementById('content-left')) {
+								document.getElementById('content-left').style.opacity = "1";
+							}
+							window.leftloaded = false;
+							window.rightloaded = false;
+						}, 250);
 					}
-					window.leftloaded = false;
-					window.rightloaded = false;
 				}
 			}
 		}, {
@@ -30957,12 +30971,8 @@
 		}, {
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
-				//set right flag to true
 				window.rightloaded = true;
-				if (window.leftloaded !== true) {
-					//console.log('blog right loaded first');
-					//console.log('blog right:', window.rightloaded, 'blog left:', window.leftloaded);
-				} else {
+				if (window.leftloaded === true) {
 					setTimeout(function () {
 						if (document.getElementById('content-right')) {
 							document.getElementById('content-right').style.opacity = "1";
@@ -30970,9 +30980,6 @@
 						if (document.getElementById('content-left')) {
 							document.getElementById('content-left').style.opacity = "1";
 						}
-						//scroll to top
-						//window.scrollTo(0, 0);
-						//console.log('+++++blog right triggered display');
 						window.rightloaded = false;
 						window.leftloaded = false;
 					}, 250);
@@ -31319,9 +31326,14 @@
 		}, {
 			key: 'imgLoaded',
 			value: function imgLoaded() {
-				if (document.getElementById('content')) {
-					document.getElementById('content').style.opacity = "1";
-				}
+				setTimeout(function () {
+					if (document.getElementById('cover')) {
+						document.getElementById('cover').style.opacity = "1";
+					}
+					if (document.getElementById('title')) {
+						document.getElementById('title').style.opacity = "1";
+					}
+				}, 250);
 			}
 		}, {
 			key: 'getPage',
@@ -31341,14 +31353,14 @@
 								null,
 								_react2.default.createElement(
 									'div',
-									{ className: 'img-wrapper' },
+									{ id: 'cover', className: 'img-wrapper' },
 									_react2.default.createElement('img', {
 										src: this.props.book.book.acf.book_cover.sizes.book_cover,
 										onLoad: this.imgLoaded })
 								),
 								_react2.default.createElement(
 									'div',
-									{ className: 'title-wrapper' },
+									{ id: 'title', className: 'title-wrapper' },
 									_react2.default.createElement(
 										'h2',
 										null,

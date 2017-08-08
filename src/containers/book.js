@@ -51,9 +51,14 @@ class Book extends Component {
 	}
 
 	imgLoaded() {
-		if(document.getElementById('content')) {
-			document.getElementById('content').style.opacity = "1";
-		}
+		setTimeout(function() {
+			if(document.getElementById('cover')) {
+				document.getElementById('cover').style.opacity = "1";
+			}
+			if(document.getElementById('title')) {
+				document.getElementById('title').style.opacity = "1";
+			}
+		}, 250);
 	}
 
 	getPage() {
@@ -67,12 +72,12 @@ class Book extends Component {
 				return (
 					<div className="content book cover" id="content">
 						<div>
-							<div className="img-wrapper">
+							<div id="cover" className="img-wrapper">
 								<img 
 								src={this.props.book.book.acf.book_cover.sizes.book_cover}
 								onLoad={this.imgLoaded}/>
 							</div>
-							<div className="title-wrapper">
+							<div id="title" className="title-wrapper">
 								<h2>{this.props.book.book.title.rendered}</h2>
 							</div>
 						</div>

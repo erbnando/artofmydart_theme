@@ -14,7 +14,7 @@ class Featured extends Component {
 	}
 
 	componentDidUpdate() {
-		//console.log('F did mount');
+		//console.log('F did mount');s
 	}
 
 	componentWillReceiveProps() {
@@ -27,21 +27,17 @@ class Featured extends Component {
 
 	imgLoaded() {
 		window.leftloaded = true;
-		if (window.rightloaded !== true) {
-			//console.log('index featured loaded first');
-			//console.log('blog left:', window.leftloaded, 'blog right:', window.rightloaded);
-		} else {
-			if(document.getElementById('content-left')) {
-				document.getElementById('content-left').style.opacity = "1";
-			}
-			if(document.getElementById('content-right')) {
-				document.getElementById('content-right').style.opacity = "1";
-			}
-			//scroll to top
-			//window.scrollTo(0, 0);
-			//console.log('+++++index featured triggered display');
-			window.leftloaded = false;
-			window.rightloaded = false;
+		if (window.rightloaded === true) {
+			setTimeout(function() {
+				if(document.getElementById('content-left')) {
+					document.getElementById('content-left').style.opacity = "1";
+				}
+				if(document.getElementById('content-right')) {
+					document.getElementById('content-right').style.opacity = "1";
+				}
+				window.leftloaded = false;
+				window.rightloaded = false;
+			}, 250);
 		}
 	}
 

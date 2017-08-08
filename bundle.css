@@ -377,7 +377,6 @@ header {
       transform: rotate(180deg); }
 
 .book.cover {
-  opacity: 0;
   transition: opacity .25s linear; }
   @media only screen and (max-width: 479px) {
     .book.cover {
@@ -392,13 +391,15 @@ header {
     @media only screen and (max-width: 479px) {
       .book.cover > div:first-child {
         width: 280px; } }
-    .book.cover > div:first-child > .img-wrapper {
+    .book.cover > div:first-child .img-wrapper {
+      opacity: 0;
+      transition: opacity .25s linear;
       height: 391px;
       position: relative; }
       @media only screen and (max-width: 479px) {
-        .book.cover > div:first-child > .img-wrapper {
+        .book.cover > div:first-child .img-wrapper {
           height: 310px; } }
-      .book.cover > div:first-child > .img-wrapper img {
+      .book.cover > div:first-child .img-wrapper img {
         padding: 0 60px;
         width: 100%;
         vertical-align: bottom;
@@ -406,9 +407,11 @@ header {
         position: absolute;
         bottom: 0; }
         @media only screen and (max-width: 479px) {
-          .book.cover > div:first-child > .img-wrapper img {
+          .book.cover > div:first-child .img-wrapper img {
             padding: 0 30px; } }
     .book.cover > div:first-child .title-wrapper {
+      opacity: 0;
+      transition: opacity .25s linear;
       position: relative;
       height: 120px; }
       @media only screen and (max-width: 479px) {

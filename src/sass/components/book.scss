@@ -45,7 +45,6 @@
 		}
 	}	
 	&.cover {
-		opacity: 0;
 		transition: opacity .25s linear;
 		@media only screen and (max-width: 479px) {
 			padding: 0 20px!important;
@@ -60,7 +59,9 @@
 			@media only screen and (max-width: 479px) {
 				width: 280px;
 			}
-			> .img-wrapper {
+			.img-wrapper {
+				opacity: 0;
+				transition: opacity .25s linear;
 				height: 391px;
 				position: relative;
 				@media only screen and (max-width: 479px) {
@@ -79,6 +80,8 @@
 				}			
 			}
 			.title-wrapper {
+				opacity: 0;
+				transition: opacity .25s linear;
 				position: relative;
 				height: 120px;
 				@media only screen and (max-width: 479px) {

@@ -41,12 +41,8 @@ class BlogRight extends Component {
     }
 
 	componentDidUpdate() {
-		//set right flag to true
 		window.rightloaded = true;
-		if (window.leftloaded !== true) {
-			//console.log('blog right loaded first');
-			//console.log('blog right:', window.rightloaded, 'blog left:', window.leftloaded);
-		} else {
+		if (window.leftloaded === true) {
 			setTimeout(function() {
 				if(document.getElementById('content-right')) {
 					document.getElementById('content-right').style.opacity = "1";
@@ -54,9 +50,6 @@ class BlogRight extends Component {
 				if(document.getElementById('content-left')) {
 					document.getElementById('content-left').style.opacity = "1";
 				}
-				//scroll to top
-				//window.scrollTo(0, 0);
-				//console.log('+++++blog right triggered display');
 				window.rightloaded = false;
 				window.leftloaded = false;
 			}, 250);
