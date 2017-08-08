@@ -8,20 +8,28 @@ import {Link} from 'react-router-dom'
 
 class Book extends Component {
     componentWillMount() {
-        //console.log('\nmenu willmount:');
+        //console.log('menu will mount');
  	    //console.log(this.props.book);
         this.props.fetchBook(this.props.match.params.slug);
     }
 
 	componentDidMount() {
+        //console.log('menu did mount');
 		//console.log('B did mount');
 	}
 
 	componentDidUpdate() {
+        //console.log('menu did update');
+		//console.log('B did update');
+	}
+
+	componentWillUpdate() {
+        //console.log('menu did update');
 		//console.log('B did update');
 	}
 
 	componentWillReceiveProps() {
+        //console.log('menu will receive props');
 		//console.log('B will receive props');
 	}
 
@@ -44,13 +52,11 @@ class Book extends Component {
 
 	imgLoaded() {
 		if(document.getElementById('content')) {
-			console.log('loaded');
 			document.getElementById('content').style.opacity = "1";
 		}
 	}
 
 	getPage() {
-		//console.log(this.props);
 		if (this.props.match.params.pageNum == undefined) {
 			var page = 1;
 		} else {
@@ -139,12 +145,16 @@ class Book extends Component {
 	}
 
 	render() {
-		//console.log(this.props);
-		return (
-			<div>
-				{this.getPage()}
-			</div>
-		);
+		if (this.props.book.book) {
+			//console.log(this.props);
+			return (
+				<div>
+					{this.getPage()}
+				</div>
+			);
+		} else {
+			return <span />
+		}
 	}
 }
 

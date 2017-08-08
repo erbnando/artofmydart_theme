@@ -378,7 +378,7 @@ header {
 
 .book.cover {
   opacity: 0;
-  transition: opacity .05s linear; }
+  transition: opacity .25s linear; }
   @media only screen and (max-width: 479px) {
     .book.cover {
       padding: 0 20px !important; } }
