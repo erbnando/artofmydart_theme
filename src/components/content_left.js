@@ -14,7 +14,7 @@ class ContentLeft extends Component {
 	}
 
 	getLeftImageSrc() {
-		console.log(this.props);
+		//console.log(this.props);
 		if (this.props.content.single_image_size_left == "small") {
 			return this.props.content.small_single_image_left.sizes.small
 		}
@@ -43,7 +43,7 @@ class ContentLeft extends Component {
 	}
 
 	getBottomLeftImageSrc() {
-		console.log(this.props);
+		//console.log(this.props);
 		if (this.props.content.double_image_size_bottom_left == "small") {
 			return this.props.content.small_double_image_bottom_left.sizes.doublesmall
 		}

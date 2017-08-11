@@ -31299,26 +31299,23 @@
 			key: 'componentWillUpdate',
 			value: function componentWillUpdate() {}
 		}, {
-			key: 'contentLoaded',
-			value: function contentLoaded() {
-				//console.log('content loaded');
-				setTimeout(function () {
-					if (document.getElementById('book')) {
-						document.getElementById('book').style.transition = "opacity .5s";
-						document.getElementById('book').style.opacity = "1";
-					}
-				}, 500);
-			}
-		}, {
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
-				if (this.props.match.params.pageNum !== undefined) {
-					setTimeout(function () {
-						if (document.getElementById('book')) {
-							document.getElementById('book').style.transition = "opacity .5s";
-							document.getElementById('book').style.opacity = "1";
-						}
-					}, 500);
+				if (this.props.match.params.pageNum == undefined) {
+					var page = 1;
+				} else {
+					var page = this.props.match.params.pageNum;
+				}
+				if (this.props.book.book.acf.book_pages[parseInt(page - 2)]) {
+					if (this.props.match.params.pageNum !== undefined && this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type !== 'fullimage') {
+						console.log('neither cover nor full');
+						setTimeout(function () {
+							if (document.getElementById('book')) {
+								document.getElementById('book').style.transition = "opacity .5s";
+								document.getElementById('book').style.opacity = "1";
+							}
+						}, 500);
+					}
 				}
 			}
 		}, {
@@ -31339,6 +31336,28 @@
 				} else {
 					return false;
 				}
+			}
+		}, {
+			key: 'coverLoaded',
+			value: function coverLoaded() {
+				console.log('cover image loaded');
+				setTimeout(function () {
+					if (document.getElementById('book')) {
+						document.getElementById('book').style.transition = "opacity .5s";
+						document.getElementById('book').style.opacity = "1";
+					}
+				}, 500);
+			}
+		}, {
+			key: 'fullImageLoaded',
+			value: function fullImageLoaded() {
+				console.log('full image loaded');
+				setTimeout(function () {
+					if (document.getElementById('book')) {
+						document.getElementById('book').style.transition = "opacity .5s";
+						document.getElementById('book').style.opacity = "1";
+					}
+				}, 500);
 			}
 		}, {
 			key: 'getPage',
@@ -31364,7 +31383,7 @@
 										{ className: 'img-wrapper' },
 										_react2.default.createElement('img', {
 											src: this.props.book.book.acf.book_cover.sizes.book_cover,
-											onLoad: this.contentLoaded })
+											onLoad: this.coverLoaded() })
 									),
 									_react2.default.createElement(
 										'div',
@@ -31445,7 +31464,9 @@
 										_react2.default.createElement(
 											'div',
 											{ id: 'book' },
-											_react2.default.createElement('img', { src: this.props.book.book.acf.book_pages[parseInt(page - 2)].full_sized_image.sizes.fullsize })
+											_react2.default.createElement('img', {
+												src: this.props.book.book.acf.book_pages[parseInt(page - 2)].full_sized_image.sizes.fullsize,
+												onLoad: this.fullImageLoaded() })
 										)
 									),
 									_react2.default.createElement(_booknav2.default, { slug: this.props.match.params.slug, page: this.props.match.params.pageNum, lastpage: this.lastPage(page) })
@@ -31694,7 +31715,7 @@
 		}, {
 			key: "getLeftImageSrc",
 			value: function getLeftImageSrc() {
-				console.log(this.props);
+				//console.log(this.props);
 				if (this.props.content.single_image_size_left == "small") {
 					return this.props.content.small_single_image_left.sizes.small;
 				} else if (this.props.content.single_image_size_left == "medium") {
@@ -31720,7 +31741,7 @@
 		}, {
 			key: "getBottomLeftImageSrc",
 			value: function getBottomLeftImageSrc() {
-				console.log(this.props);
+				//console.log(this.props);
 				if (this.props.content.double_image_size_bottom_left == "small") {
 					return this.props.content.small_double_image_bottom_left.sizes.doublesmall;
 				} else if (this.props.content.double_image_size_bottom_left == "medium") {
@@ -31906,7 +31927,7 @@
 		}, {
 			key: "getBottomRightImageSrc",
 			value: function getBottomRightImageSrc() {
-				console.log(this.props);
+				//console.log(this.props);
 				if (this.props.content.double_image_size_bottom_right == "small") {
 					return this.props.content.small_double_image_bottom_right.sizes.doublesmall;
 				} else if (this.props.content.double_image_size_bottom_right == "medium") {

@@ -20,24 +20,22 @@ class Book extends Component {
 	componentWillUpdate() {
 	}
 
-	contentLoaded() {
-		//console.log('content loaded');
-		setTimeout(function() {
-			if(document.getElementById('book')) {
-				document.getElementById('book').style.transition = "opacity .5s";
-				document.getElementById('book').style.opacity = "1";
-			}
-		}, 500);
-	}
-
 	componentDidUpdate() {
-		if (this.props.match.params.pageNum !== undefined) {
-			setTimeout(function() {
-				if(document.getElementById('book')) {
-					document.getElementById('book').style.transition = "opacity .5s";
-					document.getElementById('book').style.opacity = "1";
-				}
-			}, 500);
+		if (this.props.match.params.pageNum == undefined) {
+			var page = 1;
+		} else {
+			var page = this.props.match.params.pageNum;
+		}
+		if (this.props.book.book.acf.book_pages[parseInt(page - 2)]) {
+			if (this.props.match.params.pageNum !== undefined && this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type !== 'fullimage') {
+				console.log('neither cover nor full');
+				setTimeout(function() {
+					if(document.getElementById('book')) {
+						document.getElementById('book').style.transition = "opacity .5s";
+						document.getElementById('book').style.opacity = "1";
+					}
+				}, 500);
+			}
 		}
 	}
 
@@ -58,6 +56,26 @@ class Book extends Component {
 		}
 	}
 
+	coverLoaded() {
+		console.log('cover image loaded');
+		setTimeout(function() {
+			if(document.getElementById('book')) {
+				document.getElementById('book').style.transition = "opacity .5s";
+				document.getElementById('book').style.opacity = "1";
+			}
+		}, 500);
+	}
+
+	fullImageLoaded() {
+		console.log('full image loaded');
+		setTimeout(function() {
+			if(document.getElementById('book')) {
+				document.getElementById('book').style.transition = "opacity .5s";
+				document.getElementById('book').style.opacity = "1";
+			}
+		}, 500);
+	}
+
 	getPage() {
 		if (this.props.match.params.pageNum == undefined) {
 			var page = 1;
@@ -73,7 +91,7 @@ class Book extends Component {
 								<div className="img-wrapper">
 									<img 
 									src={this.props.book.book.acf.book_cover.sizes.book_cover}
-									onLoad={this.contentLoaded}/>
+									onLoad={this.coverLoaded()}/>
 								</div>
 								<div className="title-wrapper">
 									<h2>{this.props.book.book.title.rendered}</h2>
@@ -121,7 +139,9 @@ class Book extends Component {
 							<div className="content book regular fullimage" id="content">
 								<div>
 									<div id="book">
-										<img src={this.props.book.book.acf.book_pages[parseInt(page - 2)].full_sized_image.sizes.fullsize} />
+										<img 
+										src={this.props.book.book.acf.book_pages[parseInt(page - 2)].full_sized_image.sizes.fullsize}
+										onLoad={this.fullImageLoaded()}/>
 									</div>
 								</div>
 								<BookNav slug={this.props.match.params.slug} page={this.props.match.params.pageNum} lastpage={this.lastPage(page)} />

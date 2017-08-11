@@ -43,7 +43,7 @@ class ContentRight extends Component {
 	}
 
 	getBottomRightImageSrc() {
-		console.log(this.props);
+		//console.log(this.props);
 		if (this.props.content.double_image_size_bottom_right == "small") {
 			return this.props.content.small_double_image_bottom_right.sizes.doublesmall
 		}
