@@ -30221,16 +30221,18 @@
 			value: function imgLoaded() {
 				window.leftloaded = true;
 				if (window.rightloaded === true) {
-					if (document.getElementById('content-left')) {
-						document.getElementById('content-left').style.transition = "opacity .5s";
-						document.getElementById('content-left').style.opacity = "1";
-					}
-					if (document.getElementById('content-right')) {
-						document.getElementById('content-right').style.transition = "opacity .5s";
-						document.getElementById('content-right').style.opacity = "1";
-					}
-					window.leftloaded = false;
-					window.rightloaded = false;
+					setTimeout(function () {
+						if (document.getElementById('content-left')) {
+							document.getElementById('content-left').style.transition = "opacity .5s";
+							document.getElementById('content-left').style.opacity = "1";
+						}
+						if (document.getElementById('content-right')) {
+							document.getElementById('content-right').style.transition = "opacity .5s";
+							document.getElementById('content-right').style.opacity = "1";
+						}
+						window.leftloaded = false;
+						window.rightloaded = false;
+					}, 250);
 				}
 			}
 		}, {
@@ -30416,30 +30418,34 @@
 				if (this.props.props.location.pathname == '/') {
 					window.rightloaded = true;
 					if (window.leftloaded === true) {
-						if (document.getElementById('content-right')) {
-							document.getElementById('content-right').style.transition = "opacity .5s";
-							document.getElementById('content-right').style.opacity = "1";
-						}
-						if (document.getElementById('content-left')) {
-							document.getElementById('content-left').style.transition = "opacity .5s";
-							document.getElementById('content-left').style.opacity = "1";
-						}
-						window.leftloaded = false;
-						window.rightloaded = false;
+						setTimeout(function () {
+							if (document.getElementById('content-right')) {
+								document.getElementById('content-right').style.transition = "opacity .5s";
+								document.getElementById('content-right').style.opacity = "1";
+							}
+							if (document.getElementById('content-left')) {
+								document.getElementById('content-left').style.transition = "opacity .5s";
+								document.getElementById('content-left').style.opacity = "1";
+							}
+							window.leftloaded = false;
+							window.rightloaded = false;
+						}, 250);
 					}
 				} else {
 					window.leftloaded = true;
 					if (window.rightloaded === true) {
-						if (document.getElementById('content-right')) {
-							document.getElementById('content-right').style.transition = "opacity .5s";
-							document.getElementById('content-right').style.opacity = "1";
-						}
-						if (document.getElementById('content-left')) {
-							document.getElementById('content-left').style.transition = "opacity .5s";
-							document.getElementById('content-left').style.opacity = "1";
-						}
-						window.leftloaded = false;
-						window.rightloaded = false;
+						setTimeout(function () {
+							if (document.getElementById('content-right')) {
+								document.getElementById('content-right').style.transition = "opacity .5s";
+								document.getElementById('content-right').style.opacity = "1";
+							}
+							if (document.getElementById('content-left')) {
+								document.getElementById('content-left').style.transition = "opacity .5s";
+								document.getElementById('content-left').style.opacity = "1";
+							}
+							window.leftloaded = false;
+							window.rightloaded = false;
+						}, 250);
 					}
 				}
 			}
@@ -30976,16 +30982,18 @@
 			value: function componentDidUpdate() {
 				window.rightloaded = true;
 				if (window.leftloaded === true) {
-					if (document.getElementById('content-right')) {
-						document.getElementById('content-right').style.transition = "opacity .5s";
-						document.getElementById('content-right').style.opacity = "1";
-					}
-					if (document.getElementById('content-left')) {
-						document.getElementById('content-left').style.transition = "opacity .5s";
-						document.getElementById('content-left').style.opacity = "1";
-					}
-					window.rightloaded = false;
-					window.leftloaded = false;
+					setTimeout(function () {
+						if (document.getElementById('content-right')) {
+							document.getElementById('content-right').style.transition = "opacity .5s";
+							document.getElementById('content-right').style.opacity = "1";
+						}
+						if (document.getElementById('content-left')) {
+							document.getElementById('content-left').style.transition = "opacity .5s";
+							document.getElementById('content-left').style.opacity = "1";
+						}
+						window.rightloaded = false;
+						window.leftloaded = false;
+					}, 250);
 				}
 			}
 		}, {
