@@ -25,15 +25,18 @@ class App extends Component {
 
 	componentWillUpdate() {
 		if (window.location.href != window.url) {
-			console.log('new page');
 			if(document.getElementById('content-right')) {
+				document.getElementById('content-right').style.transition = "opacity 0s";
 				document.getElementById('content-right').style.opacity = "0";
 			}
 			if(document.getElementById('content-left')) {
+				document.getElementById('content-left').style.transition = "opacity 0s";
 				document.getElementById('content-left').style.opacity = "0";
 			}
-		} else {
-			console.log('same page');
+			if(document.getElementById('book')) {
+				document.getElementById('book').style.transition = "opacity 0s";
+				document.getElementById('book').style.opacity = "0";
+			}
 		}
 		window.url = window.location.href;
 	}

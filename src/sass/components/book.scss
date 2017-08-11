@@ -59,47 +59,47 @@
 			@media only screen and (max-width: 479px) {
 				width: 280px;
 			}
-			.img-wrapper {
+			#book {
 				opacity: 0;
-				transition: opacity .25s linear;
-				height: 391px;
-				position: relative;
-				@media only screen and (max-width: 479px) {
-					height: 310px;
-				}
-				img {
-					padding: 0 60px;
-					width: 100%;
-					vertical-align: bottom;
-					box-sizing: border-box;
-					position: absolute;
-					bottom: 0;
-					@media only screen and (max-width: 479px) {
-						padding: 0 30px;
-					}
-				}			
-			}
-			.title-wrapper {
-				opacity: 0;
-				transition: opacity .25s linear;
-				position: relative;
-				height: 120px;
-				@media only screen and (max-width: 479px) {
-					height: 90px;
-				}
-				h2 {
-				    top: 42%;
-				    transform: translateY(-50%);
+				transition: opacity .5s linear;
+				.img-wrapper {
+					height: 391px;
 					position: relative;
-				    width: 100%;
-				    box-sizing: border-box;
-					padding: 0 40px;
-					text-align: center;
-					margin: 0;
 					@media only screen and (max-width: 479px) {
-						font-size: 18px;
-						line-height: 24px;
-						padding: 0 30px;
+						height: 310px;
+					}
+					img {
+						padding: 0 60px;
+						width: 100%;
+						vertical-align: bottom;
+						box-sizing: border-box;
+						position: absolute;
+						bottom: 0;
+						@media only screen and (max-width: 479px) {
+							padding: 0 30px;
+						}
+					}			
+				}
+				.title-wrapper {
+					position: relative;
+					height: 120px;
+					@media only screen and (max-width: 479px) {
+						height: 90px;
+					}
+					h2 {
+					    top: 42%;
+					    transform: translateY(-50%);
+						position: relative;
+					    width: 100%;
+					    box-sizing: border-box;
+						padding: 0 40px;
+						text-align: center;
+						margin: 0;
+						@media only screen and (max-width: 479px) {
+							font-size: 18px;
+							line-height: 24px;
+							padding: 0 30px;
+						}
 					}
 				}
 			}
@@ -123,84 +123,88 @@
 			width: 280px!important;
 		}
 		> div:first-child {
-			height: 515px;
-			//padding: 40px 50px;
 			border-left: 4px solid #e9e8e8;
 			border-bottom: 4px solid #e9e8e8;
-			display: table;
-			width: 100%!important;
-			position: relative;
-			box-sizing: border-box;
 			@media only screen and (max-width: 809px) {
 				padding: 30px 30px;
 				box-sizing: border-box;			}
 			@media only screen and (max-width: 479px) {
 				height: 400px;
 			}
-			.book-grid-two {
-				box-sizing: border-box;
-				max-width: 50%;
-				display: table-cell;
-				vertical-align: top;
+			#book {
+				opacity: 0;
+				transition: opacity .25s linear;
+				height: 511px;
+				display: table;
+				width: 100%!important;
 				position: relative;
-				vertical-align: middle;
-				@media only screen and (min-width: 480px) and (max-width: 809px) {
-					padding-left: 15px;
-				}
-				@media only screen and (max-width: 479px) {
-					height: 340px;
-				}
-				&:first-child {
-					width: 361px;
-					@media only screen and (max-width: 809px) {
-						display: none;
+				box-sizing: border-box;
+				//padding: 40px 50px;
+				.book-grid-two {
+					box-sizing: border-box;
+					max-width: 50%;
+					display: table-cell;
+					vertical-align: top;
+					position: relative;
+					vertical-align: middle;
+					@media only screen and (min-width: 480px) and (max-width: 809px) {
+						padding-left: 15px;
 					}
-				}
-				&:last-child {
-					width: 365px;
-				}
-				&:last-child {
-					@media only screen and (min-width: 810px) {
-						&:before {
-							content: '';
-							border-left: 4px solid #e9e8e8;
-							position: absolute;
-							height: 50%;
-		    				top: 50%;
-			    			transform: translateY(-50%);
-						}
+					@media only screen and (max-width: 479px) {
+						height: 340px;
 					}
-					div {
-					    height: 258px;
-						padding: 45px 10px 10px 45px;
-						box-sizing: border-box;
+					&:first-child {
+						width: 361px;
 						@media only screen and (max-width: 809px) {
-							padding: 0!important;
-							border-left: none!important;
-						    display: table-cell;
-						    vertical-align: middle;
+							display: none;
 						}
-						.author-title {
-							font-family: Lato;
-							font-size: 10px;
-							color: #bbb;
-							font-weight: 900;
-							margin-bottom: 4px;
-							text-transform: uppercase;
+					}
+					&:last-child {
+						width: 365px;
+					}
+					&:last-child {
+						@media only screen and (min-width: 810px) {
+							&:before {
+								content: '';
+								border-left: 4px solid #e9e8e8;
+								position: absolute;
+								height: 50%;
+			    				top: 50%;
+				    			transform: translateY(-50%);
+							}
 						}
-						.author-name {
-							font-family: Poly;
-							font-size: 16px;
-							font-style: italic;
-							font-weight: 400;
-							margin-bottom: 40px;
-						}
-						.book-title {
-							font-family: Lato;
-							font-size: 28px;
-							color: black;
-							font-weight: 900;
-							margin-bottom: 30px;
+						div {
+						    height: 258px;
+							padding: 45px 10px 10px 45px;
+							box-sizing: border-box;
+							@media only screen and (max-width: 809px) {
+								padding: 0!important;
+								border-left: none!important;
+							    display: table-cell;
+							    vertical-align: middle;
+							}
+							.author-title {
+								font-family: Lato;
+								font-size: 10px;
+								color: #bbb;
+								font-weight: 900;
+								margin-bottom: 4px;
+								text-transform: uppercase;
+							}
+							.author-name {
+								font-family: Poly;
+								font-size: 16px;
+								font-style: italic;
+								font-weight: 400;
+								margin-bottom: 40px;
+							}
+							.book-title {
+								font-family: Lato;
+								font-size: 28px;
+								color: black;
+								font-weight: 900;
+								margin-bottom: 30px;
+							}
 						}
 					}
 				}
@@ -232,278 +236,282 @@
 			}
 		}
 		> div:not(:last-child) {
-			display: table;
-			width: 100%!important;
-			position: relative;
-			box-sizing: border-box;
-			@media only screen and (min-width: 810px) {
-				height: 515px;
-			}
-			@media only screen and (max-width: 809px) {
-				padding: 0;
-			}
-			.book-grid-two.blank + .book-grid-two {
-				@media only screen and (max-width: 809px) {
-					margin-top: 0;
-				}
-			}
-			.book-grid-two {
-				box-sizing: border-box;
-				max-width: 50%;
-				display: table-cell;
-				vertical-align: middle;
+			#book {
+				width: 100%!important;
+				display: table;
 				position: relative;
-				&:first-child {
-					width: 361px;
-				}
-				&:last-child {
-					width: 365px;
-					@media only screen and (min-width: 810px) {
-						padding-left: 4px;
-					}
-					@media only screen and (max-width: 809px) {
-						margin-top: 40px;
-						height: 511px;
-						> div {
-							height: 511px;
-						}
-					}
-					@media only screen and (max-width: 479px) {
-						height: 400px;
-						> div {
-							height: 400px;
-						}
-					}
-				}
-				&.bottom {
-					vertical-align: bottom;
-				}
-				&.top {
-					vertical-align: top;
-				}
-				&.left {
-					> div {
-						float: left;
-					}
-				}
-				&.right {
-					> div {
-						float: right;
-					}
-				}
-				&.top-left {
-					vertical-align: top;
-					> div {
-						float: left;
-					}
-				}
-				&.top-right {
-					vertical-align: top;
-					> div {
-						float: right;
-					}
-				}
-				&.bottom-left {
-					vertical-align: bottom;
-					> div {
-						float: left;
-					}
-				}
-				&.bottom-right {
-					vertical-align: bottom;
-					> div {
-						float: right;
-					}
-				}
-				&.quote {
-					> div {
-						> div {
-							@media only screen and (min-width: 480px) {
-								padding-right: 110px;
-							}
-							.quote-text, .quote-text p {
-								font-size: 16px;
-								font-family: Poly;
-								font-style: italic;
-								line-height: 20px;
-								margin-bottom: 20px;
-							}
-							.quote-author {
-								font-size: 13px;
-								font-family: Lato;
-								font-weight: 900;
-								line-height: 18px;
-							}
-							.quote-source {
-								font-size: 13px;
-								font-family: Lato;
-								font-style: italic;
-								font-weight: 900;
-								line-height: 18px;
-							}
-						}
-					}
-				}
-				&.double {
+				opacity: 0;
+				transition: opacity .5s linear;
+				box-sizing: border-box;
+				@media only screen and (min-width: 810px) {
 					height: 511px;
-					width: 361px;
-					> div {
-						height: inherit;
-						width: inherit;
+				}
+				@media only screen and (max-width: 809px) {
+					padding: 0;
+				}
+				.book-grid-two.blank + .book-grid-two {
+					@media only screen and (max-width: 809px) {
+						margin-top: 0;
+					}
+				}
+				.book-grid-two {
+					box-sizing: border-box;
+					max-width: 50%;
+					display: table-cell;
+					vertical-align: middle;
+					position: relative;
+					&:first-child {
+						width: 361px;
+					}
+					&:last-child {
+						width: 365px;
+						@media only screen and (min-width: 810px) {
+							padding-left: 4px;
+						}
+						@media only screen and (max-width: 809px) {
+							margin-top: 40px;
+							height: 511px;
+							> div {
+								height: 511px;
+							}
+						}
+						@media only screen and (max-width: 479px) {
+							height: 400px;
+							> div {
+								height: 400px;
+							}
+						}
+					}
+					&.bottom {
+						vertical-align: bottom;
+					}
+					&.top {
+						vertical-align: top;
+					}
+					&.left {
+						> div {
+							float: left;
+						}
+					}
+					&.right {
+						> div {
+							float: right;
+						}
+					}
+					&.top-left {
+						vertical-align: top;
+						> div {
+							float: left;
+						}
+					}
+					&.top-right {
+						vertical-align: top;
+						> div {
+							float: right;
+						}
+					}
+					&.bottom-left {
+						vertical-align: bottom;
+						> div {
+							float: left;
+						}
+					}
+					&.bottom-right {
+						vertical-align: bottom;
+						> div {
+							float: right;
+						}
+					}
+					&.quote {
+						> div {
+							> div {
+								@media only screen and (min-width: 480px) {
+									padding-right: 110px;
+								}
+								.quote-text, .quote-text p {
+									font-size: 16px;
+									font-family: Poly;
+									font-style: italic;
+									line-height: 20px;
+									margin-bottom: 20px;
+								}
+								.quote-author {
+									font-size: 13px;
+									font-family: Lato;
+									font-weight: 900;
+									line-height: 18px;
+								}
+								.quote-source {
+									font-size: 13px;
+									font-family: Lato;
+									font-style: italic;
+									font-weight: 900;
+									line-height: 18px;
+								}
+							}
+						}
+					}
+					&.double {
+						height: 511px;
+						width: 361px;
 						> div {
 							height: inherit;
 							width: inherit;
-							padding: 0;
 							> div {
-								height: 50%;
+								height: inherit;
 								width: inherit;
-								text-align: center;
-								display: table;
-								vertical-align: middle;
+								padding: 0;
 								> div {
-									display: table-cell;
+									height: 50%;
+									width: inherit;
+									text-align: center;
+									display: table;
 									vertical-align: middle;
+									> div {
+										display: table-cell;
+										vertical-align: middle;
+									}
 								}
-							}
-							.small {
-								img {
-									max-width: 180px;
-									max-height: 180px;
+								.small {
+									img {
+										max-width: 180px;
+										max-height: 180px;
+									}
 								}
-							}
-							.medium {
-								img {
-									max-width: 310px;
-									max-height: 205px;
+								.medium {
+									img {
+										max-width: 310px;
+										max-height: 205px;
+									}
 								}
-							}
-							.full {
-								img {
-									max-width: 361px;
-									max-height: 255.5px;
+								.full {
+									img {
+										max-width: 361px;
+										max-height: 255.5px;
+									}
 								}
 							}
 						}
 					}
-				}
-				&.blank {
-					@media only screen and (max-width: 809px) {
-						display: none;
-					}
-				}
-				@media only screen and (max-width: 479px) {
-					height: 400px!important;
-					> div {
-						height: 400px!important;
-					}
-				}
-				@media only screen and (max-width: 809px) {
-					border-left: 4px solid #e9e8e8;
-					padding-left: 15px;
-					display: block;
-					max-width: none;
-					width: 100%!important;
-					padding-left: 0;
-					height: 511px;
-					> div {
-						> div {
+					&.blank {
+						@media only screen and (max-width: 809px) {
+							display: none;
 						}
 					}
-				}
-				@media only screen and (min-width: 810px) {
-					&.sep:before {
-						content: '';
-						border-left: 4px solid #e9e8e8;
-						position: absolute;
-						height: 50%;
-	    				top: 50%;
-		    			transform: translateY(-50%);
-		    			left: 0;
-					}
-				}
-				> div {
-					display: table;
 					@media only screen and (max-width: 479px) {
-						height: 400px;
+						height: 400px!important;
+						> div {
+							height: 400px!important;
+						}
 					}
 					@media only screen and (max-width: 809px) {
+						border-left: 4px solid #e9e8e8;
+						padding-left: 15px;
+						display: block;
+						max-width: none;
+						width: 100%!important;
+						padding-left: 0;
 						height: 511px;
+						> div {
+							> div {
+							}
+						}
+					}
+					@media only screen and (min-width: 810px) {
+						&.sep:before {
+							content: '';
+							border-left: 4px solid #e9e8e8;
+							position: absolute;
+							height: 50%;
+		    				top: 50%;
+			    			transform: translateY(-50%);
+			    			left: 0;
+						}
 					}
 					> div {
-						padding: 40px;
-						display: table-cell;
-						vertical-align: middle;
-						p {
-							margin-bottom: 2px;
-							line-height: 21px;
-						}
-						:last-child {
-							margin-bottom: 0;
-						}
-					}
-				}
-				.content-left, .content-right {
-   					> div {
-						padding: 40px;
+						display: table;
 						@media only screen and (max-width: 479px) {
-							padding: 25px;
-			    		}
+							height: 400px;
+						}
+						@media only screen and (max-width: 809px) {
+							height: 511px;
+						}
+						> div {
+							padding: 40px;
+							display: table-cell;
+							vertical-align: middle;
+							p {
+								margin-bottom: 2px;
+								line-height: 21px;
+							}
+							:last-child {
+								margin-bottom: 0;
+							}
+						}
 					}
-				}
-				.content-image {
-				    margin: 0 auto;
-				    position: relative;
-				    div {
-				    	padding: 0!important;
-				    }
-				    &.small {
-				    	div {
-				    		img {
-								max-width: 230px;
-								max-height: 230px;
-								@media only screen and (max-width: 479px) {
-									max-width: 180px;
-									max-height: 180px;
-				    			}
+					.content-left, .content-right {
+	   					> div {
+							padding: 40px;
+							@media only screen and (max-width: 479px) {
+								padding: 25px;
 				    		}
-				    	}
-				    }
-				    &.medium {
-				    	div {
-				    		img {
-								max-width: 281px;
-								max-height: 431px;
-								@media only screen and (max-width: 479px) {
-									max-width: 216px;
-									max-height: 340px;
-								}
-				    		}
-				    	}
-				    }
-				    &.large {
-				    	div {
-				    		img {
-								max-width: 321px;
-								max-height: 471px;
-								@media only screen and (max-width: 479px) {
-									max-width: 236px;
-									max-height: 360px;
-								}
-				    		}
-				    	}
-				    }
-				    &.full {
-				    	div {
-				    		img {
-								max-width: 100%;
-								max-height: 511px;
-								@media only screen and (max-width: 479px) {
+						}
+					}
+					.content-image {
+					    margin: 0 auto;
+					    position: relative;
+					    div {
+					    	padding: 0!important;
+					    }
+					    &.small {
+					    	div {
+					    		img {
+									max-width: 230px;
+									max-height: 230px;
+									@media only screen and (max-width: 479px) {
+										max-width: 180px;
+										max-height: 180px;
+					    			}
+					    		}
+					    	}
+					    }
+					    &.medium {
+					    	div {
+					    		img {
+									max-width: 281px;
+									max-height: 431px;
+									@media only screen and (max-width: 479px) {
+										max-width: 216px;
+										max-height: 340px;
+									}
+					    		}
+					    	}
+					    }
+					    &.large {
+					    	div {
+					    		img {
+									max-width: 321px;
+									max-height: 471px;
+									@media only screen and (max-width: 479px) {
+										max-width: 236px;
+										max-height: 360px;
+									}
+					    		}
+					    	}
+					    }
+					    &.full {
+					    	div {
+					    		img {
 									max-width: 100%;
-									max-height: 400px;
-								}
-				    		}
-				    	}
-				    }
+									max-height: 511px;
+									@media only screen and (max-width: 479px) {
+										max-width: 100%;
+										max-height: 400px;
+									}
+					    		}
+					    	}
+					    }
+					}
 				}
 			}
 		}
@@ -539,34 +547,38 @@
 		> div:first-child {
 			border-left: 4px solid #e9e8e8;
 			border-bottom: 4px solid #e9e8e8;
-			height: 515px;
-			display: table;
-			width: 100%!important;
-			position: relative;
-			box-sizing: border-box;
 			@media only screen and (max-width: 809px) {
 				padding: 30px 30px;
 			}
 			@media only screen and (max-width: 479px) {
 				height: 404px;
 			}
-			> div {
-				display: table-cell;
-				vertical-align: middle;
-				padding: 40px;
-				text-align: center;
-				p {
-					font-size: 16px;
-					font-family: Poly;
-					font-style: italic;
+			#book {
+				height: 511px;
+				display: table;
+				width: 100%!important;
+				position: relative;
+				box-sizing: border-box;
+				opacity: 0;
+				transition: opacity .5s linear;
+				> div {
+					display: table-cell;
+					vertical-align: middle;
+					padding: 40px;
+					text-align: center;
+					p {
+						font-size: 16px;
+						font-family: Poly;
+						font-style: italic;
+					}
 				}
-			}
-			> a {
-			    position: absolute;
-			    bottom: 40px;
-			    left: 0;
-			    right: 0;
-			    text-align: center;
+				> a {
+				    position: absolute;
+				    bottom: 40px;
+				    left: 0;
+				    right: 0;
+				    text-align: center;
+				}
 			}
 		}
 	}

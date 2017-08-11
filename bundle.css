@@ -147,7 +147,7 @@ header {
       width: 280px; } }
   .grid-two #content-left, .grid-two #content-right {
     opacity: 0;
-    transition: opacity .25s linear; }
+    transition: opacity .5s linear; }
   .grid-two p.section-title {
     font-family: Lato;
     font-size: 13px;
@@ -391,46 +391,45 @@ header {
     @media only screen and (max-width: 479px) {
       .book.cover > div:first-child {
         width: 280px; } }
-    .book.cover > div:first-child .img-wrapper {
+    .book.cover > div:first-child #book {
       opacity: 0;
-      transition: opacity .25s linear;
-      height: 391px;
-      position: relative; }
-      @media only screen and (max-width: 479px) {
-        .book.cover > div:first-child .img-wrapper {
-          height: 310px; } }
-      .book.cover > div:first-child .img-wrapper img {
-        padding: 0 60px;
-        width: 100%;
-        vertical-align: bottom;
-        box-sizing: border-box;
-        position: absolute;
-        bottom: 0; }
+      transition: opacity .5s linear; }
+      .book.cover > div:first-child #book .img-wrapper {
+        height: 391px;
+        position: relative; }
         @media only screen and (max-width: 479px) {
-          .book.cover > div:first-child .img-wrapper img {
-            padding: 0 30px; } }
-    .book.cover > div:first-child .title-wrapper {
-      opacity: 0;
-      transition: opacity .25s linear;
-      position: relative;
-      height: 120px; }
-      @media only screen and (max-width: 479px) {
-        .book.cover > div:first-child .title-wrapper {
-          height: 90px; } }
-      .book.cover > div:first-child .title-wrapper h2 {
-        top: 42%;
-        transform: translateY(-50%);
+          .book.cover > div:first-child #book .img-wrapper {
+            height: 310px; } }
+        .book.cover > div:first-child #book .img-wrapper img {
+          padding: 0 60px;
+          width: 100%;
+          vertical-align: bottom;
+          box-sizing: border-box;
+          position: absolute;
+          bottom: 0; }
+          @media only screen and (max-width: 479px) {
+            .book.cover > div:first-child #book .img-wrapper img {
+              padding: 0 30px; } }
+      .book.cover > div:first-child #book .title-wrapper {
         position: relative;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 0 40px;
-        text-align: center;
-        margin: 0; }
+        height: 120px; }
         @media only screen and (max-width: 479px) {
-          .book.cover > div:first-child .title-wrapper h2 {
-            font-size: 18px;
-            line-height: 24px;
-            padding: 0 30px; } }
+          .book.cover > div:first-child #book .title-wrapper {
+            height: 90px; } }
+        .book.cover > div:first-child #book .title-wrapper h2 {
+          top: 42%;
+          transform: translateY(-50%);
+          position: relative;
+          width: 100%;
+          box-sizing: border-box;
+          padding: 0 40px;
+          text-align: center;
+          margin: 0; }
+          @media only screen and (max-width: 479px) {
+            .book.cover > div:first-child #book .title-wrapper h2 {
+              font-size: 18px;
+              line-height: 24px;
+              padding: 0 30px; } }
 
 .book.title {
   width: 730px;
@@ -450,13 +449,8 @@ header {
       padding: 0 20px 120px !important;
       width: 280px !important; } }
   .book.title > div:first-child {
-    height: 515px;
     border-left: 4px solid #e9e8e8;
-    border-bottom: 4px solid #e9e8e8;
-    display: table;
-    width: 100% !important;
-    position: relative;
-    box-sizing: border-box; }
+    border-bottom: 4px solid #e9e8e8; }
     @media only screen and (max-width: 809px) {
       .book.title > div:first-child {
         padding: 30px 30px;
@@ -464,63 +458,71 @@ header {
     @media only screen and (max-width: 479px) {
       .book.title > div:first-child {
         height: 400px; } }
-    .book.title > div:first-child .book-grid-two {
-      box-sizing: border-box;
-      max-width: 50%;
-      display: table-cell;
-      vertical-align: top;
+    .book.title > div:first-child #book {
+      opacity: 0;
+      transition: opacity .25s linear;
+      height: 511px;
+      display: table;
+      width: 100% !important;
       position: relative;
-      vertical-align: middle; }
-      @media only screen and (min-width: 480px) and (max-width: 809px) {
-        .book.title > div:first-child .book-grid-two {
-          padding-left: 15px; } }
-      @media only screen and (max-width: 479px) {
-        .book.title > div:first-child .book-grid-two {
-          height: 340px; } }
-      .book.title > div:first-child .book-grid-two:first-child {
-        width: 361px; }
-        @media only screen and (max-width: 809px) {
-          .book.title > div:first-child .book-grid-two:first-child {
-            display: none; } }
-      .book.title > div:first-child .book-grid-two:last-child {
-        width: 365px; }
-      @media only screen and (min-width: 810px) {
-        .book.title > div:first-child .book-grid-two:last-child:before {
-          content: '';
-          border-left: 4px solid #e9e8e8;
-          position: absolute;
-          height: 50%;
-          top: 50%;
-          transform: translateY(-50%); } }
-      .book.title > div:first-child .book-grid-two:last-child div {
-        height: 258px;
-        padding: 45px 10px 10px 45px;
-        box-sizing: border-box; }
-        @media only screen and (max-width: 809px) {
-          .book.title > div:first-child .book-grid-two:last-child div {
-            padding: 0 !important;
-            border-left: none !important;
-            display: table-cell;
-            vertical-align: middle; } }
-        .book.title > div:first-child .book-grid-two:last-child div .author-title {
-          font-family: Lato;
-          font-size: 10px;
-          color: #bbb;
-          font-weight: 900;
-          margin-bottom: 4px;
-          text-transform: uppercase; }
-        .book.title > div:first-child .book-grid-two:last-child div .author-name {
-          font-family: Poly;
-          font-size: 16px;
-          font-style: italic;
-          font-weight: 400;
-          margin-bottom: 40px; }
-        .book.title > div:first-child .book-grid-two:last-child div .book-title {
-          font-family: Lato;
-          font-size: 28px;
-          color: black;
-          font-weight: 900;
-          margin-bottom: 30px; }
+      box-sizing: border-box; }
+      .book.title > div:first-child #book .book-grid-two {
+        box-sizing: border-box;
+        max-width: 50%;
+        display: table-cell;
+        vertical-align: top;
+        position: relative;
+        vertical-align: middle; }
+        @media only screen and (min-width: 480px) and (max-width: 809px) {
+          .book.title > div:first-child #book .book-grid-two {
+            padding-left: 15px; } }
+        @media only screen and (max-width: 479px) {
+          .book.title > div:first-child #book .book-grid-two {
+            height: 340px; } }
+        .book.title > div:first-child #book .book-grid-two:first-child {
+          width: 361px; }
+          @media only screen and (max-width: 809px) {
+            .book.title > div:first-child #book .book-grid-two:first-child {
+              display: none; } }
+        .book.title > div:first-child #book .book-grid-two:last-child {
+          width: 365px; }
+        @media only screen and (min-width: 810px) {
+          .book.title > div:first-child #book .book-grid-two:last-child:before {
+            content: '';
+            border-left: 4px solid #e9e8e8;
+            position: absolute;
+            height: 50%;
+            top: 50%;
+            transform: translateY(-50%); } }
+        .book.title > div:first-child #book .book-grid-two:last-child div {
+          height: 258px;
+          padding: 45px 10px 10px 45px;
+          box-sizing: border-box; }
+          @media only screen and (max-width: 809px) {
+            .book.title > div:first-child #book .book-grid-two:last-child div {
+              padding: 0 !important;
+              border-left: none !important;
+              display: table-cell;
+              vertical-align: middle; } }
+          .book.title > div:first-child #book .book-grid-two:last-child div .author-title {
+            font-family: Lato;
+            font-size: 10px;
+            color: #bbb;
+            font-weight: 900;
+            margin-bottom: 4px;
+            text-transform: uppercase; }
+          .book.title > div:first-child #book .book-grid-two:last-child div .author-name {
+            font-family: Poly;
+            font-size: 16px;
+            font-style: italic;
+            font-weight: 400;
+            margin-bottom: 40px; }
+          .book.title > div:first-child #book .book-grid-two:last-child div .book-title {
+            font-family: Lato;
+            font-size: 28px;
+            color: black;
+            font-weight: 900;
+            margin-bottom: 30px; }
 
 .book.regular {
   width: 730px;
@@ -545,126 +547,128 @@ header {
     @media only screen and (max-width: 809px) {
       .book.regular > div:first-child {
         border-left: none !important; } }
-  .book.regular > div:not(:last-child) {
-    display: table;
+  .book.regular > div:not(:last-child) #book {
     width: 100% !important;
+    display: table;
     position: relative;
+    opacity: 0;
+    transition: opacity .5s linear;
     box-sizing: border-box; }
     @media only screen and (min-width: 810px) {
-      .book.regular > div:not(:last-child) {
-        height: 515px; } }
+      .book.regular > div:not(:last-child) #book {
+        height: 511px; } }
     @media only screen and (max-width: 809px) {
-      .book.regular > div:not(:last-child) {
+      .book.regular > div:not(:last-child) #book {
         padding: 0; } }
     @media only screen and (max-width: 809px) {
-      .book.regular > div:not(:last-child) .book-grid-two.blank + .book-grid-two {
+      .book.regular > div:not(:last-child) #book .book-grid-two.blank + .book-grid-two {
         margin-top: 0; } }
-    .book.regular > div:not(:last-child) .book-grid-two {
+    .book.regular > div:not(:last-child) #book .book-grid-two {
       box-sizing: border-box;
       max-width: 50%;
       display: table-cell;
       vertical-align: middle;
       position: relative; }
-      .book.regular > div:not(:last-child) .book-grid-two:first-child {
+      .book.regular > div:not(:last-child) #book .book-grid-two:first-child {
         width: 361px; }
-      .book.regular > div:not(:last-child) .book-grid-two:last-child {
+      .book.regular > div:not(:last-child) #book .book-grid-two:last-child {
         width: 365px; }
         @media only screen and (min-width: 810px) {
-          .book.regular > div:not(:last-child) .book-grid-two:last-child {
+          .book.regular > div:not(:last-child) #book .book-grid-two:last-child {
             padding-left: 4px; } }
         @media only screen and (max-width: 809px) {
-          .book.regular > div:not(:last-child) .book-grid-two:last-child {
+          .book.regular > div:not(:last-child) #book .book-grid-two:last-child {
             margin-top: 40px;
             height: 511px; }
-            .book.regular > div:not(:last-child) .book-grid-two:last-child > div {
+            .book.regular > div:not(:last-child) #book .book-grid-two:last-child > div {
               height: 511px; } }
         @media only screen and (max-width: 479px) {
-          .book.regular > div:not(:last-child) .book-grid-two:last-child {
+          .book.regular > div:not(:last-child) #book .book-grid-two:last-child {
             height: 400px; }
-            .book.regular > div:not(:last-child) .book-grid-two:last-child > div {
+            .book.regular > div:not(:last-child) #book .book-grid-two:last-child > div {
               height: 400px; } }
-      .book.regular > div:not(:last-child) .book-grid-two.bottom {
+      .book.regular > div:not(:last-child) #book .book-grid-two.bottom {
         vertical-align: bottom; }
-      .book.regular > div:not(:last-child) .book-grid-two.top {
+      .book.regular > div:not(:last-child) #book .book-grid-two.top {
         vertical-align: top; }
-      .book.regular > div:not(:last-child) .book-grid-two.left > div {
+      .book.regular > div:not(:last-child) #book .book-grid-two.left > div {
         float: left; }
-      .book.regular > div:not(:last-child) .book-grid-two.right > div {
+      .book.regular > div:not(:last-child) #book .book-grid-two.right > div {
         float: right; }
-      .book.regular > div:not(:last-child) .book-grid-two.top-left {
+      .book.regular > div:not(:last-child) #book .book-grid-two.top-left {
         vertical-align: top; }
-        .book.regular > div:not(:last-child) .book-grid-two.top-left > div {
+        .book.regular > div:not(:last-child) #book .book-grid-two.top-left > div {
           float: left; }
-      .book.regular > div:not(:last-child) .book-grid-two.top-right {
+      .book.regular > div:not(:last-child) #book .book-grid-two.top-right {
         vertical-align: top; }
-        .book.regular > div:not(:last-child) .book-grid-two.top-right > div {
+        .book.regular > div:not(:last-child) #book .book-grid-two.top-right > div {
           float: right; }
-      .book.regular > div:not(:last-child) .book-grid-two.bottom-left {
+      .book.regular > div:not(:last-child) #book .book-grid-two.bottom-left {
         vertical-align: bottom; }
-        .book.regular > div:not(:last-child) .book-grid-two.bottom-left > div {
+        .book.regular > div:not(:last-child) #book .book-grid-two.bottom-left > div {
           float: left; }
-      .book.regular > div:not(:last-child) .book-grid-two.bottom-right {
+      .book.regular > div:not(:last-child) #book .book-grid-two.bottom-right {
         vertical-align: bottom; }
-        .book.regular > div:not(:last-child) .book-grid-two.bottom-right > div {
+        .book.regular > div:not(:last-child) #book .book-grid-two.bottom-right > div {
           float: right; }
       @media only screen and (min-width: 480px) {
-        .book.regular > div:not(:last-child) .book-grid-two.quote > div > div {
+        .book.regular > div:not(:last-child) #book .book-grid-two.quote > div > div {
           padding-right: 110px; } }
-      .book.regular > div:not(:last-child) .book-grid-two.quote > div > div .quote-text, .book.regular > div:not(:last-child) .book-grid-two.quote > div > div .quote-text p {
+      .book.regular > div:not(:last-child) #book .book-grid-two.quote > div > div .quote-text, .book.regular > div:not(:last-child) #book .book-grid-two.quote > div > div .quote-text p {
         font-size: 16px;
         font-family: Poly;
         font-style: italic;
         line-height: 20px;
         margin-bottom: 20px; }
-      .book.regular > div:not(:last-child) .book-grid-two.quote > div > div .quote-author {
+      .book.regular > div:not(:last-child) #book .book-grid-two.quote > div > div .quote-author {
         font-size: 13px;
         font-family: Lato;
         font-weight: 900;
         line-height: 18px; }
-      .book.regular > div:not(:last-child) .book-grid-two.quote > div > div .quote-source {
+      .book.regular > div:not(:last-child) #book .book-grid-two.quote > div > div .quote-source {
         font-size: 13px;
         font-family: Lato;
         font-style: italic;
         font-weight: 900;
         line-height: 18px; }
-      .book.regular > div:not(:last-child) .book-grid-two.double {
+      .book.regular > div:not(:last-child) #book .book-grid-two.double {
         height: 511px;
         width: 361px; }
-        .book.regular > div:not(:last-child) .book-grid-two.double > div {
+        .book.regular > div:not(:last-child) #book .book-grid-two.double > div {
           height: inherit;
           width: inherit; }
-          .book.regular > div:not(:last-child) .book-grid-two.double > div > div {
+          .book.regular > div:not(:last-child) #book .book-grid-two.double > div > div {
             height: inherit;
             width: inherit;
             padding: 0; }
-            .book.regular > div:not(:last-child) .book-grid-two.double > div > div > div {
+            .book.regular > div:not(:last-child) #book .book-grid-two.double > div > div > div {
               height: 50%;
               width: inherit;
               text-align: center;
               display: table;
               vertical-align: middle; }
-              .book.regular > div:not(:last-child) .book-grid-two.double > div > div > div > div {
+              .book.regular > div:not(:last-child) #book .book-grid-two.double > div > div > div > div {
                 display: table-cell;
                 vertical-align: middle; }
-            .book.regular > div:not(:last-child) .book-grid-two.double > div > div .small img {
+            .book.regular > div:not(:last-child) #book .book-grid-two.double > div > div .small img {
               max-width: 180px;
               max-height: 180px; }
-            .book.regular > div:not(:last-child) .book-grid-two.double > div > div .medium img {
+            .book.regular > div:not(:last-child) #book .book-grid-two.double > div > div .medium img {
               max-width: 310px;
               max-height: 205px; }
-            .book.regular > div:not(:last-child) .book-grid-two.double > div > div .full img {
+            .book.regular > div:not(:last-child) #book .book-grid-two.double > div > div .full img {
               max-width: 361px;
               max-height: 255.5px; }
       @media only screen and (max-width: 809px) {
-        .book.regular > div:not(:last-child) .book-grid-two.blank {
+        .book.regular > div:not(:last-child) #book .book-grid-two.blank {
           display: none; } }
       @media only screen and (max-width: 479px) {
-        .book.regular > div:not(:last-child) .book-grid-two {
+        .book.regular > div:not(:last-child) #book .book-grid-two {
           height: 400px !important; }
-          .book.regular > div:not(:last-child) .book-grid-two > div {
+          .book.regular > div:not(:last-child) #book .book-grid-two > div {
             height: 400px !important; } }
       @media only screen and (max-width: 809px) {
-        .book.regular > div:not(:last-child) .book-grid-two {
+        .book.regular > div:not(:last-child) #book .book-grid-two {
           border-left: 4px solid #e9e8e8;
           padding-left: 15px;
           display: block;
@@ -673,7 +677,7 @@ header {
           padding-left: 0;
           height: 511px; } }
       @media only screen and (min-width: 810px) {
-        .book.regular > div:not(:last-child) .book-grid-two.sep:before {
+        .book.regular > div:not(:last-child) #book .book-grid-two.sep:before {
           content: '';
           border-left: 4px solid #e9e8e8;
           position: absolute;
@@ -681,59 +685,59 @@ header {
           top: 50%;
           transform: translateY(-50%);
           left: 0; } }
-      .book.regular > div:not(:last-child) .book-grid-two > div {
+      .book.regular > div:not(:last-child) #book .book-grid-two > div {
         display: table; }
         @media only screen and (max-width: 479px) {
-          .book.regular > div:not(:last-child) .book-grid-two > div {
+          .book.regular > div:not(:last-child) #book .book-grid-two > div {
             height: 400px; } }
         @media only screen and (max-width: 809px) {
-          .book.regular > div:not(:last-child) .book-grid-two > div {
+          .book.regular > div:not(:last-child) #book .book-grid-two > div {
             height: 511px; } }
-        .book.regular > div:not(:last-child) .book-grid-two > div > div {
+        .book.regular > div:not(:last-child) #book .book-grid-two > div > div {
           padding: 40px;
           display: table-cell;
           vertical-align: middle; }
-          .book.regular > div:not(:last-child) .book-grid-two > div > div p {
+          .book.regular > div:not(:last-child) #book .book-grid-two > div > div p {
             margin-bottom: 2px;
             line-height: 21px; }
-          .book.regular > div:not(:last-child) .book-grid-two > div > div :last-child {
+          .book.regular > div:not(:last-child) #book .book-grid-two > div > div :last-child {
             margin-bottom: 0; }
-      .book.regular > div:not(:last-child) .book-grid-two .content-left > div, .book.regular > div:not(:last-child) .book-grid-two .content-right > div {
+      .book.regular > div:not(:last-child) #book .book-grid-two .content-left > div, .book.regular > div:not(:last-child) #book .book-grid-two .content-right > div {
         padding: 40px; }
         @media only screen and (max-width: 479px) {
-          .book.regular > div:not(:last-child) .book-grid-two .content-left > div, .book.regular > div:not(:last-child) .book-grid-two .content-right > div {
+          .book.regular > div:not(:last-child) #book .book-grid-two .content-left > div, .book.regular > div:not(:last-child) #book .book-grid-two .content-right > div {
             padding: 25px; } }
-      .book.regular > div:not(:last-child) .book-grid-two .content-image {
+      .book.regular > div:not(:last-child) #book .book-grid-two .content-image {
         margin: 0 auto;
         position: relative; }
-        .book.regular > div:not(:last-child) .book-grid-two .content-image div {
+        .book.regular > div:not(:last-child) #book .book-grid-two .content-image div {
           padding: 0 !important; }
-        .book.regular > div:not(:last-child) .book-grid-two .content-image.small div img {
+        .book.regular > div:not(:last-child) #book .book-grid-two .content-image.small div img {
           max-width: 230px;
           max-height: 230px; }
           @media only screen and (max-width: 479px) {
-            .book.regular > div:not(:last-child) .book-grid-two .content-image.small div img {
+            .book.regular > div:not(:last-child) #book .book-grid-two .content-image.small div img {
               max-width: 180px;
               max-height: 180px; } }
-        .book.regular > div:not(:last-child) .book-grid-two .content-image.medium div img {
+        .book.regular > div:not(:last-child) #book .book-grid-two .content-image.medium div img {
           max-width: 281px;
           max-height: 431px; }
           @media only screen and (max-width: 479px) {
-            .book.regular > div:not(:last-child) .book-grid-two .content-image.medium div img {
+            .book.regular > div:not(:last-child) #book .book-grid-two .content-image.medium div img {
               max-width: 216px;
               max-height: 340px; } }
-        .book.regular > div:not(:last-child) .book-grid-two .content-image.large div img {
+        .book.regular > div:not(:last-child) #book .book-grid-two .content-image.large div img {
           max-width: 321px;
           max-height: 471px; }
           @media only screen and (max-width: 479px) {
-            .book.regular > div:not(:last-child) .book-grid-two .content-image.large div img {
+            .book.regular > div:not(:last-child) #book .book-grid-two .content-image.large div img {
               max-width: 236px;
               max-height: 360px; } }
-        .book.regular > div:not(:last-child) .book-grid-two .content-image.full div img {
+        .book.regular > div:not(:last-child) #book .book-grid-two .content-image.full div img {
           max-width: 100%;
           max-height: 511px; }
           @media only screen and (max-width: 479px) {
-            .book.regular > div:not(:last-child) .book-grid-two .content-image.full div img {
+            .book.regular > div:not(:last-child) #book .book-grid-two .content-image.full div img {
               max-width: 100%;
               max-height: 400px; } }
 
@@ -764,30 +768,33 @@ header {
       width: 280px !important; } }
   .book.lastpage > div:first-child {
     border-left: 4px solid #e9e8e8;
-    border-bottom: 4px solid #e9e8e8;
-    height: 515px;
-    display: table;
-    width: 100% !important;
-    position: relative;
-    box-sizing: border-box; }
+    border-bottom: 4px solid #e9e8e8; }
     @media only screen and (max-width: 809px) {
       .book.lastpage > div:first-child {
         padding: 30px 30px; } }
     @media only screen and (max-width: 479px) {
       .book.lastpage > div:first-child {
         height: 404px; } }
-    .book.lastpage > div:first-child > div {
-      display: table-cell;
-      vertical-align: middle;
-      padding: 40px;
-      text-align: center; }
-      .book.lastpage > div:first-child > div p {
-        font-size: 16px;
-        font-family: Poly;
-        font-style: italic; }
-    .book.lastpage > div:first-child > a {
-      position: absolute;
-      bottom: 40px;
-      left: 0;
-      right: 0;
-      text-align: center; }
+    .book.lastpage > div:first-child #book {
+      height: 511px;
+      display: table;
+      width: 100% !important;
+      position: relative;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: opacity .5s linear; }
+      .book.lastpage > div:first-child #book > div {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 40px;
+        text-align: center; }
+        .book.lastpage > div:first-child #book > div p {
+          font-size: 16px;
+          font-family: Poly;
+          font-style: italic; }
+      .book.lastpage > div:first-child #book > a {
+        position: absolute;
+        bottom: 40px;
+        left: 0;
+        right: 0;
+        text-align: center; }

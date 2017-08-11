@@ -43,16 +43,16 @@ class BlogRight extends Component {
 	componentDidUpdate() {
 		window.rightloaded = true;
 		if (window.leftloaded === true) {
-			setTimeout(function() {
-				if(document.getElementById('content-right')) {
-					document.getElementById('content-right').style.opacity = "1";
-				}
-				if(document.getElementById('content-left')) {
-					document.getElementById('content-left').style.opacity = "1";
-				}
-				window.rightloaded = false;
-				window.leftloaded = false;
-			}, 250);
+			if(document.getElementById('content-right')) {
+				document.getElementById('content-right').style.transition = "opacity .5s";
+				document.getElementById('content-right').style.opacity = "1";
+			}
+			if(document.getElementById('content-left')) {
+				document.getElementById('content-left').style.transition = "opacity .5s";
+				document.getElementById('content-left').style.opacity = "1";
+			}
+			window.rightloaded = false;
+			window.leftloaded = false;
 		}
 	}
 

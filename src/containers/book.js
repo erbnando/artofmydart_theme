@@ -8,29 +8,37 @@ import {Link} from 'react-router-dom'
 
 class Book extends Component {
     componentWillMount() {
-        //console.log('menu will mount');
- 	    //console.log(this.props.book);
         this.props.fetchBook(this.props.match.params.slug);
     }
 
 	componentDidMount() {
-        //console.log('menu did mount');
-		//console.log('B did mount');
-	}
-
-	componentDidUpdate() {
-        //console.log('menu did update');
-		//console.log('B did update');
-	}
-
-	componentWillUpdate() {
-        //console.log('menu did update');
-		//console.log('B did update');
 	}
 
 	componentWillReceiveProps() {
-        //console.log('menu will receive props');
-		//console.log('B will receive props');
+	}
+
+	componentWillUpdate() {
+	}
+
+	contentLoaded() {
+		//console.log('content loaded');
+		setTimeout(function() {
+			if(document.getElementById('book')) {
+				document.getElementById('book').style.transition = "opacity .5s";
+				document.getElementById('book').style.opacity = "1";
+			}
+		}, 500);
+	}
+
+	componentDidUpdate() {
+		if (this.props.match.params.pageNum !== undefined) {
+			setTimeout(function() {
+				if(document.getElementById('book')) {
+					document.getElementById('book').style.transition = "opacity .5s";
+					document.getElementById('book').style.opacity = "1";
+				}
+			}, 500);
+		}
 	}
 
 	lastPage(page) {
@@ -50,17 +58,6 @@ class Book extends Component {
 		}
 	}
 
-	imgLoaded() {
-		setTimeout(function() {
-			if(document.getElementById('cover')) {
-				document.getElementById('cover').style.opacity = "1";
-			}
-			if(document.getElementById('title')) {
-				document.getElementById('title').style.opacity = "1";
-			}
-		}, 250);
-	}
-
 	getPage() {
 		if (this.props.match.params.pageNum == undefined) {
 			var page = 1;
@@ -72,13 +69,15 @@ class Book extends Component {
 				return (
 					<div className="content book cover" id="content">
 						<div>
-							<div id="cover" className="img-wrapper">
-								<img 
-								src={this.props.book.book.acf.book_cover.sizes.book_cover}
-								onLoad={this.imgLoaded}/>
-							</div>
-							<div id="title" className="title-wrapper">
-								<h2>{this.props.book.book.title.rendered}</h2>
+							<div id="book">
+								<div className="img-wrapper">
+									<img 
+									src={this.props.book.book.acf.book_cover.sizes.book_cover}
+									onLoad={this.contentLoaded}/>
+								</div>
+								<div className="title-wrapper">
+									<h2>{this.props.book.book.title.rendered}</h2>
+								</div>
 							</div>
 						</div>
 						<BookNav page="1" slug={this.props.match.params.slug} lastpage={this.lastPage()}/>
@@ -90,13 +89,15 @@ class Book extends Component {
 						return (
 							<div className="content book title" id="content">
 								<div>
-									<div className="book-grid-two">
-									</div>
-									<div className="book-grid-two">
-										<div>
-											<p className="author-title">{this.props.book.book.acf.author_title}</p>
-											<p className="author-name">{this.props.book.book.acf.author_name}</p>
-											<h1 className="book-title">{this.props.book.book.title.rendered}</h1>
+									<div id="book">
+										<div className="book-grid-two">
+										</div>
+										<div className="book-grid-two">
+											<div>
+												<p className="author-title">{this.props.book.book.acf.author_title}</p>
+												<p className="author-name">{this.props.book.book.acf.author_name}</p>
+												<h1 className="book-title">{this.props.book.book.title.rendered}</h1>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -107,8 +108,10 @@ class Book extends Component {
 						return (
 							<div className="content book regular" id="content">
 								<div>
-									<ContentLeft content={this.props.book.book.acf.book_pages[parseInt(page - 2)]} />
-									<ContentRight sep={this.separatingLine(page)} content={this.props.book.book.acf.book_pages[parseInt(page - 2)]} />
+									<div id="book">
+										<ContentLeft content={this.props.book.book.acf.book_pages[parseInt(page - 2)]} />
+										<ContentRight sep={this.separatingLine(page)} content={this.props.book.book.acf.book_pages[parseInt(page - 2)]} />
+									</div>
 								</div>
 								<BookNav slug={this.props.match.params.slug} page={this.props.match.params.pageNum} lastpage={this.lastPage(page)} />
 							</div>
@@ -117,7 +120,9 @@ class Book extends Component {
 						return (
 							<div className="content book regular fullimage" id="content">
 								<div>
-									<img src={this.props.book.book.acf.book_pages[parseInt(page - 2)].full_sized_image.sizes.fullsize} />
+									<div id="book">
+										<img src={this.props.book.book.acf.book_pages[parseInt(page - 2)].full_sized_image.sizes.fullsize} />
+									</div>
 								</div>
 								<BookNav slug={this.props.match.params.slug} page={this.props.match.params.pageNum} lastpage={this.lastPage(page)} />
 							</div>
@@ -127,8 +132,10 @@ class Book extends Component {
 						return (
 							<div className="content book lastpage" id="content">
 								<div>
-									<div dangerouslySetInnerHTML={{__html: this.props.book.book.acf.book_pages[parseInt(page - 2)].last_page_content}} />
-									<Link to={`/index/`}><h5>Back to Index</h5></Link>
+									<div id="book">
+										<div dangerouslySetInnerHTML={{__html: this.props.book.book.acf.book_pages[parseInt(page - 2)].last_page_content}} />
+										<Link to={`/index/`}><h5>Back to Index</h5></Link>
+									</div>
 								</div>
 								<BookNav slug={this.props.match.params.slug} page={this.props.match.params.pageNum} lastpage={this.lastPage(page)} />
 							</div>

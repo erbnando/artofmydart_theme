@@ -126,15 +126,18 @@
 			key: 'componentWillUpdate',
 			value: function componentWillUpdate() {
 				if (window.location.href != window.url) {
-					console.log('new page');
 					if (document.getElementById('content-right')) {
+						document.getElementById('content-right').style.transition = "opacity 0s";
 						document.getElementById('content-right').style.opacity = "0";
 					}
 					if (document.getElementById('content-left')) {
+						document.getElementById('content-left').style.transition = "opacity 0s";
 						document.getElementById('content-left').style.opacity = "0";
 					}
-				} else {
-					console.log('same page');
+					if (document.getElementById('book')) {
+						document.getElementById('book').style.transition = "opacity 0s";
+						document.getElementById('book').style.opacity = "0";
+					}
 				}
 				window.url = window.location.href;
 			}
@@ -30218,16 +30221,16 @@
 			value: function imgLoaded() {
 				window.leftloaded = true;
 				if (window.rightloaded === true) {
-					setTimeout(function () {
-						if (document.getElementById('content-left')) {
-							document.getElementById('content-left').style.opacity = "1";
-						}
-						if (document.getElementById('content-right')) {
-							document.getElementById('content-right').style.opacity = "1";
-						}
-						window.leftloaded = false;
-						window.rightloaded = false;
-					}, 250);
+					if (document.getElementById('content-left')) {
+						document.getElementById('content-left').style.transition = "opacity .5s";
+						document.getElementById('content-left').style.opacity = "1";
+					}
+					if (document.getElementById('content-right')) {
+						document.getElementById('content-right').style.transition = "opacity .5s";
+						document.getElementById('content-right').style.opacity = "1";
+					}
+					window.leftloaded = false;
+					window.rightloaded = false;
 				}
 			}
 		}, {
@@ -30413,30 +30416,30 @@
 				if (this.props.props.location.pathname == '/') {
 					window.rightloaded = true;
 					if (window.leftloaded === true) {
-						setTimeout(function () {
-							if (document.getElementById('content-right')) {
-								document.getElementById('content-right').style.opacity = "1";
-							}
-							if (document.getElementById('content-left')) {
-								document.getElementById('content-left').style.opacity = "1";
-							}
-							window.leftloaded = false;
-							window.rightloaded = false;
-						}, 250);
+						if (document.getElementById('content-right')) {
+							document.getElementById('content-right').style.transition = "opacity .5s";
+							document.getElementById('content-right').style.opacity = "1";
+						}
+						if (document.getElementById('content-left')) {
+							document.getElementById('content-left').style.transition = "opacity .5s";
+							document.getElementById('content-left').style.opacity = "1";
+						}
+						window.leftloaded = false;
+						window.rightloaded = false;
 					}
 				} else {
 					window.leftloaded = true;
 					if (window.rightloaded === true) {
-						setTimeout(function () {
-							if (document.getElementById('content-right')) {
-								document.getElementById('content-right').style.opacity = "1";
-							}
-							if (document.getElementById('content-left')) {
-								document.getElementById('content-left').style.opacity = "1";
-							}
-							window.leftloaded = false;
-							window.rightloaded = false;
-						}, 250);
+						if (document.getElementById('content-right')) {
+							document.getElementById('content-right').style.transition = "opacity .5s";
+							document.getElementById('content-right').style.opacity = "1";
+						}
+						if (document.getElementById('content-left')) {
+							document.getElementById('content-left').style.transition = "opacity .5s";
+							document.getElementById('content-left').style.opacity = "1";
+						}
+						window.leftloaded = false;
+						window.rightloaded = false;
 					}
 				}
 			}
@@ -30973,16 +30976,16 @@
 			value: function componentDidUpdate() {
 				window.rightloaded = true;
 				if (window.leftloaded === true) {
-					setTimeout(function () {
-						if (document.getElementById('content-right')) {
-							document.getElementById('content-right').style.opacity = "1";
-						}
-						if (document.getElementById('content-left')) {
-							document.getElementById('content-left').style.opacity = "1";
-						}
-						window.rightloaded = false;
-						window.leftloaded = false;
-					}, 250);
+					if (document.getElementById('content-right')) {
+						document.getElementById('content-right').style.transition = "opacity .5s";
+						document.getElementById('content-right').style.opacity = "1";
+					}
+					if (document.getElementById('content-left')) {
+						document.getElementById('content-left').style.transition = "opacity .5s";
+						document.getElementById('content-left').style.opacity = "1";
+					}
+					window.rightloaded = false;
+					window.leftloaded = false;
 				}
 			}
 		}, {
@@ -31276,33 +31279,39 @@
 		_createClass(Book, [{
 			key: 'componentWillMount',
 			value: function componentWillMount() {
-				//console.log('menu will mount');
-				//console.log(this.props.book);
 				this.props.fetchBook(this.props.match.params.slug);
 			}
 		}, {
 			key: 'componentDidMount',
-			value: function componentDidMount() {
-				//console.log('menu did mount');
-				//console.log('B did mount');
+			value: function componentDidMount() {}
+		}, {
+			key: 'componentWillReceiveProps',
+			value: function componentWillReceiveProps() {}
+		}, {
+			key: 'componentWillUpdate',
+			value: function componentWillUpdate() {}
+		}, {
+			key: 'contentLoaded',
+			value: function contentLoaded() {
+				//console.log('content loaded');
+				setTimeout(function () {
+					if (document.getElementById('book')) {
+						document.getElementById('book').style.transition = "opacity .5s";
+						document.getElementById('book').style.opacity = "1";
+					}
+				}, 500);
 			}
 		}, {
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
-				//console.log('menu did update');
-				//console.log('B did update');
-			}
-		}, {
-			key: 'componentWillUpdate',
-			value: function componentWillUpdate() {
-				//console.log('menu did update');
-				//console.log('B did update');
-			}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps() {
-				//console.log('menu will receive props');
-				//console.log('B will receive props');
+				if (this.props.match.params.pageNum !== undefined) {
+					setTimeout(function () {
+						if (document.getElementById('book')) {
+							document.getElementById('book').style.transition = "opacity .5s";
+							document.getElementById('book').style.opacity = "1";
+						}
+					}, 500);
+				}
 			}
 		}, {
 			key: 'lastPage',
@@ -31324,18 +31333,6 @@
 				}
 			}
 		}, {
-			key: 'imgLoaded',
-			value: function imgLoaded() {
-				setTimeout(function () {
-					if (document.getElementById('cover')) {
-						document.getElementById('cover').style.opacity = "1";
-					}
-					if (document.getElementById('title')) {
-						document.getElementById('title').style.opacity = "1";
-					}
-				}, 250);
-			}
-		}, {
 			key: 'getPage',
 			value: function getPage() {
 				if (this.props.match.params.pageNum == undefined) {
@@ -31353,18 +31350,22 @@
 								null,
 								_react2.default.createElement(
 									'div',
-									{ id: 'cover', className: 'img-wrapper' },
-									_react2.default.createElement('img', {
-										src: this.props.book.book.acf.book_cover.sizes.book_cover,
-										onLoad: this.imgLoaded })
-								),
-								_react2.default.createElement(
-									'div',
-									{ id: 'title', className: 'title-wrapper' },
+									{ id: 'book' },
 									_react2.default.createElement(
-										'h2',
-										null,
-										this.props.book.book.title.rendered
+										'div',
+										{ className: 'img-wrapper' },
+										_react2.default.createElement('img', {
+											src: this.props.book.book.acf.book_cover.sizes.book_cover,
+											onLoad: this.contentLoaded })
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'title-wrapper' },
+										_react2.default.createElement(
+											'h2',
+											null,
+											this.props.book.book.title.rendered
+										)
 									)
 								)
 							),
@@ -31379,27 +31380,31 @@
 									_react2.default.createElement(
 										'div',
 										null,
-										_react2.default.createElement('div', { className: 'book-grid-two' }),
 										_react2.default.createElement(
 											'div',
-											{ className: 'book-grid-two' },
+											{ id: 'book' },
+											_react2.default.createElement('div', { className: 'book-grid-two' }),
 											_react2.default.createElement(
 												'div',
-												null,
+												{ className: 'book-grid-two' },
 												_react2.default.createElement(
-													'p',
-													{ className: 'author-title' },
-													this.props.book.book.acf.author_title
-												),
-												_react2.default.createElement(
-													'p',
-													{ className: 'author-name' },
-													this.props.book.book.acf.author_name
-												),
-												_react2.default.createElement(
-													'h1',
-													{ className: 'book-title' },
-													this.props.book.book.title.rendered
+													'div',
+													null,
+													_react2.default.createElement(
+														'p',
+														{ className: 'author-title' },
+														this.props.book.book.acf.author_title
+													),
+													_react2.default.createElement(
+														'p',
+														{ className: 'author-name' },
+														this.props.book.book.acf.author_name
+													),
+													_react2.default.createElement(
+														'h1',
+														{ className: 'book-title' },
+														this.props.book.book.title.rendered
+													)
 												)
 											)
 										)
@@ -31413,8 +31418,12 @@
 									_react2.default.createElement(
 										'div',
 										null,
-										_react2.default.createElement(_content_left2.default, { content: this.props.book.book.acf.book_pages[parseInt(page - 2)] }),
-										_react2.default.createElement(_content_right2.default, { sep: this.separatingLine(page), content: this.props.book.book.acf.book_pages[parseInt(page - 2)] })
+										_react2.default.createElement(
+											'div',
+											{ id: 'book' },
+											_react2.default.createElement(_content_left2.default, { content: this.props.book.book.acf.book_pages[parseInt(page - 2)] }),
+											_react2.default.createElement(_content_right2.default, { sep: this.separatingLine(page), content: this.props.book.book.acf.book_pages[parseInt(page - 2)] })
+										)
 									),
 									_react2.default.createElement(_booknav2.default, { slug: this.props.match.params.slug, page: this.props.match.params.pageNum, lastpage: this.lastPage(page) })
 								);
@@ -31425,7 +31434,11 @@
 									_react2.default.createElement(
 										'div',
 										null,
-										_react2.default.createElement('img', { src: this.props.book.book.acf.book_pages[parseInt(page - 2)].full_sized_image.sizes.fullsize })
+										_react2.default.createElement(
+											'div',
+											{ id: 'book' },
+											_react2.default.createElement('img', { src: this.props.book.book.acf.book_pages[parseInt(page - 2)].full_sized_image.sizes.fullsize })
+										)
 									),
 									_react2.default.createElement(_booknav2.default, { slug: this.props.match.params.slug, page: this.props.match.params.pageNum, lastpage: this.lastPage(page) })
 								);
@@ -31437,14 +31450,18 @@
 									_react2.default.createElement(
 										'div',
 										null,
-										_react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.props.book.book.acf.book_pages[parseInt(page - 2)].last_page_content } }),
 										_react2.default.createElement(
-											_reactRouterDom.Link,
-											{ to: '/index/' },
+											'div',
+											{ id: 'book' },
+											_react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.props.book.book.acf.book_pages[parseInt(page - 2)].last_page_content } }),
 											_react2.default.createElement(
-												'h5',
-												null,
-												'Back to Index'
+												_reactRouterDom.Link,
+												{ to: '/index/' },
+												_react2.default.createElement(
+													'h5',
+													null,
+													'Back to Index'
+												)
 											)
 										)
 									),

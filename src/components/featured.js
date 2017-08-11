@@ -28,16 +28,16 @@ class Featured extends Component {
 	imgLoaded() {
 		window.leftloaded = true;
 		if (window.rightloaded === true) {
-			setTimeout(function() {
-				if(document.getElementById('content-left')) {
-					document.getElementById('content-left').style.opacity = "1";
-				}
-				if(document.getElementById('content-right')) {
-					document.getElementById('content-right').style.opacity = "1";
-				}
-				window.leftloaded = false;
-				window.rightloaded = false;
-			}, 250);
+			if(document.getElementById('content-left')) {
+				document.getElementById('content-left').style.transition = "opacity .5s";
+				document.getElementById('content-left').style.opacity = "1";
+			}
+			if(document.getElementById('content-right')) {
+				document.getElementById('content-right').style.transition = "opacity .5s";
+				document.getElementById('content-right').style.opacity = "1";
+			}
+			window.leftloaded = false;
+			window.rightloaded = false;
 		}
 	}
 
