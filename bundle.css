@@ -742,12 +742,14 @@ header {
               max-height: 400px; } }
 
 .book.fullimage div {
-  text-align: center;
-  height: auto !important; }
-  .book.fullimage div img {
-    max-width: 726px;
-    max-height: 511px;
-    max-width: 100%; }
+  text-align: center; }
+  .book.fullimage div div#book {
+    display: table-cell !important;
+    vertical-align: middle; }
+    .book.fullimage div div#book img {
+      max-width: 726px;
+      max-height: 511px;
+      max-width: 100%; }
 
 .book.lastpage {
   width: 365px;

@@ -519,11 +519,14 @@
 	&.fullimage {
 		div {
 			text-align: center;
-			height: auto!important;
-			img {
-				max-width: 726px;
-				max-height: 511px;
-				max-width: 100%;
+			div#book {
+				display: table-cell!important;
+				vertical-align: middle;
+				img {
+					max-width: 726px;
+					max-height: 511px;
+					max-width: 100%;
+				}
 			}
 		}
 	}

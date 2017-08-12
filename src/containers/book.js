@@ -82,7 +82,7 @@ class Book extends Component {
 		} else {
 			var page = this.props.match.params.pageNum;
 		}
-		if(this.props.book.book !== undefined && this.props.book.book.acf.book_cover !== undefined){
+		if(this.props.book.book && this.props.book.book.acf.book_cover){
 			if (page == 1) {
 				return (
 					<div className="content book cover" id="content">
