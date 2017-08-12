@@ -31307,33 +31307,31 @@
 					var page = this.props.match.params.pageNum;
 				}
 
-				console.log(this.props);
-
 				var imgLoad = false;
 				if (page == 1) {
 					imgLoad = true;
-					console.log('page 1');
+					console.log(imgLoad);
 				} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)]) {
-					if (this.props.book.book.acf.book_pages[parseInt(page - 2)].left_content == 'single') {
+					if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'regular' && (this.props.book.book.acf.book_pages[parseInt(page - 2)].left_content == 'single' || this.props.book.book.acf.book_pages[parseInt(page - 2)].right_content == 'single')) {
 						imgLoad = true;
-						console.log('single image');
-					} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].left_content == 'double') {
+						console.log(imgLoad);
+					} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'regular' && (this.props.book.book.acf.book_pages[parseInt(page - 2)].left_content == 'double' || this.props.book.book.acf.book_pages[parseInt(page - 2)].right_content == 'double')) {
 						imgLoad = true;
-						console.log('double image');
+						console.log(imgLoad);
+					} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'fullimage') {
+						imgLoad = true;
+						console.log(imgLoad);
 					}
 				}
 
-				console.log(imgLoad);
-
-				if (this.props.book.book.acf.book_pages[parseInt(page - 2)]) {
-					if (this.props.match.params.pageNum !== undefined && this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type !== 'fullimage') {
-						setTimeout(function () {
-							if (document.getElementById('book')) {
-								document.getElementById('book').style.transition = "opacity .5s";
-								document.getElementById('book').style.opacity = "1";
-							}
-						}, 500);
-					}
+				if (!imgLoad) {
+					console.log(imgLoad);
+					setTimeout(function () {
+						if (document.getElementById('book')) {
+							document.getElementById('book').style.transition = "opacity .5s";
+							document.getElementById('book').style.opacity = "1";
+						}
+					}, 500);
 				}
 			}
 		}, {
@@ -31362,6 +31360,7 @@
 					if (document.getElementById('book')) {
 						document.getElementById('book').style.transition = "opacity .5s";
 						document.getElementById('book').style.opacity = "1";
+						document.getElementById('book').style.borderTop = "none";
 					}
 				}, 500);
 			}
@@ -31398,8 +31397,8 @@
 										'div',
 										{ className: 'img-wrapper' },
 										_react2.default.createElement('img', {
-											src: this.props.book.book.acf.book_cover.sizes.book_cover,
-											onLoad: this.coverLoaded() })
+											onLoad: this.coverLoaded(),
+											src: this.props.book.book.acf.book_cover.sizes.book_cover })
 									),
 									_react2.default.createElement(
 										'div',
@@ -31481,8 +31480,8 @@
 											'div',
 											{ id: 'book' },
 											_react2.default.createElement('img', {
-												src: this.props.book.book.acf.book_pages[parseInt(page - 2)].full_sized_image.sizes.fullsize,
-												onLoad: this.fullImageLoaded() })
+												onLoad: this.fullImageLoaded(),
+												src: this.props.book.book.acf.book_pages[parseInt(page - 2)].full_sized_image.sizes.fullsize })
 										)
 									),
 									_react2.default.createElement(_booknav2.default, { slug: this.props.match.params.slug, page: this.props.match.params.pageNum, lastpage: this.lastPage(page) })

@@ -386,8 +386,8 @@ header {
     box-sizing: border-box;
     border-left: 4px solid #e9e8e8;
     border-bottom: 4px solid #e9e8e8;
-    border-bottom-width: 93%;
-    position: relative; }
+    position: relative;
+    height: 515px; }
     @media only screen and (max-width: 479px) {
       .book.cover > div:first-child {
         width: 280px; } }
@@ -396,17 +396,17 @@ header {
       transition: opacity .5s linear; }
       .book.cover > div:first-child #book .img-wrapper {
         height: 391px;
-        position: relative; }
+        position: relative;
+        padding: 0 60px;
+        text-align: center; }
         @media only screen and (max-width: 479px) {
           .book.cover > div:first-child #book .img-wrapper {
             height: 310px; } }
         .book.cover > div:first-child #book .img-wrapper img {
-          padding: 0 60px;
-          width: 100%;
+          max-width: 276px;
+          max-height: 391px;
           vertical-align: bottom;
-          box-sizing: border-box;
-          position: absolute;
-          bottom: 0; }
+          box-sizing: border-box; }
           @media only screen and (max-width: 479px) {
             .book.cover > div:first-child #book .img-wrapper img {
               padding: 0 30px; } }

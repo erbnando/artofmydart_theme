@@ -28,7 +28,7 @@ function enqueue_font_awesome() {
 add_action( 'wp_enqueue_scripts', 'enqueue_font_awesome' );
 
 add_image_size( 'home', 600, 600 );
-add_image_size( 'book_cover', 552 );
+add_image_size( 'book_cover', 552, 782 );
 add_image_size( 'small', 460, 460 );
 add_image_size( 'medium', 562, 862 );
 add_image_size( 'large', 642, 942 );
