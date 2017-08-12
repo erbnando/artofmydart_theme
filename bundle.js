@@ -30407,14 +30407,6 @@
 		}, {
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
-				if (document.getElementById('blog-left')) {
-					if (this.props.odd_posts.items.length == 0) {
-						document.getElementById('blog-left').className = "grid-two blog-left blog-left-hidden";
-					} else {
-						document.getElementById('blog-left').className = "grid-two blog-left";
-					}
-				}
-
 				if (this.props.props.location.pathname == '/') {
 					window.rightloaded = true;
 					if (window.leftloaded === true) {
@@ -30980,6 +30972,14 @@
 		}, {
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
+				if (document.getElementById('blog-right')) {
+					if (this.props.even_posts.items.length == 0) {
+						document.getElementById('blog-right').className = "grid-two blog-right blog-right-hidden";
+					} else {
+						document.getElementById('blog-right').className = "grid-two blog-right";
+					}
+				}
+
 				window.rightloaded = true;
 				if (window.leftloaded === true) {
 					setTimeout(function () {

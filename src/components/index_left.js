@@ -49,14 +49,6 @@ class BlogLeft extends Component {
 	}
 
 	componentDidUpdate() {
-		if (document.getElementById('blog-left')) {
-			if (this.props.odd_posts.items.length == 0) {
-				document.getElementById('blog-left').className = "grid-two blog-left blog-left-hidden";
-			} else {
-				document.getElementById('blog-left').className = "grid-two blog-left";
-			}
-		}
-
 		if (this.props.props.location.pathname == '/') {
 			window.rightloaded = true;
 			if (window.leftloaded === true) {
