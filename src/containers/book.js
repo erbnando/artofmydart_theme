@@ -34,7 +34,7 @@ class Book extends Component {
 						document.getElementById('book').style.transition = "opacity .5s";
 						document.getElementById('book').style.opacity = "1";
 					}
-				}, 500);
+				}, 100);
 			}
 		}
 	}
