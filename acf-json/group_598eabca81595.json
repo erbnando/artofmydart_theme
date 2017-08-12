@@ -1,5 +1,5 @@
 {
-    "key": "group_593a3cbbcff02",
+    "key": "group_598eabca81595",
     "title": "Book",
     "fields": [
         {
@@ -196,13 +196,18 @@
                     "name": "text_content_left",
                     "type": "wysiwyg",
                     "instructions": "",
-                    "required": "",
+                    "required": 1,
                     "conditional_logic": [
                         [
                             {
                                 "field": "field_59684f1b29f34",
                                 "operator": "==",
                                 "value": "text"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -229,6 +234,11 @@
                                 "field": "field_59684f1b29f34",
                                 "operator": "==",
                                 "value": "quote"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -255,6 +265,11 @@
                                 "field": "field_59684f1b29f34",
                                 "operator": "==",
                                 "value": "quote"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -284,6 +299,11 @@
                                 "field": "field_59684f1b29f34",
                                 "operator": "==",
                                 "value": "quote"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -313,6 +333,11 @@
                                 "field": "field_59684f1b29f34",
                                 "operator": "==",
                                 "value": "single"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -354,6 +379,11 @@
                                 "field": "field_59684f1b29f34",
                                 "operator": "==",
                                 "value": "single"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -391,6 +421,11 @@
                                 "field": "field_59684f1b29f34",
                                 "operator": "==",
                                 "value": "single"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -428,6 +463,11 @@
                                 "field": "field_59684f1b29f34",
                                 "operator": "==",
                                 "value": "single"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -465,6 +505,11 @@
                                 "field": "field_59684f1b29f34",
                                 "operator": "==",
                                 "value": "single"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -497,6 +542,11 @@
                                 "field": "field_59684f1b29f34",
                                 "operator": "==",
                                 "value": "single"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -541,8 +591,8 @@
                             },
                             {
                                 "field": "field_5961b746e788e",
-                                "operator": "!=",
-                                "value": "fullimage"
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -586,8 +636,8 @@
                             },
                             {
                                 "field": "field_5961b746e788e",
-                                "operator": "!=",
-                                "value": "fullimage"
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -625,6 +675,11 @@
                                 "field": "field_59684f1b29f34",
                                 "operator": "==",
                                 "value": "double"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -662,6 +717,11 @@
                                 "field": "field_59684f1b29f34",
                                 "operator": "==",
                                 "value": "double"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -697,8 +757,8 @@
                             },
                             {
                                 "field": "field_5961b746e788e",
-                                "operator": "!=",
-                                "value": "fullimage"
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -739,6 +799,11 @@
                                 "field": "field_59684f1b29f34",
                                 "operator": "==",
                                 "value": "double"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -776,6 +841,11 @@
                                 "field": "field_59684f1b29f34",
                                 "operator": "==",
                                 "value": "double"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -813,6 +883,11 @@
                                 "field": "field_59684f1b29f34",
                                 "operator": "==",
                                 "value": "double"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -899,13 +974,18 @@
                     "name": "text_content_right",
                     "type": "wysiwyg",
                     "instructions": "",
-                    "required": "",
+                    "required": 0,
                     "conditional_logic": [
                         [
                             {
                                 "field": "field_59684ff229f35",
                                 "operator": "==",
                                 "value": "text"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -932,6 +1012,11 @@
                                 "field": "field_59684ff229f35",
                                 "operator": "==",
                                 "value": "quote"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -958,6 +1043,11 @@
                                 "field": "field_59684ff229f35",
                                 "operator": "==",
                                 "value": "quote"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -987,6 +1077,11 @@
                                 "field": "field_59684ff229f35",
                                 "operator": "==",
                                 "value": "quote"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -1016,6 +1111,11 @@
                                 "field": "field_59684ff229f35",
                                 "operator": "==",
                                 "value": "single"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -1057,6 +1157,11 @@
                                 "field": "field_59684ff229f35",
                                 "operator": "==",
                                 "value": "single"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -1094,6 +1199,11 @@
                                 "field": "field_59684ff229f35",
                                 "operator": "==",
                                 "value": "single"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -1131,6 +1241,11 @@
                                 "field": "field_59684ff229f35",
                                 "operator": "==",
                                 "value": "single"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -1168,6 +1283,11 @@
                                 "field": "field_59684ff229f35",
                                 "operator": "==",
                                 "value": "single"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -1200,6 +1320,11 @@
                                 "field": "field_59684ff229f35",
                                 "operator": "==",
                                 "value": "single"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -1241,6 +1366,11 @@
                                 "field": "field_59684ff229f35",
                                 "operator": "==",
                                 "value": "double"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -1273,14 +1403,19 @@
                     "conditional_logic": [
                         [
                             {
+                                "field": "field_59684ff229f35",
+                                "operator": "==",
+                                "value": "double"
+                            },
+                            {
                                 "field": "field_598629336072d",
                                 "operator": "==",
                                 "value": "small"
                             },
                             {
-                                "field": "field_59684ff229f35",
+                                "field": "field_5961b746e788e",
                                 "operator": "==",
-                                "value": "double"
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -1427,6 +1562,11 @@
                                 "field": "field_59862a9460732",
                                 "operator": "==",
                                 "value": "small"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "regular"
                             }
                         ]
                     ],
@@ -1586,20 +1726,17 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "books"
+                "value": "post"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "acf_after_title",
+    "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": [
-        "the_content",
-        "excerpt"
-    ],
+    "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1502521857
+    "modified": 1502522444
 }

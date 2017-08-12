@@ -31306,9 +31306,27 @@
 				} else {
 					var page = this.props.match.params.pageNum;
 				}
+
+				console.log(this.props);
+
+				var imgLoad = false;
+				if (page == 1) {
+					imgLoad = true;
+					console.log('page 1');
+				} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)]) {
+					if (this.props.book.book.acf.book_pages[parseInt(page - 2)].left_content == 'single') {
+						imgLoad = true;
+						console.log('single image');
+					} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].left_content == 'double') {
+						imgLoad = true;
+						console.log('double image');
+					}
+				}
+
+				console.log(imgLoad);
+
 				if (this.props.book.book.acf.book_pages[parseInt(page - 2)]) {
 					if (this.props.match.params.pageNum !== undefined && this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type !== 'fullimage') {
-						console.log('neither cover nor full');
 						setTimeout(function () {
 							if (document.getElementById('book')) {
 								document.getElementById('book').style.transition = "opacity .5s";
@@ -31340,7 +31358,6 @@
 		}, {
 			key: 'coverLoaded',
 			value: function coverLoaded() {
-				console.log('cover image loaded');
 				setTimeout(function () {
 					if (document.getElementById('book')) {
 						document.getElementById('book').style.transition = "opacity .5s";
@@ -31351,7 +31368,6 @@
 		}, {
 			key: 'fullImageLoaded',
 			value: function fullImageLoaded() {
-				console.log('full image loaded');
 				setTimeout(function () {
 					if (document.getElementById('book')) {
 						document.getElementById('book').style.transition = "opacity .5s";
