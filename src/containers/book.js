@@ -17,41 +17,25 @@ class Book extends Component {
 	componentWillReceiveProps() {
 	}
 
-	componentWillUpdate() {
-	}
-
 	componentDidUpdate() {
-		if (this.props.match.params.pageNum == undefined) {
-			var page = 1;
-		} else {
-			var page = this.props.match.params.pageNum;
-		}
-
-		var imgLoad = false;
-		if (page == 1) {
-			imgLoad = true;
-			console.log(imgLoad);
-		} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)]) {
-			if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'regular' && (this.props.book.book.acf.book_pages[parseInt(page - 2)].left_content == 'single' || this.props.book.book.acf.book_pages[parseInt(page - 2)].right_content == 'single')) {
-				imgLoad = true;
-				console.log(imgLoad);
-			} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'regular' && (this.props.book.book.acf.book_pages[parseInt(page - 2)].left_content == 'double' || this.props.book.book.acf.book_pages[parseInt(page - 2)].right_content == 'double')) {
-				imgLoad = true;
-				console.log(imgLoad);
-			} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'fullimage') {
-				imgLoad = true;
-				console.log(imgLoad);
-			}
-		}
-
-		if (!imgLoad) {
-			console.log(imgLoad);
-			setTimeout(function() {
-				if(document.getElementById('book')) {
-					document.getElementById('book').style.transition = "opacity .5s";
-					document.getElementById('book').style.opacity = "1";
+		var checkImgsLoadedInterval = setInterval(checkImgsLoaded, 250);
+		function checkImgsLoaded() {
+			for(var img of document.images) {
+				if (img.complete == false) {
+					var loaded = false;
+				} else {
+					var loaded = true;
 				}
-			}, 500);
+			}
+			if (loaded == true) {
+				clearInterval(checkImgsLoadedInterval);
+				setTimeout(function() {
+					if(document.getElementById('book')) {
+						document.getElementById('book').style.transition = "opacity .5s";
+						document.getElementById('book').style.opacity = "1";
+					}
+				}, 500);
+			}
 		}
 	}
 
@@ -72,25 +56,6 @@ class Book extends Component {
 		}
 	}
 
-	coverLoaded() {
-		setTimeout(function() {
-			if(document.getElementById('book')) {
-				document.getElementById('book').style.transition = "opacity .5s";
-				document.getElementById('book').style.opacity = "1";
-				document.getElementById('book').style.borderTop = "none";
-			}
-		}, 500);
-	}
-
-	fullImageLoaded() {
-		setTimeout(function() {
-			if(document.getElementById('book')) {
-				document.getElementById('book').style.transition = "opacity .5s";
-				document.getElementById('book').style.opacity = "1";
-			}
-		}, 500);
-	}
-
 	getPage() {
 		if (this.props.match.params.pageNum == undefined) {
 			var page = 1;
@@ -105,7 +70,6 @@ class Book extends Component {
 							<div id="book">
 								<div className="img-wrapper">
 									<img 
-									onLoad={this.coverLoaded()}
 									src={this.props.book.book.acf.book_cover.sizes.book_cover}/>
 								</div>
 								<div className="title-wrapper">
@@ -155,7 +119,6 @@ class Book extends Component {
 								<div>
 									<div id="book">
 										<img 
-										onLoad={this.fullImageLoaded()}
 										src={this.props.book.book.acf.book_pages[parseInt(page - 2)].full_sized_image.sizes.fullsize}/>
 									</div>
 								</div>
