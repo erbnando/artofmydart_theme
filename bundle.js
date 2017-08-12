@@ -31298,7 +31298,7 @@
 		}, {
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
-				var checkImgsLoadedInterval = setInterval(checkImgsLoaded, 250);
+				var checkImgsLoadedInterval = setInterval(checkImgsLoaded, 100);
 				function checkImgsLoaded() {
 					var _iteratorNormalCompletion = true;
 					var _didIteratorError = false;
@@ -31336,7 +31336,7 @@
 								document.getElementById('book').style.transition = "opacity .5s";
 								document.getElementById('book').style.opacity = "1";
 							}
-						}, 100);
+						}, 250);
 					}
 				}
 			}

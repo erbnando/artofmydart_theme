@@ -18,7 +18,7 @@ class Book extends Component {
 	}
 
 	componentDidUpdate() {
-		var checkImgsLoadedInterval = setInterval(checkImgsLoaded, 250);
+		var checkImgsLoadedInterval = setInterval(checkImgsLoaded, 100);
 		function checkImgsLoaded() {
 			for(var img of document.images) {
 				if (img.complete == false) {
@@ -34,7 +34,7 @@ class Book extends Component {
 						document.getElementById('book').style.transition = "opacity .5s";
 						document.getElementById('book').style.opacity = "1";
 					}
-				}, 100);
+				}, 250);
 			}
 		}
 	}
