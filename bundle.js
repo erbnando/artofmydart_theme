@@ -31336,7 +31336,7 @@
 								document.getElementById('book').style.transition = "opacity .5s";
 								document.getElementById('book').style.opacity = "1";
 							}
-						}, 250);
+						}, 500);
 					}
 				}
 			}
