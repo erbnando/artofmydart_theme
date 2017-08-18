@@ -44,7 +44,7 @@ class App extends Component {
 	render() {
 		if (window.location.href.indexOf("/books/") > -1) {
 			return (
-				<div className="container grayheader">
+				<div className="container grayheader desktop">
 					<Header />
 					<Main />
 				</div>

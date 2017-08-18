@@ -14,7 +14,6 @@ class ContentLeft extends Component {
 	}
 
 	getLeftImageSrc() {
-		//console.log(this.props);
 		if (this.props.content.single_image_size_left == "small") {
 			return this.props.content.small_single_image_left.sizes.small
 		}
@@ -55,83 +54,107 @@ class ContentLeft extends Component {
 		}
 	}
 
-	getContent() {
-		if (this.props.content.left_content == 'text') {
-			return (
-				<div dangerouslySetInnerHTML={{__html: this.props.content.text_content_left}} />
-			);
-		} else if (this.props.content.left_content == 'single') {
-			return (
-				<div>
-					<img src={this.getLeftImageSrc()} />
-				</div>
-			);
-		} else if (this.props.content.left_content == 'double') {
-			return (
-				<div>
-					<div className={this.props.content.double_image_size_top_left}>
-						<div>
-							<img src={this.getTopLeftImageSrc()} />
-						</div>
-					</div>
-					<div className={this.props.content.double_image_size_bottom_left}>
-						<div>
-							<img src={this.getBottomLeftImageSrc()} />
-						</div>
-					</div>
-				</div>
-			);
-		} else if (this.props.content.left_content == 'quote') {
-			return (
-				<div>
-					<div className="quote-text" dangerouslySetInnerHTML={{__html: this.props.content.quote_text_left}} />					
-					<span className="quote-author" dangerouslySetInnerHTML={{__html: this.props.content.quote_author_left}} />,
-					<span>&nbsp;</span>
-					<span className="quote-source" dangerouslySetInnerHTML={{__html: this.props.content.quote_source_left}} />
-				</div>
-			);
-		}
-	}
-
-	getClasses() {
-		if (this.props.content.left_content == 'single') {
-			return ' content-image'
-		} else {
-			return ''
-		}
-	}
-
 	getPosition() {
-		if (this.props.content.left_content == 'single') {
+		if (this.props.content.left_content_image == 'single') {
 			if (this.props.content.left_image_placement == "top") {
-				return ' top'
+				return 'top '
 			} else if (this.props.content.left_image_placement == "bottom") {
-				return ' bottom'
+				return 'bottom '
 			} else if (this.props.content.left_image_placement == "left") {
-				return ' left'
+				return 'left '
 			} else if (this.props.content.left_image_placement == "right") {
-				return ' right'
+				return 'right '
 			} else if (this.props.content.left_image_placement == "topleft") {
-				return ' top-left'
+				return 'top-left '
 			} else if (this.props.content.left_image_placement == "topright") {
-				return ' top-right'
+				return 'top-right '
 			} else if (this.props.content.left_image_placement == "bottomleft") {
-				return ' bottom-left'
+				return 'bottom-left '
 			} else if (this.props.content.left_image_placement == "bottomright") {
-				return ' bottom-right'
+				return 'bottom-right '
 			} else if (this.props.content.left_image_placement == "center") {
-				return ''
+				return ' '
 			}
 		} else {
 			return ''
 		}
 	}
 
+	getContent() {
+		if (this.props.content.page_type == 'text') {
+			if (this.props.content.left_content_text == 'text') {
+				return (
+					<div dangerouslySetInnerHTML={{__html: this.props.content.text_content_left}} />
+				);
+			} else if (this.props.content.left_content_text == 'quote') {
+				return (
+					<div>
+						<div className="quote-text" dangerouslySetInnerHTML={{__html: this.props.content.quote_text_left}} />					
+						<span className="quote-author" dangerouslySetInnerHTML={{__html: this.props.content.quote_author_left}} />,
+						<span>&nbsp;</span>
+						<span className="quote-source" dangerouslySetInnerHTML={{__html: this.props.content.quote_source_left}} />
+					</div>
+				);
+			}
+		} else if (this.props.content.page_type == 'images') {
+			if (this.props.content.left_content_image == 'single') {
+				return (
+					<div>
+						<img src={this.getLeftImageSrc()} />
+					</div>
+				);
+			} else if (this.props.content.left_content_image == 'double') {
+				return (
+					<div>
+						<div className={this.props.content.double_image_size_top_left}>
+							<div>
+								<img src={this.getTopLeftImageSrc()} />
+							</div>
+						</div>
+						<div className={this.props.content.double_image_size_bottom_left}>
+							<div>
+								<img src={this.getBottomLeftImageSrc()} />
+							</div>
+						</div>
+					</div>
+				);
+			}
+		} else if (this.props.content.page_type == 'spread') {
+			return (
+				<img 
+				src={this.props.content.full_sized_image.sizes.fullsize}
+				/>
+			);
+		}
+	}
+
+	getPageType() {
+		if (this.props.content.page_type == 'text') {
+			if (this.props.content.left_content_text == 'text') {
+				return 'text'
+			} else if (this.props.content.left_content_text == 'quote') {
+				return 'quote'
+			} else if (this.props.content.left_content_text == 'blank') {
+				return 'blank'
+			}
+		} else if (this.props.content.page_type == 'images') {
+			if (this.props.content.left_content_image == 'single') {
+				return 'single'
+			} else if (this.props.content.left_content_image == 'double') {
+				return 'double'
+			} else if (this.props.content.left_content_image == 'blank') {
+				return 'blank'
+			}
+		} else if (this.props.content.page_type == 'spread') {
+			return 'fullimage'
+		}
+	}
+
 	render() {
 		//console.log(this.props.content);
 		return (
-			<div className={"book-grid-two" + this.getPosition() + ' ' + this.props.content.left_content}>
-				<div className={"content-left" + this.getClasses() + ' ' + this.props.content.single_image_size_left}>
+			<div className={"book-grid-two " + this.getPosition() + this.getPageType()}>
+				<div className={"content-left " + this.props.content.single_image_size_left}>
 					{this.getContent()}
 				</div>
 			</div>

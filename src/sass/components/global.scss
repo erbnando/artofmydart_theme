@@ -1,11 +1,11 @@
 body {
 	margin: 0;
-	min-width: 320px;
 	#app {
 		.container {
 			max-width: 1440px;
 			display: block;
 			margin: 0 auto;
+			min-width: 768px;
 			&.grayheader {
 				#main_header {
 					opacity: .2!important;
@@ -13,23 +13,25 @@ body {
 			}
 			.content:not(.book) {
 				height: 465px;
-			}
-			.content {
-				display: table;
-				margin: 0 auto;
-				position: relative;
-				margin-top: -47px;
-				padding: 0 40px 120px;
-				transition: opacity .05s linear;
-				@media only screen and (max-width: 1124px) {
-					margin-top: 30px;
-				}
+				/*
 				@media only screen and (max-width: 809px) {
 					margin-top: 40px;
 					width: 280px;
 				}
 				@media only screen and (max-width: 399px) {
 					padding: 0 20px 120px;
+				}
+				*/
+			}
+			.content {
+				display: table;
+				margin: 0 auto;
+				position: relative;
+				margin-top: -47px;
+				padding-bottom: 120px;
+				transition: opacity .05s linear;
+				@media only screen and (max-width: 1124px) {
+					margin-top: 30px;
 				}
 			}
 		}
