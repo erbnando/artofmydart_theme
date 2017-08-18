@@ -31453,7 +31453,7 @@
 									),
 									_react2.default.createElement(_booknav2.default, { slug: this.props.match.params.slug, page: this.props.match.params.pageNum, lastpage: this.lastPage(page) })
 								);
-							} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'images' || 'spread') {
+							} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'images' || this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'spread') {
 								return _react2.default.createElement(
 									'div',
 									{ className: 'content book images', id: 'content' },
@@ -31470,7 +31470,7 @@
 									_react2.default.createElement(_booknav2.default, { slug: this.props.match.params.slug, page: this.props.match.params.pageNum, lastpage: this.lastPage(page) })
 								);
 							} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'last') {
-								//console.log(this.props);
+								console.log(this.props);
 								return _react2.default.createElement(
 									'div',
 									{ className: 'content book lastpage', id: 'content' },
