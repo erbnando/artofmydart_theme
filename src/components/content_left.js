@@ -80,6 +80,34 @@ class ContentLeft extends Component {
 		}
 	}
 
+	getSingleLeftCaptions() {
+		if (this.props.content.single_image_caption_left) {
+			var caption = '<div>' + '<h5>Left</H5>' + '<h6>' + this.props.content.single_image_caption_subheader_left + '</h6>' + this.props.content.single_image_caption_text_left + '</div>';
+	 		return caption
+		} 
+	}
+
+	getDoubleTopLeftCaptions() {
+		if (this.props.content.double_image_caption_top_left) {
+			var caption = '<div>' + '<h5>Upper Left</H5>' + '<h6>' + this.props.content.double_image_caption_subheader_top_left + '</h6>' + this.props.content.double_image_caption_text_top_left + '</div>';
+	 		return caption
+		}
+	}
+
+	getDoubleBottomLeftCaptions() {
+		if (this.props.content.double_image_caption_bottom_left) {
+			var caption = '<div>' + '<h5>Lower Left</H5>' + '<h6>' + this.props.content.double_image_caption_subheader_bottom_left + '</h6>' + this.props.content.double_image_caption_text_bottom_left + '</div>';
+	 		return caption
+		}
+	}
+
+	getFullSizedCaptions() {
+		if (this.props.content.full_sized_image_caption) {
+			var caption = '<div>' + '<h6>' + this.props.content.full_sized_image_caption_subheader + '</h6>' + this.props.content.full_sized_image_caption_text + '</div>';
+	 		return caption
+		}
+	}
+
 	getContent() {
 		if (this.props.content.page_type == 'text') {
 			if (this.props.content.left_content_text == 'text') {
@@ -98,33 +126,70 @@ class ContentLeft extends Component {
 			}
 		} else if (this.props.content.page_type == 'images') {
 			if (this.props.content.left_content_image == 'single') {
+				if (this.props.content.single_image_caption_left) {
+					return (
+						<div>
+							<img src={this.getLeftImageSrc()} />
+							<div className="captions-left" dangerouslySetInnerHTML={{__html: this.getSingleLeftCaptions()}}></div>
+						</div>
+					);
+				} else {
+					return (
+						<div>
+							<img src={this.getLeftImageSrc()} />
+						</div>
+					);
+				}
+			} else if (this.props.content.left_content_image == 'double') {
+				if (this.props.content.double_image_caption_top_left || this.props.content.double_image_caption_bottom_left) {
+					return (
+						<div>
+							<div className={this.props.content.double_image_size_top_left}>
+								<div>
+									<img src={this.getTopLeftImageSrc()} />
+									<div className="captions-left" dangerouslySetInnerHTML={{__html: this.getDoubleTopLeftCaptions()}}></div>
+								</div>
+							</div>
+							<div className={this.props.content.double_image_size_bottom_left}>
+								<div>
+									<img src={this.getBottomLeftImageSrc()} />
+									<div className="captions-left" dangerouslySetInnerHTML={{__html: this.getDoubleBottomLeftCaptions()}}></div>
+								</div>
+							</div>
+						</div>
+					);
+				} else {
+					return (
+						<div>
+							<div className={this.props.content.double_image_size_top_left}>
+								<div>
+									<img src={this.getTopLeftImageSrc()} />
+								</div>
+							</div>
+							<div className={this.props.content.double_image_size_bottom_left}>
+								<div>
+									<img src={this.getBottomLeftImageSrc()} />
+								</div>
+							</div>
+						</div>
+					);
+				}
+			}
+		} else if (this.props.content.page_type == 'spread') {
+			if (this.props.content.full_sized_image_caption) {
 				return (
 					<div>
-						<img src={this.getLeftImageSrc()} />
+						<img src={this.props.content.full_sized_image.sizes.fullsize} />
+						<div className={'captions-' + this.props.content.full_sized_image_caption_position} dangerouslySetInnerHTML={{__html: this.getFullSizedCaptions()}}></div>
 					</div>
 				);
-			} else if (this.props.content.left_content_image == 'double') {
+			} else {
 				return (
 					<div>
-						<div className={this.props.content.double_image_size_top_left}>
-							<div>
-								<img src={this.getTopLeftImageSrc()} />
-							</div>
-						</div>
-						<div className={this.props.content.double_image_size_bottom_left}>
-							<div>
-								<img src={this.getBottomLeftImageSrc()} />
-							</div>
-						</div>
+						<img src={this.props.content.full_sized_image.sizes.fullsize} />
 					</div>
 				);
 			}
-		} else if (this.props.content.page_type == 'spread') {
-			return (
-				<img 
-				src={this.props.content.full_sized_image.sizes.fullsize}
-				/>
-			);
 		}
 	}
 

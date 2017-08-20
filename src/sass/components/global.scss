@@ -5,7 +5,7 @@ body {
 			max-width: 1440px;
 			display: block;
 			margin: 0 auto;
-			min-width: 768px;
+			min-width: 1024px;
 			&.grayheader {
 				#main_header {
 					opacity: .2!important;
@@ -62,6 +62,14 @@ h5 {
 	font-weight: 900;
 	margin-bottom: 5px;
 	text-transform: uppercase;
+}
+
+h6 {
+	font-size: 13px;
+	line-height: 17px;
+	font-family: Lato;
+	font-weight: 900;
+	margin: 0 0 8px 0;
 }
 
 p {

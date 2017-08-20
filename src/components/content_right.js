@@ -81,6 +81,27 @@ class ContentRight extends Component {
 		}
 	}
 
+	getSingleRightCaptions() {
+		if (this.props.content.single_image_caption_right) {
+			var caption = '<div>' + '<h5>Right</H5>' + '<h6>' + this.props.content.single_image_caption_subheader_right + '</h6>' + this.props.content.single_image_caption_text_right + '</div>';
+	 		return caption
+		} 
+	}
+
+	getDoubleTopRightCaptions() {
+		if (this.props.content.double_image_caption_top_right) {
+			var caption = '<div>' + '<h5>Upper Right</H5>' + '<h6>' + this.props.content.double_image_caption_subheader_top_right + '</h6>' + this.props.content.double_image_caption_text_top_right + '</div>';
+	 		return caption
+		}
+	}
+
+	getDoubleBottomRightCaptions() {
+		if (this.props.content.double_image_caption_bottom_right) {
+			var caption = '<div>' + '<h5>Lower right</H5>' + '<h6>' + this.props.content.double_image_caption_subheader_bottom_right + '</h6>' + this.props.content.double_image_caption_text_bottom_right + '</div>';
+	 		return caption
+		}
+	}
+
 	getContent() {
 		if (this.props.content.right_content_text == 'text') {
 			return (
@@ -95,27 +116,57 @@ class ContentRight extends Component {
 					<span className="quote-source" dangerouslySetInnerHTML={{__html: this.props.content.quote_source_right}} />
 				</div>
 			);
-		} else if (this.props.content.right_content_image == 'single') {
-			return (
-				<div>
-					<img src={this.getRightImageSrc()} />
-				</div>
-			);
-		} else if (this.props.content.right_content_image == 'double') {
-			return (
-				<div>
-					<div className={this.props.content.double_image_size_top_right}>
+		} else if (this.props.content.page_type == 'images') {
+			if (this.props.content.right_content_image == 'single') {
+				if (this.props.content.single_image_caption_right) {
+					return (
 						<div>
-							<img src={this.getTopRightImageSrc()} />
+						<img src={this.getRightImageSrc()} />
+							<div className="captions-right" dangerouslySetInnerHTML={{__html: this.getSingleRightCaptions()}}></div>
 						</div>
-					</div>
-					<div className={this.props.content.double_image_size_bottom_right}>
+					);
+				} else {
+					return (
 						<div>
-							<img src={this.getBottomRightImageSrc()} />
+							<img src={this.getRightImageSrc()} />
 						</div>
-					</div>
-				</div>
-			);
+					);
+				}
+			} else if (this.props.content.right_content_image == 'double') {
+				if (this.props.content.double_image_caption_top_right || this.props.content.double_image_caption_bottom_right) {
+					return (
+						<div>
+							<div className={this.props.content.double_image_size_top_right}>
+								<div>
+									<img src={this.getTopRightImageSrc()} />
+									<div className="captions-right" dangerouslySetInnerHTML={{__html: this.getDoubleTopRightCaptions()}}></div>
+								</div>
+							</div>
+							<div className={this.props.content.double_image_size_bottom_right}>
+								<div>
+									<img src={this.getBottomRightImageSrc()} />
+									<div className="captions-right" dangerouslySetInnerHTML={{__html: this.getDoubleBottomRightCaptions()}}></div>
+								</div>
+							</div>
+						</div>
+					);
+				} else {
+					return (
+						<div>
+							<div className={this.props.content.double_image_size_top_right}>
+								<div>
+									<img src={this.getTopRightImageSrc()} />
+								</div>
+							</div>
+							<div className={this.props.content.double_image_size_bottom_right}>
+								<div>
+									<img src={this.getBottomRightImageSrc()} />
+								</div>
+							</div>
+						</div>
+					);
+				}
+			}
 		}
 	}
 

@@ -116,7 +116,7 @@ class Book extends Component {
 					} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'images' || this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'spread') {
 						return (
 							<div className="content book images" id="content">
-								<div>
+								<div className="book-container">
 									<div id="book">
 										<ContentLeft content={this.props.book.book.acf.book_pages[parseInt(page - 2)]} />
 										<ContentRight content={this.props.book.book.acf.book_pages[parseInt(page - 2)]} />
@@ -126,7 +126,6 @@ class Book extends Component {
 							</div>
 						);
 					} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'last') {
-						console.log(this.props);
 						return (
 							<div className="content book lastpage" id="content">
 								<div>

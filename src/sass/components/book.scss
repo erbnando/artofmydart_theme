@@ -238,7 +238,7 @@
 		}
 	}
 	&.images {
-		width: 730px;
+		width: 100%;
 		margin: 0 auto;
 		position: relative;
 		padding-bottom: 120px;
@@ -247,11 +247,11 @@
 		@media only screen and (max-width: 1124px) {
 			margin-top: 30px;
 		}
-		> div:first-child {
-			border-left: 4px solid #e9e8e8;
+		> .book-container {
+			width: 730px;
+		    box-sizing: border-box;
+   			border-left: 4px solid #e9e8e8;
 			border-bottom: 4px solid #e9e8e8;
-		}
-		> div:not(:last-child) {
 			#book {
 				width: 100%!important;
 				display: table;
@@ -309,7 +309,7 @@
 					&.single {
 						> div {
 						    margin: 0 auto;
-						    position: relative;
+							// position: relative;
 						    &.small {
 						    	div {
 						    		img {
@@ -344,6 +344,60 @@
 						    }
 							> div {
 						    	padding: 0!important;
+								img:hover + div {
+									transition: opacity .25s linear;
+									opacity: 1;
+								}
+						    	> .captions-left {
+									width: 180px;
+								    right: 417px;
+								    padding-left: 20px;
+									@media only screen and (max-width: 1289px) {
+										right: 387px;
+										width: -moz-calc(100vw/2 - 405px);
+										width: -webkit-calc(100vw/2 - 405px);
+										width: -o-calc(100vw/2 - 405px);
+										width: calc(100vw/2 - 405px);
+									}
+								}
+						    	> .captions-right {
+									width: 180px;
+								    left: 413px;
+								    padding-right: 20px;
+									@media only screen and (max-width: 1289px) {
+										left: 383px;
+										width: -moz-calc(100vw/2 - 405px);
+										width: -webkit-calc(100vw/2 - 405px);
+										width: -o-calc(100vw/2 - 405px);
+										width: calc(100vw/2 - 405px);
+									}
+								}
+						    	> .captions-right, .captions-left {
+						    		opacity: 0;
+									position: absolute;
+								    bottom: -4px;
+									@media only screen and (max-width: 1289px) {
+										min-width: 107px;
+									}
+									> div:not(:first-child) {
+										margin-top: 20px;
+									}
+									> div {
+									    overflow: hidden;
+										h5 {
+											margin-bottom: 4px;
+										}
+										h6 {
+											margin-bottom: 6px;
+										}
+										p {
+											font-family: Poly;
+											font-style: italic;
+											font-weight: 13px;
+											line-height: 16px;
+										}
+						    		}
+						    	}
 						    }
 						}
 					}
@@ -356,16 +410,72 @@
 							> div {
 								height: inherit;
 								width: inherit;
-								padding: 0;
+								display: table;
+						    	padding: 0!important;
 								> div {
 									height: 50%;
 									width: inherit;
 									text-align: center;
-									display: table;
+									display: table-row;
 									vertical-align: middle;
 									> div {
 										display: table-cell;
 										vertical-align: middle;
+										img:hover + div {
+											transition: opacity .25s linear;
+											opacity: 1;
+										}
+								    	.captions-left {
+										    right: 417px;
+										    padding-left: 20px;
+											width: 180px;
+											@media only screen and (max-width: 1289px) {
+												right: 387px;
+												width: -moz-calc(100vw/2 - 405px);
+												width: -webkit-calc(100vw/2 - 405px);
+												width: -o-calc(100vw/2 - 405px);
+												width: calc(100vw/2 - 405px);
+											}
+										}
+								    	.captions-right {
+										    left: 413px;
+										    padding-right: 20px;
+											width: 180px;
+											@media only screen and (max-width: 1289px) {
+												left: 383px;
+												width: -moz-calc(100vw/2 - 405px);
+												width: -webkit-calc(100vw/2 - 405px);
+												width: -o-calc(100vw/2 - 405px);
+												width: calc(100vw/2 - 405px);
+											}
+										}
+								    	.captions-right, .captions-left {
+								    		opacity: 0;
+											position: absolute;
+										    bottom: -4px;
+										 	text-align: left;
+											@media only screen and (max-width: 1289px) {
+												min-width: 107px;
+											}
+											> div:not(:first-child) {
+												margin-top: 20px;
+											}
+											> div {
+											    overflow: hidden;
+												h5 {
+													margin-bottom: 4px;
+												}
+												h6 {
+													margin-bottom: 6px;
+												}
+												p {
+													font-family: Poly;
+													font-style: italic;
+													font-weight: 13px;
+													line-height: 17px;
+												}
+								    		}
+								    	}
 									}
 								}
 								.small {
@@ -390,14 +500,70 @@
 						}
 					}
 					&.fullimage {
-						div{
-							img {
-								max-width: 726px;
-								max-height: 511px;
-							}
+						> .content-left {
+							> div {
+						    	padding: 0!important;
+								> img {
+									max-width: 726px;
+									max-height: 511px;
+								}
+								img:hover + div {
+									transition: opacity .25s linear;
+									opacity: 1;
+								}
+						    	> .captions-left {
+									width: 180px;
+								    right: 780px;
+								    padding-left: 20px;
+									@media only screen and (max-width: 1289px) {
+										right: 750px;
+										width: -moz-calc(100vw/2 - 405px);
+										width: -webkit-calc(100vw/2 - 405px);
+										width: -o-calc(100vw/2 - 405px);
+										width: calc(100vw/2 - 405px);
+									}
+								}
+						    	> .captions-right {
+									width: 180px;
+								    left: 776px;
+								    padding-right: 20px;
+									@media only screen and (max-width: 1289px) {
+										left: 746px;
+										width: -moz-calc(100vw/2 - 405px);
+										width: -webkit-calc(100vw/2 - 405px);
+										width: -o-calc(100vw/2 - 405px);
+										width: calc(100vw/2 - 405px);
+									}
+								}
+						    	> .captions-right, .captions-left {
+						    		opacity: 0;
+									position: absolute;
+								    bottom: -4px;
+									@media only screen and (max-width: 1289px) {
+										min-width: 107px;
+									}
+									> div:not(:first-child) {
+										margin-top: 20px;
+									}
+									> div {
+									    overflow: hidden;
+										h5 {
+											margin-bottom: 4px;
+										}
+										h6 {
+											margin-bottom: 6px;
+										}
+										p {
+											font-family: Poly;
+											font-style: italic;
+											font-weight: 13px;
+											line-height: 17px;
+										}
+						    		}
+						    	}
+						    }
 						}
 					}
-
 					> div {
 						display: table;
 						> div {
