@@ -20,7 +20,7 @@ class Book extends Component {
 	componentDidUpdate() {
 		var checkImgsLoadedInterval = setInterval(checkImgsLoaded, 100);
 		function checkImgsLoaded() {
-			for(var img of document.images) {
+			for(var img of Array.from(document.images)) {
 				if (img.complete == false) {
 					var loaded = false;
 				} else {

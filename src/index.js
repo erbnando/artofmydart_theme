@@ -11,14 +11,9 @@ import NotFound from './containers/notfound';
 import Page from './containers/page';
 import Book from './containers/book';
 import store from './store';
-import MobileDetect from '../node_modules/mobile-detect';
+import MobileDetect from 'mobile-detect';
 
 class App extends Component {
-	componentWillMount() {
-		var md = new MobileDetect(window.navigator.userAgent);
-		//console.log( md.mobile() );
-	}
-
 	componentWillMount() {
 		window.url = window.location.href;
 	}
@@ -42,20 +37,45 @@ class App extends Component {
 	}
 
 	render() {
-		if (window.location.href.indexOf("/books/") > -1) {
-			return (
-				<div className="container grayheader desktop">
-					<Header />
-					<Main />
-				</div>
-			);
+		screen.addEventListener("orientationchange", function () {
+			console.log("The orientation of the screen is: " + screen.orientation);
+		});
+
+
+		var md = new MobileDetect(window.navigator.userAgent);
+
+		if (md.phone() !== null || md.tablet() !== null || md.mobile() !== null) {
+			if (window.location.href.indexOf("/books/") > -1) {
+				return (
+					<div className="container grayheader desktop mobile">
+						<Header />
+						<Main />
+					</div>
+				);
+			} else {
+				return (
+					<div className="container mobile">
+						<Header />
+						<Main />
+					</div>
+				);
+			}
 		} else {
-			return (
-				<div className="container">
-					<Header />
-					<Main />
-				</div>			
-			);
+			if (window.location.href.indexOf("/books/") > -1) {
+				return (
+					<div className="container grayheader desktop">
+						<Header />
+						<Main />
+					</div>
+				);
+			} else {
+				return (
+					<div className="container">
+						<Header />
+						<Main />
+					</div>
+				);
+			}
 		}
 	}
 }

@@ -126,27 +126,6 @@
             "button_label": "Add Page",
             "sub_fields": [
                 {
-                    "key": "field_5998a5ad0a40c",
-                    "label": "Caption Header (Left)",
-                    "name": "caption_header_left",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
-                },
-                {
                     "key": "field_5961b746e788e",
                     "label": "Page Type",
                     "name": "page_type",
@@ -174,27 +153,6 @@
                     "placeholder": "",
                     "disabled": 0,
                     "readonly": 0
-                },
-                {
-                    "key": "field_5998a5c70a40d",
-                    "label": "Caption Subheader (Left)",
-                    "name": "caption_subheader_left",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
                 },
                 {
                     "key": "field_59684f1b29f34",
@@ -230,27 +188,6 @@
                     "placeholder": "",
                     "disabled": 0,
                     "readonly": 0
-                },
-                {
-                    "key": "field_5998a5d90a40e",
-                    "label": "Caption Text Content (Left)",
-                    "name": "caption_text_content_left",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 4,
-                    "new_lines": "wpautop",
-                    "readonly": 0,
-                    "disabled": 0
                 },
                 {
                     "key": "field_599525e922409",
@@ -2489,5 +2426,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1503208549
+    "modified": 1503783278
 }

@@ -114,12 +114,6 @@
 		_createClass(App, [{
 			key: 'componentWillMount',
 			value: function componentWillMount() {
-				var md = new _mobileDetect2.default(window.navigator.userAgent);
-				//console.log( md.mobile() );
-			}
-		}, {
-			key: 'componentWillMount',
-			value: function componentWillMount() {
 				window.url = window.location.href;
 			}
 		}, {
@@ -144,20 +138,44 @@
 		}, {
 			key: 'render',
 			value: function render() {
-				if (window.location.href.indexOf("/books/") > -1) {
-					return _react2.default.createElement(
-						'div',
-						{ className: 'container grayheader desktop' },
-						_react2.default.createElement(_header2.default, null),
-						_react2.default.createElement(Main, null)
-					);
+				screen.addEventListener("orientationchange", function () {
+					console.log("The orientation of the screen is: " + screen.orientation);
+				});
+
+				var md = new _mobileDetect2.default(window.navigator.userAgent);
+
+				if (md.phone() !== null || md.tablet() !== null || md.mobile() !== null) {
+					if (window.location.href.indexOf("/books/") > -1) {
+						return _react2.default.createElement(
+							'div',
+							{ className: 'container grayheader desktop mobile' },
+							_react2.default.createElement(_header2.default, null),
+							_react2.default.createElement(Main, null)
+						);
+					} else {
+						return _react2.default.createElement(
+							'div',
+							{ className: 'container mobile' },
+							_react2.default.createElement(_header2.default, null),
+							_react2.default.createElement(Main, null)
+						);
+					}
 				} else {
-					return _react2.default.createElement(
-						'div',
-						{ className: 'container' },
-						_react2.default.createElement(_header2.default, null),
-						_react2.default.createElement(Main, null)
-					);
+					if (window.location.href.indexOf("/books/") > -1) {
+						return _react2.default.createElement(
+							'div',
+							{ className: 'container grayheader desktop' },
+							_react2.default.createElement(_header2.default, null),
+							_react2.default.createElement(Main, null)
+						);
+					} else {
+						return _react2.default.createElement(
+							'div',
+							{ className: 'container' },
+							_react2.default.createElement(_header2.default, null),
+							_react2.default.createElement(Main, null)
+						);
+					}
 				}
 			}
 		}]);
@@ -31305,7 +31323,7 @@
 					var _iteratorError = undefined;
 
 					try {
-						for (var _iterator = document.images[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+						for (var _iterator = Array.from(document.images)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 							var img = _step.value;
 
 							if (img.complete == false) {
