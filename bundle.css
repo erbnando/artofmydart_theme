@@ -764,56 +764,62 @@ img {
               .book.images > .book-container #book .book-grid-two.double > div > div .full img {
                 max-width: 361px;
                 max-height: 255.5px; }
-        .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div {
-          padding: 0 !important; }
-          .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > img {
-            max-width: 726px;
-            max-height: 511px; }
-          .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div img:hover + div {
-            transition: opacity .25s linear;
-            opacity: 1; }
-          .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-left {
-            width: 180px;
-            right: 780px;
-            padding-left: 20px; }
-            @media only screen and (max-width: 1289px) {
+        .book.images > .book-container #book .book-grid-two.fullimage {
+          width: 100%;
+          text-align: center; }
+          .book.images > .book-container #book .book-grid-two.fullimage > .content-left {
+            width: 100%; }
+            .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div {
+              padding: 0 !important; }
+              .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > img {
+                max-width: 726px;
+                max-height: 511px; }
+              .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div img:hover + div {
+                transition: opacity .25s linear;
+                opacity: 1; }
               .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-left {
-                right: 750px;
-                width: -moz-calc(100vw/2 - 405px);
-                width: -webkit-calc(100vw/2 - 405px);
-                width: -o-calc(100vw/2 - 405px);
-                width: calc(100vw/2 - 405px); } }
-          .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right {
-            width: 180px;
-            left: 776px;
-            padding-right: 20px; }
-            @media only screen and (max-width: 1289px) {
+                width: 180px;
+                right: 780px;
+                padding-left: 20px; }
+                @media only screen and (max-width: 1289px) {
+                  .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-left {
+                    right: 750px;
+                    width: -moz-calc(100vw/2 - 405px);
+                    width: -webkit-calc(100vw/2 - 405px);
+                    width: -o-calc(100vw/2 - 405px);
+                    width: calc(100vw/2 - 405px); } }
               .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right {
-                left: 746px;
-                width: -moz-calc(100vw/2 - 405px);
-                width: -webkit-calc(100vw/2 - 405px);
-                width: -o-calc(100vw/2 - 405px);
-                width: calc(100vw/2 - 405px); } }
-          .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left {
-            opacity: 0;
-            position: absolute;
-            bottom: -4px; }
-            @media only screen and (max-width: 1289px) {
+                width: 180px;
+                left: 776px;
+                padding-right: 20px; }
+                @media only screen and (max-width: 1289px) {
+                  .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right {
+                    left: 746px;
+                    width: -moz-calc(100vw/2 - 405px);
+                    width: -webkit-calc(100vw/2 - 405px);
+                    width: -o-calc(100vw/2 - 405px);
+                    width: calc(100vw/2 - 405px); } }
               .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left {
-                min-width: 107px; } }
-            .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right > div:not(:first-child), .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div:not(:first-child) {
-              margin-top: 20px; }
-            .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right > div, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div {
-              overflow: hidden; }
-              .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right > div h5, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div h5 {
-                margin-bottom: 4px; }
-              .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right > div h6, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div h6 {
-                margin-bottom: 6px; }
-              .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right > div p, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div p {
-                font-family: Poly;
-                font-style: italic;
-                font-weight: 13px;
-                line-height: 17px; }
+                text-align: left;
+                opacity: 0;
+                position: absolute;
+                bottom: -4px; }
+                @media only screen and (max-width: 1289px) {
+                  .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left {
+                    min-width: 107px; } }
+                .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right > div:not(:first-child), .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div:not(:first-child) {
+                  margin-top: 20px; }
+                .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right > div, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div {
+                  overflow: hidden; }
+                  .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right > div h5, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div h5 {
+                    margin-bottom: 4px; }
+                  .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right > div h6, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div h6 {
+                    margin-bottom: 6px; }
+                  .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right > div p, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div p {
+                    font-family: Poly;
+                    font-style: italic;
+                    font-weight: 13px;
+                    line-height: 17px; }
         .book.images > .book-container #book .book-grid-two > div {
           display: table; }
           .book.images > .book-container #book .book-grid-two > div > div {

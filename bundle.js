@@ -32101,22 +32101,24 @@
 		}, {
 			key: "getContent",
 			value: function getContent() {
-				if (this.props.content.right_content_text == 'text') {
-					return _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.content.text_content_right } });
-				} else if (this.props.content.right_content_text == 'quote') {
-					return _react2.default.createElement(
-						"div",
-						null,
-						_react2.default.createElement("div", { className: "quote-text", dangerouslySetInnerHTML: { __html: this.props.content.quote_text_right } }),
-						_react2.default.createElement("span", { className: "quote-author", dangerouslySetInnerHTML: { __html: this.props.content.quote_author_right } }),
-						",",
-						_react2.default.createElement(
-							"span",
+				if (this.props.content.page_type == 'text') {
+					if (this.props.content.right_content_text == 'text') {
+						return _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.content.text_content_right } });
+					} else if (this.props.content.right_content_text == 'quote') {
+						return _react2.default.createElement(
+							"div",
 							null,
-							"\xA0"
-						),
-						_react2.default.createElement("span", { className: "quote-source", dangerouslySetInnerHTML: { __html: this.props.content.quote_source_right } })
-					);
+							_react2.default.createElement("div", { className: "quote-text", dangerouslySetInnerHTML: { __html: this.props.content.quote_text_right } }),
+							_react2.default.createElement("span", { className: "quote-author", dangerouslySetInnerHTML: { __html: this.props.content.quote_author_right } }),
+							",",
+							_react2.default.createElement(
+								"span",
+								null,
+								"\xA0"
+							),
+							_react2.default.createElement("span", { className: "quote-source", dangerouslySetInnerHTML: { __html: this.props.content.quote_source_right } })
+						);
+					}
 				} else if (this.props.content.page_type == 'images') {
 					if (this.props.content.right_content_image == 'single') {
 						if (this.props.content.single_image_caption_right) {

@@ -500,7 +500,10 @@
 						}
 					}
 					&.fullimage {
+						width: 100%;
+						text-align: center;
 						> .content-left {
+							width: 100%;
 							> div {
 						    	padding: 0!important;
 								> img {
@@ -536,6 +539,7 @@
 									}
 								}
 						    	> .captions-right, .captions-left {
+						    		text-align: left;
 						    		opacity: 0;
 									position: absolute;
 								    bottom: -4px;

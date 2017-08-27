@@ -651,6 +651,16 @@
                                 "field": "field_59801794248b1",
                                 "operator": "==",
                                 "value": "1"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "images"
+                            },
+                            {
+                                "field": "field_599525e922409",
+                                "operator": "==",
+                                "value": "single"
                             }
                         ]
                     ],
@@ -680,6 +690,16 @@
                                 "field": "field_59801794248b1",
                                 "operator": "==",
                                 "value": "1"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "images"
+                            },
+                            {
+                                "field": "field_599525e922409",
+                                "operator": "==",
+                                "value": "single"
                             }
                         ]
                     ],
@@ -1681,6 +1701,16 @@
                                 "field": "field_5999078d7bcff",
                                 "operator": "==",
                                 "value": "1"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "images"
+                            },
+                            {
+                                "field": "field_599527e42240b",
+                                "operator": "==",
+                                "value": "single"
                             }
                         ]
                     ],
@@ -1710,6 +1740,16 @@
                                 "field": "field_5999078d7bcff",
                                 "operator": "==",
                                 "value": "1"
+                            },
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "images"
+                            },
+                            {
+                                "field": "field_599527e42240b",
+                                "operator": "==",
+                                "value": "single"
                             }
                         ]
                     ],
@@ -2426,5 +2466,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1503784410
+    "modified": 1503817455
 }

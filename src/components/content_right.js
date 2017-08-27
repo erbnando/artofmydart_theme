@@ -103,19 +103,21 @@ class ContentRight extends Component {
 	}
 
 	getContent() {
-		if (this.props.content.right_content_text == 'text') {
-			return (
-				<div dangerouslySetInnerHTML={{__html: this.props.content.text_content_right}} />
-			);
-		} else if (this.props.content.right_content_text == 'quote') {
-			return (
-				<div>
-					<div className="quote-text" dangerouslySetInnerHTML={{__html: this.props.content.quote_text_right}} />					
-					<span className="quote-author" dangerouslySetInnerHTML={{__html: this.props.content.quote_author_right}} />,
-					<span>&nbsp;</span>
-					<span className="quote-source" dangerouslySetInnerHTML={{__html: this.props.content.quote_source_right}} />
-				</div>
-			);
+		if (this.props.content.page_type == 'text') {
+			if (this.props.content.right_content_text == 'text') {
+				return (
+					<div dangerouslySetInnerHTML={{__html: this.props.content.text_content_right}} />
+				);
+			} else if (this.props.content.right_content_text == 'quote') {
+				return (
+					<div>
+						<div className="quote-text" dangerouslySetInnerHTML={{__html: this.props.content.quote_text_right}} />					
+						<span className="quote-author" dangerouslySetInnerHTML={{__html: this.props.content.quote_author_right}} />,
+						<span>&nbsp;</span>
+						<span className="quote-source" dangerouslySetInnerHTML={{__html: this.props.content.quote_source_right}} />
+					</div>
+				);
+			}
 		} else if (this.props.content.page_type == 'images') {
 			if (this.props.content.right_content_image == 'single') {
 				if (this.props.content.single_image_caption_right) {
