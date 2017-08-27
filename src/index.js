@@ -37,11 +37,6 @@ class App extends Component {
 	}
 
 	render() {
-		screen.addEventListener("orientationchange", function () {
-			console.log("The orientation of the screen is: " + screen.orientation);
-		});
-
-
 		var md = new MobileDetect(window.navigator.userAgent);
 
 		if (md.phone() !== null || md.tablet() !== null || md.mobile() !== null) {
