@@ -19,6 +19,7 @@ class App extends Component {
 	}
 
 	componentWillUpdate() {
+		window.scroll(0,0);	
 		if (window.location.href != window.url) {
 			if(document.getElementById('content-right')) {
 				document.getElementById('content-right').style.transition = "opacity 0s";
@@ -36,26 +37,75 @@ class App extends Component {
 		window.url = window.location.href;
 	}
 
+	deviceOrientation() {                		
+		if (window.screen.orientation != undefined) {
+			var orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
+			if (orientation.type === "landscape-primary") {
+				return true
+			} else if (orientation.type === "landscape-secondary") {
+				return true
+			} else if (orientation.type === "portrait-secondary" || orientation.type === "portrait-primary") {
+				return false
+			}
+		} else if (window.orientation != undefined) {
+			switch (window.orientation) {  
+			case 0:
+				return false
+			    break;
+			case 180:
+				return false
+			    break;
+			case -90:
+				return true
+			    break;
+			case 90:
+				return true
+			    break;
+			}
+		}
+	}
+
 	render() {
 		var md = new MobileDetect(window.navigator.userAgent);
-
-		if (md.phone() !== null || md.tablet() !== null || md.mobile() !== null) {
-			if (window.location.href.indexOf("/books/") > -1) {
-				return (
-					<div className="container grayheader desktop mobile">
-						<Header />
-						<Main />
-					</div>
-				);
-			} else {
-				return (
-					<div className="container mobile">
-						<Header />
-						<Main />
-					</div>
-				);
+		if (md.phone() != null || md.tablet() != null || md.mobile() != null) {
+			console.log('mobile');
+			if (this.deviceOrientation() == false) {
+				console.log('portrait');
+				if (window.location.href.indexOf("/books/") > -1) {
+					return (
+						<div className="container grayheader mobile portrait">
+							<Header />
+							<Main />
+						</div>
+					);
+				} else {
+					return (
+						<div className="container mobile portrait">
+							<Header />
+							<Main />
+						</div>
+					);
+				}
+			} else if (this.deviceOrientation() == true) {
+				console.log('landscape');
+				if (window.location.href.indexOf("/books/") > -1) {
+					return (
+						<div className="container grayheader mobile landscape">
+							<Header />
+							<Main />
+						</div>
+					);
+				} else {
+					return (
+						<div className="container mobile landscape">
+							<Header />
+							<Main />
+						</div>
+					);
+				}
 			}
 		} else {
+			console.log('desktop');
 			if (window.location.href.indexOf("/books/") > -1) {
 				return (
 					<div className="container grayheader desktop">
@@ -65,7 +115,7 @@ class App extends Component {
 				);
 			} else {
 				return (
-					<div className="container">
+					<div className="container desktop">
 						<Header />
 						<Main />
 					</div>
