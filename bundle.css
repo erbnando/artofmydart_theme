@@ -1,5 +1,7 @@
 body {
   margin: 0; }
+  body *, body *:focus, body *:active {
+    outline: none; }
   body #app .container {
     max-width: 1440px;
     display: block;
@@ -114,30 +116,22 @@ img {
 
 .container.mobile {
   min-width: 320px !important; }
-  @media only screen and (min-width: 810px) {
-    .container.mobile header {
-      height: 127px; } }
-  @media only screen and (max-width: 809px) {
-    .container.mobile header {
-      height: 72px; } }
-  @media only screen and (max-width: 809px) {
+  .container.mobile header {
+    height: 72px; }
     .container.mobile header .logo {
-      margin: 16px 0 0 17px; } }
-  @media only screen and (max-width: 809px) {
-    .container.mobile header .logo img {
-      width: 60px; } }
-  @media only screen and (max-width: 809px) {
+      margin: 18px 0 0 18px; }
+      .container.mobile header .logo img {
+        width: 60px; }
     .container.mobile header nav {
-      margin: 16px 14px 0 0; } }
-  @media only screen and (max-width: 479px) {
-    .container.mobile header nav ul li {
-      margin-left: 10px; } }
-  @media only screen and (max-width: 479px) {
-    .container.mobile header nav ul li a {
-      font-size: 10px; } }
-  @media only screen and (max-width: 479px) {
-    .container.mobile header nav ul .social-first {
-      margin-left: 16px; } }
+      margin: 16px 14px 0 0; }
+      .container.mobile header nav ul li {
+        margin-left: 10px; }
+        .container.mobile header nav ul li a {
+          font-size: 11px; }
+      .container.mobile header nav ul .social-first {
+        margin-left: 18px; }
+      .container.mobile header nav ul .social {
+        margin-left: 14px; }
 
 .mobile.portrait .home {
   height: auto !important;
@@ -667,7 +661,8 @@ img {
           .book.images > .book-container #book .book-grid-two.bottom-right > div {
             float: right; }
         .book.images > .book-container #book .book-grid-two.single > div {
-          margin: 0 auto; }
+          margin: 0 auto;
+          opacity: 1 !important; }
           .book.images > .book-container #book .book-grid-two.single > div.small div img {
             max-width: 230px;
             max-height: 230px; }
@@ -683,8 +678,7 @@ img {
           .book.images > .book-container #book .book-grid-two.single > div > div {
             padding: 0 !important; }
             .book.images > .book-container #book .book-grid-two.single > div > div img:hover + div {
-              transition: opacity .25s linear;
-              opacity: 1; }
+              transition: opacity .5s linear; }
             .book.images > .book-container #book .book-grid-two.single > div > div > .captions-left {
               width: 180px;
               right: 417px;
@@ -718,6 +712,8 @@ img {
                 margin-top: 20px; }
               .book.images > .book-container #book .book-grid-two.single > div > div > .captions-right > div, .book.images > .book-container #book .book-grid-two.single > div > div .captions-left > div {
                 overflow: hidden; }
+                .book.images > .book-container #book .book-grid-two.single > div > div > .captions-right > div *:last-child, .book.images > .book-container #book .book-grid-two.single > div > div .captions-left > div *:last-child {
+                  margin-bottom: 0; }
                 .book.images > .book-container #book .book-grid-two.single > div > div > .captions-right > div h5, .book.images > .book-container #book .book-grid-two.single > div > div .captions-left > div h5 {
                   margin-bottom: 4px; }
                 .book.images > .book-container #book .book-grid-two.single > div > div > .captions-right > div h6, .book.images > .book-container #book .book-grid-two.single > div > div .captions-left > div h6 {
@@ -739,6 +735,7 @@ img {
               display: table;
               padding: 0 !important; }
               .book.images > .book-container #book .book-grid-two.double > div > div > div {
+                opacity: 1 !important;
                 height: 50%;
                 width: inherit;
                 text-align: center;
@@ -748,8 +745,7 @@ img {
                   display: table-cell;
                   vertical-align: middle; }
                   .book.images > .book-container #book .book-grid-two.double > div > div > div > div img:hover + div {
-                    transition: opacity .25s linear;
-                    opacity: 1; }
+                    transition: opacity .5s linear; }
                   .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-left {
                     right: 417px;
                     padding-left: 20px;
@@ -784,6 +780,8 @@ img {
                       margin-top: 20px; }
                     .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-right > div, .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-left > div {
                       overflow: hidden; }
+                      .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-right > div *:last-child, .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-left > div *:last-child {
+                        margin-bottom: 0; }
                       .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-right > div h5, .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-left > div h5 {
                         margin-bottom: 4px; }
                       .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-right > div h6, .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-left > div h6 {
@@ -813,8 +811,7 @@ img {
                 max-width: 726px;
                 max-height: 511px; }
               .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div img:hover + div {
-                transition: opacity .25s linear;
-                opacity: 1; }
+                transition: opacity .5s linear; }
               .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-left {
                 width: 180px;
                 right: 780px;
@@ -849,6 +846,8 @@ img {
                   margin-top: 20px; }
                 .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right > div, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div {
                   overflow: hidden; }
+                  .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right > div *:last-child, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div *:last-child {
+                    margin-bottom: 0; }
                   .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right > div h5, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div h5 {
                     margin-bottom: 4px; }
                   .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right > div h6, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div h6 {

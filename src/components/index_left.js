@@ -104,7 +104,7 @@ class BlogLeft extends Component {
 
 	render() {
 		//console.log('render');
-		//console.log(this.props.odd_posts.headers['x-wp-total']);
+		//console.log(this.props);
 		//console.log(((this.props.page * 8)-4) <= this.props.odd_posts.headers['x-wp-total']);
 		if (this.props.odd_posts.items) {
 			return (

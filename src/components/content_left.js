@@ -82,29 +82,67 @@ class ContentLeft extends Component {
 
 	getSingleLeftCaptions() {
 		if (this.props.content.single_image_caption_left) {
-			var caption = '<div>' + '<h5>Left</H5>' + '<h6>' + this.props.content.single_image_caption_subheader_left + '</h6>' + this.props.content.single_image_caption_text_left + '</div>';
+			if (this.props.content.single_image_caption_subheader_left) {
+				var title = '<h6>' + this.props.content.single_image_caption_subheader_left + '</h6>';
+			} else {
+				var title = '';
+			}
+ 			var caption = '<div>' + '<h5>Left</H5>' + title + this.props.content.single_image_caption_text_left + '</div>';
 	 		return caption
 		} 
 	}
 
 	getDoubleTopLeftCaptions() {
 		if (this.props.content.double_image_caption_top_left) {
-			var caption = '<div>' + '<h5>Upper Left</H5>' + '<h6>' + this.props.content.double_image_caption_subheader_top_left + '</h6>' + this.props.content.double_image_caption_text_top_left + '</div>';
+			if (this.props.content.double_image_caption_subheader_top_left) {
+				var title = '<h6>' + this.props.content.double_image_caption_subheader_top_left + '</h6>';
+			} else {
+				var title = '';
+			}
+			var caption = '<div>' + '<h5>Upper Left</H5>' + title + this.props.content.double_image_caption_text_top_left + '</div>';
 	 		return caption
 		}
 	}
 
 	getDoubleBottomLeftCaptions() {
 		if (this.props.content.double_image_caption_bottom_left) {
-			var caption = '<div>' + '<h5>Lower Left</H5>' + '<h6>' + this.props.content.double_image_caption_subheader_bottom_left + '</h6>' + this.props.content.double_image_caption_text_bottom_left + '</div>';
+			if (this.props.content.double_image_caption_subheader_bottom_left) {
+				var title = '<h6>' + this.props.content.double_image_caption_subheader_bottom_left + '</h6>';
+			} else {
+				var title = '';
+			}
+			var caption = '<div>' + '<h5>Lower Left</H5>' + title + this.props.content.double_image_caption_text_bottom_left + '</div>';
 	 		return caption
 		}
 	}
 
 	getFullSizedCaptions() {
 		if (this.props.content.full_sized_image_caption) {
-			var caption = '<div>' + '<h6>' + this.props.content.full_sized_image_caption_subheader + '</h6>' + this.props.content.full_sized_image_caption_text + '</div>';
+			if (this.props.content.full_sized_image_caption_subheader) {
+				var title = '<h6>' + this.props.content.full_sized_image_caption_subheader + '</h6>';
+			} else {
+				var title = '';
+			}
+			var caption = '<div>' + title + this.props.content.full_sized_image_caption_text + '</div>';
 	 		return caption
+		}
+	}
+
+	showCaption(caption) {
+		var captionsLeft = document.getElementsByClassName("captions-left");
+		for(var i = 0; i < captionsLeft.length; i++) {
+		    if(captionsLeft[i].style.opacity == "1") {
+			    captionsLeft[i].style.opacity = "0";
+		    }
+		}
+		var captionsRight = document.getElementsByClassName("captions-right");
+		for(var i = 0; i < captionsRight.length; i++) {
+		    if(captionsRight[i].style.opacity == "1") {
+			    captionsRight[i].style.opacity = "0";
+		    }
+		}
+		if (document.getElementById(caption)) {
+			document.getElementById(caption).style.opacity = "1";
 		}
 	}
 
@@ -129,14 +167,20 @@ class ContentLeft extends Component {
 				if (this.props.content.single_image_caption_left) {
 					return (
 						<div>
-							<img src={this.getLeftImageSrc()} />
-							<div className="captions-left" dangerouslySetInnerHTML={{__html: this.getSingleLeftCaptions()}}></div>
+							<img 
+							src={this.getLeftImageSrc()}
+							onMouseEnter={() => this.showCaption('captions-left-single')}
+							/>
+							<div id='captions-left-single' className="captions-left" dangerouslySetInnerHTML={{__html: this.getSingleLeftCaptions()}}></div>
 						</div>
 					);
 				} else {
 					return (
 						<div>
-							<img src={this.getLeftImageSrc()} />
+							<img 
+							src={this.getLeftImageSrc()}
+							onMouseEnter={() => this.showCaption('captions-left-single')}
+							/>
 						</div>
 					);
 				}
@@ -146,14 +190,20 @@ class ContentLeft extends Component {
 						<div>
 							<div className={this.props.content.double_image_size_top_left}>
 								<div>
-									<img src={this.getTopLeftImageSrc()} />
-									<div className="captions-left" dangerouslySetInnerHTML={{__html: this.getDoubleTopLeftCaptions()}}></div>
+									<img 
+									src={this.getTopLeftImageSrc()}
+									onMouseEnter={() => this.showCaption('captions-left-double-top')}
+									/>
+									<div id='captions-left-double-top' className="captions-left" dangerouslySetInnerHTML={{__html: this.getDoubleTopLeftCaptions()}}></div>
 								</div>
 							</div>
 							<div className={this.props.content.double_image_size_bottom_left}>
 								<div>
-									<img src={this.getBottomLeftImageSrc()} />
-									<div className="captions-left" dangerouslySetInnerHTML={{__html: this.getDoubleBottomLeftCaptions()}}></div>
+									<img
+									src={this.getBottomLeftImageSrc()}
+									onMouseEnter={() => this.showCaption('captions-left-double-bottom')}
+									/>
+									<div id='captions-left-double-bottom' className="captions-left" dangerouslySetInnerHTML={{__html: this.getDoubleBottomLeftCaptions()}}></div>
 								</div>
 							</div>
 						</div>
@@ -163,12 +213,18 @@ class ContentLeft extends Component {
 						<div>
 							<div className={this.props.content.double_image_size_top_left}>
 								<div>
-									<img src={this.getTopLeftImageSrc()} />
+									<img 
+									src={this.getTopLeftImageSrc()}
+									onMouseEnter={() => this.showCaption('captions-left-double-top')}
+									/>
 								</div>
 							</div>
 							<div className={this.props.content.double_image_size_bottom_left}>
 								<div>
-									<img src={this.getBottomLeftImageSrc()} />
+									<img
+									src={this.getBottomLeftImageSrc()}
+									onMouseEnter={() => this.showCaption('captions-left-double-bottom')}
+									/>
 								</div>
 							</div>
 						</div>
@@ -179,14 +235,20 @@ class ContentLeft extends Component {
 			if (this.props.content.full_sized_image_caption) {
 				return (
 					<div>
-						<img src={this.props.content.full_sized_image.sizes.fullsize} />
-						<div className={'captions-' + this.props.content.full_sized_image_caption_position} dangerouslySetInnerHTML={{__html: this.getFullSizedCaptions()}}></div>
+						<img
+						src={this.props.content.full_sized_image.sizes.fullsize}
+						onMouseEnter={() => this.showCaption('captions-full-image')}
+						/>
+						<div id='captions-full-image' className={'captions-' + this.props.content.full_sized_image_caption_position} dangerouslySetInnerHTML={{__html: this.getFullSizedCaptions()}}></div>
 					</div>
 				);
 			} else {
 				return (
 					<div>
-						<img src={this.props.content.full_sized_image.sizes.fullsize} />
+						<img
+						src={this.props.content.full_sized_image.sizes.fullsize}
+						onMouseEnter={() => this.showCaption('captions-full-image')}
+						/>
 					</div>
 				);
 			}

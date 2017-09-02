@@ -309,6 +309,7 @@
 					&.single {
 						> div {
 						    margin: 0 auto;
+						    opacity: 1!important;
 							// position: relative;
 						    &.small {
 						    	div {
@@ -345,8 +346,8 @@
 							> div {
 						    	padding: 0!important;
 								img:hover + div {
-									transition: opacity .25s linear;
-									opacity: 1;
+									transition: opacity .5s linear;
+									//opacity: 1;
 								}
 						    	> .captions-left {
 									width: 180px;
@@ -384,6 +385,9 @@
 									}
 									> div {
 									    overflow: hidden;
+									    *:last-child {
+									    	margin-bottom: 0;
+									    }
 										h5 {
 											margin-bottom: 4px;
 										}
@@ -413,6 +417,7 @@
 								display: table;
 						    	padding: 0!important;
 								> div {
+								    opacity: 1!important;
 									height: 50%;
 									width: inherit;
 									text-align: center;
@@ -422,8 +427,8 @@
 										display: table-cell;
 										vertical-align: middle;
 										img:hover + div {
-											transition: opacity .25s linear;
-											opacity: 1;
+											transition: opacity .5s linear;
+											//opacity: 1;
 										}
 								    	.captions-left {
 										    right: 417px;
@@ -462,6 +467,9 @@
 											}
 											> div {
 											    overflow: hidden;
+											    *:last-child {
+											    	margin-bottom: 0;
+											    }
 												h5 {
 													margin-bottom: 4px;
 												}
@@ -511,8 +519,8 @@
 									max-height: 511px;
 								}
 								img:hover + div {
-									transition: opacity .25s linear;
-									opacity: 1;
+									transition: opacity .5s linear;
+									//opacity: 1;
 								}
 						    	> .captions-left {
 									width: 180px;
@@ -551,6 +559,9 @@
 									}
 									> div {
 									    overflow: hidden;
+									    *:last-child {
+									    	margin-bottom: 0;
+									    }
 										h5 {
 											margin-bottom: 4px;
 										}
@@ -647,5 +658,10 @@
 				}
 			}
 		}
+	}
+}
+
+#book.hidden-captions {
+	.captions-left, .captions-right {
 	}
 }

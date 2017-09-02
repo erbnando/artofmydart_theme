@@ -20,6 +20,20 @@ class App extends Component {
 
 	componentWillUpdate() {
 		window.scroll(0,0);	
+
+		var captionsLeft = document.getElementsByClassName("captions-left");
+		for(var i = 0; i < captionsLeft.length; i++) {
+		    if(captionsLeft[i].style.opacity == "1") {
+			    captionsLeft[i].style.opacity = "0";
+		    }
+		}
+		var captionsRight = document.getElementsByClassName("captions-right");
+		for(var i = 0; i < captionsRight.length; i++) {
+		    if(captionsRight[i].style.opacity == "1") {
+			    captionsRight[i].style.opacity = "0";
+		    }
+		}
+
 		if (window.location.href != window.url) {
 			if(document.getElementById('content-right')) {
 				document.getElementById('content-right').style.transition = "opacity 0s";

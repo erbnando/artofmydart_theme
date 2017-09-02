@@ -12,6 +12,9 @@ class BlogRight extends Component {
 
 	componentWillReceiveProps(nextProps) {
 		this.getPosts(nextProps);
+		if (nextProps.even_posts.headers['x-wp-totalpages'] <= nextProps.page*2) {
+			document.getElementById('blog-right').className = "grid-two blog-right blog-right-hidden";
+		}
 		//console.log('will receive props');
 	}
 
@@ -25,7 +28,6 @@ class BlogRight extends Component {
 		if (props.page !== this.props.page || willMount /*|| this.props.props.location.pathname !== props.props.location.pathname*/) {
 			this.props.fetchEvenPosts(props.page || 1, 'books');
 		}
-
 	}
 
     renderEvenPosts(posts) {
@@ -41,6 +43,7 @@ class BlogRight extends Component {
     }
 
 	componentDidUpdate() {
+		/*
 		if (document.getElementById('blog-right')) {
 			if (this.props.even_posts.items.length == 0) {
 				document.getElementById('blog-right').className = "grid-two blog-right blog-right-hidden";
@@ -48,6 +51,7 @@ class BlogRight extends Component {
 				document.getElementById('blog-right').className = "grid-two blog-right";
 			}
 		}
+		*/
 
 		window.rightloaded = true;
 		if (window.leftloaded === true) {
@@ -84,8 +88,7 @@ class BlogRight extends Component {
 	}
 
 	render() {
-		//console.log(this.props.even_posts.items);
-		//if (this.props.page < 2 || this.props.page == null) {
+		//console.log(this.props.even_posts);
 		//console.log(this.props);
 		if (this.props.even_posts.items) {
 			return (

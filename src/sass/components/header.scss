@@ -54,41 +54,27 @@
 .container.mobile {
     min-width: 320px!important;
     header {
-        @media only screen and (min-width: 810px) {
-            height: 127px;
-        }
-        @media only screen and (max-width: 809px) {
-            height: 72px;
-        }
+        height: 72px;
         .logo {
-            @media only screen and (max-width: 809px) {
-                margin: 16px 0 0 17px;
-            }
+            margin: 18px 0 0 18px;
             img {
-                @media only screen and (max-width: 809px) {
-                    width: 60px;
-                }
+                width: 60px;
             }
         }
         nav {
-            @media only screen and (max-width: 809px) {
-                margin: 16px 14px 0 0;
-            }
+            margin: 16px 14px 0 0;
             ul {
                 li {
-                    @media only screen and (max-width: 479px) {
-                        margin-left: 10px;
-                    }
+                    margin-left: 10px;
                     a {
-                        @media only screen and (max-width: 479px) {
-                            font-size: 10px;
-                        }
+                        font-size: 11px;
                     }
                 }
                 .social-first {
-                    @media only screen and (max-width: 479px) {
-                        margin-left: 16px;
-                    }
+                    margin-left: 18px;
+                }
+                .social {
+                    margin-left: 14px;
                 }
             }
         }
