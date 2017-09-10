@@ -31336,7 +31336,8 @@
 			key: 'componentWillReceiveProps',
 			value: function componentWillReceiveProps(nextProps) {
 				this.getPosts(nextProps);
-				if (nextProps.even_posts.headers['x-wp-totalpages'] <= nextProps.page * 2) {
+				//console.log(nextProps.even_posts.headers['x-wp-totalpages'] + ' ' + nextProps.page*2)
+				if (nextProps.even_posts.headers['x-wp-totalpages'] < nextProps.page * 2) {
 					document.getElementById('blog-right').classList.add("blog-right-hidden");
 				} else {
 					document.getElementById('blog-right').classList.remove("blog-right-hidden");
@@ -31404,7 +31405,11 @@
 		}, {
 			key: 'shouldRender',
 			value: function shouldRender() {
-				return this.props.page * 8 < this.props.even_posts.headers['x-wp-total'];
+				//console.log(this.props.page + ' ' + this.props.even_posts.headers['x-wp-total']);
+				//console.log((this.props.page * 8) > this.props.even_posts.headers['x-wp-total']);
+				if (this.props.even_posts.headers['x-wp-total']) {
+					return this.props.page * 8 > this.props.even_posts.headers['x-wp-total'];
+				}
 			}
 		}, {
 			key: 'getNav',
