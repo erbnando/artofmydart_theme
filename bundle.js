@@ -31408,7 +31408,7 @@
 				//console.log(this.props.page + ' ' + this.props.even_posts.headers['x-wp-total']);
 				//console.log((this.props.page * 8) > this.props.even_posts.headers['x-wp-total']);
 				if (this.props.even_posts.headers['x-wp-total']) {
-					return this.props.page * 8 > this.props.even_posts.headers['x-wp-total'];
+					return this.props.page * 8 < this.props.even_posts.headers['x-wp-total'];
 				}
 			}
 		}, {
