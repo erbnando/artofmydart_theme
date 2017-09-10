@@ -31790,8 +31790,12 @@
 									_react2.default.createElement(
 										'div',
 										{ className: 'img-wrapper' },
-										_react2.default.createElement('img', {
-											src: this.props.book.book.acf.book_cover.sizes.book_cover })
+										_react2.default.createElement(
+											_reactRouterDom.Link,
+											{ to: '/books/' + this.props.match.params.slug + '/2' },
+											_react2.default.createElement('img', {
+												src: this.props.book.book.acf.book_cover.sizes.book_cover })
+										)
 									),
 									_react2.default.createElement(
 										'div',

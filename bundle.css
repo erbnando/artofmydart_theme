@@ -1271,7 +1271,7 @@ img {
           .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two .content-left > div, .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two .content-right > div {
             padding: 40px; }
           .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two.quote > div > div {
-            line-height: 2.5vw;
+            line-height: 2.2vw;
             padding-right: 110px; }
             .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two.quote > div > div .quote-text, .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two.quote > div > div .quote-text p {
               font-family: Poly;

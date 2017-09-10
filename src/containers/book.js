@@ -69,8 +69,10 @@ class Book extends Component {
 						<div>
 							<div id="book">
 								<div className="img-wrapper">
-									<img 
-									src={this.props.book.book.acf.book_cover.sizes.book_cover}/>
+									<Link to={`/books/${this.props.match.params.slug}/2`} >
+										<img 
+										src={this.props.book.book.acf.book_cover.sizes.book_cover}/>
+									</Link>
 								</div>
 								<div className="title-wrapper">
 									<h2>{this.props.book.book.title.rendered}</h2>
