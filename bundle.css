@@ -1195,13 +1195,14 @@ img {
               height: 78% !important;
               padding: 0 !important; }
               .mobile.landscape > div > .book.cover > div:not(.book-nav) #book .img-wrapper img {
-                height: 100%; }
+                height: 100%;
+                max-width: 100%; }
             .mobile.landscape > div > .book.cover > div:not(.book-nav) #book .title-wrapper {
               height: 22% !important; }
               .mobile.landscape > div > .book.cover > div:not(.book-nav) #book .title-wrapper h2 {
-                font-size: 16px;
+                font-size: 2.5vw;
+                line-height: 2.8vw;
                 top: 45%;
-                line-height: 18px;
                 padding: 0 20px !important; }
         .mobile.landscape > div > .book.cover .book-nav {
           margin-top: 10px; }
@@ -1220,13 +1221,76 @@ img {
               height: 50%;
               display: table-cell;
               padding-left: 20px !important; }
+              .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-title {
+                font-size: 1.4vw;
+                line-height: 2vw;
+                margin-bottom: .5vw; }
               .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-name {
-                font-size: 14px;
-                margin-bottom: 20px; }
+                font-size: 2vw;
+                margin-bottom: 2.7vw;
+                line-height: 2.7vw; }
               .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .book-title {
                 margin: 0;
-                font-size: 21px; }
+                font-size: 2.8vw; }
         .mobile.landscape > div > .book.title .book-nav {
+          margin-top: 10px; }
+      .mobile.landscape > div > .book.text {
+        height: 100%;
+        display: block !important;
+        width: 100%; }
+        @media only screen and (max-width: 1124px) {
+          .mobile.landscape > div > .book.text {
+            margin-top: 30px; } }
+        .mobile.landscape > div > .book.text > div:first-child {
+          border-left: 4px solid #e9e8e8;
+          border-bottom: 4px solid #e9e8e8;
+          height: 100%;
+          box-sizing: border-box;
+          width: 65%; }
+        .mobile.landscape > div > .book.text > div:not(:last-child) #book {
+          height: 100% !important; }
+          .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two > div {
+            padding: 0 !important;
+            height: 50%;
+            display: table-cell;
+            padding-left: 2.5vw !important;
+            padding-right: 1.5vw !important; }
+            .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two > div > div {
+              padding: 0 !important;
+              display: table-cell;
+              vertical-align: middle; }
+              .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two > div > div h5 {
+                font-size: 1.6vw;
+                margin-bottom: .5vw; }
+              .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two > div > div p {
+                font-size: 1.8vw;
+                line-height: 2.3vw;
+                margin-bottom: 0; }
+              .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two > div > div :last-child {
+                margin-bottom: 0; }
+          .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two .content-left > div, .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two .content-right > div {
+            padding: 40px; }
+          .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two.quote > div > div {
+            line-height: 2.5vw;
+            padding-right: 110px; }
+            .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two.quote > div > div .quote-text, .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two.quote > div > div .quote-text p {
+              font-family: Poly;
+              font-style: italic;
+              font-size: 2.2vw;
+              line-height: 2.8vw;
+              margin-bottom: 2vw; }
+            .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two.quote > div > div .quote-author {
+              font-family: Lato;
+              font-weight: 900;
+              font-size: 2vw; }
+            .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two.quote > div > div .quote-source {
+              font-family: Lato;
+              font-style: italic;
+              font-weight: 900;
+              font-size: 2vw; }
+            .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two.quote > div > div span {
+              line-height: inherit; }
+        .mobile.landscape > div > .book.text .book-nav {
           margin-top: 10px; }
       .mobile.landscape > div > .book.images {
         height: 100%;
@@ -1670,7 +1734,7 @@ img {
               padding: 40px;
               text-align: center; }
               .mobile.landscape > div > .book.lastpage > div:not(.book-nav) #book > div p {
-                font-size: 16px;
+                font-size: 2vw;
                 font-family: Poly;
                 font-style: italic; }
             .mobile.landscape > div > .book.lastpage > div:not(.book-nav) #book > a {

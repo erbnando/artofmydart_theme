@@ -202,6 +202,7 @@
 									font-family: Lato;
 									font-weight: 900;
 									line-height: 18px;
+									//display: inline-block;
 								}
 								.quote-source {
 									font-size: 13px;
@@ -209,6 +210,7 @@
 									font-style: italic;
 									font-weight: 900;
 									line-height: 18px;
+									//display: inline-block;
 								}
 							}
 						}
@@ -727,14 +729,15 @@
 							padding: 0!important;
 							img {
 								height: 100%;
+							    max-width: 100%;
 							}
 						}
 						.title-wrapper {
 							height: 22%!important;
 							h2 {
-								font-size: 16px;
+								font-size: 2.5vw;
+								line-height: 2.8vw;
 								top: 45%;
-								line-height: 18px;
 								padding: 0 20px!important;
 							}
 						}
@@ -762,15 +765,102 @@
 							    display: table-cell;
 							    padding-left: 20px!important;
 								.author-title {
-
+								    font-size: 1.4vw;
+								    line-height: 2vw;
+								    margin-bottom: .5vw;
 								}
 								.author-name {
-									font-size: 14px;
-									margin-bottom: 20px;
+									font-size: 2vw;
+									margin-bottom: 2.7vw;
+									line-height: 2.7vw;
 								}
 								.book-title {
 									margin: 0;
-									font-size: 21px;
+									font-size: 2.8vw;
+								}
+							}
+						}
+					}
+				}
+				.book-nav {
+					margin-top: 10px;
+				}
+			}
+			&.text {
+				height: 100%;
+				display: block!important;
+				//padding-bottom: 0!important;
+				width: 100%;
+				@media only screen and (max-width: 1124px) {
+					margin-top: 30px;
+				}
+				> div:first-child {
+					border-left: 4px solid #e9e8e8;
+					border-bottom: 4px solid #e9e8e8;
+					height: 100%;
+					box-sizing: border-box;
+					width: 65%;
+				}
+				> div:not(:last-child) {
+					#book {
+						height: 100%!important;
+						.book-grid-two {
+							> div {
+								padding: 0!important;
+								height: 50%;
+							    display: table-cell;
+							    padding-left: 2.5vw!important;
+							    padding-right: 1.5vw!important;
+							    > div {
+									padding: 0!important;
+									display: table-cell;
+									vertical-align: middle;
+									h5 {
+										font-size: 1.6vw;
+										margin-bottom: .5vw;
+									}
+									p {
+										font-size: 1.8vw;
+										line-height: 2.3vw;
+										margin-bottom: 0;
+									}
+									:last-child {
+										margin-bottom: 0;
+									}
+								}
+							}
+							.content-left, .content-right {
+			   					> div {
+									padding: 40px;
+								}
+							}
+							&.quote {
+								> div {
+									> div {
+										line-height: 2.5vw;
+										padding-right: 110px;
+										.quote-text, .quote-text p {
+											font-family: Poly;
+											font-style: italic;
+											font-size: 2.2vw;
+											line-height: 2.8vw;
+											margin-bottom: 2vw;
+										}
+										.quote-author {
+											font-family: Lato;
+											font-weight: 900;
+											font-size: 2vw;
+										}
+										.quote-source {
+											font-family: Lato;
+											font-style: italic;
+											font-weight: 900;
+											font-size: 2vw;
+										}
+										span {
+											line-height: inherit;
+										}
+									}
 								}
 							}
 						}
@@ -1475,7 +1565,7 @@
 							padding: 40px;
 							text-align: center;
 							p {
-								font-size: 16px;
+								font-size: 2vw;
 								font-family: Poly;
 								font-style: italic;
 							}
