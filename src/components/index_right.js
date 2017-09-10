@@ -13,7 +13,9 @@ class BlogRight extends Component {
 	componentWillReceiveProps(nextProps) {
 		this.getPosts(nextProps);
 		if (nextProps.even_posts.headers['x-wp-totalpages'] <= nextProps.page*2) {
-			document.getElementById('blog-right').className = "grid-two blog-right blog-right-hidden";
+			document.getElementById('blog-right').classList.add("blog-right-hidden");
+		} else {
+			document.getElementById('blog-right').classList.remove("blog-right-hidden");
 		}
 		//console.log('will receive props');
 	}

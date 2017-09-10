@@ -32,11 +32,11 @@ add_image_size( 'book_cover', 552, 782 );
 add_image_size( 'small', 460, 460 );
 add_image_size( 'medium', 562, 862 );
 add_image_size( 'large', 642, 942 );
-add_image_size( 'full', 726, 1022 );
-add_image_size( 'fullsize', 1452, 1022 );
+add_image_size( 'full', 726, 1022, true );
+add_image_size( 'fullsize', 1452, 1022, true );
 add_image_size( 'doublesmall', 360, 360 );
 add_image_size( 'doublemedium', 620, 410 );
-add_image_size( 'doublefull', 726, 511 );
+add_image_size( 'doublefull', 726, 511, true );
 
 add_action('after_setup_theme', 'remove_admin_bar');
 function remove_admin_bar() {

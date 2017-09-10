@@ -20,15 +20,17 @@ export default class Article extends Component {
     render() {
         return (
             <div className='post'>
-                <Title link={this.props.link} isSingle={this.props.isSingle}>
-                    {this.props.title}
-                </Title>
-                <p className="author">
-                    {this.props.author}
-                </p>
-                <p className="date">
-                    {this.props.date}
-                </p>
+                <div>
+                    <Title link={this.props.link} isSingle={this.props.isSingle}>
+                        {this.props.title}
+                    </Title>
+                    <p className="author">
+                        {this.props.author}
+                    </p>
+                    <p className="date">
+                        {this.props.date}
+                    </p>
+                </div>
             </div>
         );
     }

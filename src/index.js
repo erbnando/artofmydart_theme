@@ -21,6 +21,7 @@ class App extends Component {
 	componentWillUpdate() {
 		window.scroll(0,0);	
 
+		/*
 		var captionsLeft = document.getElementsByClassName("captions-left");
 		for(var i = 0; i < captionsLeft.length; i++) {
 		    if(captionsLeft[i].style.opacity == "1") {
@@ -33,6 +34,7 @@ class App extends Component {
 			    captionsRight[i].style.opacity = "0";
 		    }
 		}
+		*/
 
 		if (window.location.href != window.url) {
 			if(document.getElementById('content-right')) {
@@ -51,8 +53,9 @@ class App extends Component {
 		window.url = window.location.href;
 	}
 
-	deviceOrientation() {                		
+	deviceOrientation() {
 		if (window.screen.orientation != undefined) {
+			//console.log('window.screen.orientation');
 			var orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
 			if (orientation.type === "landscape-primary") {
 				return true
@@ -62,6 +65,7 @@ class App extends Component {
 				return false
 			}
 		} else if (window.orientation != undefined) {
+			//console.log('window.orientation');
 			switch (window.orientation) {  
 			case 0:
 				return false
@@ -79,22 +83,126 @@ class App extends Component {
 		}
 	}
 
+	onOrientationChange() {
+		var setWidthAndHeight = setInterval(function() {
+			if (window.outerWidth != '0' && window.outerHeight != '0') {
+				document.getElementById('app').style.height = window.outerHeight + 'px';
+				document.getElementById('app').style.width = window.outerWidth + 'px';
+				var stop = setTimeout(function() {
+					clearInterval(setWidthAndHeight);
+				}, 200);
+			} else {
+				document.getElementById('app').style.height = document.documentElement.clientHeight + 'px';
+				document.getElementById('app').style.width = document.documentElement.clientWidth + 'px';
+				var stop = setTimeout(function() {
+					clearInterval(setWidthAndHeight);
+				}, 200);
+			}
+		}, 10);
+
+		if (document.getElementById('container')) {
+			var container = document.getElementById('container');
+			if (window.screen.orientation != undefined) {
+				//console.log('window.screen.orientation');
+				var orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
+				if (orientation.type === "landscape-primary") {
+					if (container.classList.contains('portrait')) {
+						container.classList.remove('portrait');
+						container.classList.add('landscape');
+					}
+				} else if (orientation.type === "landscape-secondary") {
+					if (container.classList.contains('portrait')) {
+						container.classList.remove('portrait');
+						container.classList.add('landscape');
+					}
+				} else if (orientation.type === "portrait-secondary" || orientation.type === "portrait-primary") {
+					if (container.classList.contains('landscape')) {
+						container.classList.remove('landscape');
+						container.classList.add('portrait');
+					}
+				}
+			} else if (window.orientation != undefined) {
+				//console.log('window.orientation');
+				switch (window.orientation) {  
+				case 0:
+					if (container.classList.contains('landscape')) {
+						container.classList.remove('landscape');
+						container.classList.add('portrait');
+					}
+				    break;
+				case 180:
+					if (container.classList.contains('landscape')) {
+						container.classList.remove('landscape');
+						container.classList.add('portrait');
+					}
+				    break;
+				case -90:
+					if (container.classList.contains('portrait')) {
+						container.classList.remove('portrait');
+						container.classList.add('landscape');
+					}
+				    break;
+				case 90:
+					if (container.classList.contains('portrait')) {
+						container.classList.remove('portrait');
+						container.classList.add('landscape');
+					}
+				    break;
+				}
+			}
+		}
+	}
+
 	render() {
 		var md = new MobileDetect(window.navigator.userAgent);
-		if (md.phone() != null || md.tablet() != null || md.mobile() != null) {
+		if (md.phone() != null) {
 			console.log('mobile');
+
+			var setWidthAndHeight = setInterval(function() {
+				if (window.outerWidth != '0' && window.outerHeight != '0') {
+					document.getElementById('app').style.height = window.outerHeight + 'px';
+					document.getElementById('app').style.width = window.outerWidth + 'px';
+					var stop = setTimeout(function() {
+						clearInterval(setWidthAndHeight);
+					}, 200);
+				} else {
+					document.getElementById('app').style.height = document.documentElement.clientHeight + 'px';
+					document.getElementById('app').style.width = document.documentElement.clientWidth + 'px';
+					var stop = setTimeout(function() {
+						clearInterval(setWidthAndHeight);
+					}, 200);
+				}
+			}, 10);
+
+			/*
+			var adjustHeadingSize = setInterval(function() { 
+				var elements = document.querySelectorAll(".mobile.landscape h3");
+				console.log(elements);
+				for (var i = 0; i < elements.length; i++) {
+					elements[i].style.border = '1px solid red';
+					elements[i].style.boxSizing = 'border-box';
+				}
+				var stop = setTimeout(function() {
+					clearInterval(adjustHeadingSize);
+				}, 2000);
+			}, 500);
+			*/
+
+			window.addEventListener("orientationchange", this.onOrientationChange);
+			//window.onorientationchange = this.onOrientationChange;
+
 			if (this.deviceOrientation() == false) {
 				console.log('portrait');
 				if (window.location.href.indexOf("/books/") > -1) {
 					return (
-						<div className="container grayheader mobile portrait">
+						<div id="container" className="container grayheader mobile portrait">
 							<Header />
 							<Main />
 						</div>
 					);
 				} else {
 					return (
-						<div className="container mobile portrait">
+						<div id="container" className="container mobile portrait">
 							<Header />
 							<Main />
 						</div>
@@ -104,14 +212,58 @@ class App extends Component {
 				console.log('landscape');
 				if (window.location.href.indexOf("/books/") > -1) {
 					return (
-						<div className="container grayheader mobile landscape">
+						<div id="container" className="container grayheader mobile landscape">
 							<Header />
 							<Main />
 						</div>
 					);
 				} else {
 					return (
-						<div className="container mobile landscape">
+						<div id="container" className="container mobile landscape">
+							<Header />
+							<Main />
+						</div>
+					);
+				}
+			}
+		} else if (md.tablet() != null) {
+			console.log('tablet');
+
+			window.addEventListener("orientationchange", function() {
+			    //alert("the orientation of the device is now " + screen.orientation.angle);
+			});
+
+			window.onorientationchange = this.deviceOrientation;
+
+			if (this.deviceOrientation() == false) {
+				console.log('portrait');
+				if (window.location.href.indexOf("/books/") > -1) {
+					return (
+						<div id="container" className="container grayheader tablet portrait">
+							<Header />
+							<Main />
+						</div>
+					);
+				} else {
+					return (
+						<div id="container" className="container tablet portrait">
+							<Header />
+							<Main />
+						</div>
+					);
+				}
+			} else if (this.deviceOrientation() == true) {
+				console.log('landscape');
+				if (window.location.href.indexOf("/books/") > -1) {
+					return (
+						<div id="container" className="container grayheader tablet landscape">
+							<Header />
+							<Main />
+						</div>
+					);
+				} else {
+					return (
+						<div id="container" className="container tablet landscape">
 							<Header />
 							<Main />
 						</div>
@@ -122,14 +274,14 @@ class App extends Component {
 			console.log('desktop');
 			if (window.location.href.indexOf("/books/") > -1) {
 				return (
-					<div className="container grayheader desktop">
+					<div id="container" className="container grayheader desktop">
 						<Header />
 						<Main />
 					</div>
 				);
 			} else {
 				return (
-					<div className="container desktop">
+					<div id="container" className="container desktop">
 						<Header />
 						<Main />
 					</div>

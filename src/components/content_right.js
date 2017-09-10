@@ -74,7 +74,7 @@ class ContentRight extends Component {
 			} else if (this.props.content.right_image_placement == "bottomright") {
 				return 'bottom-right '
 			} else if (this.props.content.right_image_placement == "center") {
-				return ' '
+				return 'center '
 			}
 		} else {
 			return ''
@@ -102,6 +102,7 @@ class ContentRight extends Component {
 		}
 	}
 
+/*
 	showCaption(caption) {
 		var captionsLeft = document.getElementsByClassName("captions-left");
 		for(var i = 0; i < captionsLeft.length; i++) {
@@ -117,6 +118,7 @@ class ContentRight extends Component {
 		}
 		document.getElementById(caption).style.opacity = "1";
 	}
+*/
 
 	getContent() {
 		if (this.props.content.page_type == 'text') {
@@ -141,7 +143,7 @@ class ContentRight extends Component {
 						<div>
 							<img
 							src={this.getRightImageSrc()}
-							onMouseEnter={() => this.showCaption('captions-right-single')}
+							//onMouseEnter={() => this.showCaption('captions-right-single')}
 							/>
 							<div id='captions-right-single' className="captions-right" dangerouslySetInnerHTML={{__html: this.getSingleRightCaptions()}}></div>
 						</div>
@@ -151,7 +153,7 @@ class ContentRight extends Component {
 						<div>
 							<img
 							src={this.getRightImageSrc()}
-							onMouseEnter={() => this.showCaption('captions-right-single')}
+							//onMouseEnter={() => this.showCaption('captions-right-single')}
 							/>
 						</div>
 					);
@@ -164,7 +166,7 @@ class ContentRight extends Component {
 								<div>
 									<img
 									src={this.getTopRightImageSrc()}
-									onMouseEnter={() => this.showCaption('captions-right-double-top')}
+									//onMouseEnter={() => this.showCaption('captions-right-double-top')}
 									/>
 									<div id='captions-right-double-top' className="captions-right" dangerouslySetInnerHTML={{__html: this.getDoubleTopRightCaptions()}}></div>
 								</div>
@@ -173,7 +175,7 @@ class ContentRight extends Component {
 								<div>
 									<img
 									src={this.getBottomRightImageSrc()}
-									onMouseEnter={() => this.showCaption('captions-right-double-bottom')}
+									//onMouseEnter={() => this.showCaption('captions-right-double-bottom')}
 									/>
 									<div id='captions-right-double-bottom' className="captions-right" dangerouslySetInnerHTML={{__html: this.getDoubleBottomRightCaptions()}}></div>
 								</div>
@@ -187,7 +189,7 @@ class ContentRight extends Component {
 								<div>
 									<img
 									src={this.getTopRightImageSrc()}
-									onMouseEnter={() => this.showCaption('captions-right-double-top')}
+									//onMouseEnter={() => this.showCaption('captions-right-double-top')}
 									/>
 								</div>
 							</div>
@@ -195,7 +197,7 @@ class ContentRight extends Component {
 								<div>
 									<img
 									src={this.getBottomRightImageSrc()}
-									onMouseEnter={() => this.showCaption('captions-right-double-bottom')}
+									//onMouseEnter={() => this.showCaption('captions-right-double-bottom')}
 									/>
 								</div>
 							</div>

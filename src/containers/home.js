@@ -6,19 +6,18 @@ import BlogLeft from '../components/index_left';
 
 class Home extends Component {
 	componentWillMount() {
-		//console.log('I will mount');
 	}
 
 	componentDidMount() {
-		//console.log('I did mount');
+	}
+
+	shouldComponentUpdate() {
 	}
 
 	componentDidUpdate() {
-		//console.log('I did update');
 	}
 
 	componentWillReceiveProps() {
-		//console.log('I will receive props');
 	}
 
 	getPage() {

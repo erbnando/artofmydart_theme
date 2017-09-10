@@ -49,34 +49,48 @@
             }
         }
     }
-}
-
-.container.mobile {
-    min-width: 320px!important;
-    header {
-        height: 72px;
-        .logo {
-            margin: 18px 0 0 18px;
-            img {
-                width: 60px;
+    &.mobile {
+        min-width: 320px!important;
+        header {
+            height: 72px;
+            .logo {
+                margin: 18px 0 0 18px;
+                img {
+                    width: 60px;
+                }
             }
-        }
-        nav {
-            margin: 16px 14px 0 0;
-            ul {
-                li {
-                    margin-left: 10px;
-                    a {
-                        font-size: 11px;
+            nav {
+                margin: 16px 14px 0 0;
+                ul {
+                    li {
+                        margin-left: 10px;
+                        a {
+                            font-size: 11px;
+                        }
+                    }
+                    .social-first {
+                        margin-left: 18px;
+                    }
+                    .social {
+                        margin-left: 14px;
                     }
                 }
-                .social-first {
-                    margin-left: 18px;
-                }
-                .social {
-                    margin-left: 14px;
-                }
             }
         }
+    }
+}
+
+.mobile.landscape {
+    header {
+        position: absolute;
+        z-index: 1;
+        .logo {
+            display: none;
+        }
+    }
+    &.grayheader {
+        header {
+            display: none;
+        }        
     }
 }

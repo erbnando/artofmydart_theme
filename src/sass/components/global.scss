@@ -1,40 +1,50 @@
-body {
-	margin: 0;
-	*, *:focus, *:active {
-		outline: none;
-	}
-	#app {
-		.container {
-			max-width: 1440px;
-			display: block;
-			margin: 0 auto;
-			min-width: 1024px;
-			&.grayheader {
-				#main_header {
-					opacity: .2!important;
-				}
-			}
-			.content:not(.book) {
-				height: 465px;
-				/*
-				@media only screen and (max-width: 809px) {
-					margin-top: 40px;
-					width: 280px;
-				}
-				@media only screen and (max-width: 399px) {
-					padding: 0 20px 120px;
-				}
-				*/
-			}
-			.content {
-				display: table;
+html {
+	height: 100%;
+	body {
+		height: 100%;
+		margin: 0;
+		*, *:focus, *:active {
+			outline: none;
+		}
+		#app {
+			height: 100%;
+			min-height: 320px;
+			min-width: 320px;
+			.container {
+				max-width: 1440px;
+				display: block;
 				margin: 0 auto;
-				position: relative;
-				margin-top: -47px;
-				padding-bottom: 120px;
-				transition: opacity .05s linear;
-				@media only screen and (max-width: 1124px) {
-					margin-top: 30px;
+				min-width: 1024px;
+				&.grayheader {
+					#main_header {
+						opacity: .2!important;
+					}
+				}
+				&.tablet {
+					min-width: 768px;
+				}
+				.content:not(.book) {
+					height: 465px;
+					/*
+					@media only screen and (max-width: 809px) {
+						margin-top: 40px;
+						width: 280px;
+					}
+					@media only screen and (max-width: 399px) {
+						padding: 0 20px 120px;
+					}
+					*/
+				}
+				.content {
+					display: table;
+					margin: 0 auto;
+					position: relative;
+					margin-top: -47px;
+					padding-bottom: 120px;
+					transition: opacity .05s linear;
+					@media only screen and (max-width: 1124px) {
+						margin-top: 30px;
+					}
 				}
 			}
 		}

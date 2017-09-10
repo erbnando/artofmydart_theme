@@ -73,7 +73,7 @@ class ContentLeft extends Component {
 			} else if (this.props.content.left_image_placement == "bottomright") {
 				return 'bottom-right '
 			} else if (this.props.content.left_image_placement == "center") {
-				return ' '
+				return 'center '
 			}
 		} else {
 			return ''
@@ -128,23 +128,28 @@ class ContentLeft extends Component {
 		}
 	}
 
+/*
 	showCaption(caption) {
 		var captionsLeft = document.getElementsByClassName("captions-left");
 		for(var i = 0; i < captionsLeft.length; i++) {
 		    if(captionsLeft[i].style.opacity == "1") {
 			    captionsLeft[i].style.opacity = "0";
+				captionsLeft[i].style.zIndex = "0";
 		    }
 		}
 		var captionsRight = document.getElementsByClassName("captions-right");
 		for(var i = 0; i < captionsRight.length; i++) {
 		    if(captionsRight[i].style.opacity == "1") {
 			    captionsRight[i].style.opacity = "0";
+				captionsLeft[i].style.zIndex = "0";
 		    }
 		}
 		if (document.getElementById(caption)) {
 			document.getElementById(caption).style.opacity = "1";
+			document.getElementById(caption).style.zIndex = "1";
 		}
 	}
+*/
 
 	getContent() {
 		if (this.props.content.page_type == 'text') {
@@ -169,7 +174,7 @@ class ContentLeft extends Component {
 						<div>
 							<img 
 							src={this.getLeftImageSrc()}
-							onMouseEnter={() => this.showCaption('captions-left-single')}
+							//onMouseEnter={() => this.showCaption('captions-left-single')}
 							/>
 							<div id='captions-left-single' className="captions-left" dangerouslySetInnerHTML={{__html: this.getSingleLeftCaptions()}}></div>
 						</div>
@@ -179,7 +184,7 @@ class ContentLeft extends Component {
 						<div>
 							<img 
 							src={this.getLeftImageSrc()}
-							onMouseEnter={() => this.showCaption('captions-left-single')}
+							//onMouseEnter={() => this.showCaption('captions-left-single')}
 							/>
 						</div>
 					);
@@ -192,7 +197,7 @@ class ContentLeft extends Component {
 								<div>
 									<img 
 									src={this.getTopLeftImageSrc()}
-									onMouseEnter={() => this.showCaption('captions-left-double-top')}
+									//onMouseEnter={() => this.showCaption('captions-left-double-top')}
 									/>
 									<div id='captions-left-double-top' className="captions-left" dangerouslySetInnerHTML={{__html: this.getDoubleTopLeftCaptions()}}></div>
 								</div>
@@ -201,7 +206,7 @@ class ContentLeft extends Component {
 								<div>
 									<img
 									src={this.getBottomLeftImageSrc()}
-									onMouseEnter={() => this.showCaption('captions-left-double-bottom')}
+									//onMouseEnter={() => this.showCaption('captions-left-double-bottom')}
 									/>
 									<div id='captions-left-double-bottom' className="captions-left" dangerouslySetInnerHTML={{__html: this.getDoubleBottomLeftCaptions()}}></div>
 								</div>
@@ -215,7 +220,7 @@ class ContentLeft extends Component {
 								<div>
 									<img 
 									src={this.getTopLeftImageSrc()}
-									onMouseEnter={() => this.showCaption('captions-left-double-top')}
+									//onMouseEnter={() => this.showCaption('captions-left-double-top')}
 									/>
 								</div>
 							</div>
@@ -223,7 +228,7 @@ class ContentLeft extends Component {
 								<div>
 									<img
 									src={this.getBottomLeftImageSrc()}
-									onMouseEnter={() => this.showCaption('captions-left-double-bottom')}
+									//onMouseEnter={() => this.showCaption('captions-left-double-bottom')}
 									/>
 								</div>
 							</div>
@@ -237,7 +242,7 @@ class ContentLeft extends Component {
 					<div>
 						<img
 						src={this.props.content.full_sized_image.sizes.fullsize}
-						onMouseEnter={() => this.showCaption('captions-full-image')}
+						//onMouseEnter={() => this.showCaption('captions-full-image')}
 						/>
 						<div id='captions-full-image' className={'captions-' + this.props.content.full_sized_image_caption_position} dangerouslySetInnerHTML={{__html: this.getFullSizedCaptions()}}></div>
 					</div>
@@ -247,7 +252,7 @@ class ContentLeft extends Component {
 					<div>
 						<img
 						src={this.props.content.full_sized_image.sizes.fullsize}
-						onMouseEnter={() => this.showCaption('captions-full-image')}
+						//onMouseEnter={() => this.showCaption('captions-full-image')}
 						/>
 					</div>
 				);

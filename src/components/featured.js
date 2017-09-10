@@ -14,7 +14,7 @@ class Featured extends Component {
 	}
 
 	componentDidUpdate() {
-		//console.log('F did mount');s
+		//console.log('F did mount');
 	}
 
 	componentWillReceiveProps() {

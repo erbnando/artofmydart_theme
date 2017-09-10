@@ -1,35 +1,44 @@
-body {
-  margin: 0; }
-  body *, body *:focus, body *:active {
-    outline: none; }
-  body #app .container {
-    max-width: 1440px;
-    display: block;
-    margin: 0 auto;
-    min-width: 1024px; }
-    body #app .container.grayheader #main_header {
-      opacity: 0.2 !important; }
-    body #app .container .content:not(.book) {
-      height: 465px;
-      /*
-				@media only screen and (max-width: 809px) {
-					margin-top: 40px;
-					width: 280px;
-				}
-				@media only screen and (max-width: 399px) {
-					padding: 0 20px 120px;
-				}
-				*/ }
-    body #app .container .content {
-      display: table;
-      margin: 0 auto;
-      position: relative;
-      margin-top: -47px;
-      padding-bottom: 120px;
-      transition: opacity .05s linear; }
-      @media only screen and (max-width: 1124px) {
-        body #app .container .content {
-          margin-top: 30px; } }
+html {
+  height: 100%; }
+  html body {
+    height: 100%;
+    margin: 0; }
+    html body *, html body *:focus, html body *:active {
+      outline: none; }
+    html body #app {
+      height: 100%;
+      min-height: 320px;
+      min-width: 320px; }
+      html body #app .container {
+        max-width: 1440px;
+        display: block;
+        margin: 0 auto;
+        min-width: 1024px; }
+        html body #app .container.grayheader #main_header {
+          opacity: 0.2 !important; }
+        html body #app .container.tablet {
+          min-width: 768px; }
+        html body #app .container .content:not(.book) {
+          height: 465px;
+          /*
+					@media only screen and (max-width: 809px) {
+						margin-top: 40px;
+						width: 280px;
+					}
+					@media only screen and (max-width: 399px) {
+						padding: 0 20px 120px;
+					}
+					*/ }
+        html body #app .container .content {
+          display: table;
+          margin: 0 auto;
+          position: relative;
+          margin-top: -47px;
+          padding-bottom: 120px;
+          transition: opacity .05s linear; }
+          @media only screen and (max-width: 1124px) {
+            html body #app .container .content {
+              margin-top: 30px; } }
 
 h2 {
   font-family: Lato;
@@ -133,6 +142,15 @@ img {
       .container.mobile header nav ul .social {
         margin-left: 14px; }
 
+.mobile.landscape header {
+  position: absolute;
+  z-index: 1; }
+  .mobile.landscape header .logo {
+    display: none; }
+
+.mobile.landscape.grayheader header {
+  display: none; }
+
 .mobile.portrait .home {
   height: auto !important;
   padding-bottom: 80px !important; }
@@ -185,7 +203,191 @@ img {
       .mobile.portrait .index .grid-two #content-left .nav .nav-link.more, .mobile.portrait .index .grid-two #content-right .nav .nav-link.more {
         margin-right: 0; }
     .mobile.portrait .index .grid-two:last-child {
-      padding-top: 48px; }
+      padding-top: 15px;
+      height: 407px; }
+
+.mobile.landscape {
+  height: 100%; }
+  .mobile.landscape .home {
+    margin-top: 0 !important;
+    width: 100%;
+    padding: 20px !important;
+    box-sizing: border-box;
+    height: 100% !important; }
+    .mobile.landscape .home .index-home-left {
+      padding: 0 20px; }
+    .mobile.landscape .home .grid-two:first-child {
+      width: 50%;
+      height: 100%;
+      padding-bottom: 4px; }
+      .mobile.landscape .home .grid-two:first-child .section-title {
+        margin-bottom: 10px;
+        position: absolute; }
+      .mobile.landscape .home .grid-two:first-child #content-left {
+        height: 100%;
+        width: 75%;
+        padding-top: 30px;
+        padding-bottom: 0; }
+        .mobile.landscape .home .grid-two:first-child #content-left .featured {
+          height: 100%;
+          box-sizing: border-box; }
+          .mobile.landscape .home .grid-two:first-child #content-left .featured .featured-image {
+            height: 100px !important;
+            margin-top: 0;
+            height: 70% !important; }
+            .mobile.landscape .home .grid-two:first-child #content-left .featured .featured-image img {
+              max-height: 100%; }
+          .mobile.landscape .home .grid-two:first-child #content-left .featured .featured-details {
+            height: 30% !important; }
+            .mobile.landscape .home .grid-two:first-child #content-left .featured .featured-details div {
+              padding: 0 10px; }
+              .mobile.landscape .home .grid-two:first-child #content-left .featured .featured-details div a h3 {
+                font-size: 2.3vw;
+                margin-bottom: .7vw;
+                line-height: 2.8vw; }
+              .mobile.landscape .home .grid-two:first-child #content-left .featured .featured-details div a p {
+                font-size: 1.5vw;
+                line-height: 1.6vw; }
+  .mobile.landscape .index, .mobile.landscape .home {
+    margin-top: 0 !important;
+    width: 100%;
+    padding: 20px !important;
+    box-sizing: border-box;
+    height: 100% !important; }
+    .mobile.landscape .index .grid-two, .mobile.landscape .home .grid-two {
+      width: 50%;
+      padding: 0 0 0 20px;
+      height: 100%; }
+      .mobile.landscape .index .grid-two .section-title, .mobile.landscape .home .grid-two .section-title {
+        position: absolute;
+        margin-bottom: 0; }
+      .mobile.landscape .index .grid-two #content-left, .mobile.landscape .index .grid-two #content-right, .mobile.landscape .home .grid-two #content-left, .mobile.landscape .home .grid-two #content-right {
+        padding-top: 25px;
+        padding-bottom: 10px;
+        height: 100%;
+        padding-right: 20px; }
+        .mobile.landscape .index .grid-two #content-left > div, .mobile.landscape .index .grid-two #content-right > div, .mobile.landscape .home .grid-two #content-left > div, .mobile.landscape .home .grid-two #content-right > div {
+          height: 100%; }
+          .mobile.landscape .index .grid-two #content-left > div .posts, .mobile.landscape .index .grid-two #content-right > div .posts, .mobile.landscape .home .grid-two #content-left > div .posts, .mobile.landscape .home .grid-two #content-right > div .posts {
+            height: 100%;
+            position: relative; }
+            .mobile.landscape .index .grid-two #content-left > div .posts .post, .mobile.landscape .index .grid-two #content-right > div .posts .post, .mobile.landscape .home .grid-two #content-left > div .posts .post, .mobile.landscape .home .grid-two #content-right > div .posts .post {
+              position: absolute;
+              margin-bottom: 0;
+              height: 25%;
+              width: 100%;
+              display: table; }
+              .mobile.landscape .index .grid-two #content-left > div .posts .post:nth-child(1), .mobile.landscape .index .grid-two #content-right > div .posts .post:nth-child(1), .mobile.landscape .home .grid-two #content-left > div .posts .post:nth-child(1), .mobile.landscape .home .grid-two #content-right > div .posts .post:nth-child(1) {
+                top: 0; }
+              .mobile.landscape .index .grid-two #content-left > div .posts .post:nth-child(2), .mobile.landscape .index .grid-two #content-right > div .posts .post:nth-child(2), .mobile.landscape .home .grid-two #content-left > div .posts .post:nth-child(2), .mobile.landscape .home .grid-two #content-right > div .posts .post:nth-child(2) {
+                top: 25%; }
+              .mobile.landscape .index .grid-two #content-left > div .posts .post:nth-child(3), .mobile.landscape .index .grid-two #content-right > div .posts .post:nth-child(3), .mobile.landscape .home .grid-two #content-left > div .posts .post:nth-child(3), .mobile.landscape .home .grid-two #content-right > div .posts .post:nth-child(3) {
+                top: 50%; }
+              .mobile.landscape .index .grid-two #content-left > div .posts .post:nth-child(4), .mobile.landscape .index .grid-two #content-right > div .posts .post:nth-child(4), .mobile.landscape .home .grid-two #content-left > div .posts .post:nth-child(4), .mobile.landscape .home .grid-two #content-right > div .posts .post:nth-child(4) {
+                top: 75%; }
+              .mobile.landscape .index .grid-two #content-left > div .posts .post div, .mobile.landscape .index .grid-two #content-right > div .posts .post div, .mobile.landscape .home .grid-two #content-left > div .posts .post div, .mobile.landscape .home .grid-two #content-right > div .posts .post div {
+                display: table-cell;
+                vertical-align: middle; }
+                .mobile.landscape .index .grid-two #content-left > div .posts .post div a h3, .mobile.landscape .index .grid-two #content-right > div .posts .post div a h3, .mobile.landscape .home .grid-two #content-left > div .posts .post div a h3, .mobile.landscape .home .grid-two #content-right > div .posts .post div a h3 {
+                  font-size: 2.3vw;
+                  margin-bottom: .7vw;
+                  line-height: 2.8vw; }
+                .mobile.landscape .index .grid-two #content-left > div .posts .post div .author, .mobile.landscape .index .grid-two #content-right > div .posts .post div .author, .mobile.landscape .home .grid-two #content-left > div .posts .post div .author, .mobile.landscape .home .grid-two #content-right > div .posts .post div .author {
+                  font-size: 1.5vw;
+                  line-height: 1.6vw;
+                  margin-bottom: 0; }
+                .mobile.landscape .index .grid-two #content-left > div .posts .post div .date, .mobile.landscape .index .grid-two #content-right > div .posts .post div .date, .mobile.landscape .home .grid-two #content-left > div .posts .post div .date, .mobile.landscape .home .grid-two #content-right > div .posts .post div .date {
+                  display: none; }
+          .mobile.landscape .index .grid-two #content-left > div .nav, .mobile.landscape .index .grid-two #content-right > div .nav, .mobile.landscape .home .grid-two #content-left > div .nav, .mobile.landscape .home .grid-two #content-right > div .nav {
+            bottom: -5px; }
+            .mobile.landscape .index .grid-two #content-left > div .nav .nav-item a, .mobile.landscape .index .grid-two #content-right > div .nav .nav-item a, .mobile.landscape .home .grid-two #content-left > div .nav .nav-item a, .mobile.landscape .home .grid-two #content-right > div .nav .nav-item a {
+              margin-right: 10px; }
+
+.tablet.portrait .home {
+  padding-bottom: 80px !important;
+  margin-top: 40px !important;
+  /*
+		.grid-two {
+			&.index-home-left:before {
+				width: 100%;
+			}
+			#content-left {
+				.featured {
+					.featured-image {
+						height: 300px;
+						margin-top: 20px;
+						img {
+							max-height: 300px;
+						}
+					}
+					.featured-details {
+						height: 98px;
+					}
+				}
+			}
+			#content-right {
+				.posts {
+					.post {
+						margin-bottom: 25px;
+						a {
+							h3 {
+								margin-bottom: 5px;
+								line-height: 21px;
+							}
+						}
+					}
+				}
+				.nav {
+					bottom: -40px;
+					.nav-link.more {
+						margin-right: 0;
+					}
+				}
+			}
+			&:last-child {
+				padding-right: 0;
+			}
+		} */ }
+
+.tablet.portrait .index {
+  margin-top: 40px !important;
+  /*
+		height: auto!important;
+		padding-bottom: 80px!important;
+		.grid-two {
+			display: block;
+			max-width: 280px;
+		    padding: 0 30px 0 30px;
+			height: 440px;
+			margin-bottom: 45px;
+			padding-right: 0;
+			&.index-home-left:before {
+				width: 100%;
+			}
+			#content-left, #content-right {
+				.posts {
+					.post {
+						margin-bottom: 25px;
+						a {
+							h3 {
+								margin-bottom: 5px;
+								line-height: 21px;
+							}
+						}
+					}
+				}
+				.nav {
+					bottom: -40px;
+					.nav-link.more {
+						margin-right: 0;
+					}
+				}
+			}
+			&:last-child {
+				padding-top: 30px;
+				height: 422px;
+			}
+		} */ }
 
 .grid-two {
   box-sizing: border-box;
@@ -371,6 +573,22 @@ img {
         position: absolute;
         right: 0px;
         bottom: 0; }
+
+.mobile.portrait .content.page, .mobile.landscape .content.page {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 280px;
+  display: block;
+  padding-bottom: 100px !important; }
+  .mobile.portrait .content.page > div, .mobile.landscape .content.page > div {
+    width: 100%;
+    padding: 30px 10px 30px 30px; }
+
+.mobile.landscape .content.page {
+  width: 100%;
+  max-width: none;
+  padding: 20px !important;
+  margin: 0 !important; }
 
 .page {
   margin: 0 auto;
@@ -673,12 +891,18 @@ img {
             max-width: 321px;
             max-height: 471px; }
           .book.images > .book-container #book .book-grid-two.single > div.full div img {
-            max-width: 100%;
-            max-height: 511px; }
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0; }
           .book.images > .book-container #book .book-grid-two.single > div > div {
             padding: 0 !important; }
             .book.images > .book-container #book .book-grid-two.single > div > div img:hover + div {
-              transition: opacity .5s linear; }
+              transition: opacity .5s linear;
+              opacity: 1; }
             .book.images > .book-container #book .book-grid-two.single > div > div > .captions-left {
               width: 180px;
               right: 417px;
@@ -721,85 +945,115 @@ img {
                 .book.images > .book-container #book .book-grid-two.single > div > div > .captions-right > div p, .book.images > .book-container #book .book-grid-two.single > div > div .captions-left > div p {
                   font-family: Poly;
                   font-style: italic;
-                  font-weight: 13px;
+                  font-size: 13px;
                   line-height: 16px; }
         .book.images > .book-container #book .book-grid-two.double {
           height: 511px;
           width: 361px; }
-          .book.images > .book-container #book .book-grid-two.double > div {
-            height: inherit;
-            width: inherit; }
-            .book.images > .book-container #book .book-grid-two.double > div > div {
-              height: inherit;
-              width: inherit;
-              display: table;
+          .book.images > .book-container #book .book-grid-two.double > .content-right, .book.images > .book-container #book .book-grid-two.double .content-left {
+            height: 100%;
+            width: 100%;
+            display: block; }
+            .book.images > .book-container #book .book-grid-two.double > .content-right > div, .book.images > .book-container #book .book-grid-two.double .content-left > div {
+              height: 100%;
+              width: 100%;
+              display: block;
               padding: 0 !important; }
-              .book.images > .book-container #book .book-grid-two.double > div > div > div {
+              .book.images > .book-container #book .book-grid-two.double > .content-right > div > div, .book.images > .book-container #book .book-grid-two.double .content-left > div > div {
                 opacity: 1 !important;
                 height: 50%;
-                width: inherit;
+                width: 100%;
                 text-align: center;
                 display: table-row;
                 vertical-align: middle; }
-                .book.images > .book-container #book .book-grid-two.double > div > div > div > div {
+                .book.images > .book-container #book .book-grid-two.double > .content-right > div > div:first-child > div > img, .book.images > .book-container #book .book-grid-two.double .content-left > div > div:first-child > div > img {
+                  top: 0;
+                  bottom: 50%;
+                  height: 50%; }
+                .book.images > .book-container #book .book-grid-two.double > .content-right > div > div:last-child > div > img, .book.images > .book-container #book .book-grid-two.double .content-left > div > div:last-child > div > img {
+                  top: 50%;
+                  bottom: 0;
+                  height: 50%; }
+                .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div {
                   display: table-cell;
                   vertical-align: middle; }
-                  .book.images > .book-container #book .book-grid-two.double > div > div > div > div img:hover + div {
-                    transition: opacity .5s linear; }
-                  .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-left {
+                  .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div img:hover + div, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div img:hover + div {
+                    transition: opacity .5s linear;
+                    opacity: 1; }
+                  .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-left, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left {
                     right: 417px;
                     padding-left: 20px;
                     width: 180px; }
                     @media only screen and (max-width: 1289px) {
-                      .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-left {
+                      .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-left, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left {
                         right: 387px;
                         width: -moz-calc(100vw/2 - 405px);
                         width: -webkit-calc(100vw/2 - 405px);
                         width: -o-calc(100vw/2 - 405px);
                         width: calc(100vw/2 - 405px); } }
-                  .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-right {
+                  .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-right, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right {
                     left: 413px;
                     padding-right: 20px;
                     width: 180px; }
                     @media only screen and (max-width: 1289px) {
-                      .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-right {
+                      .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-right, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right {
                         left: 383px;
                         width: -moz-calc(100vw/2 - 405px);
                         width: -webkit-calc(100vw/2 - 405px);
                         width: -o-calc(100vw/2 - 405px);
                         width: calc(100vw/2 - 405px); } }
-                  .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-right, .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-left {
+                  .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-right, .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-left, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left {
                     opacity: 0;
                     position: absolute;
                     bottom: -4px;
                     text-align: left; }
                     @media only screen and (max-width: 1289px) {
-                      .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-right, .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-left {
+                      .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-right, .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-left, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left {
                         min-width: 107px; } }
-                    .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-right > div:not(:first-child), .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-left > div:not(:first-child) {
+                    .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-right > div:not(:first-child), .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-left > div:not(:first-child), .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right > div:not(:first-child), .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left > div:not(:first-child) {
                       margin-top: 20px; }
-                    .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-right > div, .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-left > div {
+                    .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-right > div, .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-left > div, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right > div, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left > div {
                       overflow: hidden; }
-                      .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-right > div *:last-child, .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-left > div *:last-child {
+                      .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-right > div *:last-child, .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-left > div *:last-child, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right > div *:last-child, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left > div *:last-child {
                         margin-bottom: 0; }
-                      .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-right > div h5, .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-left > div h5 {
+                      .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-right > div h5, .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-left > div h5, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right > div h5, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left > div h5 {
                         margin-bottom: 4px; }
-                      .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-right > div h6, .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-left > div h6 {
+                      .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-right > div h6, .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-left > div h6, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right > div h6, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left > div h6 {
                         margin-bottom: 6px; }
-                      .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-right > div p, .book.images > .book-container #book .book-grid-two.double > div > div > div > div .captions-left > div p {
+                      .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-right > div p, .book.images > .book-container #book .book-grid-two.double > .content-right > div > div > div .captions-left > div p, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right > div p, .book.images > .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left > div p {
                         font-family: Poly;
                         font-style: italic;
-                        font-weight: 13px;
+                        font-size: 13px;
                         line-height: 17px; }
-              .book.images > .book-container #book .book-grid-two.double > div > div .small img {
+              .book.images > .book-container #book .book-grid-two.double > .content-right > div .small img, .book.images > .book-container #book .book-grid-two.double .content-left > div .small img {
                 max-width: 180px;
-                max-height: 180px; }
-              .book.images > .book-container #book .book-grid-two.double > div > div .medium img {
+                max-height: 180px;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                margin: auto; }
+              .book.images > .book-container #book .book-grid-two.double > .content-right > div .medium img, .book.images > .book-container #book .book-grid-two.double .content-left > div .medium img {
                 max-width: 310px;
-                max-height: 205px; }
-              .book.images > .book-container #book .book-grid-two.double > div > div .full img {
-                max-width: 361px;
-                max-height: 255.5px; }
+                max-height: 205px;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                margin: auto; }
+              .book.images > .book-container #book .book-grid-two.double > .content-right > div .full, .book.images > .book-container #book .book-grid-two.double .content-left > div .full {
+                width: 100%;
+                height: 50%; }
+                .book.images > .book-container #book .book-grid-two.double > .content-right > div .full img, .book.images > .book-container #book .book-grid-two.double .content-left > div .full img {
+                  object-fit: cover;
+                  object-position: center;
+                  width: 100%;
+                  height: 100%;
+                  position: absolute;
+                  left: 0;
+                  top: 0; }
         .book.images > .book-container #book .book-grid-two.fullimage {
           width: 100%;
           text-align: center; }
@@ -811,7 +1065,8 @@ img {
                 max-width: 726px;
                 max-height: 511px; }
               .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div img:hover + div {
-                transition: opacity .5s linear; }
+                transition: opacity .5s linear;
+                opacity: 1; }
               .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-left {
                 width: 180px;
                 right: 780px;
@@ -855,7 +1110,7 @@ img {
                   .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div > .captions-right > div p, .book.images > .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div p {
                     font-family: Poly;
                     font-style: italic;
-                    font-weight: 13px;
+                    font-size: 13px;
                     line-height: 17px; }
         .book.images > .book-container #book .book-grid-two > div {
           display: table; }
@@ -918,3 +1173,511 @@ img {
         left: 0;
         right: 0;
         text-align: center; }
+
+.mobile.landscape {
+  box-sizing: border-box; }
+  .mobile.landscape > div {
+    height: 100%; }
+    .mobile.landscape > div > .book {
+      height: 100%;
+      margin-top: 0 !important;
+      padding: 20px 15px 40px !important;
+      box-sizing: border-box; }
+      .mobile.landscape > div > .book.cover {
+        height: 100%;
+        display: block !important; }
+        .mobile.landscape > div > .book.cover > div:not(.book-nav) {
+          height: 100%;
+          width: 40%; }
+          .mobile.landscape > div > .book.cover > div:not(.book-nav) #book {
+            height: 100%; }
+            .mobile.landscape > div > .book.cover > div:not(.book-nav) #book .img-wrapper {
+              height: 78% !important;
+              padding: 0 !important; }
+              .mobile.landscape > div > .book.cover > div:not(.book-nav) #book .img-wrapper img {
+                height: 100%; }
+            .mobile.landscape > div > .book.cover > div:not(.book-nav) #book .title-wrapper {
+              height: 22% !important; }
+              .mobile.landscape > div > .book.cover > div:not(.book-nav) #book .title-wrapper h2 {
+                font-size: 16px;
+                top: 45%;
+                line-height: 18px;
+                padding: 0 20px !important; }
+        .mobile.landscape > div > .book.cover .book-nav {
+          margin-top: 10px; }
+      .mobile.landscape > div > .book.title {
+        height: 100%;
+        display: block !important;
+        width: 100%; }
+        .mobile.landscape > div > .book.title > div:not(.book-nav) {
+          height: 100%;
+          box-sizing: border-box;
+          width: 65%; }
+          .mobile.landscape > div > .book.title > div:not(.book-nav) #book {
+            height: 100% !important; }
+            .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div {
+              padding: 0 !important;
+              height: 50%;
+              display: table-cell;
+              padding-left: 20px !important; }
+              .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-name {
+                font-size: 14px;
+                margin-bottom: 20px; }
+              .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .book-title {
+                margin: 0;
+                font-size: 21px; }
+        .mobile.landscape > div > .book.title .book-nav {
+          margin-top: 10px; }
+      .mobile.landscape > div > .book.images {
+        height: 100%;
+        display: block !important;
+        width: 100%; }
+        .mobile.landscape > div > .book.images .book-container {
+          height: 100%;
+          box-sizing: border-box;
+          width: 65% !important;
+          border-left: none;
+          border-bottom: none;
+          position: relative;
+          border-left: 4px solid #e9e8e8;
+          border-bottom: 4px solid #e9e8e8; }
+          .mobile.landscape > div > .book.images .book-container #book {
+            height: 100%;
+            margin: 0 auto;
+            display: block;
+            position: initial; }
+            .mobile.landscape > div > .book.images .book-container #book .book-grid-two {
+              display: inline-block; }
+              .mobile.landscape > div > .book.images .book-container #book .book-grid-two.fullimage {
+                height: 100%;
+                width: 100%;
+                text-align: center; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.fullimage > .content-left {
+                  width: 100%; }
+                  .mobile.landscape > div > .book.images .book-container #book .book-grid-two.fullimage > .content-left > div {
+                    padding: 0 !important; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.fullimage > .content-left > div > img {
+                      object-fit: cover;
+                      object-position: center;
+                      width: 100%;
+                      height: 100%;
+                      position: absolute;
+                      left: 0; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.fullimage > .content-left > div img:hover + div {
+                      transition: opacity .5s linear;
+                      opacity: 1; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left {
+                      padding-right: 4px;
+                      width: 26.923%;
+                      right: 100%;
+                      min-width: 0;
+                      text-align: left;
+                      bottom: 0; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div {
+                        padding-right: 10px; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.fullimage > .content-left > div .captions-right {
+                      padding-right: 0;
+                      padding-left: 0;
+                      width: 26.923%;
+                      left: 100%;
+                      min-width: 0;
+                      text-align: left;
+                      bottom: 0; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.fullimage > .content-left > div .captions-right > div {
+                        padding-left: 10px; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.fullimage > .content-left > div > div {
+                      opacity: 0; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.fullimage > .content-left > div > div > div h5 {
+                        margin-bottom: 2px !important;
+                        font-size: 8px !important; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.fullimage > .content-left > div > div > div h6 {
+                        margin-bottom: 1px !important;
+                        font-size: 11px !important;
+                        line-height: 14px !important; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.fullimage > .content-left > div > div > div p {
+                        font-size: 10px !important;
+                        line-height: 13px !important; }
+              .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single {
+                height: 100%;
+                position: initial; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single > div {
+                  position: initial !important;
+                  height: 100%; }
+                  .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single > div > div {
+                    height: 100%;
+                    text-align: center;
+                    position: initial; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single > div > div img {
+                      max-width: 100%;
+                      max-height: 100%; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single > div > div img:hover + div {
+                      transition: opacity .5s linear;
+                      opacity: 1; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single > div > div .captions-left {
+                      padding-left: 0;
+                      padding-right: 4px;
+                      width: 26.923%;
+                      right: 100%;
+                      min-width: 0;
+                      text-align: left;
+                      bottom: 0; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single > div > div .captions-left > div {
+                        padding-right: 10px; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single > div > div .captions-right {
+                      padding-right: 0;
+                      padding-left: 0;
+                      width: 26.923%;
+                      left: 100%;
+                      min-width: 0;
+                      text-align: left;
+                      bottom: 0; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single > div > div .captions-right > div {
+                        padding-left: 10px; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single > div > div > div {
+                      opacity: 0; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single > div > div > div > div h5 {
+                        margin-bottom: 2px !important;
+                        font-size: 8px !important; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single > div > div > div > div h6 {
+                        margin-bottom: 1px !important;
+                        font-size: 11px !important;
+                        line-height: 14px !important; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single > div > div > div > div p {
+                        font-size: 10px !important;
+                        line-height: 13px !important; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single .small > div img {
+                  position: absolute;
+                  max-width: 30%;
+                  max-height: 60%; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single .medium > div img {
+                  position: absolute;
+                  max-width: 37.5%;
+                  max-height: 75%; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single .large > div img {
+                  position: absolute;
+                  max-width: 45%;
+                  max-height: 90%; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single .content-right.full {
+                  display: block;
+                  width: 100%;
+                  position: relative; }
+                  .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single .content-right.full > div img {
+                    object-fit: cover;
+                    object-position: center;
+                    width: 50%;
+                    height: 100%;
+                    position: absolute;
+                    left: 50%;
+                    top: 0; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single .content-left.full {
+                  display: block;
+                  width: 100%;
+                  position: relative; }
+                  .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single .content-left.full > div img {
+                    object-fit: cover;
+                    object-position: center;
+                    width: 50%;
+                    height: 100%;
+                    position: absolute;
+                    left: 0;
+                    top: 0; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:first-child.top-left > div > div img {
+                  top: 0;
+                  left: 0; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:first-child.top > div > div img {
+                  top: 0;
+                  left: 25%;
+                  transform: translate(-50%); }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:first-child.top-right > div > div img {
+                  top: 0;
+                  right: 50%; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:first-child.left > div > div img {
+                  top: 0;
+                  bottom: 0;
+                  margin-top: auto;
+                  margin-bottom: auto; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:first-child.right > div > div img {
+                  top: 0;
+                  bottom: 0;
+                  right: 50%;
+                  margin-top: auto;
+                  margin-bottom: auto; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:first-child.center > div:not(.full) > div img {
+                  top: 0;
+                  bottom: 0;
+                  left: 25%;
+                  transform: translate(-50%);
+                  margin: auto; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:first-child.bottom-left > div > div img {
+                  bottom: 0; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:first-child.bottom > div > div img {
+                  bottom: 0;
+                  left: 25%;
+                  transform: translate(-50%); }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:first-child.bottom-right > div > div img {
+                  bottom: 0;
+                  right: 50%; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:last-child.top-left > div > div img {
+                  top: 0;
+                  left: 50%; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:last-child.top > div > div img {
+                  top: 0;
+                  left: 75%;
+                  transform: translate(-50%); }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:last-child.top-right > div > div img {
+                  top: 0;
+                  right: 0; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:last-child.left > div > div img {
+                  top: 0;
+                  bottom: 0;
+                  margin-top: auto;
+                  margin-bottom: auto;
+                  left: 50%; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:last-child.center > div:not(.full) > div img {
+                  top: 0;
+                  bottom: 0;
+                  left: 75%;
+                  transform: translate(-50%);
+                  margin: auto; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:last-child.right > div > div img {
+                  top: 0;
+                  bottom: 0;
+                  right: 0;
+                  margin-top: auto;
+                  margin-bottom: auto; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:last-child.bottom-left > div > div img {
+                  bottom: 0;
+                  left: 50%; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:last-child.bottom > div > div img {
+                  bottom: 0;
+                  left: 75%;
+                  transform: translate(-50%); }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.single:last-child.bottom-right > div > div img {
+                  bottom: 0;
+                  right: 0; }
+              .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double {
+                height: 100%;
+                width: 50%;
+                position: initial; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left {
+                  height: 100%;
+                  width: 100%;
+                  display: block; }
+                  .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div {
+                    height: inherit;
+                    width: inherit;
+                    display: block;
+                    padding: 0 !important; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div .small:first-child img {
+                      max-width: 25%;
+                      max-height: 25%;
+                      position: absolute;
+                      left: 25%;
+                      top: 25%;
+                      transform: translate(-50%, -50%);
+                      margin: initial; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div .small:last-child img {
+                      max-width: 25%;
+                      max-height: 25%;
+                      position: absolute;
+                      left: 25%;
+                      top: 75%;
+                      transform: translate(-50%, -50%);
+                      margin: initial; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div .medium:first-child img {
+                      max-width: 40%;
+                      max-height: 40%;
+                      position: absolute;
+                      left: 25%;
+                      top: 25%;
+                      transform: translate(-50%, -50%);
+                      margin: initial; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div .medium:last-child img {
+                      max-width: 40%;
+                      max-height: 40%;
+                      position: absolute;
+                      left: 25%;
+                      top: 75%;
+                      transform: translate(-50%, -50%);
+                      margin: initial; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div .full {
+                      width: 50%; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div .full:last-child {
+                        top: 50%; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div .full img {
+                        max-width: 50%;
+                        max-height: 50%; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div > div {
+                      opacity: 1 !important;
+                      height: 50%;
+                      width: inherit;
+                      text-align: center;
+                      display: table-row;
+                      vertical-align: middle; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div > div > div {
+                        display: table-cell;
+                        vertical-align: middle; }
+                        .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div > div > div img:hover + div {
+                          transition: opacity .5s linear;
+                          opacity: 1; }
+                        .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left {
+                          padding-left: 0;
+                          padding-right: 4px;
+                          width: 26.923%;
+                          right: 100%;
+                          min-width: 0;
+                          text-align: left;
+                          bottom: 0; }
+                          .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left > div {
+                            padding-right: 10px; }
+                        .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right {
+                          padding-right: 0;
+                          padding-left: 0;
+                          width: 26.923%;
+                          left: 100%;
+                          min-width: 0;
+                          text-align: left;
+                          bottom: 0; }
+                          .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right > div {
+                            padding-left: 10px; }
+                        .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div > div > div > div {
+                          opacity: 0; }
+                          .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div > div > div > div > div h5 {
+                            margin-bottom: 2px !important;
+                            font-size: 8px !important; }
+                          .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div > div > div > div > div h6 {
+                            margin-bottom: 1px !important;
+                            font-size: 11px !important;
+                            line-height: 14px !important; }
+                          .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-left > div > div > div > div > div p {
+                            font-size: 10px !important;
+                            line-height: 13px !important; }
+                .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right {
+                  height: 100%;
+                  width: 100%;
+                  display: block; }
+                  .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div {
+                    height: inherit;
+                    width: inherit;
+                    display: block;
+                    padding: 0 !important; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div .small:first-child img {
+                      max-width: 25%;
+                      max-height: 25%;
+                      position: absolute;
+                      left: 75%;
+                      top: 25%;
+                      transform: translate(-50%, -50%);
+                      margin: initial; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div .small:last-child img {
+                      max-width: 25%;
+                      max-height: 25%;
+                      position: absolute;
+                      left: 75%;
+                      top: 75%;
+                      transform: translate(-50%, -50%);
+                      margin: initial; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div .medium:first-child img {
+                      max-width: 40%;
+                      max-height: 40%;
+                      position: absolute;
+                      left: 75%;
+                      top: 25%;
+                      transform: translate(-50%, -50%);
+                      margin: initial; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div .medium:last-child img {
+                      max-width: 40%;
+                      max-height: 40%;
+                      position: absolute;
+                      left: 75%;
+                      top: 75%;
+                      transform: translate(-50%, -50%);
+                      margin: initial; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div .full {
+                      width: 50%; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div .full:last-child img {
+                        top: 50%; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div .full img {
+                        left: 50%;
+                        max-width: 50%;
+                        max-height: 50%; }
+                    .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div > div {
+                      opacity: 1 !important;
+                      height: 50%;
+                      width: inherit;
+                      text-align: center;
+                      display: table-row;
+                      vertical-align: middle; }
+                      .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div > div > div {
+                        display: table-cell;
+                        vertical-align: middle; }
+                        .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div > div > div img:hover + div {
+                          transition: opacity .5s linear;
+                          opacity: 1; }
+                        .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div > div > div .captions-left {
+                          padding-left: 0;
+                          padding-right: 4px;
+                          width: 26.923%;
+                          right: 100%;
+                          min-width: 0;
+                          text-align: left;
+                          bottom: 0; }
+                          .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div > div > div .captions-left > div {
+                            padding-right: 10px; }
+                        .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div > div > div .captions-right {
+                          padding-right: 0;
+                          padding-left: 0;
+                          width: 26.923%;
+                          left: 100%;
+                          min-width: 0;
+                          text-align: left;
+                          bottom: 0; }
+                          .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div > div > div .captions-right > div {
+                            padding-left: 10px; }
+                        .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div > div > div > div {
+                          opacity: 0; }
+                          .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div > div > div > div > div h5 {
+                            margin-bottom: 2px !important;
+                            font-size: 8px !important; }
+                          .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div > div > div > div > div h6 {
+                            margin-bottom: 1px !important;
+                            font-size: 11px !important;
+                            line-height: 14px !important; }
+                          .mobile.landscape > div > .book.images .book-container #book .book-grid-two.double .content-right > div > div > div > div > div p {
+                            font-size: 10px !important;
+                            line-height: 13px !important; }
+        .mobile.landscape > div > .book.images .book-nav {
+          margin-top: 10px; }
+      .mobile.landscape > div > .book.lastpage {
+        height: 100%;
+        width: 100%;
+        display: block !important; }
+        .mobile.landscape > div > .book.lastpage > div:not(.book-nav) {
+          height: 100%;
+          width: 40%;
+          box-sizing: border-box; }
+          .mobile.landscape > div > .book.lastpage > div:not(.book-nav) #book {
+            height: 100%;
+            display: table;
+            width: 100% !important;
+            position: relative;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity .5s linear; }
+            .mobile.landscape > div > .book.lastpage > div:not(.book-nav) #book > div {
+              display: table-cell;
+              vertical-align: middle;
+              padding: 40px;
+              text-align: center; }
+              .mobile.landscape > div > .book.lastpage > div:not(.book-nav) #book > div p {
+                font-size: 16px;
+                font-family: Poly;
+                font-style: italic; }
+            .mobile.landscape > div > .book.lastpage > div:not(.book-nav) #book > a {
+              position: absolute;
+              bottom: 10px;
+              left: 0;
+              right: 0;
+              text-align: center; }
+        .mobile.landscape > div > .book.lastpage .book-nav {
+          margin-top: 10px; }

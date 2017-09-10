@@ -121,18 +121,20 @@
 			value: function componentWillUpdate() {
 				window.scroll(0, 0);
 
-				var captionsLeft = document.getElementsByClassName("captions-left");
-				for (var i = 0; i < captionsLeft.length; i++) {
-					if (captionsLeft[i].style.opacity == "1") {
-						captionsLeft[i].style.opacity = "0";
-					}
-				}
-				var captionsRight = document.getElementsByClassName("captions-right");
-				for (var i = 0; i < captionsRight.length; i++) {
-					if (captionsRight[i].style.opacity == "1") {
-						captionsRight[i].style.opacity = "0";
-					}
-				}
+				/*
+	   var captionsLeft = document.getElementsByClassName("captions-left");
+	   for(var i = 0; i < captionsLeft.length; i++) {
+	       if(captionsLeft[i].style.opacity == "1") {
+	   	    captionsLeft[i].style.opacity = "0";
+	       }
+	   }
+	   var captionsRight = document.getElementsByClassName("captions-right");
+	   for(var i = 0; i < captionsRight.length; i++) {
+	       if(captionsRight[i].style.opacity == "1") {
+	   	    captionsRight[i].style.opacity = "0";
+	       }
+	   }
+	   */
 
 				if (window.location.href != window.url) {
 					if (document.getElementById('content-right')) {
@@ -154,6 +156,7 @@
 			key: 'deviceOrientation',
 			value: function deviceOrientation() {
 				if (window.screen.orientation != undefined) {
+					//console.log('window.screen.orientation');
 					var orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
 					if (orientation.type === "landscape-primary") {
 						return true;
@@ -163,6 +166,7 @@
 						return false;
 					}
 				} else if (window.orientation != undefined) {
+					//console.log('window.orientation');
 					switch (window.orientation) {
 						case 0:
 							return false;
@@ -180,24 +184,129 @@
 				}
 			}
 		}, {
+			key: 'onOrientationChange',
+			value: function onOrientationChange() {
+				var setWidthAndHeight = setInterval(function () {
+					if (window.outerWidth != '0' && window.outerHeight != '0') {
+						document.getElementById('app').style.height = window.outerHeight + 'px';
+						document.getElementById('app').style.width = window.outerWidth + 'px';
+						var stop = setTimeout(function () {
+							clearInterval(setWidthAndHeight);
+						}, 200);
+					} else {
+						document.getElementById('app').style.height = document.documentElement.clientHeight + 'px';
+						document.getElementById('app').style.width = document.documentElement.clientWidth + 'px';
+						var stop = setTimeout(function () {
+							clearInterval(setWidthAndHeight);
+						}, 200);
+					}
+				}, 10);
+
+				if (document.getElementById('container')) {
+					var container = document.getElementById('container');
+					if (window.screen.orientation != undefined) {
+						//console.log('window.screen.orientation');
+						var orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
+						if (orientation.type === "landscape-primary") {
+							if (container.classList.contains('portrait')) {
+								container.classList.remove('portrait');
+								container.classList.add('landscape');
+							}
+						} else if (orientation.type === "landscape-secondary") {
+							if (container.classList.contains('portrait')) {
+								container.classList.remove('portrait');
+								container.classList.add('landscape');
+							}
+						} else if (orientation.type === "portrait-secondary" || orientation.type === "portrait-primary") {
+							if (container.classList.contains('landscape')) {
+								container.classList.remove('landscape');
+								container.classList.add('portrait');
+							}
+						}
+					} else if (window.orientation != undefined) {
+						//console.log('window.orientation');
+						switch (window.orientation) {
+							case 0:
+								if (container.classList.contains('landscape')) {
+									container.classList.remove('landscape');
+									container.classList.add('portrait');
+								}
+								break;
+							case 180:
+								if (container.classList.contains('landscape')) {
+									container.classList.remove('landscape');
+									container.classList.add('portrait');
+								}
+								break;
+							case -90:
+								if (container.classList.contains('portrait')) {
+									container.classList.remove('portrait');
+									container.classList.add('landscape');
+								}
+								break;
+							case 90:
+								if (container.classList.contains('portrait')) {
+									container.classList.remove('portrait');
+									container.classList.add('landscape');
+								}
+								break;
+						}
+					}
+				}
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				var md = new _mobileDetect2.default(window.navigator.userAgent);
-				if (md.phone() != null || md.tablet() != null || md.mobile() != null) {
+				if (md.phone() != null) {
 					console.log('mobile');
+
+					var setWidthAndHeight = setInterval(function () {
+						if (window.outerWidth != '0' && window.outerHeight != '0') {
+							document.getElementById('app').style.height = window.outerHeight + 'px';
+							document.getElementById('app').style.width = window.outerWidth + 'px';
+							var stop = setTimeout(function () {
+								clearInterval(setWidthAndHeight);
+							}, 200);
+						} else {
+							document.getElementById('app').style.height = document.documentElement.clientHeight + 'px';
+							document.getElementById('app').style.width = document.documentElement.clientWidth + 'px';
+							var stop = setTimeout(function () {
+								clearInterval(setWidthAndHeight);
+							}, 200);
+						}
+					}, 10);
+
+					/*
+	    var adjustHeadingSize = setInterval(function() { 
+	    	var elements = document.querySelectorAll(".mobile.landscape h3");
+	    	console.log(elements);
+	    	for (var i = 0; i < elements.length; i++) {
+	    		elements[i].style.border = '1px solid red';
+	    		elements[i].style.boxSizing = 'border-box';
+	    	}
+	    	var stop = setTimeout(function() {
+	    		clearInterval(adjustHeadingSize);
+	    	}, 2000);
+	    }, 500);
+	    */
+
+					window.addEventListener("orientationchange", this.onOrientationChange);
+					//window.onorientationchange = this.onOrientationChange;
+
 					if (this.deviceOrientation() == false) {
 						console.log('portrait');
 						if (window.location.href.indexOf("/books/") > -1) {
 							return _react2.default.createElement(
 								'div',
-								{ className: 'container grayheader mobile portrait' },
+								{ id: 'container', className: 'container grayheader mobile portrait' },
 								_react2.default.createElement(_header2.default, null),
 								_react2.default.createElement(Main, null)
 							);
 						} else {
 							return _react2.default.createElement(
 								'div',
-								{ className: 'container mobile portrait' },
+								{ id: 'container', className: 'container mobile portrait' },
 								_react2.default.createElement(_header2.default, null),
 								_react2.default.createElement(Main, null)
 							);
@@ -207,14 +316,58 @@
 						if (window.location.href.indexOf("/books/") > -1) {
 							return _react2.default.createElement(
 								'div',
-								{ className: 'container grayheader mobile landscape' },
+								{ id: 'container', className: 'container grayheader mobile landscape' },
 								_react2.default.createElement(_header2.default, null),
 								_react2.default.createElement(Main, null)
 							);
 						} else {
 							return _react2.default.createElement(
 								'div',
-								{ className: 'container mobile landscape' },
+								{ id: 'container', className: 'container mobile landscape' },
+								_react2.default.createElement(_header2.default, null),
+								_react2.default.createElement(Main, null)
+							);
+						}
+					}
+				} else if (md.tablet() != null) {
+					console.log('tablet');
+
+					window.addEventListener("orientationchange", function () {
+						//alert("the orientation of the device is now " + screen.orientation.angle);
+					});
+
+					window.onorientationchange = this.deviceOrientation;
+
+					if (this.deviceOrientation() == false) {
+						console.log('portrait');
+						if (window.location.href.indexOf("/books/") > -1) {
+							return _react2.default.createElement(
+								'div',
+								{ id: 'container', className: 'container grayheader tablet portrait' },
+								_react2.default.createElement(_header2.default, null),
+								_react2.default.createElement(Main, null)
+							);
+						} else {
+							return _react2.default.createElement(
+								'div',
+								{ id: 'container', className: 'container tablet portrait' },
+								_react2.default.createElement(_header2.default, null),
+								_react2.default.createElement(Main, null)
+							);
+						}
+					} else if (this.deviceOrientation() == true) {
+						console.log('landscape');
+						if (window.location.href.indexOf("/books/") > -1) {
+							return _react2.default.createElement(
+								'div',
+								{ id: 'container', className: 'container grayheader tablet landscape' },
+								_react2.default.createElement(_header2.default, null),
+								_react2.default.createElement(Main, null)
+							);
+						} else {
+							return _react2.default.createElement(
+								'div',
+								{ id: 'container', className: 'container tablet landscape' },
 								_react2.default.createElement(_header2.default, null),
 								_react2.default.createElement(Main, null)
 							);
@@ -225,14 +378,14 @@
 					if (window.location.href.indexOf("/books/") > -1) {
 						return _react2.default.createElement(
 							'div',
-							{ className: 'container grayheader desktop' },
+							{ id: 'container', className: 'container grayheader desktop' },
 							_react2.default.createElement(_header2.default, null),
 							_react2.default.createElement(Main, null)
 						);
 					} else {
 						return _react2.default.createElement(
 							'div',
-							{ className: 'container desktop' },
+							{ id: 'container', className: 'container desktop' },
 							_react2.default.createElement(_header2.default, null),
 							_react2.default.createElement(Main, null)
 						);
@@ -30322,24 +30475,19 @@
 
 		_createClass(Home, [{
 			key: 'componentWillMount',
-			value: function componentWillMount() {
-				//console.log('I will mount');
-			}
+			value: function componentWillMount() {}
 		}, {
 			key: 'componentDidMount',
-			value: function componentDidMount() {
-				//console.log('I did mount');
-			}
+			value: function componentDidMount() {}
+		}, {
+			key: 'shouldComponentUpdate',
+			value: function shouldComponentUpdate() {}
 		}, {
 			key: 'componentDidUpdate',
-			value: function componentDidUpdate() {
-				//console.log('I did update');
-			}
+			value: function componentDidUpdate() {}
 		}, {
 			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps() {
-				//console.log('I will receive props');
-			}
+			value: function componentWillReceiveProps() {}
 		}, {
 			key: 'getPage',
 			value: function getPage() {
@@ -30450,7 +30598,7 @@
 		}, {
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
-				//console.log('F did mount');s
+				//console.log('F did mount');
 			}
 		}, {
 			key: 'componentWillReceiveProps',
@@ -30798,19 +30946,23 @@
 	                'div',
 	                { className: 'post' },
 	                _react2.default.createElement(
-	                    _title2.default,
-	                    { link: this.props.link, isSingle: this.props.isSingle },
-	                    this.props.title
-	                ),
-	                _react2.default.createElement(
-	                    'p',
-	                    { className: 'author' },
-	                    this.props.author
-	                ),
-	                _react2.default.createElement(
-	                    'p',
-	                    { className: 'date' },
-	                    this.props.date
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(
+	                        _title2.default,
+	                        { link: this.props.link, isSingle: this.props.isSingle },
+	                        this.props.title
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        { className: 'author' },
+	                        this.props.author
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        { className: 'date' },
+	                        this.props.date
+	                    )
 	                )
 	            );
 	        }
@@ -31185,7 +31337,9 @@
 			value: function componentWillReceiveProps(nextProps) {
 				this.getPosts(nextProps);
 				if (nextProps.even_posts.headers['x-wp-totalpages'] <= nextProps.page * 2) {
-					document.getElementById('blog-right').className = "grid-two blog-right blog-right-hidden";
+					document.getElementById('blog-right').classList.add("blog-right-hidden");
+				} else {
+					document.getElementById('blog-right').classList.remove("blog-right-hidden");
 				}
 				//console.log('will receive props');
 			}
@@ -32017,7 +32171,7 @@
 					} else if (this.props.content.left_image_placement == "bottomright") {
 						return 'bottom-right ';
 					} else if (this.props.content.left_image_placement == "center") {
-						return ' ';
+						return 'center ';
 					}
 				} else {
 					return '';
@@ -32075,30 +32229,33 @@
 					return caption;
 				}
 			}
-		}, {
-			key: "showCaption",
-			value: function showCaption(caption) {
-				var captionsLeft = document.getElementsByClassName("captions-left");
-				for (var i = 0; i < captionsLeft.length; i++) {
-					if (captionsLeft[i].style.opacity == "1") {
-						captionsLeft[i].style.opacity = "0";
-					}
-				}
-				var captionsRight = document.getElementsByClassName("captions-right");
-				for (var i = 0; i < captionsRight.length; i++) {
-					if (captionsRight[i].style.opacity == "1") {
-						captionsRight[i].style.opacity = "0";
-					}
-				}
-				if (document.getElementById(caption)) {
-					document.getElementById(caption).style.opacity = "1";
-				}
-			}
+
+			/*
+	  	showCaption(caption) {
+	  		var captionsLeft = document.getElementsByClassName("captions-left");
+	  		for(var i = 0; i < captionsLeft.length; i++) {
+	  		    if(captionsLeft[i].style.opacity == "1") {
+	  			    captionsLeft[i].style.opacity = "0";
+	  				captionsLeft[i].style.zIndex = "0";
+	  		    }
+	  		}
+	  		var captionsRight = document.getElementsByClassName("captions-right");
+	  		for(var i = 0; i < captionsRight.length; i++) {
+	  		    if(captionsRight[i].style.opacity == "1") {
+	  			    captionsRight[i].style.opacity = "0";
+	  				captionsLeft[i].style.zIndex = "0";
+	  		    }
+	  		}
+	  		if (document.getElementById(caption)) {
+	  			document.getElementById(caption).style.opacity = "1";
+	  			document.getElementById(caption).style.zIndex = "1";
+	  		}
+	  	}
+	  */
+
 		}, {
 			key: "getContent",
 			value: function getContent() {
-				var _this2 = this;
-
 				if (this.props.content.page_type == 'text') {
 					if (this.props.content.left_content_text == 'text') {
 						return _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.content.text_content_left } });
@@ -32124,10 +32281,8 @@
 								"div",
 								null,
 								_react2.default.createElement("img", {
-									src: this.getLeftImageSrc(),
-									onMouseEnter: function onMouseEnter() {
-										return _this2.showCaption('captions-left-single');
-									}
+									src: this.getLeftImageSrc()
+									//onMouseEnter={() => this.showCaption('captions-left-single')}
 								}),
 								_react2.default.createElement("div", { id: "captions-left-single", className: "captions-left", dangerouslySetInnerHTML: { __html: this.getSingleLeftCaptions() } })
 							);
@@ -32136,10 +32291,8 @@
 								"div",
 								null,
 								_react2.default.createElement("img", {
-									src: this.getLeftImageSrc(),
-									onMouseEnter: function onMouseEnter() {
-										return _this2.showCaption('captions-left-single');
-									}
+									src: this.getLeftImageSrc()
+									//onMouseEnter={() => this.showCaption('captions-left-single')}
 								})
 							);
 						}
@@ -32155,10 +32308,8 @@
 										"div",
 										null,
 										_react2.default.createElement("img", {
-											src: this.getTopLeftImageSrc(),
-											onMouseEnter: function onMouseEnter() {
-												return _this2.showCaption('captions-left-double-top');
-											}
+											src: this.getTopLeftImageSrc()
+											//onMouseEnter={() => this.showCaption('captions-left-double-top')}
 										}),
 										_react2.default.createElement("div", { id: "captions-left-double-top", className: "captions-left", dangerouslySetInnerHTML: { __html: this.getDoubleTopLeftCaptions() } })
 									)
@@ -32170,10 +32321,8 @@
 										"div",
 										null,
 										_react2.default.createElement("img", {
-											src: this.getBottomLeftImageSrc(),
-											onMouseEnter: function onMouseEnter() {
-												return _this2.showCaption('captions-left-double-bottom');
-											}
+											src: this.getBottomLeftImageSrc()
+											//onMouseEnter={() => this.showCaption('captions-left-double-bottom')}
 										}),
 										_react2.default.createElement("div", { id: "captions-left-double-bottom", className: "captions-left", dangerouslySetInnerHTML: { __html: this.getDoubleBottomLeftCaptions() } })
 									)
@@ -32190,10 +32339,8 @@
 										"div",
 										null,
 										_react2.default.createElement("img", {
-											src: this.getTopLeftImageSrc(),
-											onMouseEnter: function onMouseEnter() {
-												return _this2.showCaption('captions-left-double-top');
-											}
+											src: this.getTopLeftImageSrc()
+											//onMouseEnter={() => this.showCaption('captions-left-double-top')}
 										})
 									)
 								),
@@ -32204,10 +32351,8 @@
 										"div",
 										null,
 										_react2.default.createElement("img", {
-											src: this.getBottomLeftImageSrc(),
-											onMouseEnter: function onMouseEnter() {
-												return _this2.showCaption('captions-left-double-bottom');
-											}
+											src: this.getBottomLeftImageSrc()
+											//onMouseEnter={() => this.showCaption('captions-left-double-bottom')}
 										})
 									)
 								)
@@ -32220,10 +32365,8 @@
 							"div",
 							null,
 							_react2.default.createElement("img", {
-								src: this.props.content.full_sized_image.sizes.fullsize,
-								onMouseEnter: function onMouseEnter() {
-									return _this2.showCaption('captions-full-image');
-								}
+								src: this.props.content.full_sized_image.sizes.fullsize
+								//onMouseEnter={() => this.showCaption('captions-full-image')}
 							}),
 							_react2.default.createElement("div", { id: "captions-full-image", className: 'captions-' + this.props.content.full_sized_image_caption_position, dangerouslySetInnerHTML: { __html: this.getFullSizedCaptions() } })
 						);
@@ -32232,10 +32375,8 @@
 							"div",
 							null,
 							_react2.default.createElement("img", {
-								src: this.props.content.full_sized_image.sizes.fullsize,
-								onMouseEnter: function onMouseEnter() {
-									return _this2.showCaption('captions-full-image');
-								}
+								src: this.props.content.full_sized_image.sizes.fullsize
+								//onMouseEnter={() => this.showCaption('captions-full-image')}
 							})
 						);
 					}
@@ -32385,7 +32526,7 @@
 					} else if (this.props.content.right_image_placement == "bottomright") {
 						return 'bottom-right ';
 					} else if (this.props.content.right_image_placement == "center") {
-						return ' ';
+						return 'center ';
 					}
 				} else {
 					return '';
@@ -32415,28 +32556,28 @@
 					return caption;
 				}
 			}
-		}, {
-			key: "showCaption",
-			value: function showCaption(caption) {
-				var captionsLeft = document.getElementsByClassName("captions-left");
-				for (var i = 0; i < captionsLeft.length; i++) {
-					if (captionsLeft[i].style.opacity == "1") {
-						captionsLeft[i].style.opacity = "0";
-					}
-				}
-				var captionsRight = document.getElementsByClassName("captions-right");
-				for (var i = 0; i < captionsRight.length; i++) {
-					if (captionsRight[i].style.opacity == "1") {
-						captionsRight[i].style.opacity = "0";
-					}
-				}
-				document.getElementById(caption).style.opacity = "1";
-			}
+
+			/*
+	  	showCaption(caption) {
+	  		var captionsLeft = document.getElementsByClassName("captions-left");
+	  		for(var i = 0; i < captionsLeft.length; i++) {
+	  		    if(captionsLeft[i].style.opacity == "1") {
+	  			    captionsLeft[i].style.opacity = "0";
+	  		    }
+	  		}
+	  		var captionsRight = document.getElementsByClassName("captions-right");
+	  		for(var i = 0; i < captionsRight.length; i++) {
+	  		    if(captionsRight[i].style.opacity == "1") {
+	  			    captionsRight[i].style.opacity = "0";
+	  		    }
+	  		}
+	  		document.getElementById(caption).style.opacity = "1";
+	  	}
+	  */
+
 		}, {
 			key: "getContent",
 			value: function getContent() {
-				var _this2 = this;
-
 				if (this.props.content.page_type == 'text') {
 					if (this.props.content.right_content_text == 'text') {
 						return _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.content.text_content_right } });
@@ -32462,10 +32603,8 @@
 								"div",
 								null,
 								_react2.default.createElement("img", {
-									src: this.getRightImageSrc(),
-									onMouseEnter: function onMouseEnter() {
-										return _this2.showCaption('captions-right-single');
-									}
+									src: this.getRightImageSrc()
+									//onMouseEnter={() => this.showCaption('captions-right-single')}
 								}),
 								_react2.default.createElement("div", { id: "captions-right-single", className: "captions-right", dangerouslySetInnerHTML: { __html: this.getSingleRightCaptions() } })
 							);
@@ -32474,10 +32613,8 @@
 								"div",
 								null,
 								_react2.default.createElement("img", {
-									src: this.getRightImageSrc(),
-									onMouseEnter: function onMouseEnter() {
-										return _this2.showCaption('captions-right-single');
-									}
+									src: this.getRightImageSrc()
+									//onMouseEnter={() => this.showCaption('captions-right-single')}
 								})
 							);
 						}
@@ -32493,10 +32630,8 @@
 										"div",
 										null,
 										_react2.default.createElement("img", {
-											src: this.getTopRightImageSrc(),
-											onMouseEnter: function onMouseEnter() {
-												return _this2.showCaption('captions-right-double-top');
-											}
+											src: this.getTopRightImageSrc()
+											//onMouseEnter={() => this.showCaption('captions-right-double-top')}
 										}),
 										_react2.default.createElement("div", { id: "captions-right-double-top", className: "captions-right", dangerouslySetInnerHTML: { __html: this.getDoubleTopRightCaptions() } })
 									)
@@ -32508,10 +32643,8 @@
 										"div",
 										null,
 										_react2.default.createElement("img", {
-											src: this.getBottomRightImageSrc(),
-											onMouseEnter: function onMouseEnter() {
-												return _this2.showCaption('captions-right-double-bottom');
-											}
+											src: this.getBottomRightImageSrc()
+											//onMouseEnter={() => this.showCaption('captions-right-double-bottom')}
 										}),
 										_react2.default.createElement("div", { id: "captions-right-double-bottom", className: "captions-right", dangerouslySetInnerHTML: { __html: this.getDoubleBottomRightCaptions() } })
 									)
@@ -32528,10 +32661,8 @@
 										"div",
 										null,
 										_react2.default.createElement("img", {
-											src: this.getTopRightImageSrc(),
-											onMouseEnter: function onMouseEnter() {
-												return _this2.showCaption('captions-right-double-top');
-											}
+											src: this.getTopRightImageSrc()
+											//onMouseEnter={() => this.showCaption('captions-right-double-top')}
 										})
 									)
 								),
@@ -32542,10 +32673,8 @@
 										"div",
 										null,
 										_react2.default.createElement("img", {
-											src: this.getBottomRightImageSrc(),
-											onMouseEnter: function onMouseEnter() {
-												return _this2.showCaption('captions-right-double-bottom');
-											}
+											src: this.getBottomRightImageSrc()
+											//onMouseEnter={() => this.showCaption('captions-right-double-bottom')}
 										})
 									)
 								)
