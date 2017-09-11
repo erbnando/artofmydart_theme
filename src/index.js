@@ -84,27 +84,12 @@ class App extends Component {
 	}
 
 	onOrientationChange() {
-		var setWidthAndHeight = setInterval(function() {
-			if (window.outerWidth != '0' && window.outerHeight != '0') {
-				document.getElementById('app').style.height = window.outerHeight + 'px';
-				document.getElementById('app').style.width = window.outerWidth + 'px';
-				var stop = setTimeout(function() {
-					clearInterval(setWidthAndHeight);
-				}, 200);
-			} else {
-				document.getElementById('app').style.height = document.documentElement.clientHeight + 'px';
-				document.getElementById('app').style.width = document.documentElement.clientWidth + 'px';
-				var stop = setTimeout(function() {
-					clearInterval(setWidthAndHeight);
-				}, 200);
-			}
-		}, 10);
 
 		if (document.getElementById('container')) {
 			var container = document.getElementById('container');
 			if (window.screen.orientation != undefined) {
-				//console.log('window.screen.orientation');
 				var orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
+				
 				if (orientation.type === "landscape-primary") {
 					if (container.classList.contains('portrait')) {
 						container.classList.remove('portrait');
@@ -121,8 +106,81 @@ class App extends Component {
 						container.classList.add('portrait');
 					}
 				}
+				
+				if ((orientation.type === "portrait-secondary" || orientation.type === "portrait-primary") && window.location.href.indexOf("/books/") > -1) {
+					document.getElementById('body').classList.add('book-portrait');
+					var setWidthAndHeight = setInterval(function() {
+						if (window.outerWidth != '0' && window.outerHeight != '0') {
+							document.getElementById('app').style.width = window.outerHeight + 'px';
+							document.getElementById('app').style.height = window.outerWidth + 'px';
+							var stop = setTimeout(function() {
+								clearInterval(setWidthAndHeight);
+							}, 200);
+						} else {
+							document.getElementById('app').style.width = document.documentElement.clientHeight + 'px';
+							document.getElementById('app').style.height = document.documentElement.clientWidth + 'px';
+							var stop = setTimeout(function() {
+								clearInterval(setWidthAndHeight);
+							}, 200);
+						}
+					}, 10);
+				} else {
+					if (document.getElementById('body').classList.contains('book-portrait')) document.getElementById('body').classList.remove('book-portrait');
+					var setWidthAndHeight = setInterval(function() {
+						if (window.outerWidth != '0' && window.outerHeight != '0') {
+							document.getElementById('app').style.height = window.outerHeight + 'px';
+							document.getElementById('app').style.width = window.outerWidth + 'px';
+							var stop = setTimeout(function() {
+								clearInterval(setWidthAndHeight);
+							}, 200);
+						} else {
+							document.getElementById('app').style.height = document.documentElement.clientHeight + 'px';
+							document.getElementById('app').style.width = document.documentElement.clientWidth + 'px';
+							var stop = setTimeout(function() {
+								clearInterval(setWidthAndHeight);
+							}, 200);
+						}
+					}, 10);
+				}
+
 			} else if (window.orientation != undefined) {
 				//console.log('window.orientation');
+				if ((window.orientation == 0 || window.orientation == 180) && window.location.href.indexOf("/books/") > -1) {
+					document.getElementById('body').classList.add('book-portrait');
+					var setWidthAndHeight = setInterval(function() {
+						if (window.outerWidth != '0' && window.outerHeight != '0') {
+							document.getElementById('app').style.width = window.outerHeight + 'px';
+							document.getElementById('app').style.height = window.outerWidth + 'px';
+							var stop = setTimeout(function() {
+								clearInterval(setWidthAndHeight);
+							}, 200);
+						} else {
+							document.getElementById('app').style.width = document.documentElement.clientHeight + 'px';
+							document.getElementById('app').style.height = document.documentElement.clientWidth + 'px';
+							var stop = setTimeout(function() {
+								clearInterval(setWidthAndHeight);
+							}, 200);
+						}
+					}, 10);
+				} else {
+					if (document.getElementById('body').classList.contains('book-portrait')) document.getElementById('body').classList.remove('book-portrait');
+					var setWidthAndHeight = setInterval(function() {
+						if (window.outerWidth != '0' && window.outerHeight != '0') {
+							document.getElementById('app').style.height = window.outerHeight + 'px';
+							document.getElementById('app').style.width = window.outerWidth + 'px';
+							var stop = setTimeout(function() {
+								clearInterval(setWidthAndHeight);
+							}, 200);
+						} else {
+							document.getElementById('app').style.height = document.documentElement.clientHeight + 'px';
+							document.getElementById('app').style.width = document.documentElement.clientWidth + 'px';
+							var stop = setTimeout(function() {
+								clearInterval(setWidthAndHeight);
+							}, 200);
+						}
+					}, 10);
+				}
+
 				switch (window.orientation) {  
 				case 0:
 					if (container.classList.contains('landscape')) {
@@ -158,21 +216,41 @@ class App extends Component {
 		if (md.phone() != null) {
 			console.log('mobile');
 
-			var setWidthAndHeight = setInterval(function() {
-				if (window.outerWidth != '0' && window.outerHeight != '0') {
-					document.getElementById('app').style.height = window.outerHeight + 'px';
-					document.getElementById('app').style.width = window.outerWidth + 'px';
-					var stop = setTimeout(function() {
-						clearInterval(setWidthAndHeight);
-					}, 200);
-				} else {
-					document.getElementById('app').style.height = document.documentElement.clientHeight + 'px';
-					document.getElementById('app').style.width = document.documentElement.clientWidth + 'px';
-					var stop = setTimeout(function() {
-						clearInterval(setWidthAndHeight);
-					}, 200);
-				}
-			}, 10);
+			if (this.deviceOrientation() == false && window.location.href.indexOf("/books/") > -1) {
+				document.getElementById('body').classList.add('book-portrait');
+				var setWidthAndHeight = setInterval(function() {
+					if (window.outerWidth != '0' && window.outerHeight != '0') {
+						document.getElementById('app').style.width = window.outerHeight + 'px';
+						document.getElementById('app').style.height = window.outerWidth + 'px';
+						var stop = setTimeout(function() {
+							clearInterval(setWidthAndHeight);
+						}, 200);
+					} else {
+						document.getElementById('app').style.width = document.documentElement.clientHeight + 'px';
+						document.getElementById('app').style.height = document.documentElement.clientWidth + 'px';
+						var stop = setTimeout(function() {
+							clearInterval(setWidthAndHeight);
+						}, 200);
+					}
+				}, 10);
+			} else {
+				if (document.getElementById('body').classList.contains('book-portrait')) document.getElementById('body').classList.remove('book-portrait');
+				var setWidthAndHeight = setInterval(function() {
+					if (window.outerWidth != '0' && window.outerHeight != '0') {
+						document.getElementById('app').style.height = window.outerHeight + 'px';
+						document.getElementById('app').style.width = window.outerWidth + 'px';
+						var stop = setTimeout(function() {
+							clearInterval(setWidthAndHeight);
+						}, 200);
+					} else {
+						document.getElementById('app').style.height = document.documentElement.clientHeight + 'px';
+						document.getElementById('app').style.width = document.documentElement.clientWidth + 'px';
+						var stop = setTimeout(function() {
+							clearInterval(setWidthAndHeight);
+						}, 200);
+					}
+				}, 10);
+			}
 
 			/*
 			var adjustHeadingSize = setInterval(function() { 
@@ -193,7 +271,7 @@ class App extends Component {
 
 			if (this.deviceOrientation() == false) {
 				console.log('portrait');
-				if (window.location.href.indexOf("/books/") > -1) {
+				if (window.location.href.indexOf("/books/") > -1) {					
 					return (
 						<div id="container" className="container grayheader mobile portrait">
 							<Header />
