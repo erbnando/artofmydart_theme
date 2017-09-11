@@ -298,7 +298,9 @@ img {
                   line-height: 1.6vw;
                   margin-bottom: 0; }
                 .mobile.landscape .index .grid-two #content-left > div .posts .post div .date, .mobile.landscape .index .grid-two #content-right > div .posts .post div .date, .mobile.landscape .home .grid-two #content-left > div .posts .post div .date, .mobile.landscape .home .grid-two #content-right > div .posts .post div .date {
-                  display: none; }
+                  margin-top: 0;
+                  font-size: 1.75vw;
+                  line-height: 2.2vw; }
           .mobile.landscape .index .grid-two #content-left > div .nav, .mobile.landscape .index .grid-two #content-right > div .nav, .mobile.landscape .home .grid-two #content-left > div .nav, .mobile.landscape .home .grid-two #content-right > div .nav {
             bottom: -5px; }
             .mobile.landscape .index .grid-two #content-left > div .nav .nav-item a, .mobile.landscape .index .grid-two #content-right > div .nav .nav-item a, .mobile.landscape .home .grid-two #content-left > div .nav .nav-item a, .mobile.landscape .home .grid-two #content-right > div .nav .nav-item a {
