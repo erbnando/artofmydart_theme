@@ -173,8 +173,10 @@ img {
     .mobile.portrait .home .grid-two #content-right .posts .post {
       margin-bottom: 25px; }
       .mobile.portrait .home .grid-two #content-right .posts .post a h3 {
-        margin-bottom: 5px;
+        margin-bottom: 2px !important;
         line-height: 21px; }
+      .mobile.portrait .home .grid-two #content-right .posts .post .date {
+        margin-top: 0; }
     .mobile.portrait .home .grid-two #content-right .nav {
       bottom: -40px; }
       .mobile.portrait .home .grid-two #content-right .nav .nav-link.more {
@@ -197,8 +199,10 @@ img {
     .mobile.portrait .index .grid-two #content-left .posts .post, .mobile.portrait .index .grid-two #content-right .posts .post {
       margin-bottom: 25px; }
       .mobile.portrait .index .grid-two #content-left .posts .post a h3, .mobile.portrait .index .grid-two #content-right .posts .post a h3 {
-        margin-bottom: 5px;
+        margin-bottom: 2px !important;
         line-height: 21px; }
+      .mobile.portrait .index .grid-two #content-left .posts .post .date, .mobile.portrait .index .grid-two #content-right .posts .post .date {
+        margin-top: 0; }
     .mobile.portrait .index .grid-two #content-left .nav, .mobile.portrait .index .grid-two #content-right .nav {
       bottom: -40px; }
       .mobile.portrait .index .grid-two #content-left .nav .nav-link.more, .mobile.portrait .index .grid-two #content-right .nav .nav-link.more {
