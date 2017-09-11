@@ -1589,6 +1589,8 @@
 }
 
 .book-portrait {
+	width: 100%;
+	overflow: hidden;
 	&:before {
 		content: '';
 		width: 100%;
@@ -1614,5 +1616,12 @@
 		font-size: 22px;
 		line-height: 28px;
 		font-weight: 400;
+	}
+	#app {
+		#content {
+			> div {
+				width: 70%;
+			}
+		}
 	}
 }

@@ -1,5 +1,7 @@
 html {
-  height: 100%; }
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
   html body {
     height: 100%;
     margin: 0; }
@@ -1747,28 +1749,32 @@ img {
         .mobile.landscape > div > .book.lastpage .book-nav, .portrait > div > .book.lastpage .book-nav {
           margin-top: 10px; }
 
-.book-portrait:before {
-  content: '';
+.book-portrait {
   width: 100%;
-  height: 100%;
-  position: absolute;
-  background: black;
-  opacity: .5;
-  z-index: 10;
-  display: block; }
-
-.book-portrait:after {
-  content: 'Please Turn Your Device Sideways';
-  color: white;
-  z-index: 11;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 50%;
-  font-family: Poly;
-  font-style: italic;
-  font-size: 22px;
-  line-height: 28px;
-  font-weight: 400; }
+  overflow: hidden; }
+  .book-portrait:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: black;
+    opacity: .5;
+    z-index: 10;
+    display: block; }
+  .book-portrait:after {
+    content: 'Please Turn Your Device Sideways';
+    color: white;
+    z-index: 11;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 50%;
+    font-family: Poly;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 400; }
+  .book-portrait #app #content > div {
+    width: 70%; }
