@@ -335,7 +335,8 @@ img {
           .mobile.landscape .index .grid-two #content-left > div .nav, .mobile.landscape .index .grid-two #content-right > div .nav, .mobile.landscape .home .grid-two #content-left > div .nav, .mobile.landscape .home .grid-two #content-right > div .nav {
             bottom: -5px; }
             .mobile.landscape .index .grid-two #content-left > div .nav .nav-item a, .mobile.landscape .index .grid-two #content-right > div .nav .nav-item a, .mobile.landscape .home .grid-two #content-left > div .nav .nav-item a, .mobile.landscape .home .grid-two #content-right > div .nav .nav-item a {
-              margin-right: 10px; }
+              margin-right: 10px;
+              padding-right: 55px; }
 
 .tablet.portrait .home {
   padding-bottom: 80px !important;

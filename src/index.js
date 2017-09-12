@@ -19,12 +19,18 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		window.scrollTo(0,1);
+		var hideAddressBar = setTimeout(function() {
+			window.scrollTo(0,1);
+		}, 1000);
+	}
+
+	componentDidUpdate() {
+		var hideAddressBar = setTimeout(function() {
+			window.scrollTo(0,1);
+		}, 1000);
 	}
 
 	componentWillUpdate() {
-		window.scrollTo(0,1);
-
 		/*
 		var captionsLeft = document.getElementsByClassName("captions-left");
 		for(var i = 0; i < captionsLeft.length; i++) {
