@@ -515,7 +515,7 @@
 .nav {
     position: absolute;
     right: 0;
-    bottom: -60px;
+    bottom: -70px;
     .nav-item {
     	.nav-link {
     		font-family: Lato;
@@ -524,14 +524,16 @@
 			color: #bbb;
 			text-transform: uppercase;
 			text-decoration: none;
+			display: block;
 			&.more {
-				padding-right: 45px;
+				display: block;
+				padding: 10px 45px 10px 10px;
 				position: relative;
 				margin-right: 60px;
    				&:after {
 					content: '';
 					width: 36px;
-					height: 11px;
+					height: 21px;
 					display: block;
 					background: url('./../../img/more.png');
 					background-repeat: no-repeat;

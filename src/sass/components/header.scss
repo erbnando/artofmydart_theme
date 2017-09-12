@@ -10,14 +10,18 @@
         height: 123px;
         .logo {
             display: inline-block;
-            margin: 25px 0 0 30px;
-            img {
-                width: 114px;
+            margin: 5px 0 0 10px;
+            a {
+                display: block;
+                padding: 20px;
+                img {
+                    width: 114px;
+                }
             }
         }
         nav {
             float: right;
-            margin: 20px 50px 0 0;
+            margin: 10px 42px 0 0;
             ul {
                 list-style-type: none;
                 padding: 0;
@@ -25,7 +29,7 @@
                 font-size: 0;
                 li {
                     display: inline-block;
-                    margin-left: 14px;
+                    //margin-left: 14px;
                     a {
                         font-family: Lato;
                         color: black;
@@ -33,6 +37,8 @@
                         text-transform: uppercase;
                         font-weight: 900;
                         font-size: 12px;
+                        padding: 10px 7.5px;
+                        display: block;
                     }
                 }
                 li:first-child {
@@ -44,7 +50,13 @@
                     }
                 }
                 .social-first {
-                    margin-left: 20px;
+                    margin-left: 5px;
+                }
+                .social {
+                    //margin-left: 14px;
+                    a {
+                        padding: 7px;
+                    }
                 }
             }
         }
@@ -54,26 +66,45 @@
         header {
             height: 72px;
             .logo {
-                margin: 18px 0 0 18px;
+                margin: 8px 0 0 8px;
                 img {
                     width: 60px;
                 }
             }
             nav {
-                margin: 16px 14px 0 0;
+                margin: 8px 14px 0 0;
                 ul {
                     li {
-                        margin-left: 10px;
+                        //margin-left: 10px;
                         a {
                             font-size: 11px;
+                            padding: 10px 5px;
                         }
                     }
                     .social-first {
-                        margin-left: 18px;
+                        margin-left: 5px;
                     }
                     .social {
-                        margin-left: 14px;
+                        //margin-left: 14px;
+                        a {
+                            padding: 7px;
+                        }
                     }
+                }
+            }
+        }
+    }
+}
+
+.mobile.portrait {
+    .nav {
+        bottom: -45px!important;
+        .nav-item {
+            .nav-link {
+                padding-top: 20px;
+                margin-right: 0!important;
+                &:after {
+                    right: 10px;
                 }
             }
         }
@@ -91,6 +122,18 @@
     &.grayheader {
         header {
             display: none;
-        }        
+        }   
+    }
+    .nav {
+        bottom: -10px!important;
+        .nav-item {
+            .nav-link {
+                padding-top: 20px;
+                margin-right: 0!important;
+                &:after {
+                    right: 10px;
+                }
+            }
+        }
     }
 }

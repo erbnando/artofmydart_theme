@@ -2,7 +2,8 @@ html {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  overflow-y: auto; }
+  overflow-y: auto;
+  -webkit-text-size-adjust: 100%; }
   html body {
     height: 100%;
     margin: 0; }
@@ -98,52 +99,65 @@ img {
   height: 123px; }
   .container header .logo {
     display: inline-block;
-    margin: 25px 0 0 30px; }
-    .container header .logo img {
-      width: 114px; }
+    margin: 5px 0 0 10px; }
+    .container header .logo a {
+      display: block;
+      padding: 20px; }
+      .container header .logo a img {
+        width: 114px; }
   .container header nav {
     float: right;
-    margin: 20px 50px 0 0; }
+    margin: 10px 42px 0 0; }
     .container header nav ul {
       list-style-type: none;
       padding: 0;
       margin: 0;
       font-size: 0; }
       .container header nav ul li {
-        display: inline-block;
-        margin-left: 14px; }
+        display: inline-block; }
         .container header nav ul li a {
           font-family: Lato;
           color: black;
           text-decoration: none;
           text-transform: uppercase;
           font-weight: 900;
-          font-size: 12px; }
+          font-size: 12px;
+          padding: 10px 7.5px;
+          display: block; }
       .container header nav ul li:first-child {
         margin-left: 0; }
       .container header nav ul .fa:before {
         vertical-align: middle; }
       .container header nav ul .social-first {
-        margin-left: 20px; }
+        margin-left: 5px; }
+      .container header nav ul .social a {
+        padding: 7px; }
 
 .container.mobile {
   min-width: 320px !important; }
   .container.mobile header {
     height: 72px; }
     .container.mobile header .logo {
-      margin: 18px 0 0 18px; }
+      margin: 8px 0 0 8px; }
       .container.mobile header .logo img {
         width: 60px; }
     .container.mobile header nav {
-      margin: 16px 14px 0 0; }
-      .container.mobile header nav ul li {
-        margin-left: 10px; }
-        .container.mobile header nav ul li a {
-          font-size: 11px; }
+      margin: 8px 14px 0 0; }
+      .container.mobile header nav ul li a {
+        font-size: 11px;
+        padding: 10px 5px; }
       .container.mobile header nav ul .social-first {
-        margin-left: 18px; }
-      .container.mobile header nav ul .social {
-        margin-left: 14px; }
+        margin-left: 5px; }
+      .container.mobile header nav ul .social a {
+        padding: 7px; }
+
+.mobile.portrait .nav {
+  bottom: -45px !important; }
+  .mobile.portrait .nav .nav-item .nav-link {
+    padding-top: 20px;
+    margin-right: 0 !important; }
+    .mobile.portrait .nav .nav-item .nav-link:after {
+      right: 10px; }
 
 .mobile.landscape header {
   position: absolute;
@@ -153,6 +167,14 @@ img {
 
 .mobile.landscape.grayheader header {
   display: none; }
+
+.mobile.landscape .nav {
+  bottom: -10px !important; }
+  .mobile.landscape .nav .nav-item .nav-link {
+    padding-top: 20px;
+    margin-right: 0 !important; }
+    .mobile.landscape .nav .nav-item .nav-link:after {
+      right: 10px; }
 
 .mobile.portrait .home {
   height: auto !important;
@@ -559,22 +581,24 @@ img {
 .nav {
   position: absolute;
   right: 0;
-  bottom: -60px; }
+  bottom: -70px; }
   .nav .nav-item .nav-link {
     font-family: Lato;
     font-size: 10px;
     font-weight: 900;
     color: #bbb;
     text-transform: uppercase;
-    text-decoration: none; }
+    text-decoration: none;
+    display: block; }
     .nav .nav-item .nav-link.more {
-      padding-right: 45px;
+      display: block;
+      padding: 10px 45px 10px 10px;
       position: relative;
       margin-right: 60px; }
       .nav .nav-item .nav-link.more:after {
         content: '';
         width: 36px;
-        height: 11px;
+        height: 21px;
         display: block;
         background: url(img/more_2.png);
         background-repeat: no-repeat;
@@ -642,12 +666,13 @@ img {
 
 .book .book-nav {
   text-align: center;
-  margin-top: 40px; }
+  margin-top: 33px; }
   .book .book-nav .next {
     width: 36px;
     height: 11px;
     display: inline-block;
-    margin: 0 12px; }
+    margin: 0;
+    padding: 10px 12px; }
     .book .book-nav .next:after {
       content: '';
       width: 36px;
@@ -661,7 +686,8 @@ img {
     width: 36px;
     height: 11px;
     display: inline-block;
-    margin: 0 12px; }
+    margin: 0;
+    padding: 10px 12px; }
     .book .book-nav .prev:after {
       content: '';
       width: 36px;
@@ -1215,7 +1241,12 @@ img {
                 top: 45%;
                 padding: 0 20px !important; }
         .mobile.landscape > div > .book.cover .book-nav, .portrait > div > .book.cover .book-nav {
-          margin-top: 10px; }
+          margin-top: 0;
+          height: 40px; }
+          .mobile.landscape > div > .book.cover .book-nav a, .portrait > div > .book.cover .book-nav a {
+            margin: 0 !important;
+            margin: 0 !important;
+            padding: 14px 12px 15px; }
       .mobile.landscape > div > .book.title, .portrait > div > .book.title {
         height: 100%;
         display: block !important;
@@ -1243,7 +1274,12 @@ img {
                 margin: 0;
                 font-size: 2.8vw; }
         .mobile.landscape > div > .book.title .book-nav, .portrait > div > .book.title .book-nav {
-          margin-top: 10px; }
+          margin-top: 0;
+          height: 40px; }
+          .mobile.landscape > div > .book.title .book-nav a, .portrait > div > .book.title .book-nav a {
+            margin: 0 !important;
+            margin: 0 !important;
+            padding: 14px 12px 15px; }
       .mobile.landscape > div > .book.text, .portrait > div > .book.text {
         height: 100%;
         display: block !important;
@@ -1301,7 +1337,12 @@ img {
             .mobile.landscape > div > .book.text > div:not(:last-child) #book .book-grid-two.quote > div > div span, .portrait > div > .book.text > div:not(:last-child) #book .book-grid-two.quote > div > div span {
               line-height: inherit; }
         .mobile.landscape > div > .book.text .book-nav, .portrait > div > .book.text .book-nav {
-          margin-top: 10px; }
+          margin-top: 0;
+          height: 40px; }
+          .mobile.landscape > div > .book.text .book-nav a, .portrait > div > .book.text .book-nav a {
+            margin: 0 !important;
+            margin: 0 !important;
+            padding: 14px 12px 15px; }
       .mobile.landscape > div > .book.images, .portrait > div > .book.images {
         height: 100%;
         display: block !important;
@@ -1721,7 +1762,12 @@ img {
                             font-size: 10px !important;
                             line-height: 13px !important; }
         .mobile.landscape > div > .book.images .book-nav, .portrait > div > .book.images .book-nav {
-          margin-top: 10px; }
+          margin-top: 0;
+          height: 40px; }
+          .mobile.landscape > div > .book.images .book-nav a, .portrait > div > .book.images .book-nav a {
+            margin: 0 !important;
+            margin: 0 !important;
+            padding: 14px 12px 15px; }
       .mobile.landscape > div > .book.lastpage, .portrait > div > .book.lastpage {
         height: 100%;
         width: 100%;
@@ -1754,12 +1800,18 @@ img {
               right: 0;
               text-align: center; }
         .mobile.landscape > div > .book.lastpage .book-nav, .portrait > div > .book.lastpage .book-nav {
-          margin-top: 10px; }
+          margin-top: 0;
+          height: 40px; }
+          .mobile.landscape > div > .book.lastpage .book-nav a, .portrait > div > .book.lastpage .book-nav a {
+            margin: 0 !important;
+            margin: 0 !important;
+            padding: 14px 12px 15px; }
 
-.book-portrait {
+html body.book-portrait {
   width: 100%;
+  height: 100%;
   overflow: hidden; }
-  .book-portrait:before {
+  html body.book-portrait:before {
     content: '';
     width: 100%;
     height: 100%;
@@ -1768,7 +1820,7 @@ img {
     opacity: .75;
     z-index: 10;
     display: block; }
-  .book-portrait:after {
+  html body.book-portrait:after {
     content: 'Please Turn Your Device Sideways';
     color: white;
     z-index: 11;
@@ -1783,3 +1835,9 @@ img {
     font-size: 22px;
     line-height: 28px;
     font-weight: 400; }
+  html body.book-portrait #app #container.grayheader header#main_header {
+    opacity: 1 !important;
+    z-index: 12; }
+    html body.book-portrait #app #container.grayheader header#main_header .logo a img {
+      -webkit-filter: invert(100%);
+      filter: invert(100%); }

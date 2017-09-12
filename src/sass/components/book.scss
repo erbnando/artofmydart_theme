@@ -4,12 +4,13 @@
 	}
 	.book-nav {
 		 text-align: center;
-		 margin-top: 40px;
+		 margin-top: 33px;
 		.next {
 			width: 36px;
 		    height: 11px;
 		    display: inline-block;
-		    margin: 0 12px;
+		    margin: 0;
+		    padding: 10px 12px;
 		    &:after {
 				content: '';
 				width: 36px;
@@ -25,7 +26,8 @@
 			width: 36px;
 		    height: 11px;
 		    display: inline-block;
-		    margin: 0 12px;
+		    margin: 0;
+		    padding: 10px 12px;
 		    &:after {
 				content: '';
 				width: 36px;
@@ -745,7 +747,13 @@
 					}
 				}
 				.book-nav {
-					margin-top: 10px;
+					margin-top: 0;
+					height: 40px;
+					a {
+						margin: 0!important;
+					    margin: 0 !important;
+					    padding: 14px 12px 15px;
+					}
 				}
 			}
 			&.title {
@@ -784,7 +792,13 @@
 					}
 				}
 				.book-nav {
-					margin-top: 10px;
+					margin-top: 0;
+					height: 40px;
+					a {
+						margin: 0!important;
+					    margin: 0 !important;
+					    padding: 14px 12px 15px;
+					}
 				}
 			}
 			&.text {
@@ -868,7 +882,13 @@
 					}
 				}
 				.book-nav {
-					margin-top: 10px;
+					margin-top: 0;
+					height: 40px;
+					a {
+						margin: 0!important;
+					    margin: 0 !important;
+					    padding: 14px 12px 15px;
+					}
 				}
 			}
 			&.images {
@@ -1541,7 +1561,13 @@
 					}
 				}
 				.book-nav {
-					margin-top: 10px;
+					margin-top: 0;
+					height: 40px;
+					a {
+						margin: 0!important;
+					    margin: 0 !important;
+					    padding: 14px 12px 15px;
+					}
 				}
 			}
 			&.lastpage {
@@ -1581,45 +1607,64 @@
 					}
 				}
 				.book-nav {
-					margin-top: 10px;
+					margin-top: 0;
+					height: 40px;
+					a {
+						margin: 0!important;
+					    margin: 0 !important;
+					    padding: 14px 12px 15px;
+					}
 				}
 			}
 		}
 	}
 }
 
-.book-portrait {
-	width: 100%;
-	overflow: hidden;
-	&:before {
-		content: '';
+html {
+	body.book-portrait {
 		width: 100%;
 		height: 100%;
-		position: absolute;
-		background: black;
-		opacity: .75;
-		z-index: 10;
-		display: block;
-	}
-	&:after {
-	    content: 'Please Turn Your Device Sideways';
-	    color: white;
-	    z-index: 11;
-	    position: absolute;
-	    left: 50%;
-	    top: 50%;
-	    transform: translate(-50%, -50%);
-	    text-align: center;
-	    width: 50%;
-		font-family: Poly;
-		font-style: italic;
-		font-size: 22px;
-		line-height: 28px;
-		font-weight: 400;
-	}
-	#app {
-		#content {
-			> div {
+		overflow: hidden;
+		&:before {
+			content: '';
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			background: black;
+			opacity: .75;
+			z-index: 10;
+			display: block;
+		}
+		&:after {
+		    content: 'Please Turn Your Device Sideways';
+		    color: white;
+		    z-index: 11;
+		    position: absolute;
+		    left: 50%;
+		    top: 50%;
+		    transform: translate(-50%, -50%);
+		    text-align: center;
+		    width: 50%;
+			font-family: Poly;
+			font-style: italic;
+			font-size: 22px;
+			line-height: 28px;
+			font-weight: 400; 
+		}
+		#app {
+			#container.grayheader {
+				header#main_header {
+					opacity: 1!important;
+					z-index: 12;
+					.logo {
+						a {
+							img {
+								-webkit-filter: invert(100%);
+								filter: invert(100%);
+							}
+						}
+					}
+				}
 			}
 		}
 	}
