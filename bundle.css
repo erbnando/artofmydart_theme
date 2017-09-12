@@ -139,8 +139,10 @@ img {
     height: 72px; }
     .container.mobile header .logo {
       margin: 8px 0 0 8px; }
-      .container.mobile header .logo img {
-        width: 60px; }
+      .container.mobile header .logo a {
+        padding: 10px; }
+        .container.mobile header .logo a img {
+          width: 60px; }
     .container.mobile header nav {
       margin: 8px 14px 0 0; }
       .container.mobile header nav ul li a {
