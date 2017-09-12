@@ -117,9 +117,14 @@
 				window.url = window.location.href;
 			}
 		}, {
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				window.scrollTo(0, 1);
+			}
+		}, {
 			key: 'componentWillUpdate',
 			value: function componentWillUpdate() {
-				window.scroll(0, 0);
+				window.scrollTo(0, 1);
 
 				/*
 	   var captionsLeft = document.getElementsByClassName("captions-left");

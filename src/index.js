@@ -18,8 +18,12 @@ class App extends Component {
 		window.url = window.location.href;
 	}
 
+	componentDidMount() {
+		window.scrollTo(0,1);
+	}
+
 	componentWillUpdate() {
-		window.scroll(0,0);	
+		window.scrollTo(0,1);
 
 		/*
 		var captionsLeft = document.getElementsByClassName("captions-left");
