@@ -204,7 +204,8 @@ img {
     .mobile.portrait .home .grid-two #content-right .nav {
       bottom: -40px; }
       .mobile.portrait .home .grid-two #content-right .nav .nav-link.more {
-        margin-right: 0; }
+        margin-right: 0;
+        padding-right: 55px; }
     .mobile.portrait .home .grid-two:last-child {
       padding-right: 0; }
 

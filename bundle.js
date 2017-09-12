@@ -30551,21 +30551,6 @@
 		}
 
 		_createClass(Home, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {}
-		}, {
-			key: 'componentDidMount',
-			value: function componentDidMount() {}
-		}, {
-			key: 'shouldComponentUpdate',
-			value: function shouldComponentUpdate() {}
-		}, {
-			key: 'componentDidUpdate',
-			value: function componentDidUpdate() {}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps() {}
-		}, {
 			key: 'getPage',
 			value: function getPage() {
 				if (window.location.pathname === '/') {

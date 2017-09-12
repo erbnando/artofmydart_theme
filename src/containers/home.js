@@ -5,20 +5,6 @@ import Featured from '../components/featured';
 import BlogLeft from '../components/index_left';
 
 class Home extends Component {
-	componentWillMount() {
-	}
-
-	componentDidMount() {
-	}
-
-	shouldComponentUpdate() {
-	}
-
-	componentDidUpdate() {
-	}
-
-	componentWillReceiveProps() {
-	}
 
 	getPage() {
 		if (window.location.pathname === '/') {
