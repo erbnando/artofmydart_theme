@@ -120,15 +120,15 @@
 			key: 'componentDidMount',
 			value: function componentDidMount() {
 				var hideAddressBar = setTimeout(function () {
-					window.scrollTo(0, 1);
-				}, 1000);
+					window.scrollTo(0, 0);
+				}, 250);
 			}
 		}, {
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
 				var hideAddressBar = setTimeout(function () {
-					window.scrollTo(0, 1);
-				}, 1000);
+					window.scrollTo(0, 0);
+				}, 250);
 			}
 		}, {
 			key: 'componentWillUpdate',

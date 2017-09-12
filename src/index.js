@@ -20,14 +20,14 @@ class App extends Component {
 
 	componentDidMount() {
 		var hideAddressBar = setTimeout(function() {
-			window.scrollTo(0,1);
-		}, 1000);
+			window.scrollTo(0,0);
+		}, 250);
 	}
 
 	componentDidUpdate() {
 		var hideAddressBar = setTimeout(function() {
-			window.scrollTo(0,1);
-		}, 1000);
+			window.scrollTo(0,0);
+		}, 250);
 	}
 
 	componentWillUpdate() {
