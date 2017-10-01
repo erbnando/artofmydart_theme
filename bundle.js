@@ -100,7 +100,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(324);
+	__webpack_require__(325);
 
 	var App = function (_Component) {
 		_inherits(App, _Component);
@@ -31905,13 +31905,13 @@
 													null,
 													_react2.default.createElement(
 														'p',
-														{ className: 'author-title' },
-														this.props.book.book.acf.author_title
+														{ className: 'author-name' },
+														this.props.book.book.acf.author_name
 													),
 													_react2.default.createElement(
 														'p',
-														{ className: 'author-name' },
-														this.props.book.book.acf.author_name
+														{ className: 'author-title' },
+														this.props.book.book.acf.author_title
 													),
 													_react2.default.createElement(
 														'h1',
@@ -32212,10 +32212,7 @@
 		}, {
 			key: "getTopLeftImageSrc",
 			value: function getTopLeftImageSrc() {
-				//console.log(this.props.content.small_double_image_top_left.sizes.double_small);
-				if (this.props.content.double_image_size_top_left == "small") {
-					return this.props.content.small_double_image_top_left.sizes.doublesmall;
-				} else if (this.props.content.double_image_size_top_left == "medium") {
+				if (this.props.content.double_image_size_top_left == "medium") {
 					return this.props.content.medium_double_image_top_left.sizes.doublemedium;
 				} else if (this.props.content.double_image_size_top_left == "full") {
 					return this.props.content.full_double_image_top_left.sizes.doublefull;
@@ -32225,9 +32222,7 @@
 			key: "getBottomLeftImageSrc",
 			value: function getBottomLeftImageSrc() {
 				//console.log(this.props);
-				if (this.props.content.double_image_size_bottom_left == "small") {
-					return this.props.content.small_double_image_bottom_left.sizes.doublesmall;
-				} else if (this.props.content.double_image_size_bottom_left == "medium") {
+				if (this.props.content.double_image_size_bottom_left == "medium") {
 					return this.props.content.medium_double_image_bottom_left.sizes.doublemedium;
 				} else if (this.props.content.double_image_size_bottom_left == "full") {
 					return this.props.content.full_double_image_bottom_left.sizes.doublefull;
@@ -32567,10 +32562,7 @@
 		}, {
 			key: "getTopRightImageSrc",
 			value: function getTopRightImageSrc() {
-				//console.log(this.props.content.small_double_image_top_right.sizes.double_small);
-				if (this.props.content.double_image_size_top_right == "small") {
-					return this.props.content.small_double_image_top_right.sizes.doublesmall;
-				} else if (this.props.content.double_image_size_top_right == "medium") {
+				if (this.props.content.double_image_size_top_right == "medium") {
 					return this.props.content.medium_double_image_top_right.sizes.doublemedium;
 				} else if (this.props.content.double_image_size_top_right == "full") {
 					return this.props.content.full_double_image_top_right.sizes.doublefull;
@@ -32579,10 +32571,7 @@
 		}, {
 			key: "getBottomRightImageSrc",
 			value: function getBottomRightImageSrc() {
-				//console.log(this.props);
-				if (this.props.content.double_image_size_bottom_right == "small") {
-					return this.props.content.small_double_image_bottom_right.sizes.doublesmall;
-				} else if (this.props.content.double_image_size_bottom_right == "medium") {
+				if (this.props.content.double_image_size_bottom_right == "medium") {
 					return this.props.content.medium_double_image_bottom_right.sizes.doublemedium;
 				} else if (this.props.content.double_image_size_bottom_right == "full") {
 					return this.props.content.full_double_image_bottom_right.sizes.doublefull;
@@ -35155,7 +35144,8 @@
 
 
 /***/ }),
-/* 324 */
+/* 324 */,
+/* 325 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

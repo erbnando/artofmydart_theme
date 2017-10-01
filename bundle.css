@@ -784,19 +784,19 @@ img {
           height: 258px;
           padding: 45px 10px 10px 45px;
           box-sizing: border-box; }
-          .book.title > div:first-child #book .book-grid-two:last-child div .author-title {
-            font-family: Lato;
-            font-size: 10px;
-            color: #bbb;
-            font-weight: 900;
-            margin-bottom: 4px;
-            text-transform: uppercase; }
           .book.title > div:first-child #book .book-grid-two:last-child div .author-name {
             font-family: Poly;
             font-size: 16px;
             font-style: italic;
             font-weight: 400;
-            margin-bottom: 40px; }
+            margin-bottom: 4px; }
+          .book.title > div:first-child #book .book-grid-two:last-child div .author-title {
+            font-family: Lato;
+            font-size: 10px;
+            color: #bbb;
+            font-weight: 900;
+            margin-bottom: 40px;
+            text-transform: uppercase; }
           .book.title > div:first-child #book .book-grid-two:last-child div .book-title {
             font-family: Lato;
             font-size: 28px;
@@ -1266,14 +1266,14 @@ img {
               height: 50%;
               display: table-cell;
               padding-left: 20px !important; }
+              .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-name, .portrait > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-name {
+                font-size: 2vw;
+                margin-bottom: .5vw;
+                line-height: 2.7vw; }
               .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-title, .portrait > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-title {
                 font-size: 1.4vw;
                 line-height: 2vw;
-                margin-bottom: .5vw; }
-              .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-name, .portrait > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-name {
-                font-size: 2vw;
-                margin-bottom: 2.7vw;
-                line-height: 2.7vw; }
+                margin-bottom: 2.7vw; }
               .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .book-title, .portrait > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .book-title {
                 margin: 0;
                 font-size: 2.8vw; }

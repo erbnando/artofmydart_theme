@@ -29,11 +29,7 @@ class ContentLeft extends Component {
 	}
 
 	getTopLeftImageSrc() {
-		//console.log(this.props.content.small_double_image_top_left.sizes.double_small);
-		if (this.props.content.double_image_size_top_left == "small") {
-			return this.props.content.small_double_image_top_left.sizes.doublesmall
-		}
-		else if (this.props.content.double_image_size_top_left == "medium") {
+		if (this.props.content.double_image_size_top_left == "medium") {
 			return this.props.content.medium_double_image_top_left.sizes.doublemedium
 		}
 		else if (this.props.content.double_image_size_top_left == "full") {
@@ -43,10 +39,7 @@ class ContentLeft extends Component {
 
 	getBottomLeftImageSrc() {
 		//console.log(this.props);
-		if (this.props.content.double_image_size_bottom_left == "small") {
-			return this.props.content.small_double_image_bottom_left.sizes.doublesmall
-		}
-		else if (this.props.content.double_image_size_bottom_left == "medium") {
+		if (this.props.content.double_image_size_bottom_left == "medium") {
 			return this.props.content.medium_double_image_bottom_left.sizes.doublemedium
 		}
 		else if (this.props.content.double_image_size_bottom_left == "full") {

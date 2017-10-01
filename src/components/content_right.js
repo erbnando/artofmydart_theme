@@ -30,11 +30,7 @@ class ContentRight extends Component {
 	}
 
 	getTopRightImageSrc() {
-		//console.log(this.props.content.small_double_image_top_right.sizes.double_small);
-		if (this.props.content.double_image_size_top_right == "small") {
-			return this.props.content.small_double_image_top_right.sizes.doublesmall
-		}
-		else if (this.props.content.double_image_size_top_right == "medium") {
+		if (this.props.content.double_image_size_top_right == "medium") {
 			return this.props.content.medium_double_image_top_right.sizes.doublemedium
 		}
 		else if (this.props.content.double_image_size_top_right == "full") {
@@ -43,11 +39,7 @@ class ContentRight extends Component {
 	}
 
 	getBottomRightImageSrc() {
-		//console.log(this.props);
-		if (this.props.content.double_image_size_bottom_right == "small") {
-			return this.props.content.small_double_image_bottom_right.sizes.doublesmall
-		}
-		else if (this.props.content.double_image_size_bottom_right == "medium") {
+		if (this.props.content.double_image_size_bottom_right == "medium") {
 			return this.props.content.medium_double_image_bottom_right.sizes.doublemedium
 		}
 		else if (this.props.content.double_image_size_bottom_right == "full") {

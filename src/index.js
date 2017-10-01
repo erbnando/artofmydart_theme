@@ -1,4 +1,4 @@
-require('./sass/styles.scss');
+require('./scss/styles.scss');
 
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
@@ -30,7 +30,7 @@ class App extends Component {
 		}, 250);
 	}
 
-	componentWillUpdate() {
+	componentWillUpdate() {   
 		/*
 		var captionsLeft = document.getElementsByClassName("captions-left");
 		for(var i = 0; i < captionsLeft.length; i++) {

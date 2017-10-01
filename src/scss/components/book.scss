@@ -131,20 +131,20 @@
 						    height: 258px;
 							padding: 45px 10px 10px 45px;
 							box-sizing: border-box;
-							.author-title {
-								font-family: Lato;
-								font-size: 10px;
-								color: #bbb;
-								font-weight: 900;
-								margin-bottom: 4px;
-								text-transform: uppercase;
-							}
 							.author-name {
 								font-family: Poly;
 								font-size: 16px;
 								font-style: italic;
 								font-weight: 400;
+								margin-bottom: 4px;
+							}
+							.author-title {
+								font-family: Lato;
+								font-size: 10px;
+								color: #bbb;
+								font-weight: 900;
 								margin-bottom: 40px;
+								text-transform: uppercase;
 							}
 							.book-title {
 								font-family: Lato;
@@ -773,15 +773,15 @@
 								height: 50%;
 							    display: table-cell;
 							    padding-left: 20px!important;
+								.author-name {
+									font-size: 2vw;
+								    margin-bottom: .5vw;
+									line-height: 2.7vw;
+								}
 								.author-title {
 								    font-size: 1.4vw;
 								    line-height: 2vw;
-								    margin-bottom: .5vw;
-								}
-								.author-name {
-									font-size: 2vw;
 									margin-bottom: 2.7vw;
-									line-height: 2.7vw;
 								}
 								.book-title {
 									margin: 0;
