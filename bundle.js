@@ -32185,18 +32185,6 @@
 		}
 
 		_createClass(ContentLeft, [{
-			key: "componentWillMount",
-			value: function componentWillMount() {}
-		}, {
-			key: "componentDidMount",
-			value: function componentDidMount() {}
-		}, {
-			key: "componentDidUpdate",
-			value: function componentDidUpdate() {}
-		}, {
-			key: "componentWillReceiveProps",
-			value: function componentWillReceiveProps() {}
-		}, {
 			key: "getLeftImageSrc",
 			value: function getLeftImageSrc() {
 				if (this.props.content.single_image_size_left == "small") {
@@ -32258,79 +32246,55 @@
 		}, {
 			key: "getSingleLeftCaptions",
 			value: function getSingleLeftCaptions() {
-				if (this.props.content.single_image_caption_left) {
-					if (this.props.content.single_image_caption_subheader_left) {
-						var title = '<h6>' + this.props.content.single_image_caption_subheader_left + '</h6>';
+				var size = this.props.content.single_image_size_left + '_single_image_left';
+				if (this.props.content[size].title || this.props.content[size].caption) {
+					if (this.props.content[size].title) {
+						var title = '<h6>' + this.props.content[size].title + '</h6>';
 					} else {
 						var title = '';
 					}
-					var caption = '<div>' + '<h5>Left</H5>' + title + this.props.content.single_image_caption_text_left + '</div>';
-					return caption;
+					return '<div>' + '<h5>Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 				}
 			}
 		}, {
 			key: "getDoubleTopLeftCaptions",
 			value: function getDoubleTopLeftCaptions() {
-				if (this.props.content.double_image_caption_top_left) {
-					if (this.props.content.double_image_caption_subheader_top_left) {
-						var title = '<h6>' + this.props.content.double_image_caption_subheader_top_left + '</h6>';
+				var size = this.props.content.double_image_size_top_left + '_double_image_top_left';
+				if (this.props.content[size].title || this.props.content[size].caption) {
+					if (this.props.content[size].title) {
+						var title = '<h6>' + this.props.content[size].title + '</h6>';
 					} else {
 						var title = '';
 					}
-					var caption = '<div>' + '<h5>Upper Left</H5>' + title + this.props.content.double_image_caption_text_top_left + '</div>';
-					return caption;
+					return '<div>' + '<h5>Upper Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 				}
 			}
 		}, {
 			key: "getDoubleBottomLeftCaptions",
 			value: function getDoubleBottomLeftCaptions() {
-				if (this.props.content.double_image_caption_bottom_left) {
-					if (this.props.content.double_image_caption_subheader_bottom_left) {
-						var title = '<h6>' + this.props.content.double_image_caption_subheader_bottom_left + '</h6>';
+				var size = this.props.content.double_image_size_top_left + '_double_image_bottom_left';
+				if (this.props.content[size].title || this.props.content[size].caption) {
+					if (this.props.content[size].title) {
+						var title = '<h6>' + this.props.content[size].title + '</h6>';
 					} else {
 						var title = '';
 					}
-					var caption = '<div>' + '<h5>Lower Left</H5>' + title + this.props.content.double_image_caption_text_bottom_left + '</div>';
-					return caption;
+					return '<div>' + '<h5>Lower Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 				}
 			}
 		}, {
 			key: "getFullSizedCaptions",
 			value: function getFullSizedCaptions() {
-				if (this.props.content.full_sized_image_caption) {
-					if (this.props.content.full_sized_image_caption_subheader) {
-						var title = '<h6>' + this.props.content.full_sized_image_caption_subheader + '</h6>';
+				if (this.props.content.full_sized_image.title || this.props.content.full_sized_image.caption) {
+					if (this.props.content.full_sized_image.title) {
+						var title = '<h6>' + this.props.content.full_sized_image.title + '</h6>';
 					} else {
 						var title = '';
 					}
-					var caption = '<div>' + title + this.props.content.full_sized_image_caption_text + '</div>';
+					var caption = '<div>' + title + '<p>' + this.props.content.full_sized_image.caption + '</p>' + '</div>';
 					return caption;
 				}
 			}
-
-			/*
-	  	showCaption(caption) {
-	  		var captionsLeft = document.getElementsByClassName("captions-left");
-	  		for(var i = 0; i < captionsLeft.length; i++) {
-	  		    if(captionsLeft[i].style.opacity == "1") {
-	  			    captionsLeft[i].style.opacity = "0";
-	  				captionsLeft[i].style.zIndex = "0";
-	  		    }
-	  		}
-	  		var captionsRight = document.getElementsByClassName("captions-right");
-	  		for(var i = 0; i < captionsRight.length; i++) {
-	  		    if(captionsRight[i].style.opacity == "1") {
-	  			    captionsRight[i].style.opacity = "0";
-	  				captionsLeft[i].style.zIndex = "0";
-	  		    }
-	  		}
-	  		if (document.getElementById(caption)) {
-	  			document.getElementById(caption).style.opacity = "1";
-	  			document.getElementById(caption).style.zIndex = "1";
-	  		}
-	  	}
-	  */
-
 		}, {
 			key: "getContent",
 			value: function getContent() {
@@ -32354,110 +32318,53 @@
 					}
 				} else if (this.props.content.page_type == 'images') {
 					if (this.props.content.left_content_image == 'single') {
-						if (this.props.content.single_image_caption_left) {
-							return _react2.default.createElement(
-								"div",
-								null,
-								_react2.default.createElement("img", {
-									src: this.getLeftImageSrc()
-									//onMouseEnter={() => this.showCaption('captions-left-single')}
-								}),
-								_react2.default.createElement("div", { id: "captions-left-single", className: "captions-left", dangerouslySetInnerHTML: { __html: this.getSingleLeftCaptions() } })
-							);
-						} else {
-							return _react2.default.createElement(
-								"div",
-								null,
-								_react2.default.createElement("img", {
-									src: this.getLeftImageSrc()
-									//onMouseEnter={() => this.showCaption('captions-left-single')}
-								})
-							);
-						}
+						return _react2.default.createElement(
+							"div",
+							null,
+							_react2.default.createElement("img", {
+								src: this.getLeftImageSrc()
+							}),
+							_react2.default.createElement("div", { id: "captions-left-single", className: "captions-left", dangerouslySetInnerHTML: { __html: this.getSingleLeftCaptions() } })
+						);
 					} else if (this.props.content.left_content_image == 'double') {
-						if (this.props.content.double_image_caption_top_left || this.props.content.double_image_caption_bottom_left) {
-							return _react2.default.createElement(
+						return _react2.default.createElement(
+							"div",
+							null,
+							_react2.default.createElement(
 								"div",
-								null,
+								{ className: this.props.content.double_image_size_top_left },
 								_react2.default.createElement(
 									"div",
-									{ className: this.props.content.double_image_size_top_left },
-									_react2.default.createElement(
-										"div",
-										null,
-										_react2.default.createElement("img", {
-											src: this.getTopLeftImageSrc()
-											//onMouseEnter={() => this.showCaption('captions-left-double-top')}
-										}),
-										_react2.default.createElement("div", { id: "captions-left-double-top", className: "captions-left", dangerouslySetInnerHTML: { __html: this.getDoubleTopLeftCaptions() } })
-									)
-								),
-								_react2.default.createElement(
-									"div",
-									{ className: this.props.content.double_image_size_bottom_left },
-									_react2.default.createElement(
-										"div",
-										null,
-										_react2.default.createElement("img", {
-											src: this.getBottomLeftImageSrc()
-											//onMouseEnter={() => this.showCaption('captions-left-double-bottom')}
-										}),
-										_react2.default.createElement("div", { id: "captions-left-double-bottom", className: "captions-left", dangerouslySetInnerHTML: { __html: this.getDoubleBottomLeftCaptions() } })
-									)
+									null,
+									_react2.default.createElement("img", {
+										src: this.getTopLeftImageSrc()
+									}),
+									_react2.default.createElement("div", { id: "captions-left-double-top", className: "captions-left", dangerouslySetInnerHTML: { __html: this.getDoubleTopLeftCaptions() } })
 								)
-							);
-						} else {
-							return _react2.default.createElement(
+							),
+							_react2.default.createElement(
 								"div",
-								null,
+								{ className: this.props.content.double_image_size_bottom_left },
 								_react2.default.createElement(
 									"div",
-									{ className: this.props.content.double_image_size_top_left },
-									_react2.default.createElement(
-										"div",
-										null,
-										_react2.default.createElement("img", {
-											src: this.getTopLeftImageSrc()
-											//onMouseEnter={() => this.showCaption('captions-left-double-top')}
-										})
-									)
-								),
-								_react2.default.createElement(
-									"div",
-									{ className: this.props.content.double_image_size_bottom_left },
-									_react2.default.createElement(
-										"div",
-										null,
-										_react2.default.createElement("img", {
-											src: this.getBottomLeftImageSrc()
-											//onMouseEnter={() => this.showCaption('captions-left-double-bottom')}
-										})
-									)
+									null,
+									_react2.default.createElement("img", {
+										src: this.getBottomLeftImageSrc()
+									}),
+									_react2.default.createElement("div", { id: "captions-left-double-bottom", className: "captions-left", dangerouslySetInnerHTML: { __html: this.getDoubleBottomLeftCaptions() } })
 								)
-							);
-						}
+							)
+						);
 					}
 				} else if (this.props.content.page_type == 'spread') {
-					if (this.props.content.full_sized_image_caption) {
-						return _react2.default.createElement(
-							"div",
-							null,
-							_react2.default.createElement("img", {
-								src: this.props.content.full_sized_image.sizes.fullsize
-								//onMouseEnter={() => this.showCaption('captions-full-image')}
-							}),
-							_react2.default.createElement("div", { id: "captions-full-image", className: 'captions-' + this.props.content.full_sized_image_caption_position, dangerouslySetInnerHTML: { __html: this.getFullSizedCaptions() } })
-						);
-					} else {
-						return _react2.default.createElement(
-							"div",
-							null,
-							_react2.default.createElement("img", {
-								src: this.props.content.full_sized_image.sizes.fullsize
-								//onMouseEnter={() => this.showCaption('captions-full-image')}
-							})
-						);
-					}
+					return _react2.default.createElement(
+						"div",
+						null,
+						_react2.default.createElement("img", {
+							src: this.props.content.full_sized_image.sizes.fullsize
+						}),
+						_react2.default.createElement("div", { id: "captions-full-image", className: 'captions-' + this.props.content.full_sized_image_caption_position, dangerouslySetInnerHTML: { __html: this.getFullSizedCaptions() } })
+					);
 				}
 			}
 		}, {
@@ -32534,18 +32441,6 @@
 		}
 
 		_createClass(ContentRight, [{
-			key: "componentWillMount",
-			value: function componentWillMount() {}
-		}, {
-			key: "componentDidMount",
-			value: function componentDidMount() {}
-		}, {
-			key: "componentDidUpdate",
-			value: function componentDidUpdate() {}
-		}, {
-			key: "componentWillReceiveProps",
-			value: function componentWillReceiveProps() {}
-		}, {
 			key: "getRightImageSrc",
 			value: function getRightImageSrc() {
 				//console.log(this.props);
@@ -32607,46 +32502,42 @@
 		}, {
 			key: "getSingleRightCaptions",
 			value: function getSingleRightCaptions() {
-				if (this.props.content.single_image_caption_right) {
-					var caption = '<div>' + '<h5>Right</H5>' + '<h6>' + this.props.content.single_image_caption_subheader_right + '</h6>' + this.props.content.single_image_caption_text_right + '</div>';
-					return caption;
+				var size = this.props.content.single_image_size_right + '_single_image_right';
+				if (this.props.content[size].title || this.props.content[size].caption) {
+					if (this.props.content[size].title) {
+						var title = '<h6>' + this.props.content[size].title + '</h6>';
+					} else {
+						var title = '';
+					}
+					return '<div>' + '<h5>Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 				}
 			}
 		}, {
 			key: "getDoubleTopRightCaptions",
 			value: function getDoubleTopRightCaptions() {
-				if (this.props.content.double_image_caption_top_right) {
-					var caption = '<div>' + '<h5>Upper Right</H5>' + '<h6>' + this.props.content.double_image_caption_subheader_top_right + '</h6>' + this.props.content.double_image_caption_text_top_right + '</div>';
-					return caption;
+				var size = this.props.content.double_image_size_top_right + '_double_image_top_right';
+				if (this.props.content[size].title || this.props.content[size].caption) {
+					if (this.props.content[size].title) {
+						var title = '<h6>' + this.props.content[size].title + '</h6>';
+					} else {
+						var title = '';
+					}
+					return '<div>' + '<h5>Upper Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 				}
 			}
 		}, {
 			key: "getDoubleBottomRightCaptions",
 			value: function getDoubleBottomRightCaptions() {
-				if (this.props.content.double_image_caption_bottom_right) {
-					var caption = '<div>' + '<h5>Lower right</H5>' + '<h6>' + this.props.content.double_image_caption_subheader_bottom_right + '</h6>' + this.props.content.double_image_caption_text_bottom_right + '</div>';
-					return caption;
+				var size = this.props.content.double_image_size_bottom_right + '_double_image_bottom_right';
+				if (this.props.content[size].title || this.props.content[size].caption) {
+					if (this.props.content[size].title) {
+						var title = '<h6>' + this.props.content[size].title + '</h6>';
+					} else {
+						var title = '';
+					}
+					return '<div>' + '<h5>Lower Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 				}
 			}
-
-			/*
-	  	showCaption(caption) {
-	  		var captionsLeft = document.getElementsByClassName("captions-left");
-	  		for(var i = 0; i < captionsLeft.length; i++) {
-	  		    if(captionsLeft[i].style.opacity == "1") {
-	  			    captionsLeft[i].style.opacity = "0";
-	  		    }
-	  		}
-	  		var captionsRight = document.getElementsByClassName("captions-right");
-	  		for(var i = 0; i < captionsRight.length; i++) {
-	  		    if(captionsRight[i].style.opacity == "1") {
-	  			    captionsRight[i].style.opacity = "0";
-	  		    }
-	  		}
-	  		document.getElementById(caption).style.opacity = "1";
-	  	}
-	  */
-
 		}, {
 			key: "getContent",
 			value: function getContent() {
@@ -32670,88 +32561,43 @@
 					}
 				} else if (this.props.content.page_type == 'images') {
 					if (this.props.content.right_content_image == 'single') {
-						if (this.props.content.single_image_caption_right) {
-							return _react2.default.createElement(
-								"div",
-								null,
-								_react2.default.createElement("img", {
-									src: this.getRightImageSrc()
-									//onMouseEnter={() => this.showCaption('captions-right-single')}
-								}),
-								_react2.default.createElement("div", { id: "captions-right-single", className: "captions-right", dangerouslySetInnerHTML: { __html: this.getSingleRightCaptions() } })
-							);
-						} else {
-							return _react2.default.createElement(
-								"div",
-								null,
-								_react2.default.createElement("img", {
-									src: this.getRightImageSrc()
-									//onMouseEnter={() => this.showCaption('captions-right-single')}
-								})
-							);
-						}
+						return _react2.default.createElement(
+							"div",
+							null,
+							_react2.default.createElement("img", {
+								src: this.getRightImageSrc()
+							}),
+							_react2.default.createElement("div", { id: "captions-right-single", className: "captions-right", dangerouslySetInnerHTML: { __html: this.getSingleRightCaptions() } })
+						);
 					} else if (this.props.content.right_content_image == 'double') {
-						if (this.props.content.double_image_caption_top_right || this.props.content.double_image_caption_bottom_right) {
-							return _react2.default.createElement(
+						return _react2.default.createElement(
+							"div",
+							null,
+							_react2.default.createElement(
 								"div",
-								null,
+								{ className: this.props.content.double_image_size_top_right },
 								_react2.default.createElement(
 									"div",
-									{ className: this.props.content.double_image_size_top_right },
-									_react2.default.createElement(
-										"div",
-										null,
-										_react2.default.createElement("img", {
-											src: this.getTopRightImageSrc()
-											//onMouseEnter={() => this.showCaption('captions-right-double-top')}
-										}),
-										_react2.default.createElement("div", { id: "captions-right-double-top", className: "captions-right", dangerouslySetInnerHTML: { __html: this.getDoubleTopRightCaptions() } })
-									)
-								),
-								_react2.default.createElement(
-									"div",
-									{ className: this.props.content.double_image_size_bottom_right },
-									_react2.default.createElement(
-										"div",
-										null,
-										_react2.default.createElement("img", {
-											src: this.getBottomRightImageSrc()
-											//onMouseEnter={() => this.showCaption('captions-right-double-bottom')}
-										}),
-										_react2.default.createElement("div", { id: "captions-right-double-bottom", className: "captions-right", dangerouslySetInnerHTML: { __html: this.getDoubleBottomRightCaptions() } })
-									)
+									null,
+									_react2.default.createElement("img", {
+										src: this.getTopRightImageSrc()
+									}),
+									_react2.default.createElement("div", { id: "captions-right-double-top", className: "captions-right", dangerouslySetInnerHTML: { __html: this.getDoubleTopRightCaptions() } })
 								)
-							);
-						} else {
-							return _react2.default.createElement(
+							),
+							_react2.default.createElement(
 								"div",
-								null,
+								{ className: this.props.content.double_image_size_bottom_right },
 								_react2.default.createElement(
 									"div",
-									{ className: this.props.content.double_image_size_top_right },
-									_react2.default.createElement(
-										"div",
-										null,
-										_react2.default.createElement("img", {
-											src: this.getTopRightImageSrc()
-											//onMouseEnter={() => this.showCaption('captions-right-double-top')}
-										})
-									)
-								),
-								_react2.default.createElement(
-									"div",
-									{ className: this.props.content.double_image_size_bottom_right },
-									_react2.default.createElement(
-										"div",
-										null,
-										_react2.default.createElement("img", {
-											src: this.getBottomRightImageSrc()
-											//onMouseEnter={() => this.showCaption('captions-right-double-bottom')}
-										})
-									)
+									null,
+									_react2.default.createElement("img", {
+										src: this.getBottomRightImageSrc()
+									}),
+									_react2.default.createElement("div", { id: "captions-right-double-bottom", className: "captions-right", dangerouslySetInnerHTML: { __html: this.getDoubleBottomRightCaptions() } })
 								)
-							);
-						}
+							)
+						);
 					}
 				}
 			}

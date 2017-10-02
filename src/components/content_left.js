@@ -1,18 +1,6 @@
 import React, {Component} from 'react';
 
 class ContentLeft extends Component {
-    componentWillMount() {
-    }
-
-	componentDidMount() {
-	}
-
-	componentDidUpdate() {
-	}
-
-	componentWillReceiveProps() {
-	}
-
 	getLeftImageSrc() {
 		if (this.props.content.single_image_size_left == "small") {
 			return this.props.content.small_single_image_left.sizes.small
@@ -74,75 +62,52 @@ class ContentLeft extends Component {
 	}
 
 	getSingleLeftCaptions() {
-		if (this.props.content.single_image_caption_left) {
-			if (this.props.content.single_image_caption_subheader_left) {
-				var title = '<h6>' + this.props.content.single_image_caption_subheader_left + '</h6>';
+		var size = this.props.content.single_image_size_left + '_single_image_left';
+		if (this.props.content[size].title || this.props.content[size].caption) {
+			if (this.props.content[size].title) {
+				var title = '<h6>' + this.props.content[size].title + '</h6>';
 			} else {
 				var title = '';
 			}
- 			var caption = '<div>' + '<h5>Left</H5>' + title + this.props.content.single_image_caption_text_left + '</div>';
-	 		return caption
-		} 
+			return '<div>' + '<h5>Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
+		}
 	}
 
 	getDoubleTopLeftCaptions() {
-		if (this.props.content.double_image_caption_top_left) {
-			if (this.props.content.double_image_caption_subheader_top_left) {
-				var title = '<h6>' + this.props.content.double_image_caption_subheader_top_left + '</h6>';
+		var size = this.props.content.double_image_size_top_left + '_double_image_top_left';
+		if (this.props.content[size].title || this.props.content[size].caption) {
+			if (this.props.content[size].title) {
+				var title = '<h6>' + this.props.content[size].title + '</h6>';
 			} else {
 				var title = '';
 			}
-			var caption = '<div>' + '<h5>Upper Left</H5>' + title + this.props.content.double_image_caption_text_top_left + '</div>';
-	 		return caption
-		}
+			return '<div>' + '<h5>Upper Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
+	 	}
 	}
 
 	getDoubleBottomLeftCaptions() {
-		if (this.props.content.double_image_caption_bottom_left) {
-			if (this.props.content.double_image_caption_subheader_bottom_left) {
-				var title = '<h6>' + this.props.content.double_image_caption_subheader_bottom_left + '</h6>';
+		var size = this.props.content.double_image_size_top_left + '_double_image_bottom_left';
+		if (this.props.content[size].title || this.props.content[size].caption) {
+			if (this.props.content[size].title) {
+				var title = '<h6>' + this.props.content[size].title + '</h6>';
 			} else {
 				var title = '';
 			}
-			var caption = '<div>' + '<h5>Lower Left</H5>' + title + this.props.content.double_image_caption_text_bottom_left + '</div>';
-	 		return caption
-		}
+			return '<div>' + '<h5>Lower Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
+	 	}
 	}
 
 	getFullSizedCaptions() {
-		if (this.props.content.full_sized_image_caption) {
-			if (this.props.content.full_sized_image_caption_subheader) {
-				var title = '<h6>' + this.props.content.full_sized_image_caption_subheader + '</h6>';
+		if (this.props.content.full_sized_image.title || this.props.content.full_sized_image.caption) {
+			if (this.props.content.full_sized_image.title) {
+				var title = '<h6>' + this.props.content.full_sized_image.title + '</h6>';
 			} else {
 				var title = '';
 			}
-			var caption = '<div>' + title + this.props.content.full_sized_image_caption_text + '</div>';
+			var caption = '<div>' + title + '<p>' + this.props.content.full_sized_image.caption + '</p>' + '</div>';
 	 		return caption
 		}
 	}
-
-/*
-	showCaption(caption) {
-		var captionsLeft = document.getElementsByClassName("captions-left");
-		for(var i = 0; i < captionsLeft.length; i++) {
-		    if(captionsLeft[i].style.opacity == "1") {
-			    captionsLeft[i].style.opacity = "0";
-				captionsLeft[i].style.zIndex = "0";
-		    }
-		}
-		var captionsRight = document.getElementsByClassName("captions-right");
-		for(var i = 0; i < captionsRight.length; i++) {
-		    if(captionsRight[i].style.opacity == "1") {
-			    captionsRight[i].style.opacity = "0";
-				captionsLeft[i].style.zIndex = "0";
-		    }
-		}
-		if (document.getElementById(caption)) {
-			document.getElementById(caption).style.opacity = "1";
-			document.getElementById(caption).style.zIndex = "1";
-		}
-	}
-*/
 
 	getContent() {
 		if (this.props.content.page_type == 'text') {
@@ -162,94 +127,45 @@ class ContentLeft extends Component {
 			}
 		} else if (this.props.content.page_type == 'images') {
 			if (this.props.content.left_content_image == 'single') {
-				if (this.props.content.single_image_caption_left) {
-					return (
-						<div>
-							<img 
-							src={this.getLeftImageSrc()}
-							//onMouseEnter={() => this.showCaption('captions-left-single')}
-							/>
-							<div id='captions-left-single' className="captions-left" dangerouslySetInnerHTML={{__html: this.getSingleLeftCaptions()}}></div>
-						</div>
-					);
-				} else {
-					return (
-						<div>
-							<img 
-							src={this.getLeftImageSrc()}
-							//onMouseEnter={() => this.showCaption('captions-left-single')}
-							/>
-						</div>
-					);
-				}
+				return (
+					<div>
+						<img 
+						src={this.getLeftImageSrc()}
+						/>
+						<div id='captions-left-single' className="captions-left" dangerouslySetInnerHTML={{__html: this.getSingleLeftCaptions()}}></div>
+					</div>
+				);
 			} else if (this.props.content.left_content_image == 'double') {
-				if (this.props.content.double_image_caption_top_left || this.props.content.double_image_caption_bottom_left) {
-					return (
-						<div>
-							<div className={this.props.content.double_image_size_top_left}>
-								<div>
-									<img 
-									src={this.getTopLeftImageSrc()}
-									//onMouseEnter={() => this.showCaption('captions-left-double-top')}
-									/>
-									<div id='captions-left-double-top' className="captions-left" dangerouslySetInnerHTML={{__html: this.getDoubleTopLeftCaptions()}}></div>
-								</div>
-							</div>
-							<div className={this.props.content.double_image_size_bottom_left}>
-								<div>
-									<img
-									src={this.getBottomLeftImageSrc()}
-									//onMouseEnter={() => this.showCaption('captions-left-double-bottom')}
-									/>
-									<div id='captions-left-double-bottom' className="captions-left" dangerouslySetInnerHTML={{__html: this.getDoubleBottomLeftCaptions()}}></div>
-								</div>
+				return (
+					<div>
+						<div className={this.props.content.double_image_size_top_left}>
+							<div>
+								<img 
+								src={this.getTopLeftImageSrc()}
+								/>
+								<div id='captions-left-double-top' className="captions-left" dangerouslySetInnerHTML={{__html: this.getDoubleTopLeftCaptions()}}></div>
 							</div>
 						</div>
-					);
-				} else {
-					return (
-						<div>
-							<div className={this.props.content.double_image_size_top_left}>
-								<div>
-									<img 
-									src={this.getTopLeftImageSrc()}
-									//onMouseEnter={() => this.showCaption('captions-left-double-top')}
-									/>
-								</div>
-							</div>
-							<div className={this.props.content.double_image_size_bottom_left}>
-								<div>
-									<img
-									src={this.getBottomLeftImageSrc()}
-									//onMouseEnter={() => this.showCaption('captions-left-double-bottom')}
-									/>
-								</div>
+						<div className={this.props.content.double_image_size_bottom_left}>
+							<div>
+								<img
+								src={this.getBottomLeftImageSrc()}
+								/>
+								<div id='captions-left-double-bottom' className="captions-left" dangerouslySetInnerHTML={{__html: this.getDoubleBottomLeftCaptions()}}></div>
 							</div>
 						</div>
-					);
-				}
+					</div>
+				);
 			}
 		} else if (this.props.content.page_type == 'spread') {
-			if (this.props.content.full_sized_image_caption) {
-				return (
-					<div>
-						<img
-						src={this.props.content.full_sized_image.sizes.fullsize}
-						//onMouseEnter={() => this.showCaption('captions-full-image')}
-						/>
-						<div id='captions-full-image' className={'captions-' + this.props.content.full_sized_image_caption_position} dangerouslySetInnerHTML={{__html: this.getFullSizedCaptions()}}></div>
-					</div>
-				);
-			} else {
-				return (
-					<div>
-						<img
-						src={this.props.content.full_sized_image.sizes.fullsize}
-						//onMouseEnter={() => this.showCaption('captions-full-image')}
-						/>
-					</div>
-				);
-			}
+			return (
+				<div>
+					<img
+					src={this.props.content.full_sized_image.sizes.fullsize}
+					/>
+					<div id='captions-full-image' className={'captions-' + this.props.content.full_sized_image_caption_position} dangerouslySetInnerHTML={{__html: this.getFullSizedCaptions()}}></div>
+				</div>
+			);
 		}
 	}
 

@@ -1,18 +1,6 @@
 import React, {Component} from 'react';
 
 class ContentRight extends Component {
-    componentWillMount() {
-    }
-
-	componentDidMount() {
-	}
-
-	componentDidUpdate() {
-	}
-
-	componentWillReceiveProps() {
-	}
-
 	getRightImageSrc() {
 		//console.log(this.props);
 		if (this.props.content.single_image_size_right == "small") {
@@ -74,43 +62,40 @@ class ContentRight extends Component {
 	}
 
 	getSingleRightCaptions() {
-		if (this.props.content.single_image_caption_right) {
-			var caption = '<div>' + '<h5>Right</H5>' + '<h6>' + this.props.content.single_image_caption_subheader_right + '</h6>' + this.props.content.single_image_caption_text_right + '</div>';
-	 		return caption
-		} 
+		var size = this.props.content.single_image_size_right + '_single_image_right';
+		if (this.props.content[size].title || this.props.content[size].caption) {
+			if (this.props.content[size].title) {
+				var title = '<h6>' + this.props.content[size].title + '</h6>';
+			} else {
+				var title = '';
+			}
+			return '<div>' + '<h5>Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
+		}
 	}
 
 	getDoubleTopRightCaptions() {
-		if (this.props.content.double_image_caption_top_right) {
-			var caption = '<div>' + '<h5>Upper Right</H5>' + '<h6>' + this.props.content.double_image_caption_subheader_top_right + '</h6>' + this.props.content.double_image_caption_text_top_right + '</div>';
-	 		return caption
-		}
+		var size = this.props.content.double_image_size_top_right + '_double_image_top_right';
+		if (this.props.content[size].title || this.props.content[size].caption) {
+			if (this.props.content[size].title) {
+				var title = '<h6>' + this.props.content[size].title + '</h6>';
+			} else {
+				var title = '';
+			}
+			return '<div>' + '<h5>Upper Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
+	 	}
 	}
 
 	getDoubleBottomRightCaptions() {
-		if (this.props.content.double_image_caption_bottom_right) {
-			var caption = '<div>' + '<h5>Lower right</H5>' + '<h6>' + this.props.content.double_image_caption_subheader_bottom_right + '</h6>' + this.props.content.double_image_caption_text_bottom_right + '</div>';
-	 		return caption
-		}
+		var size = this.props.content.double_image_size_bottom_right + '_double_image_bottom_right';
+		if (this.props.content[size].title || this.props.content[size].caption) {
+			if (this.props.content[size].title) {
+				var title = '<h6>' + this.props.content[size].title + '</h6>';
+			} else {
+				var title = '';
+			}
+			return '<div>' + '<h5>Lower Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
+	 	}
 	}
-
-/*
-	showCaption(caption) {
-		var captionsLeft = document.getElementsByClassName("captions-left");
-		for(var i = 0; i < captionsLeft.length; i++) {
-		    if(captionsLeft[i].style.opacity == "1") {
-			    captionsLeft[i].style.opacity = "0";
-		    }
-		}
-		var captionsRight = document.getElementsByClassName("captions-right");
-		for(var i = 0; i < captionsRight.length; i++) {
-		    if(captionsRight[i].style.opacity == "1") {
-			    captionsRight[i].style.opacity = "0";
-		    }
-		}
-		document.getElementById(caption).style.opacity = "1";
-	}
-*/
 
 	getContent() {
 		if (this.props.content.page_type == 'text') {
@@ -130,72 +115,35 @@ class ContentRight extends Component {
 			}
 		} else if (this.props.content.page_type == 'images') {
 			if (this.props.content.right_content_image == 'single') {
-				if (this.props.content.single_image_caption_right) {
-					return (
-						<div>
-							<img
-							src={this.getRightImageSrc()}
-							//onMouseEnter={() => this.showCaption('captions-right-single')}
-							/>
-							<div id='captions-right-single' className="captions-right" dangerouslySetInnerHTML={{__html: this.getSingleRightCaptions()}}></div>
-						</div>
-					);
-				} else {
-					return (
-						<div>
-							<img
-							src={this.getRightImageSrc()}
-							//onMouseEnter={() => this.showCaption('captions-right-single')}
-							/>
-						</div>
-					);
-				}
+				return (
+					<div>
+						<img
+						src={this.getRightImageSrc()}
+						/>
+						<div id='captions-right-single' className="captions-right" dangerouslySetInnerHTML={{__html: this.getSingleRightCaptions()}}></div>
+					</div>
+				);
 			} else if (this.props.content.right_content_image == 'double') {
-				if (this.props.content.double_image_caption_top_right || this.props.content.double_image_caption_bottom_right) {
-					return (
-						<div>
-							<div className={this.props.content.double_image_size_top_right}>
-								<div>
-									<img
-									src={this.getTopRightImageSrc()}
-									//onMouseEnter={() => this.showCaption('captions-right-double-top')}
-									/>
-									<div id='captions-right-double-top' className="captions-right" dangerouslySetInnerHTML={{__html: this.getDoubleTopRightCaptions()}}></div>
-								</div>
-							</div>
-							<div className={this.props.content.double_image_size_bottom_right}>
-								<div>
-									<img
-									src={this.getBottomRightImageSrc()}
-									//onMouseEnter={() => this.showCaption('captions-right-double-bottom')}
-									/>
-									<div id='captions-right-double-bottom' className="captions-right" dangerouslySetInnerHTML={{__html: this.getDoubleBottomRightCaptions()}}></div>
-								</div>
+				return (
+					<div>
+						<div className={this.props.content.double_image_size_top_right}>
+							<div>
+								<img
+								src={this.getTopRightImageSrc()}
+								/>
+								<div id='captions-right-double-top' className="captions-right" dangerouslySetInnerHTML={{__html: this.getDoubleTopRightCaptions()}}></div>
 							</div>
 						</div>
-					);
-				} else {
-					return (
-						<div>
-							<div className={this.props.content.double_image_size_top_right}>
-								<div>
-									<img
-									src={this.getTopRightImageSrc()}
-									//onMouseEnter={() => this.showCaption('captions-right-double-top')}
-									/>
-								</div>
-							</div>
-							<div className={this.props.content.double_image_size_bottom_right}>
-								<div>
-									<img
-									src={this.getBottomRightImageSrc()}
-									//onMouseEnter={() => this.showCaption('captions-right-double-bottom')}
-									/>
-								</div>
+						<div className={this.props.content.double_image_size_bottom_right}>
+							<div>
+								<img
+								src={this.getBottomRightImageSrc()}
+								/>
+								<div id='captions-right-double-bottom' className="captions-right" dangerouslySetInnerHTML={{__html: this.getDoubleBottomRightCaptions()}}></div>
 							</div>
 						</div>
-					);
-				}
+					</div>
+				);
 			}
 		}
 	}
