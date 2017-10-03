@@ -88,6 +88,9 @@ a {
 img {
   vertical-align: bottom; }
 
+* {
+  white-space: normal; }
+
 .container header {
   position: relative;
   max-width: 1440px;
