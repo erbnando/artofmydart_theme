@@ -32247,39 +32247,45 @@
 			key: "getSingleLeftCaptions",
 			value: function getSingleLeftCaptions() {
 				var size = this.props.content.single_image_size_left + '_single_image_left';
-				if (this.props.content[size].title || this.props.content[size].caption) {
-					if (this.props.content[size].title) {
-						var title = '<h6>' + this.props.content[size].title + '</h6>';
-					} else {
-						var title = '';
+				if (this.props.content[size]) {
+					if (this.props.content[size].title || this.props.content[size].caption) {
+						if (this.props.content[size].title) {
+							var title = '<h6>' + this.props.content[size].title + '</h6>';
+						} else {
+							var title = '';
+						}
+						return '<div>' + '<h5>Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 					}
-					return '<div>' + '<h5>Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 				}
 			}
 		}, {
 			key: "getDoubleTopLeftCaptions",
 			value: function getDoubleTopLeftCaptions() {
 				var size = this.props.content.double_image_size_top_left + '_double_image_top_left';
-				if (this.props.content[size].title || this.props.content[size].caption) {
-					if (this.props.content[size].title) {
-						var title = '<h6>' + this.props.content[size].title + '</h6>';
-					} else {
-						var title = '';
+				if (this.props.content[size]) {
+					if (this.props.content[size].title || this.props.content[size].caption) {
+						if (this.props.content[size].title) {
+							var title = '<h6>' + this.props.content[size].title + '</h6>';
+						} else {
+							var title = '';
+						}
+						return '<div>' + '<h5>Upper Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 					}
-					return '<div>' + '<h5>Upper Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 				}
 			}
 		}, {
 			key: "getDoubleBottomLeftCaptions",
 			value: function getDoubleBottomLeftCaptions() {
 				var size = this.props.content.double_image_size_top_left + '_double_image_bottom_left';
-				if (this.props.content[size].title || this.props.content[size].caption) {
-					if (this.props.content[size].title) {
-						var title = '<h6>' + this.props.content[size].title + '</h6>';
-					} else {
-						var title = '';
+				if (this.props.content[size]) {
+					if (this.props.content[size].title || this.props.content[size].caption) {
+						if (this.props.content[size].title) {
+							var title = '<h6>' + this.props.content[size].title + '</h6>';
+						} else {
+							var title = '';
+						}
+						return '<div>' + '<h5>Lower Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 					}
-					return '<div>' + '<h5>Lower Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 				}
 			}
 		}, {
@@ -32356,7 +32362,7 @@
 							)
 						);
 					}
-				} else if (this.props.content.page_type == 'spread') {
+				} else if (this.props.content.page_type == 'spread' && this.props.content.full_sized_image) {
 					return _react2.default.createElement(
 						"div",
 						null,
@@ -32503,39 +32509,45 @@
 			key: "getSingleRightCaptions",
 			value: function getSingleRightCaptions() {
 				var size = this.props.content.single_image_size_right + '_single_image_right';
-				if (this.props.content[size].title || this.props.content[size].caption) {
-					if (this.props.content[size].title) {
-						var title = '<h6>' + this.props.content[size].title + '</h6>';
-					} else {
-						var title = '';
+				if (this.props.content[size]) {
+					if (this.props.content[size].title || this.props.content[size].caption) {
+						if (this.props.content[size].title) {
+							var title = '<h6>' + this.props.content[size].title + '</h6>';
+						} else {
+							var title = '';
+						}
+						return '<div>' + '<h5>Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 					}
-					return '<div>' + '<h5>Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 				}
 			}
 		}, {
 			key: "getDoubleTopRightCaptions",
 			value: function getDoubleTopRightCaptions() {
 				var size = this.props.content.double_image_size_top_right + '_double_image_top_right';
-				if (this.props.content[size].title || this.props.content[size].caption) {
-					if (this.props.content[size].title) {
-						var title = '<h6>' + this.props.content[size].title + '</h6>';
-					} else {
-						var title = '';
+				if (this.props.content[size]) {
+					if (this.props.content[size].title || this.props.content[size].caption) {
+						if (this.props.content[size].title) {
+							var title = '<h6>' + this.props.content[size].title + '</h6>';
+						} else {
+							var title = '';
+						}
+						return '<div>' + '<h5>Upper Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 					}
-					return '<div>' + '<h5>Upper Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 				}
 			}
 		}, {
 			key: "getDoubleBottomRightCaptions",
 			value: function getDoubleBottomRightCaptions() {
 				var size = this.props.content.double_image_size_bottom_right + '_double_image_bottom_right';
-				if (this.props.content[size].title || this.props.content[size].caption) {
-					if (this.props.content[size].title) {
-						var title = '<h6>' + this.props.content[size].title + '</h6>';
-					} else {
-						var title = '';
+				if (this.props.content[size]) {
+					if (this.props.content[size].title || this.props.content[size].caption) {
+						if (this.props.content[size].title) {
+							var title = '<h6>' + this.props.content[size].title + '</h6>';
+						} else {
+							var title = '';
+						}
+						return '<div>' + '<h5>Lower Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 					}
-					return '<div>' + '<h5>Lower Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 				}
 			}
 		}, {

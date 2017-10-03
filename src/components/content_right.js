@@ -63,38 +63,44 @@ class ContentRight extends Component {
 
 	getSingleRightCaptions() {
 		var size = this.props.content.single_image_size_right + '_single_image_right';
-		if (this.props.content[size].title || this.props.content[size].caption) {
-			if (this.props.content[size].title) {
-				var title = '<h6>' + this.props.content[size].title + '</h6>';
-			} else {
-				var title = '';
+		if (this.props.content[size]) {
+			if (this.props.content[size].title || this.props.content[size].caption) {
+				if (this.props.content[size].title) {
+					var title = '<h6>' + this.props.content[size].title + '</h6>';
+				} else {
+					var title = '';
+				}
+				return '<div>' + '<h5>Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 			}
-			return '<div>' + '<h5>Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 		}
 	}
 
 	getDoubleTopRightCaptions() {
 		var size = this.props.content.double_image_size_top_right + '_double_image_top_right';
-		if (this.props.content[size].title || this.props.content[size].caption) {
-			if (this.props.content[size].title) {
-				var title = '<h6>' + this.props.content[size].title + '</h6>';
-			} else {
-				var title = '';
-			}
-			return '<div>' + '<h5>Upper Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
-	 	}
+		if (this.props.content[size]) {
+			if (this.props.content[size].title || this.props.content[size].caption) {
+				if (this.props.content[size].title) {
+					var title = '<h6>' + this.props.content[size].title + '</h6>';
+				} else {
+					var title = '';
+				}
+				return '<div>' + '<h5>Upper Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
+		 	}
+		 }
 	}
 
 	getDoubleBottomRightCaptions() {
 		var size = this.props.content.double_image_size_bottom_right + '_double_image_bottom_right';
-		if (this.props.content[size].title || this.props.content[size].caption) {
-			if (this.props.content[size].title) {
-				var title = '<h6>' + this.props.content[size].title + '</h6>';
-			} else {
-				var title = '';
-			}
-			return '<div>' + '<h5>Lower Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
-	 	}
+		if (this.props.content[size]) {
+			if (this.props.content[size].title || this.props.content[size].caption) {
+				if (this.props.content[size].title) {
+					var title = '<h6>' + this.props.content[size].title + '</h6>';
+				} else {
+					var title = '';
+				}
+				return '<div>' + '<h5>Lower Right</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
+		 	}
+		}
 	}
 
 	getContent() {

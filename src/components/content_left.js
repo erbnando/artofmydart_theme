@@ -63,38 +63,44 @@ class ContentLeft extends Component {
 
 	getSingleLeftCaptions() {
 		var size = this.props.content.single_image_size_left + '_single_image_left';
-		if (this.props.content[size].title || this.props.content[size].caption) {
-			if (this.props.content[size].title) {
-				var title = '<h6>' + this.props.content[size].title + '</h6>';
-			} else {
-				var title = '';
+		if (this.props.content[size]) {
+			if (this.props.content[size].title || this.props.content[size].caption) {
+				if (this.props.content[size].title) {
+					var title = '<h6>' + this.props.content[size].title + '</h6>';
+				} else {
+					var title = '';
+				}
+				return '<div>' + '<h5>Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 			}
-			return '<div>' + '<h5>Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
 		}
 	}
 
 	getDoubleTopLeftCaptions() {
 		var size = this.props.content.double_image_size_top_left + '_double_image_top_left';
-		if (this.props.content[size].title || this.props.content[size].caption) {
-			if (this.props.content[size].title) {
-				var title = '<h6>' + this.props.content[size].title + '</h6>';
-			} else {
-				var title = '';
-			}
-			return '<div>' + '<h5>Upper Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
-	 	}
+		if (this.props.content[size]) {
+			if (this.props.content[size].title || this.props.content[size].caption) {
+				if (this.props.content[size].title) {
+					var title = '<h6>' + this.props.content[size].title + '</h6>';
+				} else {
+					var title = '';
+				}
+				return '<div>' + '<h5>Upper Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
+		 	}
+		 }
 	}
 
 	getDoubleBottomLeftCaptions() {
 		var size = this.props.content.double_image_size_top_left + '_double_image_bottom_left';
-		if (this.props.content[size].title || this.props.content[size].caption) {
-			if (this.props.content[size].title) {
-				var title = '<h6>' + this.props.content[size].title + '</h6>';
-			} else {
-				var title = '';
-			}
-			return '<div>' + '<h5>Lower Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
-	 	}
+		if (this.props.content[size]) {
+			if (this.props.content[size].title || this.props.content[size].caption) {
+				if (this.props.content[size].title) {
+					var title = '<h6>' + this.props.content[size].title + '</h6>';
+				} else {
+					var title = '';
+				}
+				return '<div>' + '<h5>Lower Left</H5>' + title + '<p>' + this.props.content[size].caption + '</p>' + '</div>';
+		 	}
+		 }
 	}
 
 	getFullSizedCaptions() {
@@ -157,7 +163,7 @@ class ContentLeft extends Component {
 					</div>
 				);
 			}
-		} else if (this.props.content.page_type == 'spread') {
+		} else if (this.props.content.page_type == 'spread' && this.props.content.full_sized_image) {
 			return (
 				<div>
 					<img
