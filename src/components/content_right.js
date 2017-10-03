@@ -36,7 +36,7 @@ class ContentRight extends Component {
 	}
 
 	getPosition() {
-		if (this.props.content.right_content_image == 'single') {
+		if (this.props.content.right_content == 'single') {
 			if (this.props.content.right_image_placement == "top") {
 				return 'top '
 			} else if (this.props.content.right_image_placement == "bottom") {
@@ -104,23 +104,21 @@ class ContentRight extends Component {
 	}
 
 	getContent() {
-		if (this.props.content.page_type == 'text') {
-			if (this.props.content.right_content_text == 'text') {
+		if (this.props.content.page_type == 'textimages') {
+			if (this.props.content.right_content == 'text') {
 				return (
 					<div dangerouslySetInnerHTML={{__html: this.props.content.text_content_right}} />
 				);
-			} else if (this.props.content.right_content_text == 'quote') {
+			} else if (this.props.content.right_content == 'quote') {
 				return (
 					<div>
 						<div className="quote-text" dangerouslySetInnerHTML={{__html: this.props.content.quote_text_right}} />					
-						<span className="quote-author" dangerouslySetInnerHTML={{__html: this.props.content.quote_author_right}} />,
-						<span>&nbsp;</span>
+						<span className="quote-author" dangerouslySetInnerHTML={{__html: this.props.content.quote_author_right}} />
+						<span>,&nbsp;</span>
 						<span className="quote-source" dangerouslySetInnerHTML={{__html: this.props.content.quote_source_right}} />
 					</div>
 				);
-			}
-		} else if (this.props.content.page_type == 'images') {
-			if (this.props.content.right_content_image == 'single') {
+			} else if (this.props.content.right_content == 'single') {
 				return (
 					<div>
 						<img
@@ -129,7 +127,7 @@ class ContentRight extends Component {
 						<div id='captions-right-single' className="captions-right" dangerouslySetInnerHTML={{__html: this.getSingleRightCaptions()}}></div>
 					</div>
 				);
-			} else if (this.props.content.right_content_image == 'double') {
+			} else if (this.props.content.right_content == 'double') {
 				return (
 					<div>
 						<div className={this.props.content.double_image_size_top_right}>
@@ -155,20 +153,16 @@ class ContentRight extends Component {
 	}
 
 	getPageType() {
-		if (this.props.content.page_type == 'text') {
-			if (this.props.content.right_content_text == 'text') {
+		if (this.props.content.page_type == 'textimages') {
+			if (this.props.content.right_content == 'text') {
 				return 'text'
-			} else if (this.props.content.right_content_text == 'quote') {
+			} else if (this.props.content.right_content == 'quote') {
 				return 'quote'
-			} else if (this.props.content.right_content_text == 'blank') {
-				return 'blank'
-			}
-		} else if (this.props.content.page_type == 'images') {
-			if (this.props.content.right_content_image == 'single') {
+			} else if (this.props.content.right_content == 'single') {
 				return 'single'
-			} else if (this.props.content.right_content_image == 'double') {
+			} else if (this.props.content.right_content == 'double') {
 				return 'double'
-			} else if (this.props.content.right_content_image == 'blank') {
+			} else if (this.props.content.right_content == 'blank') {
 				return 'blank'
 			}
 		}

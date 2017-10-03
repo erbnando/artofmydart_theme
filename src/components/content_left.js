@@ -36,29 +36,33 @@ class ContentLeft extends Component {
 	}
 
 	getPosition() {
-		if (this.props.content.left_content_image == 'single') {
-			if (this.props.content.left_image_placement == "top") {
-				return 'top '
-			} else if (this.props.content.left_image_placement == "bottom") {
-				return 'bottom '
-			} else if (this.props.content.left_image_placement == "left") {
-				return 'left '
-			} else if (this.props.content.left_image_placement == "right") {
-				return 'right '
-			} else if (this.props.content.left_image_placement == "topleft") {
-				return 'top-left '
-			} else if (this.props.content.left_image_placement == "topright") {
-				return 'top-right '
-			} else if (this.props.content.left_image_placement == "bottomleft") {
-				return 'bottom-left '
-			} else if (this.props.content.left_image_placement == "bottomright") {
-				return 'bottom-right '
-			} else if (this.props.content.left_image_placement == "center") {
-				return 'center '
+		if (this.props.content.page_type == 'textimages') {
+			if (this.props.content.left_content == 'single') {
+				if (this.props.content.left_image_placement == "top") {
+					return 'top '
+				} else if (this.props.content.left_image_placement == "bottom") {
+					return 'bottom '
+				} else if (this.props.content.left_image_placement == "left") {
+					return 'left '
+				} else if (this.props.content.left_image_placement == "right") {
+					return 'right '
+				} else if (this.props.content.left_image_placement == "topleft") {
+					return 'top-left '
+				} else if (this.props.content.left_image_placement == "topright") {
+					return 'top-right '
+				} else if (this.props.content.left_image_placement == "bottomleft") {
+					return 'bottom-left '
+				} else if (this.props.content.left_image_placement == "bottomright") {
+					return 'bottom-right '
+				} else if (this.props.content.left_image_placement == "center") {
+					return 'center '
+				}
+			} else {
+				return ' '
 			}
 		} else {
-			return ''
-		}
+			return ' '
+		} 
 	}
 
 	getSingleLeftCaptions() {
@@ -116,23 +120,21 @@ class ContentLeft extends Component {
 	}
 
 	getContent() {
-		if (this.props.content.page_type == 'text') {
-			if (this.props.content.left_content_text == 'text') {
+		if (this.props.content.page_type == 'textimages') {
+			if (this.props.content.left_content == 'text') {
 				return (
 					<div dangerouslySetInnerHTML={{__html: this.props.content.text_content_left}} />
 				);
-			} else if (this.props.content.left_content_text == 'quote') {
+			} else if (this.props.content.left_content == 'quote') {
 				return (
 					<div>
 						<div className="quote-text" dangerouslySetInnerHTML={{__html: this.props.content.quote_text_left}} />					
-						<span className="quote-author" dangerouslySetInnerHTML={{__html: this.props.content.quote_author_left}} />,
-						<span>&nbsp;</span>
+						<span className="quote-author" dangerouslySetInnerHTML={{__html: this.props.content.quote_author_left}} />
+						<span>,&nbsp;</span>
 						<span className="quote-source" dangerouslySetInnerHTML={{__html: this.props.content.quote_source_left}} />
 					</div>
 				);
-			}
-		} else if (this.props.content.page_type == 'images') {
-			if (this.props.content.left_content_image == 'single') {
+			} else if (this.props.content.left_content == 'single') {
 				return (
 					<div>
 						<img 
@@ -141,7 +143,7 @@ class ContentLeft extends Component {
 						<div id='captions-left-single' className="captions-left" dangerouslySetInnerHTML={{__html: this.getSingleLeftCaptions()}}></div>
 					</div>
 				);
-			} else if (this.props.content.left_content_image == 'double') {
+			} else if (this.props.content.left_content == 'double') {
 				return (
 					<div>
 						<div className={this.props.content.double_image_size_top_left}>
@@ -163,7 +165,7 @@ class ContentLeft extends Component {
 					</div>
 				);
 			}
-		} else if (this.props.content.page_type == 'spread' && this.props.content.full_sized_image) {
+		} else if (this.props.content.page_type == 'spread' && this.props.content.full_sized_image.sizes.fullsize) {
 			return (
 				<div>
 					<img
@@ -176,20 +178,16 @@ class ContentLeft extends Component {
 	}
 
 	getPageType() {
-		if (this.props.content.page_type == 'text') {
-			if (this.props.content.left_content_text == 'text') {
+		if (this.props.content.page_type == 'textimages') {
+			if (this.props.content.left_content == 'text') {
 				return 'text'
-			} else if (this.props.content.left_content_text == 'quote') {
+			} else if (this.props.content.left_content == 'quote') {
 				return 'quote'
-			} else if (this.props.content.left_content_text == 'blank') {
-				return 'blank'
-			}
-		} else if (this.props.content.page_type == 'images') {
-			if (this.props.content.left_content_image == 'single') {
+			} else if (this.props.content.left_content == 'single') {
 				return 'single'
-			} else if (this.props.content.left_content_image == 'double') {
+			} else if (this.props.content.left_content == 'double') {
 				return 'double'
-			} else if (this.props.content.left_content_image == 'blank') {
+			} else if (this.props.content.left_content == 'blank') {
 				return 'blank'
 			}
 		} else if (this.props.content.page_type == 'spread') {

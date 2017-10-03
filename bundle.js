@@ -31924,26 +31924,11 @@
 									),
 									_react2.default.createElement(_booknav2.default, { slug: this.props.match.params.slug, page: this.props.match.params.pageNum, lastpage: this.lastPage(page) })
 								);
-							} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'text') {
+							} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'textimages' || this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'spread') {
+								console.log(this.props.book.book.acf.book_pages[parseInt(page - 2)]);
 								return _react2.default.createElement(
 									'div',
-									{ className: 'content book text ' + this.separatingLine(page), id: 'content' },
-									_react2.default.createElement(
-										'div',
-										null,
-										_react2.default.createElement(
-											'div',
-											{ id: 'book' },
-											_react2.default.createElement(_content_left2.default, { content: this.props.book.book.acf.book_pages[parseInt(page - 2)] }),
-											_react2.default.createElement(_content_right2.default, { content: this.props.book.book.acf.book_pages[parseInt(page - 2)] })
-										)
-									),
-									_react2.default.createElement(_booknav2.default, { slug: this.props.match.params.slug, page: this.props.match.params.pageNum, lastpage: this.lastPage(page) })
-								);
-							} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'images' || this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'spread') {
-								return _react2.default.createElement(
-									'div',
-									{ className: 'content book images', id: 'content' },
+									{ className: 'content book textimages ' + this.separatingLine(page), id: 'content' },
 									_react2.default.createElement(
 										'div',
 										{ className: 'book-container' },
@@ -32219,28 +32204,32 @@
 		}, {
 			key: "getPosition",
 			value: function getPosition() {
-				if (this.props.content.left_content_image == 'single') {
-					if (this.props.content.left_image_placement == "top") {
-						return 'top ';
-					} else if (this.props.content.left_image_placement == "bottom") {
-						return 'bottom ';
-					} else if (this.props.content.left_image_placement == "left") {
-						return 'left ';
-					} else if (this.props.content.left_image_placement == "right") {
-						return 'right ';
-					} else if (this.props.content.left_image_placement == "topleft") {
-						return 'top-left ';
-					} else if (this.props.content.left_image_placement == "topright") {
-						return 'top-right ';
-					} else if (this.props.content.left_image_placement == "bottomleft") {
-						return 'bottom-left ';
-					} else if (this.props.content.left_image_placement == "bottomright") {
-						return 'bottom-right ';
-					} else if (this.props.content.left_image_placement == "center") {
-						return 'center ';
+				if (this.props.content.page_type == 'textimages') {
+					if (this.props.content.left_content == 'single') {
+						if (this.props.content.left_image_placement == "top") {
+							return 'top ';
+						} else if (this.props.content.left_image_placement == "bottom") {
+							return 'bottom ';
+						} else if (this.props.content.left_image_placement == "left") {
+							return 'left ';
+						} else if (this.props.content.left_image_placement == "right") {
+							return 'right ';
+						} else if (this.props.content.left_image_placement == "topleft") {
+							return 'top-left ';
+						} else if (this.props.content.left_image_placement == "topright") {
+							return 'top-right ';
+						} else if (this.props.content.left_image_placement == "bottomleft") {
+							return 'bottom-left ';
+						} else if (this.props.content.left_image_placement == "bottomright") {
+							return 'bottom-right ';
+						} else if (this.props.content.left_image_placement == "center") {
+							return 'center ';
+						}
+					} else {
+						return ' ';
 					}
 				} else {
-					return '';
+					return ' ';
 				}
 			}
 		}, {
@@ -32304,26 +32293,23 @@
 		}, {
 			key: "getContent",
 			value: function getContent() {
-				if (this.props.content.page_type == 'text') {
-					if (this.props.content.left_content_text == 'text') {
+				if (this.props.content.page_type == 'textimages') {
+					if (this.props.content.left_content == 'text') {
 						return _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.content.text_content_left } });
-					} else if (this.props.content.left_content_text == 'quote') {
+					} else if (this.props.content.left_content == 'quote') {
 						return _react2.default.createElement(
 							"div",
 							null,
 							_react2.default.createElement("div", { className: "quote-text", dangerouslySetInnerHTML: { __html: this.props.content.quote_text_left } }),
 							_react2.default.createElement("span", { className: "quote-author", dangerouslySetInnerHTML: { __html: this.props.content.quote_author_left } }),
-							",",
 							_react2.default.createElement(
 								"span",
 								null,
-								"\xA0"
+								",\xA0"
 							),
 							_react2.default.createElement("span", { className: "quote-source", dangerouslySetInnerHTML: { __html: this.props.content.quote_source_left } })
 						);
-					}
-				} else if (this.props.content.page_type == 'images') {
-					if (this.props.content.left_content_image == 'single') {
+					} else if (this.props.content.left_content == 'single') {
 						return _react2.default.createElement(
 							"div",
 							null,
@@ -32332,7 +32318,7 @@
 							}),
 							_react2.default.createElement("div", { id: "captions-left-single", className: "captions-left", dangerouslySetInnerHTML: { __html: this.getSingleLeftCaptions() } })
 						);
-					} else if (this.props.content.left_content_image == 'double') {
+					} else if (this.props.content.left_content == 'double') {
 						return _react2.default.createElement(
 							"div",
 							null,
@@ -32362,7 +32348,7 @@
 							)
 						);
 					}
-				} else if (this.props.content.page_type == 'spread' && this.props.content.full_sized_image) {
+				} else if (this.props.content.page_type == 'spread' && this.props.content.full_sized_image.sizes.fullsize) {
 					return _react2.default.createElement(
 						"div",
 						null,
@@ -32376,20 +32362,16 @@
 		}, {
 			key: "getPageType",
 			value: function getPageType() {
-				if (this.props.content.page_type == 'text') {
-					if (this.props.content.left_content_text == 'text') {
+				if (this.props.content.page_type == 'textimages') {
+					if (this.props.content.left_content == 'text') {
 						return 'text';
-					} else if (this.props.content.left_content_text == 'quote') {
+					} else if (this.props.content.left_content == 'quote') {
 						return 'quote';
-					} else if (this.props.content.left_content_text == 'blank') {
-						return 'blank';
-					}
-				} else if (this.props.content.page_type == 'images') {
-					if (this.props.content.left_content_image == 'single') {
+					} else if (this.props.content.left_content == 'single') {
 						return 'single';
-					} else if (this.props.content.left_content_image == 'double') {
+					} else if (this.props.content.left_content == 'double') {
 						return 'double';
-					} else if (this.props.content.left_content_image == 'blank') {
+					} else if (this.props.content.left_content == 'blank') {
 						return 'blank';
 					}
 				} else if (this.props.content.page_type == 'spread') {
@@ -32481,7 +32463,7 @@
 		}, {
 			key: "getPosition",
 			value: function getPosition() {
-				if (this.props.content.right_content_image == 'single') {
+				if (this.props.content.right_content == 'single') {
 					if (this.props.content.right_image_placement == "top") {
 						return 'top ';
 					} else if (this.props.content.right_image_placement == "bottom") {
@@ -32553,26 +32535,23 @@
 		}, {
 			key: "getContent",
 			value: function getContent() {
-				if (this.props.content.page_type == 'text') {
-					if (this.props.content.right_content_text == 'text') {
+				if (this.props.content.page_type == 'textimages') {
+					if (this.props.content.right_content == 'text') {
 						return _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.content.text_content_right } });
-					} else if (this.props.content.right_content_text == 'quote') {
+					} else if (this.props.content.right_content == 'quote') {
 						return _react2.default.createElement(
 							"div",
 							null,
 							_react2.default.createElement("div", { className: "quote-text", dangerouslySetInnerHTML: { __html: this.props.content.quote_text_right } }),
 							_react2.default.createElement("span", { className: "quote-author", dangerouslySetInnerHTML: { __html: this.props.content.quote_author_right } }),
-							",",
 							_react2.default.createElement(
 								"span",
 								null,
-								"\xA0"
+								",\xA0"
 							),
 							_react2.default.createElement("span", { className: "quote-source", dangerouslySetInnerHTML: { __html: this.props.content.quote_source_right } })
 						);
-					}
-				} else if (this.props.content.page_type == 'images') {
-					if (this.props.content.right_content_image == 'single') {
+					} else if (this.props.content.right_content == 'single') {
 						return _react2.default.createElement(
 							"div",
 							null,
@@ -32581,7 +32560,7 @@
 							}),
 							_react2.default.createElement("div", { id: "captions-right-single", className: "captions-right", dangerouslySetInnerHTML: { __html: this.getSingleRightCaptions() } })
 						);
-					} else if (this.props.content.right_content_image == 'double') {
+					} else if (this.props.content.right_content == 'double') {
 						return _react2.default.createElement(
 							"div",
 							null,
@@ -32616,20 +32595,16 @@
 		}, {
 			key: "getPageType",
 			value: function getPageType() {
-				if (this.props.content.page_type == 'text') {
-					if (this.props.content.right_content_text == 'text') {
+				if (this.props.content.page_type == 'textimages') {
+					if (this.props.content.right_content == 'text') {
 						return 'text';
-					} else if (this.props.content.right_content_text == 'quote') {
+					} else if (this.props.content.right_content == 'quote') {
 						return 'quote';
-					} else if (this.props.content.right_content_text == 'blank') {
-						return 'blank';
-					}
-				} else if (this.props.content.page_type == 'images') {
-					if (this.props.content.right_content_image == 'single') {
+					} else if (this.props.content.right_content == 'single') {
 						return 'single';
-					} else if (this.props.content.right_content_image == 'double') {
+					} else if (this.props.content.right_content == 'double') {
 						return 'double';
-					} else if (this.props.content.right_content_image == 'blank') {
+					} else if (this.props.content.right_content == 'blank') {
 						return 'blank';
 					}
 				}

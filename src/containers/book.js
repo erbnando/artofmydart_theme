@@ -103,21 +103,10 @@ class Book extends Component {
 								<BookNav slug={this.props.match.params.slug} page={this.props.match.params.pageNum} lastpage={this.lastPage(page)} />
 							</div>
 						);
-					} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'text') {
+					} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'textimages' || this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'spread') {
+						console.log(this.props.book.book.acf.book_pages[parseInt(page - 2)]);
 						return (
-							<div className={'content book text ' + this.separatingLine(page)} id="content">
-								<div>
-									<div id="book">
-										<ContentLeft content={this.props.book.book.acf.book_pages[parseInt(page - 2)]} />
-										<ContentRight content={this.props.book.book.acf.book_pages[parseInt(page - 2)]} />
-									</div>
-								</div>
-								<BookNav slug={this.props.match.params.slug} page={this.props.match.params.pageNum} lastpage={this.lastPage(page)} />
-							</div>
-						);
-					} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'images' || this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'spread') {
-						return (
-							<div className="content book images" id="content">
+							<div className={'content book textimages ' + this.separatingLine(page)} id="content">
 								<div className="book-container">
 									<div id="book">
 										<ContentLeft content={this.props.book.book.acf.book_pages[parseInt(page - 2)]} />
