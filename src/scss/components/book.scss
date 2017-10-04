@@ -260,14 +260,6 @@
 						    margin: 0 auto;
 						    opacity: 1!important;
 							// position: relative;
-						    &.small {
-						    	div {
-						    		img {
-										max-width: 230px;
-										max-height: 230px;
-						    		}
-						    	}
-						    }
 						    &.medium {
 						    	div {
 						    		img {
@@ -457,18 +449,6 @@
 												}
 								    		}
 								    	}
-									}
-								}
-								.small {
-									img {
-										max-width: 180px;
-										max-height: 180px;
-										position: absolute;
-									    left: 0;
-									    right: 0;
-									    bottom: 0;
-									    top: 0;
-									    margin: auto;
 									}
 								}
 								.medium {
@@ -894,15 +874,6 @@
 										}
 									}
 								}
-								.small {
-									> div {
-										img {
-											position: absolute;
-											max-width: 30%;
-											max-height: 60%;
-										}
-									}
-								}
 								.medium {
 									> div {
 										img {
@@ -1171,28 +1142,6 @@
 										width: inherit;
 										display: block;
 								    	padding: 0!important;
-										.small:first-child {
-											img {
-											    max-width: 25%;
-											    max-height: 25%;
-											    position: absolute;
-											    left: 25%;
-											    top: 25%;
-											    transform: translate(-50%, -50%);
-											    margin: initial;
-											}
-										}
-										.small:last-child {
-											img {
-											    max-width: 25%;
-											    max-height: 25%;
-											    position: absolute;
-											    left: 25%;
-											    top: 75%;
-											    transform: translate(-50%, -50%);
-											    margin: initial;
-											}
-										}
 										.medium:first-child {
 											img {
 											    max-width: 40%;
@@ -1294,28 +1243,6 @@
 										width: inherit;
 										display: block;
 								    	padding: 0!important;
-										.small:first-child {
-											img {
-											    max-width: 25%;
-											    max-height: 25%;
-											    position: absolute;
-											    left: 75%;
-											    top: 25%;
-											    transform: translate(-50%, -50%);
-											    margin: initial;
-											}
-										}
-										.small:last-child {
-											img {
-											    max-width: 25%;
-											    max-height: 25%;
-											    position: absolute;
-											    left: 75%;
-											    top: 75%;
-											    transform: translate(-50%, -50%);
-											    margin: initial;
-											}
-										}
 										.medium:first-child {
 											img {
 											    max-width: 40%;

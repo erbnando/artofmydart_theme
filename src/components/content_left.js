@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 
 class ContentLeft extends Component {
 	getLeftImageSrc() {
-		if (this.props.content.single_image_size_left == "small") {
-			return this.props.content.small_single_image_left.sizes.small
-		}
-		else if (this.props.content.single_image_size_left == "medium") {
+		if (this.props.content.single_image_size_left == "medium") {
 			return this.props.content.medium_single_image_left.sizes.medium
 		}
 		else if (this.props.content.single_image_size_left == "large") {

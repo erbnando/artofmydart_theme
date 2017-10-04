@@ -32172,9 +32172,7 @@
 		_createClass(ContentLeft, [{
 			key: "getLeftImageSrc",
 			value: function getLeftImageSrc() {
-				if (this.props.content.single_image_size_left == "small") {
-					return this.props.content.small_single_image_left.sizes.small;
-				} else if (this.props.content.single_image_size_left == "medium") {
+				if (this.props.content.single_image_size_left == "medium") {
 					return this.props.content.medium_single_image_left.sizes.medium;
 				} else if (this.props.content.single_image_size_left == "large") {
 					return this.props.content.large_single_image_left.sizes.large;
@@ -32432,9 +32430,7 @@
 			key: "getRightImageSrc",
 			value: function getRightImageSrc() {
 				//console.log(this.props);
-				if (this.props.content.single_image_size_right == "small") {
-					return this.props.content.small_single_image_right.sizes.small;
-				} else if (this.props.content.single_image_size_right == "medium") {
+				if (this.props.content.single_image_size_right == "medium") {
 					return this.props.content.medium_single_image_right.sizes.medium;
 				} else if (this.props.content.single_image_size_right == "large") {
 					return this.props.content.large_single_image_right.sizes.large;

@@ -882,9 +882,6 @@ img {
         .book.textimages > .book-container #book .book-grid-two.single > div {
           margin: 0 auto;
           opacity: 1 !important; }
-          .book.textimages > .book-container #book .book-grid-two.single > div.small div img {
-            max-width: 230px;
-            max-height: 230px; }
           .book.textimages > .book-container #book .book-grid-two.single > div.medium div img {
             max-width: 281px;
             max-height: 431px; }
@@ -1026,15 +1023,6 @@ img {
                         font-style: italic;
                         font-size: 13px;
                         line-height: 17px; }
-              .book.textimages > .book-container #book .book-grid-two.double > .content-right > div .small img, .book.textimages > .book-container #book .book-grid-two.double .content-left > div .small img {
-                max-width: 180px;
-                max-height: 180px;
-                position: absolute;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                top: 0;
-                margin: auto; }
               .book.textimages > .book-container #book .book-grid-two.double > .content-right > div .medium img, .book.textimages > .book-container #book .book-grid-two.double .content-left > div .medium img {
                 max-width: 310px;
                 max-height: 205px;
@@ -1363,10 +1351,6 @@ img {
                       .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div > div p, .portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div > div p {
                         font-size: 10px !important;
                         line-height: 13px !important; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single .small > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single .small > div img {
-                  position: absolute;
-                  max-width: 30%;
-                  max-height: 60%; }
                 .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single .medium > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single .medium > div img {
                   position: absolute;
                   max-width: 37.5%;
@@ -1486,22 +1470,6 @@ img {
                     width: inherit;
                     display: block;
                     padding: 0 !important; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .small:first-child img, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .small:first-child img {
-                      max-width: 25%;
-                      max-height: 25%;
-                      position: absolute;
-                      left: 25%;
-                      top: 25%;
-                      transform: translate(-50%, -50%);
-                      margin: initial; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .small:last-child img, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .small:last-child img {
-                      max-width: 25%;
-                      max-height: 25%;
-                      position: absolute;
-                      left: 25%;
-                      top: 75%;
-                      transform: translate(-50%, -50%);
-                      margin: initial; }
                     .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .medium:first-child img, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .medium:first-child img {
                       max-width: 40%;
                       max-height: 40%;
@@ -1579,22 +1547,6 @@ img {
                     width: inherit;
                     display: block;
                     padding: 0 !important; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .small:first-child img, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .small:first-child img {
-                      max-width: 25%;
-                      max-height: 25%;
-                      position: absolute;
-                      left: 75%;
-                      top: 25%;
-                      transform: translate(-50%, -50%);
-                      margin: initial; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .small:last-child img, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .small:last-child img {
-                      max-width: 25%;
-                      max-height: 25%;
-                      position: absolute;
-                      left: 75%;
-                      top: 75%;
-                      transform: translate(-50%, -50%);
-                      margin: initial; }
                     .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .medium:first-child img, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .medium:first-child img {
                       max-width: 40%;
                       max-height: 40%;

@@ -325,7 +325,7 @@
                     "label": "Single Image Size (Left)",
                     "name": "single_image_size_left",
                     "type": "select",
-                    "instructions": "Upload dimensions are double the display size so images display ok on retina screens.<br>\r\nAnd when rendered, the image is scaled down proportionally to meet the maximum display width and height. <a target=\"_blank\" href=\"\/wp-content\/themes\/artofmydart_theme\/img\/sizes.png\">Image maximum display dimensions<\/a>.<br>\r\n<br>\r\nSmall image minimum upload dimensions: 460x460<br>\r\nSmall image maximum display dimensions: 230x230<br>\r\nMedium image minimum upload dimensions: 560x862<br>\r\nMedium image maximum display dimensions: 280x431<br>\r\nLarge image minimum upload dimensions: 642x942<br>\r\nLarge image maximum display dimensions: 321x471<br>\r\nFull image minimum upload dimensions: 726x1022<br>\r\nFull image maximum display dimensions: 363x511",
+                    "instructions": "Upload dimensions are double the display size so images display ok on retina screens.<br>\r\nAnd when rendered, the image is scaled down proportionally to meet the maximum display width and height. <a target=\"_blank\" href=\"\/wp-content\/themes\/artofmydart_theme\/img\/sizes.png\">Image maximum display dimensions<\/a>.<br>\r\n<br>\r\nMedium image minimum upload dimensions: 560x862<br>\r\nMedium image maximum display dimensions: 280x431<br>\r\nLarge image minimum upload dimensions: 642x942<br>\r\nLarge image maximum display dimensions: 321x471<br>\r\nFull image minimum upload dimensions: 726x1022<br>\r\nFull image maximum display dimensions: 363x511",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -347,7 +347,6 @@
                         "id": ""
                     },
                     "choices": {
-                        "small": "Small",
                         "medium": "Medium",
                         "large": "Large",
                         "full": "Full"
@@ -360,48 +359,6 @@
                     "placeholder": "",
                     "disabled": 0,
                     "readonly": 0
-                },
-                {
-                    "key": "field_597acb4dcd7f4",
-                    "label": "Small Single Image (Left)",
-                    "name": "small_single_image_left",
-                    "type": "image",
-                    "instructions": "Small image minimum upload dimensions: 460x460<br>\r\nSmall image maximum display dimensions: 230x230",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5961b746e788e",
-                                "operator": "==",
-                                "value": "textimages"
-                            },
-                            {
-                                "field": "field_59d31b4a32cce",
-                                "operator": "==",
-                                "value": "single"
-                            },
-                            {
-                                "field": "field_597aba21ab4e7",
-                                "operator": "==",
-                                "value": "small"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "thumbnail",
-                    "library": "all",
-                    "min_width": 460,
-                    "min_height": 460,
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
                 },
                 {
                     "key": "field_597acb86f5c14",
@@ -580,7 +537,7 @@
                     "label": "Double Image Size (Top Left)",
                     "name": "double_image_size_top_left",
                     "type": "select",
-                    "instructions": "Upload dimensions are double the display size so images display ok on retina screens.<br>\r\nAnd when rendered, the image is scaled down proportionally to meet the maximum display width and height. <a target=\"_blank\" href=\"\/wp-content\/themes\/artofmydart_theme\/img\/sizes.png\">Image maximum display dimensions<\/a>.<br>\r\n<br>\r\nSmall image minimum upload dimensions: 360x360<br>\r\nSmall image maximum display dimensions: 180x180<br>\r\nMedium image minimum upload dimensions: 620x410<br>\r\nMedium image maximum display dimensions: 310x205<br>\r\nFull image minimum upload dimensions: 726x511<br>\r\nFull image maximum display dimensions: 363x255.5",
+                    "instructions": "Upload dimensions are double the display size so images display ok on retina screens.<br>\r\nAnd when rendered, the image is scaled down proportionally to meet the maximum display width and height. <a target=\"_blank\" href=\"\/wp-content\/themes\/artofmydart_theme\/img\/sizes.png\">Image maximum display dimensions<\/a>.<br>\r\n<br>\r\nMedium image minimum upload dimensions: 620x410<br>\r\nMedium image maximum display dimensions: 310x205<br>\r\nFull image minimum upload dimensions: 726x511<br>\r\nFull image maximum display dimensions: 363x255.5",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -703,7 +660,7 @@
                     "label": "Double Image Size (Bottom Left)",
                     "name": "double_image_size_bottom_left",
                     "type": "select",
-                    "instructions": "Upload dimensions are double the display size so images display ok on retina screens.<br>\r\nAnd when rendered, the image is scaled down proportionally to meet the maximum display width and height. <a target=\"_blank\" href=\"\/wp-content\/themes\/artofmydart_theme\/img\/sizes.png\">Image maximum display dimensions<\/a>.<br>\r\n<br>\r\nSmall image minimum upload dimensions: 360x360<br>\r\nSmall image maximum display dimensions: 180x180<br>\r\nMedium image minimum upload dimensions: 620x410<br>\r\nMedium image maximum display dimensions: 310x205<br>\r\nFull image minimum upload dimensions: 726x511<br>\r\nFull image maximum display dimensions: 363x255.5",
+                    "instructions": "Upload dimensions are double the display size so images display ok on retina screens.<br>\r\nAnd when rendered, the image is scaled down proportionally to meet the maximum display width and height. <a target=\"_blank\" href=\"\/wp-content\/themes\/artofmydart_theme\/img\/sizes.png\">Image maximum display dimensions<\/a>.<br>\r\n<br>\r\nMedium image minimum upload dimensions: 620x410<br>\r\nMedium image maximum display dimensions: 310x205<br>\r\nFull image minimum upload dimensions: 726x511<br>\r\nFull image maximum display dimensions: 363x255.5",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -1017,7 +974,7 @@
                     "label": "Single Image Size (Right)",
                     "name": "single_image_size_right",
                     "type": "select",
-                    "instructions": "Upload dimensions are double the display size so images display ok on retina screens.<br>\r\nAnd when rendered, the image is scaled down proportionally to meet the maximum display width and height. <a target=\"_blank\" href=\"\/wp-content\/themes\/artofmydart_theme\/img\/sizes.png\">Image maximum display dimensions<\/a>.<br>\r\n<br>\r\nSmall image minimum upload dimensions: 460x460<br>\r\nSmall image maximum display dimensions: 230x230<br>\r\nMedium image minimum upload dimensions: 560x862<br>\r\nMedium image maximum display dimensions: 280x431<br>\r\nLarge image minimum upload dimensions: 642x942<br>\r\nLarge image maximum display dimensions: 321x471<br>\r\nFull image minimum upload dimensions: 726x1022<br>\r\nFull image maximum display dimensions: 363x511",
+                    "instructions": "Upload dimensions are double the display size so images display ok on retina screens.<br>\r\nAnd when rendered, the image is scaled down proportionally to meet the maximum display width and height. <a target=\"_blank\" href=\"\/wp-content\/themes\/artofmydart_theme\/img\/sizes.png\">Image maximum display dimensions<\/a>.<br>\r\n<br>\r\nMedium image minimum upload dimensions: 560x862<br>\r\nMedium image maximum display dimensions: 280x431<br>\r\nLarge image minimum upload dimensions: 642x942<br>\r\nLarge image maximum display dimensions: 321x471<br>\r\nFull image minimum upload dimensions: 726x1022<br>\r\nFull image maximum display dimensions: 363x511",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -1039,7 +996,6 @@
                         "id": ""
                     },
                     "choices": {
-                        "small": "Small",
                         "medium": "Medium",
                         "large": "Large",
                         "full": "Full"
@@ -1052,48 +1008,6 @@
                     "placeholder": "",
                     "disabled": 0,
                     "readonly": 0
-                },
-                {
-                    "key": "field_597c13fd7745b",
-                    "label": "Small Single Image (Right)",
-                    "name": "small_single_image_right",
-                    "type": "image",
-                    "instructions": "Small image minimum upload dimensions: 460x460<br>\r\nSmall image maximum display dimensions: 230x230",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5961b746e788e",
-                                "operator": "==",
-                                "value": "textimages"
-                            },
-                            {
-                                "field": "field_59684ff229f35",
-                                "operator": "==",
-                                "value": "single"
-                            },
-                            {
-                                "field": "field_597c141e7745c",
-                                "operator": "==",
-                                "value": "small"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "thumbnail",
-                    "library": "all",
-                    "min_width": 460,
-                    "min_height": 460,
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
                 },
                 {
                     "key": "field_597c13f27745a",
@@ -1272,7 +1186,7 @@
                     "label": "Double Image Size (Top Right)",
                     "name": "double_image_size_top_right",
                     "type": "select",
-                    "instructions": "Upload dimensions are double the display size so images display ok on retina screens.<br>\r\nAnd when rendered, the image is scaled down proportionally to meet the maximum display width and height. <a target=\"_blank\" href=\"\/wp-content\/themes\/artofmydart_theme\/img\/sizes.png\">Image maximum display dimensions<\/a>.<br>\r\n<br>\r\nSmall image minimum upload dimensions: 360x360<br>\r\nSmall image maximum display dimensions: 180x180<br>\r\nMedium image minimum upload dimensions: 620x410<br>\r\nMedium image maximum display dimensions: 310x205<br>\r\nFull image minimum upload dimensions: 726x511<br>\r\nFull image maximum display dimensions: 363x255.5",
+                    "instructions": "Upload dimensions are double the display size so images display ok on retina screens.<br>\r\nAnd when rendered, the image is scaled down proportionally to meet the maximum display width and height. <a target=\"_blank\" href=\"\/wp-content\/themes\/artofmydart_theme\/img\/sizes.png\">Image maximum display dimensions<\/a>.<br>\r\n<br>\r\nMedium image minimum upload dimensions: 620x410<br>\r\nMedium image maximum display dimensions: 310x205<br>\r\nFull image minimum upload dimensions: 726x511<br>\r\nFull image maximum display dimensions: 363x255.5",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -1395,7 +1309,7 @@
                     "label": "Double Image Size (Bottom Right)",
                     "name": "double_image_size_bottom_right",
                     "type": "select",
-                    "instructions": "Upload dimensions are double the display size so images display ok on retina screens.<br>\r\nAnd when rendered, the image is scaled down proportionally to meet the maximum display width and height. <a target=\"_blank\" href=\"\/wp-content\/themes\/artofmydart_theme\/img\/sizes.png\">Image maximum display dimensions<\/a>.<br>\r\n<br>\r\nSmall image minimum upload dimensions: 360x360<br>\r\nSmall image maximum display dimensions: 180x180<br>\r\nMedium image minimum upload dimensions: 620x410<br>\r\nMedium image maximum display dimensions: 310x205<br>\r\nFull image minimum upload dimensions: 726x511<br>\r\nFull image maximum display dimensions: 363x255.5",
+                    "instructions": "Upload dimensions are double the display size so images display ok on retina screens.<br>\r\nAnd when rendered, the image is scaled down proportionally to meet the maximum display width and height. <a target=\"_blank\" href=\"\/wp-content\/themes\/artofmydart_theme\/img\/sizes.png\">Image maximum display dimensions<\/a>.<br>\r\n<br>\r\nMedium image minimum upload dimensions: 620x410<br>\r\nMedium image maximum display dimensions: 310x205<br>\r\nFull image minimum upload dimensions: 726x511<br>\r\nFull image maximum display dimensions: 363x255.5",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -1625,5 +1539,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1507008491
+    "modified": 1507093278
 }
