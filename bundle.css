@@ -92,6 +92,7 @@ img {
   white-space: normal; }
 
 .container header {
+  z-index: 1;
   position: relative;
   max-width: 1440px;
   width: 100%;
