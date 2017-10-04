@@ -54,3 +54,13 @@ function image_crop_dimensions($default, $orig_w, $orig_h, $new_w, $new_h, $crop
     return array( 0, 0, (int) $s_x, (int) $s_y, (int) $new_w, (int) $new_h, (int) $crop_w, (int) $crop_h );
 }
 add_filter('image_resize_dimensions', 'image_crop_dimensions', 10, 6);
+
+// Edit ACF WYSIWYG toolbars
+add_filter( 'acf/fields/wysiwyg/toolbars' , 'my_toolbars'  );
+function my_toolbars( $toolbars )
+{
+	$toolbars['Quote'] = array();
+	$toolbars['Quote'][1] = array('italic', 'removeformat');
+
+	return $toolbars;
+}

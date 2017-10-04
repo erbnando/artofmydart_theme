@@ -249,48 +249,14 @@
                     },
                     "default_value": "",
                     "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1
+                    "toolbar": "quote",
+                    "media_upload": 0
                 },
                 {
                     "key": "field_597d201eea377",
-                    "label": "Quote Author (Left)",
-                    "name": "quote_author_left",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5961b746e788e",
-                                "operator": "==",
-                                "value": "textimages"
-                            },
-                            {
-                                "field": "field_59d31b4a32cce",
-                                "operator": "==",
-                                "value": "quote"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
-                },
-                {
-                    "key": "field_597d203cea378",
                     "label": "Quote Source (Left)",
                     "name": "quote_source_left",
-                    "type": "text",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": [
@@ -313,12 +279,9 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
+                    "tabs": "all",
+                    "toolbar": "quote",
+                    "media_upload": 0
                 },
                 {
                     "key": "field_597aba21ab4e7",
@@ -898,48 +861,14 @@
                     },
                     "default_value": "",
                     "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1
+                    "toolbar": "quote",
+                    "media_upload": 0
                 },
                 {
                     "key": "field_597d280281aa8",
-                    "label": "Quote Author (Right)",
-                    "name": "quote_author_right",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5961b746e788e",
-                                "operator": "==",
-                                "value": "textimages"
-                            },
-                            {
-                                "field": "field_59684ff229f35",
-                                "operator": "==",
-                                "value": "quote"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
-                },
-                {
-                    "key": "field_597d280781aa9",
                     "label": "Quote Source (Right)",
                     "name": "quote_source_right",
-                    "type": "text",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": [
@@ -962,12 +891,9 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
+                    "tabs": "all",
+                    "toolbar": "quote",
+                    "media_upload": 0
                 },
                 {
                     "key": "field_597c141e7745c",
@@ -1539,5 +1465,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1507093278
+    "modified": 1507097013
 }

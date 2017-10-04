@@ -235,20 +235,12 @@
 								.quote-text, .quote-text p {
 									font-size: 16px;
 									font-family: Poly;
-									font-style: italic;
 									line-height: 20px;
 									margin-bottom: 20px;
 								}
-								.quote-author {
+								.quote-source, .quote-source p {
 									font-size: 13px;
 									font-family: Lato;
-									font-weight: 900;
-									line-height: 18px;
-								}
-								.quote-source {
-									font-size: 13px;
-									font-family: Lato;
-									font-style: italic;
 									font-weight: 900;
 									line-height: 18px;
 								}
@@ -1386,19 +1378,12 @@
 									    padding-right: 1.5vw !important;
    										.quote-text, .quote-text p {
 											font-family: Poly;
-											font-style: italic;
 											font-size: 2vw;
 											line-height: 2.5vw;
 											margin-bottom: 2vw;
 										}
-										.quote-author {
+										.quote-source, .quote-source p {
 											font-family: Lato;
-											font-weight: 900;
-											font-size: 2vw;
-										}
-										.quote-source {
-											font-family: Lato;
-											font-style: italic;
 											font-weight: 900;
 											font-size: 2vw;
 										}

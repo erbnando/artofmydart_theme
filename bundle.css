@@ -866,18 +866,11 @@ img {
           .book.textimages > .book-container #book .book-grid-two.quote > div > div .quote-text, .book.textimages > .book-container #book .book-grid-two.quote > div > div .quote-text p {
             font-size: 16px;
             font-family: Poly;
-            font-style: italic;
             line-height: 20px;
             margin-bottom: 20px; }
-          .book.textimages > .book-container #book .book-grid-two.quote > div > div .quote-author {
+          .book.textimages > .book-container #book .book-grid-two.quote > div > div .quote-source, .book.textimages > .book-container #book .book-grid-two.quote > div > div .quote-source p {
             font-size: 13px;
             font-family: Lato;
-            font-weight: 900;
-            line-height: 18px; }
-          .book.textimages > .book-container #book .book-grid-two.quote > div > div .quote-source {
-            font-size: 13px;
-            font-family: Lato;
-            font-style: italic;
             font-weight: 900;
             line-height: 18px; }
         .book.textimages > .book-container #book .book-grid-two.single > div {
@@ -1655,17 +1648,11 @@ img {
                     padding-right: 1.5vw !important; }
                     .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-text, .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-text p, .portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-text, .portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-text p {
                       font-family: Poly;
-                      font-style: italic;
                       font-size: 2vw;
                       line-height: 2.5vw;
                       margin-bottom: 2vw; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-author, .portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-author {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-source, .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-source p, .portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-source, .portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-source p {
                       font-family: Lato;
-                      font-weight: 900;
-                      font-size: 2vw; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-source, .portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-source {
-                      font-family: Lato;
-                      font-style: italic;
                       font-weight: 900;
                       font-size: 2vw; }
                     .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div span, .portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div span {
