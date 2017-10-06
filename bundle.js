@@ -31904,9 +31904,9 @@
 													'div',
 													null,
 													_react2.default.createElement(
-														'p',
-														{ className: 'author-name' },
-														this.props.book.book.acf.author_name
+														'h1',
+														{ className: 'book-title' },
+														this.props.book.book.title.rendered
 													),
 													_react2.default.createElement(
 														'p',
@@ -31914,9 +31914,9 @@
 														this.props.book.book.acf.author_title
 													),
 													_react2.default.createElement(
-														'h1',
-														{ className: 'book-title' },
-														this.props.book.book.title.rendered
+														'p',
+														{ className: 'author-name' },
+														this.props.book.book.acf.author_name
 													)
 												)
 											)

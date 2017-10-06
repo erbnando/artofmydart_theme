@@ -93,9 +93,9 @@ class Book extends Component {
 										</div>
 										<div className="book-grid-two">
 											<div>
-												<p className="author-name">{this.props.book.book.acf.author_name}</p>
-												<p className="author-title">{this.props.book.book.acf.author_title}</p>
 												<h1 className="book-title">{this.props.book.book.title.rendered}</h1>
+												<p className="author-title">{this.props.book.book.acf.author_title}</p>
+												<p className="author-name">{this.props.book.book.acf.author_name}</p>
 											</div>
 										</div>
 									</div>
