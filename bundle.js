@@ -31839,7 +31839,7 @@
 				if (this.props.book.book.acf.book_pages[parseInt(page - 2)].separating_line == true) {
 					return 'sep';
 				} else {
-					return;
+					return '';
 				}
 			}
 		}, {
@@ -32278,13 +32278,13 @@
 		}, {
 			key: "getFullSizedCaptions",
 			value: function getFullSizedCaptions() {
-				if (this.props.content.full_sized_image.title || this.props.content.full_sized_image.caption) {
-					if (this.props.content.full_sized_image.title) {
-						var title = '<h6>' + this.props.content.full_sized_image.title + '</h6>';
+				if (this.props.content.double_spread_full_sized_image.title || this.props.content.double_spread_full_sized_image.caption) {
+					if (this.props.content.double_spread_full_sized_image.title) {
+						var title = '<h6>' + this.props.content.double_spread_full_sized_image.title + '</h6>';
 					} else {
 						var title = '';
 					}
-					var caption = '<div>' + title + '<p>' + this.props.content.full_sized_image.caption + '</p>' + '</div>';
+					var caption = '<div>' + title + '<p>' + this.props.content.double_spread_full_sized_image.caption + '</p>' + '</div>';
 					return caption;
 				}
 			}
@@ -32340,15 +32340,27 @@
 							)
 						);
 					}
-				} else if (this.props.content.page_type == 'spread' && this.props.content.full_sized_image.sizes.fullsize) {
-					return _react2.default.createElement(
-						"div",
-						null,
-						_react2.default.createElement("img", {
-							src: this.props.content.full_sized_image.sizes.fullsize
-						}),
-						_react2.default.createElement("div", { id: "captions-full-image", className: 'captions-' + this.props.content.full_sized_image_caption_position, dangerouslySetInnerHTML: { __html: this.getFullSizedCaptions() } })
-					);
+				} else if (this.props.content.page_type == 'spread') {
+					//console.log(this.props.content);
+					if (this.props.content.double_spread_image_size == 'full' && this.props.content.double_spread_full_sized_image.sizes.fullsize) {
+						return _react2.default.createElement(
+							"div",
+							null,
+							_react2.default.createElement("img", {
+								src: this.props.content.double_spread_full_sized_image.sizes.fullsize
+							}),
+							_react2.default.createElement("div", { id: "captions-full-image", className: 'captions-' + this.props.content.full_sized_image_caption_position, dangerouslySetInnerHTML: { __html: this.getFullSizedCaptions() } })
+						);
+					} else if (this.props.content.double_spread_image_size == 'large' && this.props.content.double_spread_large_image.sizes.largespread) {
+						return _react2.default.createElement(
+							"div",
+							null,
+							_react2.default.createElement("img", {
+								src: this.props.content.double_spread_large_image.sizes.largespread
+							}),
+							_react2.default.createElement("div", { id: "captions-full-image", className: 'captions-' + this.props.content.full_sized_image_caption_position, dangerouslySetInnerHTML: { __html: this.getFullSizedCaptions() } })
+						);
+					}
 				}
 			}
 		}, {
@@ -32367,7 +32379,11 @@
 						return 'blank';
 					}
 				} else if (this.props.content.page_type == 'spread') {
-					return 'fullimage';
+					if (this.props.content.double_spread_image_size == 'full') {
+						return 'fullimage';
+					} else if (this.props.content.double_spread_image_size == 'large') {
+						return 'largespread';
+					}
 				}
 			}
 		}, {

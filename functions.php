@@ -34,6 +34,7 @@ add_image_size( 'medium', 562, 862 );
 add_image_size( 'large', 642, 942 );
 add_image_size( 'full', 726, 1022, true );
 add_image_size( 'fullsize', 1452, 1022, true );
+add_image_size( 'largespread', 1332, 902, true );
 add_image_size( 'doublesmall', 360, 360 );
 add_image_size( 'doublemedium', 620, 410 );
 add_image_size( 'doublefull', 726, 511, true );

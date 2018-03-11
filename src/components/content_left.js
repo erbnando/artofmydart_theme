@@ -105,13 +105,13 @@ class ContentLeft extends Component {
 	}
 
 	getFullSizedCaptions() {
-		if (this.props.content.full_sized_image.title || this.props.content.full_sized_image.caption) {
-			if (this.props.content.full_sized_image.title) {
-				var title = '<h6>' + this.props.content.full_sized_image.title + '</h6>';
+		if (this.props.content.double_spread_full_sized_image.title || this.props.content.double_spread_full_sized_image.caption) {
+			if (this.props.content.double_spread_full_sized_image.title) {
+				var title = '<h6>' + this.props.content.double_spread_full_sized_image.title + '</h6>';
 			} else {
 				var title = '';
 			}
-			var caption = '<div>' + title + '<p>' + this.props.content.full_sized_image.caption + '</p>' + '</div>';
+			var caption = '<div>' + title + '<p>' + this.props.content.double_spread_full_sized_image.caption + '</p>' + '</div>';
 	 		return caption
 		}
 	}
@@ -160,15 +160,27 @@ class ContentLeft extends Component {
 					</div>
 				);
 			}
-		} else if (this.props.content.page_type == 'spread' && this.props.content.full_sized_image.sizes.fullsize) {
-			return (
-				<div>
-					<img
-					src={this.props.content.full_sized_image.sizes.fullsize}
-					/>
-					<div id='captions-full-image' className={'captions-' + this.props.content.full_sized_image_caption_position} dangerouslySetInnerHTML={{__html: this.getFullSizedCaptions()}}></div>
-				</div>
-			);
+		} else if (this.props.content.page_type == 'spread') {
+			//console.log(this.props.content);
+			if (this.props.content.double_spread_image_size == 'full' && this.props.content.double_spread_full_sized_image.sizes.fullsize) {
+				return (
+					<div>
+						<img
+						src={this.props.content.double_spread_full_sized_image.sizes.fullsize}
+						/>
+						<div id='captions-full-image' className={'captions-' + this.props.content.full_sized_image_caption_position} dangerouslySetInnerHTML={{__html: this.getFullSizedCaptions()}}></div>
+					</div>
+				);
+			} else if (this.props.content.double_spread_image_size == 'large' && this.props.content.double_spread_large_image.sizes.largespread) {
+				return (
+					<div>
+						<img
+						src={this.props.content.double_spread_large_image.sizes.largespread}
+						/>
+						<div id='captions-full-image' className={'captions-' + this.props.content.full_sized_image_caption_position} dangerouslySetInnerHTML={{__html: this.getFullSizedCaptions()}}></div>
+					</div>
+				);
+			}
 		}
 	}
 
@@ -186,7 +198,11 @@ class ContentLeft extends Component {
 				return 'blank'
 			}
 		} else if (this.props.content.page_type == 'spread') {
-			return 'fullimage'
+			if (this.props.content.double_spread_image_size == 'full') {
+				return 'fullimage'
+			} else if (this.props.content.double_spread_image_size == 'large') {
+				return 'largespread'
+			}
 		}
 	}
 

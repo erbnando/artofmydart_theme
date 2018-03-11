@@ -119,6 +119,7 @@
                 "class": "",
                 "id": ""
             },
+            "jpn-tabs": "vertical",
             "collapsed": "",
             "min": "",
             "max": "",
@@ -141,7 +142,7 @@
                     "choices": {
                         "title": "Title Page",
                         "textimages": "Text and Images",
-                        "spread": "Full-sized Image",
+                        "spread": "Double-spread Image",
                         "last": "Last Page\/Back Cover"
                     },
                     "default_value": [],
@@ -1354,11 +1355,37 @@
                     "mime_types": ""
                 },
                 {
+                    "key": "field_5aa5810f301f0",
+                    "label": "Double-Spread Image Size",
+                    "name": "double_spread_image_size",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "full": "Full-sized Image",
+                        "large": "Large Image"
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
                     "key": "field_597eb55175213",
-                    "label": "Full-sized Image",
-                    "name": "full_sized_image",
+                    "label": "Double-Spread Full-sized Image",
+                    "name": "double_spread_full_sized_image",
                     "type": "image",
-                    "instructions": "Upload dimensions are double the display size so images display ok on retina screens.<br>\r\nAnd when rendered, the image is scaled down proportionally to meet the maximum display width and height. <a target=\"_blank\" href=\"\/wp-content\/themes\/artofmydart_theme\/img\/sizes.png\">Image maximum display dimensions<\/a>.<br>\r\n<br>\r\nFull-sized image minimum upload dimensions: 1452x1022<br>\r\nFull-sized image maximum display dimensions: 726x511",
+                    "instructions": "Upload dimensions are double the display size so images display ok on retina screens.<br>\r\nAnd when rendered, the image is scaled down proportionally to meet the maximum display width and height. <a target=\"_blank\" href=\"\/wp-content\/themes\/artofmydart_theme\/img\/sizes.png\">Image maximum display dimensions<\/a>.<br>\r\n<br>\r\nDouble-spread full-size image minimum upload dimensions: 1452x1022<br>\r\nDouble-spread full-size image maximum display dimensions: 726x511",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -1366,6 +1393,11 @@
                                 "field": "field_5961b746e788e",
                                 "operator": "==",
                                 "value": "spread"
+                            },
+                            {
+                                "field": "field_5aa5810f301f0",
+                                "operator": "==",
+                                "value": "full"
                             }
                         ]
                     ],
@@ -1379,6 +1411,43 @@
                     "library": "all",
                     "min_width": 1452,
                     "min_height": 1022,
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5aa5818b301f2",
+                    "label": "Double-Spread Large Image",
+                    "name": "double_spread_large_image",
+                    "type": "image",
+                    "instructions": "Upload dimensions are double the display size so images display ok on retina screens.<br>\r\nAnd when rendered, the image is scaled down proportionally to meet the maximum display width and height. <a target=\"_blank\" href=\"\/wp-content\/themes\/artofmydart_theme\/img\/sizes.png\">Image maximum display dimensions<\/a>.<br>\r\n<br>\r\nDouble-spread large image minimum upload dimensions: 1332x902<br>\r\nDouble-spread large image maximum display dimensions: 666x451",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5961b746e788e",
+                                "operator": "==",
+                                "value": "spread"
+                            },
+                            {
+                                "field": "field_5aa5810f301f0",
+                                "operator": "==",
+                                "value": "large"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": 1332,
+                    "min_height": 902,
                     "min_size": "",
                     "max_width": "",
                     "max_height": "",
@@ -1465,5 +1534,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1520566877
+    "modified": 1520798880
 }

@@ -52,7 +52,7 @@ class Book extends Component {
 		if (this.props.book.book.acf.book_pages[parseInt(page - 2)].separating_line == true) {
 			return 'sep'
 		} else {
-			return
+			return ''
 		}
 	}
 
