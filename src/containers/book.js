@@ -104,7 +104,7 @@ class Book extends Component {
 							</div>
 						);
 					} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'textimages' || this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'spread') {
-						console.log(this.props.book.book.acf.book_pages[parseInt(page - 2)]);
+						//console.log(this.props.book.book.acf.book_pages[parseInt(page - 2)]);
 						return (
 							<div className={'content book textimages ' + this.separatingLine(page)} id="content">
 								<div className="book-container">

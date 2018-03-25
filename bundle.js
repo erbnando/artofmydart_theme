@@ -31901,7 +31901,7 @@
 									_react2.default.createElement(_booknav2.default, { slug: this.props.match.params.slug, page: this.props.match.params.pageNum, lastpage: this.lastPage(page) })
 								);
 							} else if (this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'textimages' || this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type == 'spread') {
-								console.log(this.props.book.book.acf.book_pages[parseInt(page - 2)]);
+								//console.log(this.props.book.book.acf.book_pages[parseInt(page - 2)]);
 								return _react2.default.createElement(
 									'div',
 									{ className: 'content book textimages ' + this.separatingLine(page), id: 'content' },
