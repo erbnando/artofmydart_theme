@@ -120,7 +120,9 @@ class ContentLeft extends Component {
 		if (this.props.content.page_type == 'textimages') {
 			if (this.props.content.left_content == 'text') {
 				return (
-					<div dangerouslySetInnerHTML={{__html: this.props.content.text_content_left}} />
+					<div>
+						<div dangerouslySetInnerHTML={{__html: this.props.content.text_content_left}} />
+					</div>
 				);
 			} else if (this.props.content.left_content == 'quote') {
 				return (

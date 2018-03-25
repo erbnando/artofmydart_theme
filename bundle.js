@@ -32269,7 +32269,11 @@
 			value: function getContent() {
 				if (this.props.content.page_type == 'textimages') {
 					if (this.props.content.left_content == 'text') {
-						return _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.content.text_content_left } });
+						return _react2.default.createElement(
+							"div",
+							null,
+							_react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.content.text_content_left } })
+						);
 					} else if (this.props.content.left_content == 'quote') {
 						return _react2.default.createElement(
 							"div",
@@ -32519,7 +32523,11 @@
 			value: function getContent() {
 				if (this.props.content.page_type == 'textimages') {
 					if (this.props.content.right_content == 'text') {
-						return _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.content.text_content_right } });
+						return _react2.default.createElement(
+							"div",
+							null,
+							_react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.content.text_content_right } })
+						);
 					} else if (this.props.content.right_content == 'quote') {
 						return _react2.default.createElement(
 							"div",

@@ -104,7 +104,9 @@ class ContentRight extends Component {
 		if (this.props.content.page_type == 'textimages') {
 			if (this.props.content.right_content == 'text') {
 				return (
-					<div dangerouslySetInnerHTML={{__html: this.props.content.text_content_right}} />
+					<div>
+						<div dangerouslySetInnerHTML={{__html: this.props.content.text_content_right}} />
+					</div>
 				);
 			} else if (this.props.content.right_content == 'quote') {
 				return (
