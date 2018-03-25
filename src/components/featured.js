@@ -69,8 +69,8 @@ class Featured extends Component {
 					<div className="featured-details">
 						<div>
 							<Link to={"/books/" + this.props.feat_book.featured.slug}>
-								<h3>{this.props.feat_book.featured.title.rendered}</h3>
-								<p>{this.props.feat_book.featured.acf.author_single_line}</p>
+								<h3 dangerouslySetInnerHTML={{__html: this.props.feat_book.featured.title.rendered}} />
+								<p dangerouslySetInnerHTML={{__html: this.props.feat_book.featured.acf.author_single_line}} />
 							</Link>
 						</div>
 					</div>

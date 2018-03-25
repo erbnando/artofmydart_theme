@@ -30740,16 +30740,8 @@
 								_react2.default.createElement(
 									_reactRouterDom.Link,
 									{ to: "/books/" + this.props.feat_book.featured.slug },
-									_react2.default.createElement(
-										'h3',
-										null,
-										this.props.feat_book.featured.title.rendered
-									),
-									_react2.default.createElement(
-										'p',
-										null,
-										this.props.feat_book.featured.acf.author_single_line
-									)
+									_react2.default.createElement('h3', { dangerouslySetInnerHTML: { __html: this.props.feat_book.featured.title.rendered } }),
+									_react2.default.createElement('p', { dangerouslySetInnerHTML: { __html: this.props.feat_book.featured.acf.author_single_line } })
 								)
 							)
 						)
@@ -31874,11 +31866,7 @@
 									_react2.default.createElement(
 										'div',
 										{ className: 'title-wrapper' },
-										_react2.default.createElement(
-											'h2',
-											null,
-											this.props.book.book.title.rendered
-										)
+										_react2.default.createElement('h2', { dangerouslySetInnerHTML: { __html: this.props.book.book.title.rendered } })
 									)
 								)
 							),
@@ -31903,21 +31891,9 @@
 												_react2.default.createElement(
 													'div',
 													null,
-													_react2.default.createElement(
-														'h1',
-														{ className: 'book-title' },
-														this.props.book.book.title.rendered
-													),
-													_react2.default.createElement(
-														'p',
-														{ className: 'author-title' },
-														this.props.book.book.acf.author_title
-													),
-													_react2.default.createElement(
-														'p',
-														{ className: 'author-name' },
-														this.props.book.book.acf.author_name
-													)
+													_react2.default.createElement('h1', { className: 'book-title', dangerouslySetInnerHTML: { __html: this.props.book.book.title.rendered } }),
+													_react2.default.createElement('p', { className: 'author-title', dangerouslySetInnerHTML: { __html: this.props.book.book.acf.author_title } }),
+													_react2.default.createElement('p', { className: 'author-name', dangerouslySetInnerHTML: { __html: this.props.book.book.acf.author_name } })
 												)
 											)
 										)

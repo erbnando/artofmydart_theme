@@ -65,3 +65,39 @@ function my_toolbars( $toolbars )
 
 	return $toolbars;
 }
+
+// Remove text editor
+add_action('init', 'my_remove_editor_from_post_type');
+function my_remove_editor_from_post_type() {
+    remove_post_type_support( 'books', 'editor' );
+}
+
+// Register Books post type
+function cptui_register_my_cpts() {
+	$labels = array(
+		"name" => __( 'Books', '' ),
+		"singular_name" => __( 'Book', '' ),
+	);
+	$args = array(
+		"label" => __( 'Books', '' ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"has_archive" => false,
+		"show_in_menu" => true,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => array( "slug" => "books", "with_front" => true ),
+		"query_var" => true,
+		"menu_icon" => "dashicons-book",
+		"supports" => array( "title", "editor", "thumbnail", "excerpt" ),
+	);
+	register_post_type( "books", $args );
+}
+add_action( 'init', 'cptui_register_my_cpts' );

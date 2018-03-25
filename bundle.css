@@ -9,6 +9,17 @@ html {
     margin: 0; }
     html body *, html body *:focus, html body *:active {
       outline: none; }
+    html body .post-edit-link {
+      position: fixed;
+      margin: auto;
+      text-align: right;
+      bottom: 0;
+      right: 0;
+      padding: 10px;
+      font-family: Lato;
+      font-weight: bold;
+      font-size: 12px;
+      color: black; }
     html body #app {
       height: 100%;
       min-height: 320px;

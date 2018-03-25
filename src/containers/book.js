@@ -75,7 +75,7 @@ class Book extends Component {
 									</Link>
 								</div>
 								<div className="title-wrapper">
-									<h2>{this.props.book.book.title.rendered}</h2>
+									<h2 dangerouslySetInnerHTML={{__html: this.props.book.book.title.rendered }} />
 								</div>
 							</div>
 						</div>
@@ -93,9 +93,9 @@ class Book extends Component {
 										</div>
 										<div className="book-grid-two">
 											<div>
-												<h1 className="book-title">{this.props.book.book.title.rendered}</h1>
-												<p className="author-title">{this.props.book.book.acf.author_title}</p>
-												<p className="author-name">{this.props.book.book.acf.author_name}</p>
+												<h1 className="book-title" dangerouslySetInnerHTML={{__html: this.props.book.book.title.rendered }} />
+												<p className="author-title" dangerouslySetInnerHTML={{__html: this.props.book.book.acf.author_title }} />
+												<p className="author-name" dangerouslySetInnerHTML={{__html: this.props.book.book.acf.author_name }} />
 											</div>
 										</div>
 									</div>
