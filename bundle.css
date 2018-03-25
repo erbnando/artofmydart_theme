@@ -1785,7 +1785,7 @@ html body.book-portrait {
     z-index: 10;
     display: block; }
   html body.book-portrait:after {
-    content: 'Please Turn Your Device Sideways';
+    content: 'please turn your device sideways';
     color: white;
     z-index: 11;
     position: absolute;
