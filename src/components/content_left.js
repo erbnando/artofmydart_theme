@@ -127,8 +127,10 @@ class ContentLeft extends Component {
 			} else if (this.props.content.left_content == 'quote') {
 				return (
 					<div>
-						<div className="quote-text" dangerouslySetInnerHTML={{__html: this.props.content.quote_text_left}} />					
-						<div className="quote-source" dangerouslySetInnerHTML={{__html: this.props.content.quote_source_left}} />
+						<div>
+							<div className="quote-text" dangerouslySetInnerHTML={{__html: this.props.content.quote_text_left}} />					
+							<div className="quote-source" dangerouslySetInnerHTML={{__html: this.props.content.quote_source_left}} />
+						</div>
 					</div>
 				);
 			} else if (this.props.content.left_content == 'single') {

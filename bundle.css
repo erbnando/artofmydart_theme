@@ -874,18 +874,20 @@ img {
         .book.textimages > .book-container #book .book-grid-two.quote > div > div {
           overflow: hidden;
           padding: 0 110px 0 40px; }
-          .book.textimages > .book-container #book .book-grid-two.quote > div > div .quote-text, .book.textimages > .book-container #book .book-grid-two.quote > div > div .quote-text p {
-            font-size: 16px;
-            font-family: Poly;
-            line-height: 20px;
+          .book.textimages > .book-container #book .book-grid-two.quote > div > div > div {
             max-height: 511px; }
-          .book.textimages > .book-container #book .book-grid-two.quote > div > div .quote-text p + p {
-            margin-top: 20px; }
-          .book.textimages > .book-container #book .book-grid-two.quote > div > div .quote-source, .book.textimages > .book-container #book .book-grid-two.quote > div > div .quote-source p {
-            font-size: 13px;
-            font-family: Lato;
-            font-weight: 900;
-            line-height: 18px; }
+            .book.textimages > .book-container #book .book-grid-two.quote > div > div > div .quote-text, .book.textimages > .book-container #book .book-grid-two.quote > div > div > div .quote-text p {
+              font-size: 16px;
+              font-family: Poly;
+              line-height: 20px; }
+            .book.textimages > .book-container #book .book-grid-two.quote > div > div > div .quote-text p + p {
+              margin-top: 20px; }
+            .book.textimages > .book-container #book .book-grid-two.quote > div > div > div .quote-source, .book.textimages > .book-container #book .book-grid-two.quote > div > div > div .quote-source p {
+              font-size: 13px;
+              font-family: Lato;
+              font-weight: 900;
+              line-height: 18px;
+              margin-top: 20px; }
         .book.textimages > .book-container #book .book-grid-two.text > div > div {
           overflow: hidden;
           padding: 0 40px; }

@@ -32283,8 +32283,12 @@
 						return _react2.default.createElement(
 							"div",
 							null,
-							_react2.default.createElement("div", { className: "quote-text", dangerouslySetInnerHTML: { __html: this.props.content.quote_text_left } }),
-							_react2.default.createElement("div", { className: "quote-source", dangerouslySetInnerHTML: { __html: this.props.content.quote_source_left } })
+							_react2.default.createElement(
+								"div",
+								null,
+								_react2.default.createElement("div", { className: "quote-text", dangerouslySetInnerHTML: { __html: this.props.content.quote_text_left } }),
+								_react2.default.createElement("div", { className: "quote-source", dangerouslySetInnerHTML: { __html: this.props.content.quote_source_left } })
+							)
 						);
 					} else if (this.props.content.left_content == 'single') {
 						return _react2.default.createElement(
@@ -32538,8 +32542,12 @@
 						return _react2.default.createElement(
 							"div",
 							null,
-							_react2.default.createElement("div", { className: "quote-text", dangerouslySetInnerHTML: { __html: this.props.content.quote_text_right } }),
-							_react2.default.createElement("div", { className: "quote-source", dangerouslySetInnerHTML: { __html: this.props.content.quote_source_right } })
+							_react2.default.createElement(
+								"div",
+								null,
+								_react2.default.createElement("div", { className: "quote-text", dangerouslySetInnerHTML: { __html: this.props.content.quote_text_right } }),
+								_react2.default.createElement("div", { className: "quote-source", dangerouslySetInnerHTML: { __html: this.props.content.quote_source_right } })
+							)
 						);
 					} else if (this.props.content.right_content == 'single') {
 						return _react2.default.createElement(

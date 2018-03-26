@@ -234,20 +234,23 @@
 							> div {
 								overflow: hidden;
 								padding: 0 110px 0 40px;
-								.quote-text, .quote-text p {
-									font-size: 16px;
-									font-family: Poly;
-									line-height: 20px;
+								> div {
 									max-height: 511px;
-								}
-								.quote-text p + p {
-									margin-top: 20px;
-								}
-								.quote-source, .quote-source p {
-									font-size: 13px;
-									font-family: Lato;
-									font-weight: 900;
-									line-height: 18px;
+									.quote-text, .quote-text p {
+										font-size: 16px;
+										font-family: Poly;
+										line-height: 20px;
+									}
+									.quote-text p + p {
+										margin-top: 20px;
+									}
+									.quote-source, .quote-source p {
+										font-size: 13px;
+										font-family: Lato;
+										font-weight: 900;
+										line-height: 18px;
+										margin-top: 20px;
+									}	
 								}
 							}
 						}
