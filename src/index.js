@@ -95,6 +95,8 @@ class App extends Component {
 
 	onOrientationChange() {
 
+		console.log('test');
+
 		if (document.getElementById('container')) {
 			var container = document.getElementById('container');
 			if (window.screen.orientation != undefined) {
@@ -317,11 +319,15 @@ class App extends Component {
 		} else if (md.tablet() != null) {
 			console.log('tablet');
 
+			window.addEventListener("orientationchange", this.onOrientationChange);
+
+			/*
 			window.addEventListener("orientationchange", function() {
 			    //alert("the orientation of the device is now " + screen.orientation.angle);
 			});
 
 			window.onorientationchange = this.deviceOrientation;
+			*/
 
 			if (this.deviceOrientation() == false) {
 				console.log('portrait');

@@ -48,8 +48,8 @@ class Book extends Component {
 	}
 
 	separatingLine(page) {
-		//console.log(this.props.book.book.acf.book_pages[parseInt(page - 2)]);
-		if (this.props.book.book.acf.book_pages[parseInt(page - 2)].separating_line == true) {
+		//console.log(this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type);
+		if (this.props.book.book.acf.book_pages[parseInt(page - 2)].separating_line == true && this.props.book.book.acf.book_pages[parseInt(page - 2)].page_type != 'spread') {
 			return 'sep'
 		} else {
 			return ''

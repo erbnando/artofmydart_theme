@@ -91,7 +91,7 @@
 		width: 730px;
 		margin: 0 auto;
 		position: relative;
-		padding-bottom: 120px;
+		//padding-bottom: 120px;
 		transition: opacity .05s linear;
 		box-sizing: content-box;
 		@media only screen and (max-width: 1124px) {
@@ -162,7 +162,7 @@
 		width: 100%;
 		margin: 0 auto;
 		position: relative;
-		padding-bottom: 120px;
+		//padding-bottom: 120px;
 		transition: opacity .05s linear;
 		box-sizing: content-box;
 		@media only screen and (max-width: 1124px) {
@@ -674,7 +674,7 @@
 		width: 365px;
 		margin: 0 auto;
 		position: relative;
-		padding-bottom: 120px;
+		//padding-bottom: 120px;
 		transition: opacity .05s linear;
 		box-sizing: content-box;
 		@media only screen and (max-width: 1124px) {
@@ -709,6 +709,26 @@
 				    right: 0;
 				    text-align: center;
 				}
+			}
+		}
+	}
+}
+
+.desktop {
+	.book-nav {
+		margin-bottom: 50px;
+	}
+}
+
+.tablet.portrait {
+	> div {
+		.book {
+			height: 575px!important;
+			> div {
+				width: 100%!important;
+			}
+			&.lastpage {
+				width: 365px!important;
 			}
 		}
 	}
