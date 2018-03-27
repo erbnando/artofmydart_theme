@@ -31157,7 +31157,7 @@
 	  	} else {
 	  		return `/`;
 	  	}
-	  	}
+	  }
 	  */
 
 			value: function getPageNumber() {

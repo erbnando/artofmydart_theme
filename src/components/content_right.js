@@ -110,7 +110,7 @@ class ContentRight extends Component {
 				);
 			} else if (this.props.content.right_content == 'quote') {
 				return (
-					<div>					
+					<div>
 						<div>
 							<div className="quote-text" dangerouslySetInnerHTML={{__html: this.props.content.quote_text_right}} />					
 							<div className="quote-source" dangerouslySetInnerHTML={{__html: this.props.content.quote_source_right}} />

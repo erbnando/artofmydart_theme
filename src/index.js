@@ -3,7 +3,7 @@ require('./scss/styles.scss');
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Header from './components/header';
 import Home from './containers/home';
 import Index from './containers/index';
