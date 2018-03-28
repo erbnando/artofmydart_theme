@@ -31823,7 +31823,7 @@
 		}, {
 			key: 'lastPage',
 			value: function lastPage(page) {
-				if (parseInt(page) - 1 === this.props.book.book.acf.book_pages.length) {
+				if (parseInt(page) - 1 === this.props.book.book.acf.book_pages.length || this.props.book.book.acf.book_pages.length == undefined) {
 					return true;
 				} else {
 					return false;
