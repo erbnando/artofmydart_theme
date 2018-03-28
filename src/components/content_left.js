@@ -165,6 +165,7 @@ class ContentLeft extends Component {
 				);
 			}
 		} else if (this.props.content.page_type == 'spread') {
+			//console.log(this.props.content);
 			if (this.props.content.double_spread_full_sized_image) {
 				if (this.props.content.double_spread_image_size == 'full' && this.props.content.double_spread_full_sized_image.sizes.fullsize) {
 					return (
@@ -175,7 +176,9 @@ class ContentLeft extends Component {
 							<div id='captions-full-image' className={'captions-' + this.props.content.full_sized_image_caption_position} dangerouslySetInnerHTML={{__html: this.getFullSizedCaptions()}}></div>
 						</div>
 					);
-				} else if (this.props.content.double_spread_image_size == 'large' && this.props.content.double_spread_large_image.sizes.largespread) {
+				}
+			} else if (this.props.content.double_spread_large_image) {
+					if (this.props.content.double_spread_image_size == 'large' && this.props.content.double_spread_large_image.sizes.largespread) {
 					return (
 						<div>
 							<img
