@@ -31840,6 +31840,15 @@
 				}
 			}
 		}, {
+			key: 'coverImage',
+			value: function coverImage() {
+				if (this.props.book.book.acf.book_cover) {
+					return this.props.book.book.acf.book_cover.sizes.book_cover;
+				} else {
+					return '';
+				}
+			}
+		}, {
 			key: 'getPage',
 			value: function getPage() {
 				if (this.props.match.params.pageNum == undefined) {
@@ -31847,7 +31856,7 @@
 				} else {
 					var page = this.props.match.params.pageNum;
 				}
-				if (this.props.book.book && this.props.book.book.acf.book_cover) {
+				if (this.props.book.book) {
 					if (page == 1) {
 						return _react2.default.createElement(
 							'div',
@@ -31865,7 +31874,7 @@
 											_reactRouterDom.Link,
 											{ to: '/books/' + this.props.match.params.slug + '/2' },
 											_react2.default.createElement('img', {
-												src: this.props.book.book.acf.book_cover.sizes.book_cover })
+												src: this.coverImage() })
 										)
 									),
 									_react2.default.createElement(

@@ -56,13 +56,21 @@ class Book extends Component {
 		}
 	}
 
+	coverImage() {
+		if (this.props.book.book.acf.book_cover) {
+			return this.props.book.book.acf.book_cover.sizes.book_cover
+		} else {
+			return ''
+		}
+	}
+
 	getPage() {
 		if (this.props.match.params.pageNum == undefined) {
 			var page = 1;
 		} else {
 			var page = this.props.match.params.pageNum;
 		}
-		if(this.props.book.book && this.props.book.book.acf.book_cover){
+		if(this.props.book.book){
 			if (page == 1) {
 				return (
 					<div className="content book cover" id="content">
@@ -71,7 +79,7 @@ class Book extends Component {
 								<div className="img-wrapper">
 									<Link to={`/books/${this.props.match.params.slug}/2`} >
 										<img 
-										src={this.props.book.book.acf.book_cover.sizes.book_cover}/>
+										src={this.coverImage()}/>
 									</Link>
 								</div>
 								<div className="title-wrapper">
