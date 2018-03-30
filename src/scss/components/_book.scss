@@ -1,48 +1,4 @@
 .book {
-	> div {
-	    margin: 0 auto;
-	}
-	.book-nav {
-		 text-align: center;
-		 margin-top: 33px;
-		.next {
-			width: 36px;
-		    height: 11px;
-		    display: inline-block;
-		    margin: 0;
-		    padding: 10px 12px;
-		    &:after {
-				content: '';
-				width: 36px;
-				height: 11px;
-				display: block;
-				background: url('./../../img/more.png');
-				background-repeat: no-repeat;
-				background-size: contain;
-				position: absolute;
-			}
-		}
-		.prev {
-			width: 36px;
-		    height: 11px;
-		    display: inline-block;
-		    margin: 0;
-		    padding: 10px 12px;
-		    &:after {
-				content: '';
-				width: 36px;
-				height: 11px;
-				display: block;
-				background: url('./../../img/more.png');
-				background-repeat: no-repeat;
-				background-size: contain;
-				position: absolute;
-				-ms-transform: rotate(180deg);
-				-webkit-transform: rotate(180deg);
-				transform: rotate(180deg);
-			}
-		}
-	}	
 	&.cover {
 		transition: opacity .25s linear;
 		@media only screen and (max-width: 479px) {
@@ -189,6 +145,7 @@
 					display: table-cell;
 					vertical-align: middle;
 					position: relative;
+					overflow: hidden;
 					&.bottom {
 						vertical-align: bottom;
 					}
@@ -715,6 +672,50 @@
 			}
 		}
 	}
+	> div {
+	    margin: 0 auto;
+	}
+	.book-nav {
+		 text-align: center;
+		 margin-top: 33px;
+		.next {
+			width: 36px;
+		    height: 11px;
+		    display: inline-block;
+		    margin: 0;
+		    padding: 10px 12px;
+		    &:after {
+				content: '';
+				width: 36px;
+				height: 11px;
+				display: block;
+				background: url('./../../assets/img/more.png');
+				background-repeat: no-repeat;
+				background-size: contain;
+				position: absolute;
+			}
+		}
+		.prev {
+			width: 36px;
+		    height: 11px;
+		    display: inline-block;
+		    margin: 0;
+		    padding: 10px 12px;
+		    &:after {
+				content: '';
+				width: 36px;
+				height: 11px;
+				display: block;
+				background: url('./../../assets/img/more.png');
+				background-repeat: no-repeat;
+				background-size: contain;
+				position: absolute;
+				-ms-transform: rotate(180deg);
+				-webkit-transform: rotate(180deg);
+				transform: rotate(180deg);
+			}
+		}
+	}
 }
 
 .desktop {
@@ -726,20 +727,29 @@
 .tablet.portrait {
 	> div {
 		.book {
+			width: 730px;
 			height: 575px!important;
-			> div {
-				width: 100%!important;
+			&.cover {
+				> div {
+					width: 400px!important;
+				}
 			}
 			&.lastpage {
-				width: 365px!important;
+				> div {
+					width: 400px!important;
+					box-sizing: border-box;
+				}
 			}
 		}
 	}
 }
 
-.mobile.landscape, .portrait  {
+.mobile.landscape, .mobile.portrait  {
 	height: 100%;
     box-sizing: border-box;
+	.content {
+        z-index: 2;		
+	}
 	> div {
 		height: 100%;
 		> .book {
@@ -767,20 +777,11 @@
 							height: 22%!important;
 							h2 {
 								font-size: 2.5vw;
-								line-height: 2.8vw;
+								line-height: 3vw;
 								top: 45%;
 								padding: 0 20px!important;
 							}
 						}
-					}
-				}
-				.book-nav {
-					margin-top: 0;
-					height: 40px;
-					a {
-						margin: 0!important;
-					    margin: 0 !important;
-					    padding: 14px 12px 15px;
 					}
 				}
 			}
@@ -818,15 +819,6 @@
 						}
 					}
 				}
-				.book-nav {
-					margin-top: 0;
-					height: 40px;
-					a {
-						margin: 0!important;
-					    margin: 0 !important;
-					    padding: 14px 12px 15px;
-					}
-				}
 			}
 			&.textimages {
 				height: 100%;
@@ -849,6 +841,72 @@
 						position: initial;
 						.book-grid-two {
 							display: inline-block;
+							&.largespread {
+								height: 100%;
+								width: 100%;
+								text-align: center;
+								> .content-left {
+									width: 100%;
+									> div {
+								    	padding: 0!important;
+										> img {
+										    object-fit: cover;
+										    object-position: center;
+										    width: 100%;
+										    height: 100%;
+										    position: absolute;
+											left: 0;
+											padding: 15px;
+											box-sizing: border-box;
+   										}
+										img:hover + div {
+											transition: opacity .5s linear;
+											opacity: 1;
+										}
+										.captions-left {
+											padding-right: 4px;
+											width: 26.923%;
+											right: 100%;
+											min-width: 0;
+											text-align: left;
+											bottom: 0;
+											> div {
+												padding-right: 10px;
+											}
+										}
+										.captions-right {
+											padding-right: 0;
+											padding-left: 0;
+											width: 26.923%;
+											left: 100%;
+											min-width: 0;
+											text-align: left;
+											bottom: 0;
+											> div {
+												padding-left: 10px;
+											}
+										}
+										> div {
+											opacity: 0;
+											> div {
+												h5 {
+													margin-bottom: 2px!important;
+													font-size: 8px!important;
+												}
+												h6 {
+													margin-bottom: 1px!important;
+													font-size: 11px!important;
+													line-height: 14px!important;
+												}
+												p {
+													font-size: 10px!important;
+													line-height: 13px!important;
+												}
+											}
+										}
+								    }
+								}
+							}
 							&.fullimage {
 								height: 100%;
 								width: 100%;
@@ -1507,15 +1565,6 @@
 						}
 					}
 				}
-				.book-nav {
-					margin-top: 0;
-					height: 40px;
-					a {
-						margin: 0!important;
-					    margin: 0 !important;
-					    padding: 14px 12px 15px;
-					}
-				}
 			}
 			&.lastpage {
 				height: 100%;
@@ -1553,13 +1602,36 @@
 						}
 					}
 				}
-				.book-nav {
-					margin-top: 0;
-					height: 40px;
-					a {
-						margin: 0!important;
-					    margin: 0 !important;
-					    padding: 14px 12px 15px;
+			}
+			> div:first-child {
+				border-left: 2px solid #e9e8e8!important;
+				border-bottom: 2px solid #e9e8e8!important;
+				&:before {
+					border-left: 2px solid #e9e8e8!important;
+				}
+			}
+			.book-nav {
+				margin-top: 0;
+				height: 40px;
+				a {
+					margin: 0!important;
+					margin: 0 !important;
+					padding: 14px 8px 15px;
+				}
+				.next {
+					&:after {
+						content: '';
+						background: url('./../../assets/img/more_mobile.png');
+						background-repeat: no-repeat;
+						background-size: contain;
+					}
+				}
+				.prev {
+					&:after {
+						content: '';
+						background: url('./../../assets/img/more_mobile.png');
+						background-repeat: no-repeat;
+						background-size: contain;
 					}
 				}
 			}
@@ -1568,6 +1640,7 @@
 }
 
 html {
+	font-size: 0;
 	body.book-portrait {
 		width: 100%;
 		height: 100%;

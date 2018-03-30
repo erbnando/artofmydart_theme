@@ -21,6 +21,9 @@ html {
       font-size: 12px;
       color: white;
       background-color: black; }
+      @media only screen and (max-width: 1024px) {
+        html body .post-edit-link {
+          display: none; } }
     html body #app {
       height: 100%;
       min-height: 320px;
@@ -101,6 +104,9 @@ img {
 
 * {
   white-space: normal; }
+
+.mobile h2, .mobile h3, .mobile h4, .mobile h6 {
+  font-weight: 700 !important; }
 
 .container header {
   z-index: 1;
@@ -183,7 +189,11 @@ img {
     display: none; }
 
 .mobile.landscape.grayheader header {
-  display: none; }
+  z-index: 3; }
+  .mobile.landscape.grayheader header .logo {
+    display: block; }
+  .mobile.landscape.grayheader header nav {
+    display: none; }
 
 .mobile.landscape .nav {
   bottom: -10px !important; }
@@ -201,9 +211,11 @@ img {
     max-width: 280px;
     padding: 0 30px 0 30px;
     height: 440px;
-    margin-bottom: 45px; }
+    margin-bottom: 45px;
+    border-left: 2px solid #e9e8e8; }
     .mobile.portrait .home .grid-two.index-home-left:before {
-      width: 100%; }
+      width: 100%;
+      border-bottom: 2px solid #e9e8e8; }
     .mobile.portrait .home .grid-two #content-left .featured .featured-image {
       height: 300px;
       margin-top: 20px; }
@@ -235,7 +247,8 @@ img {
     padding: 0 30px 0 30px;
     height: 440px;
     margin-bottom: 45px;
-    padding-right: 0; }
+    padding-right: 0;
+    border-left: 2px solid #e9e8e8; }
     .mobile.portrait .index .grid-two.index-home-left:before {
       width: 100%; }
     .mobile.portrait .index .grid-two #content-left .posts .post, .mobile.portrait .index .grid-two #content-right .posts .post {
@@ -263,6 +276,8 @@ img {
     height: 100% !important; }
     .mobile.landscape .home .index-home-left {
       padding: 0 20px; }
+      .mobile.landscape .home .index-home-left:before {
+        border-bottom: 2px solid #e9e8e8; }
     .mobile.landscape .home .grid-two:first-child {
       width: 50%;
       height: 100%;
@@ -291,7 +306,7 @@ img {
               .mobile.landscape .home .grid-two:first-child #content-left .featured .featured-details div a h3 {
                 font-size: 2.3vw;
                 margin-bottom: .7vw;
-                line-height: 2.8vw; }
+                line-height: 3vw; }
               .mobile.landscape .home .grid-two:first-child #content-left .featured .featured-details div a p {
                 font-size: 1.5vw;
                 line-height: 1.6vw; }
@@ -304,7 +319,8 @@ img {
     .mobile.landscape .index .grid-two, .mobile.landscape .home .grid-two {
       width: 50%;
       padding: 0 0 0 20px;
-      height: 100%; }
+      height: 100%;
+      border-left: 2px solid #e9e8e8 !important; }
       .mobile.landscape .index .grid-two .section-title, .mobile.landscape .home .grid-two .section-title {
         position: absolute;
         margin-bottom: 0; }
@@ -338,7 +354,7 @@ img {
                 .mobile.landscape .index .grid-two #content-left > div .posts .post div a h3, .mobile.landscape .index .grid-two #content-right > div .posts .post div a h3, .mobile.landscape .home .grid-two #content-left > div .posts .post div a h3, .mobile.landscape .home .grid-two #content-right > div .posts .post div a h3 {
                   font-size: 2.3vw;
                   margin-bottom: .7vw;
-                  line-height: 2.8vw; }
+                  line-height: 3vw; }
                 .mobile.landscape .index .grid-two #content-left > div .posts .post div .author, .mobile.landscape .index .grid-two #content-right > div .posts .post div .author, .mobile.landscape .home .grid-two #content-left > div .posts .post div .author, .mobile.landscape .home .grid-two #content-right > div .posts .post div .author {
                   font-size: 1.5vw;
                   line-height: 1.6vw;
@@ -352,6 +368,11 @@ img {
             .mobile.landscape .index .grid-two #content-left > div .nav .nav-item a, .mobile.landscape .index .grid-two #content-right > div .nav .nav-item a, .mobile.landscape .home .grid-two #content-left > div .nav .nav-item a, .mobile.landscape .home .grid-two #content-right > div .nav .nav-item a {
               margin-right: 10px;
               padding-right: 55px; }
+            .mobile.landscape .index .grid-two #content-left > div .nav .nav-item .nav-link.more:after, .mobile.landscape .index .grid-two #content-right > div .nav .nav-item .nav-link.more:after, .mobile.landscape .home .grid-two #content-left > div .nav .nav-item .nav-link.more:after, .mobile.landscape .home .grid-two #content-right > div .nav .nav-item .nav-link.more:after {
+              content: '';
+              background: url(../img/more_mobile.png);
+              background-repeat: no-repeat;
+              background-size: contain; }
 
 .tablet.portrait .home {
   padding-bottom: 80px !important;
@@ -619,7 +640,7 @@ img {
         width: 36px;
         height: 21px;
         display: block;
-        background: url(img/more_2.png);
+        background: url(../img/more.png);
         background-repeat: no-repeat;
         background-size: contain;
         position: absolute;
@@ -641,6 +662,9 @@ img {
   max-width: none;
   padding: 20px !important;
   margin: 0 !important; }
+
+.mobile .content.page > div {
+  border-left: 2px solid #e9e8e8; }
 
 .page {
   margin: 0 auto;
@@ -679,46 +703,6 @@ img {
       font-weight: 900;
       text-transform: uppercase;
       text-decoration: none; }
-
-.book > div {
-  margin: 0 auto; }
-
-.book .book-nav {
-  text-align: center;
-  margin-top: 33px; }
-  .book .book-nav .next {
-    width: 36px;
-    height: 11px;
-    display: inline-block;
-    margin: 0;
-    padding: 10px 12px; }
-    .book .book-nav .next:after {
-      content: '';
-      width: 36px;
-      height: 11px;
-      display: block;
-      background: url(img/more_2.png);
-      background-repeat: no-repeat;
-      background-size: contain;
-      position: absolute; }
-  .book .book-nav .prev {
-    width: 36px;
-    height: 11px;
-    display: inline-block;
-    margin: 0;
-    padding: 10px 12px; }
-    .book .book-nav .prev:after {
-      content: '';
-      width: 36px;
-      height: 11px;
-      display: block;
-      background: url(img/more_2.png);
-      background-repeat: no-repeat;
-      background-size: contain;
-      position: absolute;
-      -ms-transform: rotate(180deg);
-      -webkit-transform: rotate(180deg);
-      transform: rotate(180deg); }
 
 .book.cover {
   transition: opacity .25s linear; }
@@ -846,7 +830,8 @@ img {
         width: 50%;
         display: table-cell;
         vertical-align: middle;
-        position: relative; }
+        position: relative;
+        overflow: hidden; }
         .book.textimages > .book-container #book .book-grid-two.bottom {
           vertical-align: bottom; }
         .book.textimages > .book-container #book .book-grid-two.top {
@@ -1234,91 +1219,121 @@ img {
         right: 0;
         text-align: center; }
 
+.book > div {
+  margin: 0 auto; }
+
+.book .book-nav {
+  text-align: center;
+  margin-top: 33px; }
+  .book .book-nav .next {
+    width: 36px;
+    height: 11px;
+    display: inline-block;
+    margin: 0;
+    padding: 10px 12px; }
+    .book .book-nav .next:after {
+      content: '';
+      width: 36px;
+      height: 11px;
+      display: block;
+      background: url(../img/more.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute; }
+  .book .book-nav .prev {
+    width: 36px;
+    height: 11px;
+    display: inline-block;
+    margin: 0;
+    padding: 10px 12px; }
+    .book .book-nav .prev:after {
+      content: '';
+      width: 36px;
+      height: 11px;
+      display: block;
+      background: url(../img/more.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      -ms-transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg); }
+
 .desktop .book-nav {
   margin-bottom: 50px; }
 
 .tablet.portrait > div .book {
+  width: 730px;
   height: 575px !important; }
-  .tablet.portrait > div .book > div {
-    width: 100% !important; }
-  .tablet.portrait > div .book.lastpage {
-    width: 365px !important; }
+  .tablet.portrait > div .book.cover > div {
+    width: 400px !important; }
+  .tablet.portrait > div .book.lastpage > div {
+    width: 400px !important;
+    box-sizing: border-box; }
 
-.mobile.landscape, .portrait {
+.mobile.landscape, .mobile.portrait {
   height: 100%;
   box-sizing: border-box; }
-  .mobile.landscape > div, .portrait > div {
+  .mobile.landscape .content, .mobile.portrait .content {
+    z-index: 2; }
+  .mobile.landscape > div, .mobile.portrait > div {
     height: 100%; }
-    .mobile.landscape > div > .book, .portrait > div > .book {
+    .mobile.landscape > div > .book, .mobile.portrait > div > .book {
       height: 100%;
       margin-top: 0 !important;
       padding: 20px 15px 40px !important;
       box-sizing: border-box; }
-      .mobile.landscape > div > .book.cover, .portrait > div > .book.cover {
+      .mobile.landscape > div > .book.cover, .mobile.portrait > div > .book.cover {
         height: 100%;
         display: block !important; }
-        .mobile.landscape > div > .book.cover > div:not(.book-nav), .portrait > div > .book.cover > div:not(.book-nav) {
+        .mobile.landscape > div > .book.cover > div:not(.book-nav), .mobile.portrait > div > .book.cover > div:not(.book-nav) {
           height: 100%;
           width: 40%; }
-          .mobile.landscape > div > .book.cover > div:not(.book-nav) #book, .portrait > div > .book.cover > div:not(.book-nav) #book {
+          .mobile.landscape > div > .book.cover > div:not(.book-nav) #book, .mobile.portrait > div > .book.cover > div:not(.book-nav) #book {
             height: 100%; }
-            .mobile.landscape > div > .book.cover > div:not(.book-nav) #book .img-wrapper, .portrait > div > .book.cover > div:not(.book-nav) #book .img-wrapper {
+            .mobile.landscape > div > .book.cover > div:not(.book-nav) #book .img-wrapper, .mobile.portrait > div > .book.cover > div:not(.book-nav) #book .img-wrapper {
               height: 78% !important;
               padding: 0 !important; }
-              .mobile.landscape > div > .book.cover > div:not(.book-nav) #book .img-wrapper img, .portrait > div > .book.cover > div:not(.book-nav) #book .img-wrapper img {
+              .mobile.landscape > div > .book.cover > div:not(.book-nav) #book .img-wrapper img, .mobile.portrait > div > .book.cover > div:not(.book-nav) #book .img-wrapper img {
                 height: 100%;
                 max-width: 100%; }
-            .mobile.landscape > div > .book.cover > div:not(.book-nav) #book .title-wrapper, .portrait > div > .book.cover > div:not(.book-nav) #book .title-wrapper {
+            .mobile.landscape > div > .book.cover > div:not(.book-nav) #book .title-wrapper, .mobile.portrait > div > .book.cover > div:not(.book-nav) #book .title-wrapper {
               height: 22% !important; }
-              .mobile.landscape > div > .book.cover > div:not(.book-nav) #book .title-wrapper h2, .portrait > div > .book.cover > div:not(.book-nav) #book .title-wrapper h2 {
+              .mobile.landscape > div > .book.cover > div:not(.book-nav) #book .title-wrapper h2, .mobile.portrait > div > .book.cover > div:not(.book-nav) #book .title-wrapper h2 {
                 font-size: 2.5vw;
-                line-height: 2.8vw;
+                line-height: 3vw;
                 top: 45%;
                 padding: 0 20px !important; }
-        .mobile.landscape > div > .book.cover .book-nav, .portrait > div > .book.cover .book-nav {
-          margin-top: 0;
-          height: 40px; }
-          .mobile.landscape > div > .book.cover .book-nav a, .portrait > div > .book.cover .book-nav a {
-            margin: 0 !important;
-            margin: 0 !important;
-            padding: 14px 12px 15px; }
-      .mobile.landscape > div > .book.title, .portrait > div > .book.title {
+      .mobile.landscape > div > .book.title, .mobile.portrait > div > .book.title {
         height: 100%;
         display: block !important;
         width: 100%; }
-        .mobile.landscape > div > .book.title > div:not(.book-nav), .portrait > div > .book.title > div:not(.book-nav) {
+        .mobile.landscape > div > .book.title > div:not(.book-nav), .mobile.portrait > div > .book.title > div:not(.book-nav) {
           height: 100%;
           box-sizing: border-box;
           width: 65%; }
-          .mobile.landscape > div > .book.title > div:not(.book-nav) #book, .portrait > div > .book.title > div:not(.book-nav) #book {
+          .mobile.landscape > div > .book.title > div:not(.book-nav) #book, .mobile.portrait > div > .book.title > div:not(.book-nav) #book {
             height: 100% !important; }
-            .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div, .portrait > div > .book.title > div:not(.book-nav) #book .book-grid-two > div {
+            .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div, .mobile.portrait > div > .book.title > div:not(.book-nav) #book .book-grid-two > div {
               padding: 0 !important;
               height: 50%;
               display: table-cell;
               padding-left: 20px !important; }
-              .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .book-title, .portrait > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .book-title {
+              .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .book-title, .mobile.portrait > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .book-title {
                 margin-bottom: 3.5vw;
                 font-size: 2.8vw; }
-              .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-title, .portrait > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-title {
+              .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-title, .mobile.portrait > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-title {
                 font-size: 1.4vw;
                 line-height: 2vw;
                 margin-bottom: .25vw; }
-              .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-name, .portrait > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-name {
+              .mobile.landscape > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-name, .mobile.portrait > div > .book.title > div:not(.book-nav) #book .book-grid-two > div .author-name {
                 font-size: 2vw;
                 line-height: 2.7vw; }
-        .mobile.landscape > div > .book.title .book-nav, .portrait > div > .book.title .book-nav {
-          margin-top: 0;
-          height: 40px; }
-          .mobile.landscape > div > .book.title .book-nav a, .portrait > div > .book.title .book-nav a {
-            margin: 0 !important;
-            margin: 0 !important;
-            padding: 14px 12px 15px; }
-      .mobile.landscape > div > .book.textimages, .portrait > div > .book.textimages {
+      .mobile.landscape > div > .book.textimages, .mobile.portrait > div > .book.textimages {
         height: 100%;
         display: block !important;
         width: 100%; }
-        .mobile.landscape > div > .book.textimages .book-container, .portrait > div > .book.textimages .book-container {
+        .mobile.landscape > div > .book.textimages .book-container, .mobile.portrait > div > .book.textimages .book-container {
           height: 100%;
           box-sizing: border-box;
           width: 65% !important;
@@ -1327,41 +1342,92 @@ img {
           position: relative;
           border-left: 4px solid #e9e8e8;
           border-bottom: 4px solid #e9e8e8; }
-          .mobile.landscape > div > .book.textimages .book-container #book, .portrait > div > .book.textimages .book-container #book {
+          .mobile.landscape > div > .book.textimages .book-container #book, .mobile.portrait > div > .book.textimages .book-container #book {
             height: 100% !important;
             margin: 0 auto;
             display: block;
             position: initial; }
-            .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two, .portrait > div > .book.textimages .book-container #book .book-grid-two {
+            .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two {
               display: inline-block; }
-              .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage, .portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage {
+              .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.largespread, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.largespread {
                 height: 100%;
                 width: 100%;
                 text-align: center; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left, .portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left {
                   width: 100%; }
-                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div {
+                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div {
                     padding: 0 !important; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > img, .portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > img {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div > img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div > img {
+                      object-fit: cover;
+                      object-position: center;
+                      width: 100%;
+                      height: 100%;
+                      position: absolute;
+                      left: 0;
+                      padding: 15px;
+                      box-sizing: border-box; }
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div img:hover + div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div img:hover + div {
+                      transition: opacity .5s linear;
+                      opacity: 1; }
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div .captions-left, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div .captions-left {
+                      padding-right: 4px;
+                      width: 26.923%;
+                      right: 100%;
+                      min-width: 0;
+                      text-align: left;
+                      bottom: 0; }
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div .captions-left > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div .captions-left > div {
+                        padding-right: 10px; }
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div .captions-right, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div .captions-right {
+                      padding-right: 0;
+                      padding-left: 0;
+                      width: 26.923%;
+                      left: 100%;
+                      min-width: 0;
+                      text-align: left;
+                      bottom: 0; }
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div .captions-right > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div .captions-right > div {
+                        padding-left: 10px; }
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div > div {
+                      opacity: 0; }
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div > div > div h5, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div > div > div h5 {
+                        margin-bottom: 2px !important;
+                        font-size: 8px !important; }
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div > div > div h6, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div > div > div h6 {
+                        margin-bottom: 1px !important;
+                        font-size: 11px !important;
+                        line-height: 14px !important; }
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div > div > div p, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.largespread > .content-left > div > div > div p {
+                        font-size: 10px !important;
+                        line-height: 13px !important; }
+              .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage {
+                height: 100%;
+                width: 100%;
+                text-align: center; }
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left {
+                  width: 100%; }
+                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div {
+                    padding: 0 !important; }
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > img {
                       object-fit: cover;
                       object-position: center;
                       width: 100%;
                       height: 100%;
                       position: absolute;
                       left: 0; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div img:hover + div, .portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div img:hover + div {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div img:hover + div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div img:hover + div {
                       transition: opacity .5s linear;
                       opacity: 1; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left, .portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left {
                       padding-right: 4px;
                       width: 26.923%;
                       right: 100%;
                       min-width: 0;
                       text-align: left;
                       bottom: 0; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-left > div {
                         padding-right: 10px; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-right, .portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-right {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-right, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-right {
                       padding-right: 0;
                       padding-left: 0;
                       width: 26.923%;
@@ -1369,37 +1435,37 @@ img {
                       min-width: 0;
                       text-align: left;
                       bottom: 0; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-right > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-right > div {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-right > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div .captions-right > div {
                         padding-left: 10px; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div {
                       opacity: 0; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div > div h5, .portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div > div h5 {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div > div h5, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div > div h5 {
                         margin-bottom: 2px !important;
                         font-size: 8px !important; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div > div h6, .portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div > div h6 {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div > div h6, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div > div h6 {
                         margin-bottom: 1px !important;
                         font-size: 11px !important;
                         line-height: 14px !important; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div > div p, .portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div > div p {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div > div p, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.fullimage > .content-left > div > div > div p {
                         font-size: 10px !important;
                         line-height: 13px !important; }
-              .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single, .portrait > div > .book.textimages .book-container #book .book-grid-two.single {
+              .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single {
                 height: 100%;
                 position: initial; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.single > div {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single > div {
                   position: initial !important;
                   height: 100%; }
-                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div {
+                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div {
                     height: 100%;
                     text-align: center;
                     position: initial; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div img {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div img {
                       max-width: 100%;
                       max-height: 100%; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div img:hover + div, .portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div img:hover + div {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div img:hover + div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div img:hover + div {
                       transition: opacity .5s linear;
                       opacity: 1; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-left, .portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-left {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-left, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-left {
                       padding-left: 0;
                       padding-right: 4px;
                       width: 26.923%;
@@ -1407,9 +1473,9 @@ img {
                       min-width: 0;
                       text-align: left;
                       bottom: 0; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-left > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-left > div {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-left > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-left > div {
                         padding-right: 10px; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-right, .portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-right {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-right, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-right {
                       padding-right: 0;
                       padding-left: 0;
                       width: 26.923%;
@@ -1417,33 +1483,33 @@ img {
                       min-width: 0;
                       text-align: left;
                       bottom: 0; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-right > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-right > div {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-right > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div .captions-right > div {
                         padding-left: 10px; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div {
                       opacity: 0; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div > div h5, .portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div > div h5 {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div > div h5, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div > div h5 {
                         margin-bottom: 2px !important;
                         font-size: 8px !important; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div > div h6, .portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div > div h6 {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div > div h6, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div > div h6 {
                         margin-bottom: 1px !important;
                         font-size: 11px !important;
                         line-height: 14px !important; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div > div p, .portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div > div p {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div > div p, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single > div > div > div > div p {
                         font-size: 10px !important;
                         line-height: 13px !important; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single .medium > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single .medium > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single .medium > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single .medium > div img {
                   position: absolute;
                   max-width: 37.5%;
                   max-height: 75%; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single .large > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single .large > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single .large > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single .large > div img {
                   position: absolute;
                   max-width: 45%;
                   max-height: 90%; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single .content-right.full, .portrait > div > .book.textimages .book-container #book .book-grid-two.single .content-right.full {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single .content-right.full, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single .content-right.full {
                   display: block;
                   width: 100%;
                   position: relative; }
-                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single .content-right.full > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single .content-right.full > div img {
+                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single .content-right.full > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single .content-right.full > div img {
                     object-fit: cover;
                     object-position: center;
                     width: 50%;
@@ -1451,11 +1517,11 @@ img {
                     position: absolute;
                     left: 50%;
                     top: 0; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single .content-left.full, .portrait > div > .book.textimages .book-container #book .book-grid-two.single .content-left.full {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single .content-left.full, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single .content-left.full {
                   display: block;
                   width: 100%;
                   position: relative; }
-                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single .content-left.full > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single .content-left.full > div img {
+                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single .content-left.full > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single .content-left.full > div img {
                     object-fit: cover;
                     object-position: center;
                     width: 50%;
@@ -1463,94 +1529,94 @@ img {
                     position: absolute;
                     left: 0;
                     top: 0; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.top-left > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.top-left > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.top-left > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.top-left > div > div img {
                   top: 0;
                   left: 0; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.top > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.top > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.top > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.top > div > div img {
                   top: 0;
                   left: 25%;
                   transform: translate(-50%); }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.top-right > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.top-right > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.top-right > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.top-right > div > div img {
                   top: 0;
                   right: 50%; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.left > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.left > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.left > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.left > div > div img {
                   top: 0;
                   bottom: 0;
                   margin-top: auto;
                   margin-bottom: auto; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.right > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.right > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.right > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.right > div > div img {
                   top: 0;
                   bottom: 0;
                   right: 50%;
                   margin-top: auto;
                   margin-bottom: auto; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.center > div:not(.full) > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.center > div:not(.full) > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.center > div:not(.full) > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.center > div:not(.full) > div img {
                   top: 0;
                   bottom: 0;
                   left: 25%;
                   transform: translate(-50%);
                   margin: auto; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.bottom-left > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.bottom-left > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.bottom-left > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.bottom-left > div > div img {
                   bottom: 0; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.bottom > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.bottom > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.bottom > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.bottom > div > div img {
                   bottom: 0;
                   left: 25%;
                   transform: translate(-50%); }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.bottom-right > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.bottom-right > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:first-child.bottom-right > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:first-child.bottom-right > div > div img {
                   bottom: 0;
                   right: 50%; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.top-left > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.top-left > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.top-left > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.top-left > div > div img {
                   top: 0;
                   left: 50%; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.top > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.top > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.top > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.top > div > div img {
                   top: 0;
                   left: 75%;
                   transform: translate(-50%); }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.top-right > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.top-right > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.top-right > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.top-right > div > div img {
                   top: 0;
                   right: 0; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.left > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.left > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.left > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.left > div > div img {
                   top: 0;
                   bottom: 0;
                   margin-top: auto;
                   margin-bottom: auto;
                   left: 50%; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.center > div:not(.full) > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.center > div:not(.full) > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.center > div:not(.full) > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.center > div:not(.full) > div img {
                   top: 0;
                   bottom: 0;
                   left: 75%;
                   transform: translate(-50%);
                   margin: auto; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.right > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.right > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.right > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.right > div > div img {
                   top: 0;
                   bottom: 0;
                   right: 0;
                   margin-top: auto;
                   margin-bottom: auto; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.bottom-left > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.bottom-left > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.bottom-left > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.bottom-left > div > div img {
                   bottom: 0;
                   left: 50%; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.bottom > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.bottom > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.bottom > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.bottom > div > div img {
                   bottom: 0;
                   left: 75%;
                   transform: translate(-50%); }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.bottom-right > div > div img, .portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.bottom-right > div > div img {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.single:last-child.bottom-right > div > div img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.single:last-child.bottom-right > div > div img {
                   bottom: 0;
                   right: 0; }
-              .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double, .portrait > div > .book.textimages .book-container #book .book-grid-two.double {
+              .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double {
                 height: 100%;
                 width: 50%;
                 position: initial; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left {
                   height: 100%;
                   width: 100%;
                   display: block; }
-                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div {
+                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div {
                     height: inherit;
                     width: inherit;
                     display: block;
                     padding: 0 !important; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .medium:first-child img, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .medium:first-child img {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .medium:first-child img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .medium:first-child img {
                       max-width: 40%;
                       max-height: 40%;
                       position: absolute;
@@ -1558,7 +1624,7 @@ img {
                       top: 25%;
                       transform: translate(-50%, -50%);
                       margin: initial; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .medium:last-child img, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .medium:last-child img {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .medium:last-child img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .medium:last-child img {
                       max-width: 40%;
                       max-height: 40%;
                       position: absolute;
@@ -1566,27 +1632,27 @@ img {
                       top: 75%;
                       transform: translate(-50%, -50%);
                       margin: initial; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .full, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .full {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .full, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .full {
                       width: 50%; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .full:last-child, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .full:last-child {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .full:last-child, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .full:last-child {
                         top: 50%; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .full img, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .full img {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .full img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div .full img {
                         max-width: 50%;
                         max-height: 50%; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div {
                       opacity: 1 !important;
                       height: 50%;
                       width: inherit;
                       text-align: center;
                       display: table-row;
                       vertical-align: middle; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div {
                         display: table-cell;
                         vertical-align: middle; }
-                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div img:hover + div, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div img:hover + div {
+                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div img:hover + div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div img:hover + div {
                           transition: opacity .5s linear;
                           opacity: 1; }
-                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left {
+                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left {
                           padding-left: 0;
                           padding-right: 4px;
                           width: 26.923%;
@@ -1594,9 +1660,9 @@ img {
                           min-width: 0;
                           text-align: left;
                           bottom: 0; }
-                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left > div {
+                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-left > div {
                             padding-right: 10px; }
-                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right {
+                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right {
                           padding-right: 0;
                           padding-left: 0;
                           width: 26.923%;
@@ -1604,30 +1670,30 @@ img {
                           min-width: 0;
                           text-align: left;
                           bottom: 0; }
-                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right > div {
+                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div .captions-right > div {
                             padding-left: 10px; }
-                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div {
+                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div {
                           opacity: 0; }
-                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div > div h5, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div > div h5 {
+                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div > div h5, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div > div h5 {
                             margin-bottom: 2px !important;
                             font-size: 8px !important; }
-                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div > div h6, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div > div h6 {
+                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div > div h6, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div > div h6 {
                             margin-bottom: 1px !important;
                             font-size: 11px !important;
                             line-height: 14px !important; }
-                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div > div p, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div > div p {
+                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div > div p, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-left > div > div > div > div > div p {
                             font-size: 10px !important;
                             line-height: 13px !important; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right {
                   height: 100%;
                   width: 100%;
                   display: block; }
-                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div {
+                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div {
                     height: inherit;
                     width: inherit;
                     display: block;
                     padding: 0 !important; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .medium:first-child img, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .medium:first-child img {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .medium:first-child img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .medium:first-child img {
                       max-width: 40%;
                       max-height: 40%;
                       position: absolute;
@@ -1635,7 +1701,7 @@ img {
                       top: 25%;
                       transform: translate(-50%, -50%);
                       margin: initial; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .medium:last-child img, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .medium:last-child img {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .medium:last-child img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .medium:last-child img {
                       max-width: 40%;
                       max-height: 40%;
                       position: absolute;
@@ -1643,28 +1709,28 @@ img {
                       top: 75%;
                       transform: translate(-50%, -50%);
                       margin: initial; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .full, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .full {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .full, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .full {
                       width: 50%; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .full:last-child img, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .full:last-child img {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .full:last-child img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .full:last-child img {
                         top: 50%; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .full img, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .full img {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .full img, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div .full img {
                         left: 50%;
                         max-width: 50%;
                         max-height: 50%; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div {
                       opacity: 1 !important;
                       height: 50%;
                       width: inherit;
                       text-align: center;
                       display: table-row;
                       vertical-align: middle; }
-                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div {
+                      .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div {
                         display: table-cell;
                         vertical-align: middle; }
-                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div img:hover + div, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div img:hover + div {
+                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div img:hover + div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div img:hover + div {
                           transition: opacity .5s linear;
                           opacity: 1; }
-                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-left, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-left {
+                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-left, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-left {
                           padding-left: 0;
                           padding-right: 4px;
                           width: 26.923%;
@@ -1672,9 +1738,9 @@ img {
                           min-width: 0;
                           text-align: left;
                           bottom: 0; }
-                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-left > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-left > div {
+                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-left > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-left > div {
                             padding-right: 10px; }
-                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-right, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-right {
+                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-right, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-right {
                           padding-right: 0;
                           padding-left: 0;
                           width: 26.923%;
@@ -1682,84 +1748,77 @@ img {
                           min-width: 0;
                           text-align: left;
                           bottom: 0; }
-                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-right > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-right > div {
+                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-right > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div .captions-right > div {
                             padding-left: 10px; }
-                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div {
+                        .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div {
                           opacity: 0; }
-                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div > div h5, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div > div h5 {
+                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div > div h5, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div > div h5 {
                             margin-bottom: 2px !important;
                             font-size: 8px !important; }
-                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div > div h6, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div > div h6 {
+                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div > div h6, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div > div h6 {
                             margin-bottom: 1px !important;
                             font-size: 11px !important;
                             line-height: 14px !important; }
-                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div > div p, .portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div > div p {
+                          .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div > div p, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.double .content-right > div > div > div > div > div p {
                             font-size: 10px !important;
                             line-height: 13px !important; }
-              .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text, .portrait > div > .book.textimages .book-container #book .book-grid-two.text {
+              .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.text {
                 height: inherit;
                 display: inline-block;
                 vertical-align: top; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.text > div {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.text > div {
                   padding: 0 !important;
                   display: table;
                   height: inherit;
                   padding-left: 2.5vw !important;
                   padding-right: 1.5vw !important; }
-                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text > div > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.text > div > div {
+                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text > div > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.text > div > div {
                     display: table-cell;
                     vertical-align: middle;
                     padding: 0 !important; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text > div > div h5, .portrait > div > .book.textimages .book-container #book .book-grid-two.text > div > div h5 {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text > div > div h5, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.text > div > div h5 {
                       font-size: 1.6vw;
                       margin-bottom: .5vw; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text > div > div p, .portrait > div > .book.textimages .book-container #book .book-grid-two.text > div > div p {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text > div > div p, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.text > div > div p {
                       font-size: 1.6vw;
                       line-height: 2.2vw;
                       margin-bottom: 0; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text > div > div :last-child, .portrait > div > .book.textimages .book-container #book .book-grid-two.text > div > div :last-child {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text > div > div :last-child, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.text > div > div :last-child {
                       margin-bottom: 0; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text .content-left > div, .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text .content-right > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.text .content-left > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.text .content-right > div {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text .content-left > div, .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.text .content-right > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.text .content-left > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.text .content-right > div {
                   padding: 40px; }
-              .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote, .portrait > div > .book.textimages .book-container #book .book-grid-two.quote {
+              .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.quote {
                 height: inherit; }
-                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div {
+                .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div {
                   height: inherit;
                   display: table; }
-                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div, .portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div {
+                  .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div {
                     display: table-cell;
                     vertical-align: middle;
                     line-height: 2.2vw;
                     padding-left: 2.5vw !important;
                     padding-right: 1.5vw !important; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-text, .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-text p, .portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-text, .portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-text p {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-text, .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-text p, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-text, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-text p {
                       font-family: Poly;
                       font-size: 2vw;
                       line-height: 2.5vw;
                       margin-bottom: 2vw; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-source, .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-source p, .portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-source, .portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-source p {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-source, .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-source p, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-source, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div .quote-source p {
                       font-family: Lato;
                       font-weight: 900;
                       font-size: 2vw; }
-                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div span, .portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div span {
+                    .mobile.landscape > div > .book.textimages .book-container #book .book-grid-two.quote > div > div span, .mobile.portrait > div > .book.textimages .book-container #book .book-grid-two.quote > div > div span {
                       line-height: inherit;
                       display: inline-block; }
-        .mobile.landscape > div > .book.textimages .book-nav, .portrait > div > .book.textimages .book-nav {
-          margin-top: 0;
-          height: 40px; }
-          .mobile.landscape > div > .book.textimages .book-nav a, .portrait > div > .book.textimages .book-nav a {
-            margin: 0 !important;
-            margin: 0 !important;
-            padding: 14px 12px 15px; }
-      .mobile.landscape > div > .book.lastpage, .portrait > div > .book.lastpage {
+      .mobile.landscape > div > .book.lastpage, .mobile.portrait > div > .book.lastpage {
         height: 100%;
         width: 100%;
         display: block !important; }
-        .mobile.landscape > div > .book.lastpage > div:not(.book-nav), .portrait > div > .book.lastpage > div:not(.book-nav) {
+        .mobile.landscape > div > .book.lastpage > div:not(.book-nav), .mobile.portrait > div > .book.lastpage > div:not(.book-nav) {
           height: 100%;
           width: 40%;
           box-sizing: border-box; }
-          .mobile.landscape > div > .book.lastpage > div:not(.book-nav) #book, .portrait > div > .book.lastpage > div:not(.book-nav) #book {
+          .mobile.landscape > div > .book.lastpage > div:not(.book-nav) #book, .mobile.portrait > div > .book.lastpage > div:not(.book-nav) #book {
             height: 100%;
             display: table;
             width: 100% !important;
@@ -1767,60 +1826,77 @@ img {
             box-sizing: border-box;
             opacity: 0;
             transition: opacity .5s linear; }
-            .mobile.landscape > div > .book.lastpage > div:not(.book-nav) #book > div, .portrait > div > .book.lastpage > div:not(.book-nav) #book > div {
+            .mobile.landscape > div > .book.lastpage > div:not(.book-nav) #book > div, .mobile.portrait > div > .book.lastpage > div:not(.book-nav) #book > div {
               display: table-cell;
               vertical-align: middle;
               padding: 40px;
               text-align: center; }
-              .mobile.landscape > div > .book.lastpage > div:not(.book-nav) #book > div p, .portrait > div > .book.lastpage > div:not(.book-nav) #book > div p {
+              .mobile.landscape > div > .book.lastpage > div:not(.book-nav) #book > div p, .mobile.portrait > div > .book.lastpage > div:not(.book-nav) #book > div p {
                 font-size: 2vw;
                 font-family: Poly;
                 font-style: italic; }
-            .mobile.landscape > div > .book.lastpage > div:not(.book-nav) #book > a, .portrait > div > .book.lastpage > div:not(.book-nav) #book > a {
+            .mobile.landscape > div > .book.lastpage > div:not(.book-nav) #book > a, .mobile.portrait > div > .book.lastpage > div:not(.book-nav) #book > a {
               position: absolute;
               bottom: 10px;
               left: 0;
               right: 0;
               text-align: center; }
-        .mobile.landscape > div > .book.lastpage .book-nav, .portrait > div > .book.lastpage .book-nav {
-          margin-top: 0;
-          height: 40px; }
-          .mobile.landscape > div > .book.lastpage .book-nav a, .portrait > div > .book.lastpage .book-nav a {
-            margin: 0 !important;
-            margin: 0 !important;
-            padding: 14px 12px 15px; }
+      .mobile.landscape > div > .book > div:first-child, .mobile.portrait > div > .book > div:first-child {
+        border-left: 2px solid #e9e8e8 !important;
+        border-bottom: 2px solid #e9e8e8 !important; }
+        .mobile.landscape > div > .book > div:first-child:before, .mobile.portrait > div > .book > div:first-child:before {
+          border-left: 2px solid #e9e8e8 !important; }
+      .mobile.landscape > div > .book .book-nav, .mobile.portrait > div > .book .book-nav {
+        margin-top: 0;
+        height: 40px; }
+        .mobile.landscape > div > .book .book-nav a, .mobile.portrait > div > .book .book-nav a {
+          margin: 0 !important;
+          margin: 0 !important;
+          padding: 14px 8px 15px; }
+        .mobile.landscape > div > .book .book-nav .next:after, .mobile.portrait > div > .book .book-nav .next:after {
+          content: '';
+          background: url(../img/more_mobile.png);
+          background-repeat: no-repeat;
+          background-size: contain; }
+        .mobile.landscape > div > .book .book-nav .prev:after, .mobile.portrait > div > .book .book-nav .prev:after {
+          content: '';
+          background: url(../img/more_mobile.png);
+          background-repeat: no-repeat;
+          background-size: contain; }
 
-html body.book-portrait {
-  width: 100%;
-  height: 100%;
-  overflow: hidden; }
-  html body.book-portrait:before {
-    content: '';
+html {
+  font-size: 0; }
+  html body.book-portrait {
     width: 100%;
     height: 100%;
-    position: absolute;
-    background: black;
-    opacity: .75;
-    z-index: 10;
-    display: block; }
-  html body.book-portrait:after {
-    content: 'please turn your device sideways';
-    color: white;
-    z-index: 11;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 50%;
-    font-family: Poly;
-    font-style: italic;
-    font-size: 22px;
-    line-height: 28px;
-    font-weight: 400; }
-  html body.book-portrait #app #container.grayheader header#main_header {
-    opacity: 1 !important;
-    z-index: 12; }
-    html body.book-portrait #app #container.grayheader header#main_header .logo a img {
-      -webkit-filter: invert(100%);
-      filter: invert(100%); }
+    overflow: hidden; }
+    html body.book-portrait:before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: black;
+      opacity: .75;
+      z-index: 10;
+      display: block; }
+    html body.book-portrait:after {
+      content: 'please turn your device sideways';
+      color: white;
+      z-index: 11;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 50%;
+      font-family: Poly;
+      font-style: italic;
+      font-size: 22px;
+      line-height: 28px;
+      font-weight: 400; }
+    html body.book-portrait #app #container.grayheader header#main_header {
+      opacity: 1 !important;
+      z-index: 12; }
+      html body.book-portrait #app #container.grayheader header#main_header .logo a img {
+        -webkit-filter: invert(100%);
+        filter: invert(100%); }

@@ -8,8 +8,10 @@
 		    padding: 0 30px 0 30px;
 			height: 440px;
 			margin-bottom: 45px;
+			border-left: 2px solid #e9e8e8;
 			&.index-home-left:before {
 				width: 100%;
+				border-bottom: 2px solid #e9e8e8;
 			}
 			#content-left {
 				.featured {
@@ -63,6 +65,7 @@
 			height: 440px;
 			margin-bottom: 45px;
 			padding-right: 0;
+			border-left: 2px solid #e9e8e8;
 			&.index-home-left:before {
 				width: 100%;
 			}
@@ -107,6 +110,9 @@
 		height: 100%!important;
 		.index-home-left {
 			padding: 0 20px;
+			&:before {
+				border-bottom: 2px solid #e9e8e8;
+			}
 		}		
 		.grid-two:first-child {
 			width: 50%;
@@ -142,7 +148,7 @@
 								h3 {
 									font-size: 2.3vw;
 									margin-bottom: .7vw;
-									line-height: 2.8vw;
+									line-height: 3vw;
 								}
 								p {
 									font-size: 1.5vw;
@@ -165,6 +171,7 @@
  			width: 50%;
 			padding: 0 0 0 20px;
 			height: 100%;
+			border-left: 2px solid #e9e8e8!important;
 			.section-title {
 				//display: none;
 				position: absolute;
@@ -205,7 +212,7 @@
 									h3 {
 										font-size: 2.3vw;
 										margin-bottom: .7vw;
-										line-height: 2.8vw;
+										line-height: 3vw;
    									}
 								} 
 								.author {
@@ -228,6 +235,16 @@
 							a {
 								margin-right: 10px;
 								padding-right: 55px;
+							}
+							.nav-link {
+								&.more {
+									&:after {
+										content: '';
+										background: url('./../../assets/img/more_mobile.png');
+										background-repeat: no-repeat;
+										background-size: contain;
+									}
+								}
 							}
 						}
 					}
@@ -537,7 +554,7 @@
 					width: 36px;
 					height: 21px;
 					display: block;
-					background: url('./../../img/more.png');
+					background: url('./../../assets/img/more.png');
 					background-repeat: no-repeat;
 					background-size: contain;
 					position: absolute;

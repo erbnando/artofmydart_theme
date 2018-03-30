@@ -31,6 +31,9 @@
 
 .mobile {
 	.content.page {
+		> div {
+			border-left: 2px solid #e9e8e8;
+		}
 	}
 }
 

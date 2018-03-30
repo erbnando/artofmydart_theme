@@ -5,7 +5,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: __dirname,
-        filename: 'bundle.js'
+        filename: './assets/js/bundle.js'
     },
     module: {
         loaders: [
@@ -31,12 +31,12 @@ module.exports = {
             },
             {
                 test: /\.(ttf|eot|svg|png)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: 'file-loader?name=img/[name]_2.[ext]'
+                loader: 'file-loader?name=../img/[name].[ext]'
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin("bundle.css", {allChunks: true})
+        new ExtractTextPlugin("./assets/css/bundle.css", {allChunks: true})
     ],
     postcss: [autoPrefixer({browsers: ['last 3 versions']})]
 };

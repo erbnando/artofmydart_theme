@@ -92,6 +92,10 @@
 
 	var _mobileDetect2 = _interopRequireDefault(_mobileDetect);
 
+	var _axios = __webpack_require__(264);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -199,8 +203,7 @@
 			key: 'onOrientationChange',
 			value: function onOrientationChange() {
 
-				console.log('test');
-
+				var md = new _mobileDetect2.default(window.navigator.userAgent);
 				if (document.getElementById('container')) {
 					var container = document.getElementById('container');
 					if (window.screen.orientation != undefined) {
@@ -224,7 +227,9 @@
 						}
 
 						if ((orientation.type === "portrait-secondary" || orientation.type === "portrait-primary") && window.location.href.indexOf("/books/") > -1) {
-							document.getElementById('body').classList.add('book-portrait');
+							if (md.phone() != null) {
+								document.getElementById('body').classList.add('book-portrait');
+							}
 							var setWidthAndHeight = setInterval(function () {
 								if (window.outerWidth != '0' && window.outerHeight != '0') {
 									document.getElementById('app').style.width = window.outerHeight + 'px';
@@ -241,7 +246,9 @@
 								}
 							}, 10);
 						} else {
-							if (document.getElementById('body').classList.contains('book-portrait')) document.getElementById('body').classList.remove('book-portrait');
+							if (md.phone() != null) {
+								if (document.getElementById('body').classList.contains('book-portrait')) document.getElementById('body').classList.remove('book-portrait');
+							}
 							var setWidthAndHeight = setInterval(function () {
 								if (window.outerWidth != '0' && window.outerHeight != '0') {
 									document.getElementById('app').style.height = window.outerHeight + 'px';
@@ -261,7 +268,9 @@
 					} else if (window.orientation != undefined) {
 						//console.log('window.orientation');
 						if ((window.orientation == 0 || window.orientation == 180) && window.location.href.indexOf("/books/") > -1) {
-							document.getElementById('body').classList.add('book-portrait');
+							if (md.phone() != null) {
+								document.getElementById('body').classList.add('book-portrait');
+							}
 							var setWidthAndHeight = setInterval(function () {
 								if (window.outerWidth != '0' && window.outerHeight != '0') {
 									document.getElementById('app').style.width = window.outerHeight + 'px';
@@ -278,7 +287,9 @@
 								}
 							}, 10);
 						} else {
-							if (document.getElementById('body').classList.contains('book-portrait')) document.getElementById('body').classList.remove('book-portrait');
+							if (md.phone() != null) {
+								if (document.getElementById('body').classList.contains('book-portrait')) document.getElementById('body').classList.remove('book-portrait');
+							}
 							var setWidthAndHeight = setInterval(function () {
 								if (window.outerWidth != '0' && window.outerHeight != '0') {
 									document.getElementById('app').style.height = window.outerHeight + 'px';
@@ -28526,7 +28537,7 @@
 	                    _react2.default.createElement(
 	                        _reactRouterDom.Link,
 	                        { onClick: this.hideComponents, to: '/' },
-	                        _react2.default.createElement('img', { src: '/wp-content/themes/artofmydart_theme/img/logo.png' })
+	                        _react2.default.createElement('img', { src: '/wp-content/themes/artofmydart_theme/assets/img/logo.png' })
 	                    )
 	                ),
 	                _react2.default.createElement(

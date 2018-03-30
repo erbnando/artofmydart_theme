@@ -22,6 +22,9 @@ html {
 			font-size: 12px;
 			color: white;
 			background-color: black;
+			@media only screen and (max-width: 1024px) {
+				display: none;
+			}
 		}
 		#app {
 			height: 100%;
@@ -121,4 +124,10 @@ img {
 
 * {
 	white-space: normal;
+}
+
+.mobile {
+	h2, h3, h4, h6 {
+		font-weight: 700!important;
+	}
 }

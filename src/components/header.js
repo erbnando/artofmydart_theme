@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Menu from '../containers/menu';
 
 class Header extends Component {
@@ -8,7 +8,7 @@ class Header extends Component {
             <header id="main_header">
                 <div className="logo">
                     <Link onClick={this.hideComponents} to={`/`}>
-                        <img src="/wp-content/themes/artofmydart_theme/img/logo.png" />
+                        <img src="/wp-content/themes/artofmydart_theme/assets/img/logo.png" />
                     </Link>
                 </div>
                 <nav>

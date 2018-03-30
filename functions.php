@@ -23,7 +23,7 @@ $Theme_Endpoints = new Theme_Endpoints();
 $Theme_Endpoints->init();
 
 function enqueue_font_awesome() {
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/fonts/font-awesome/css/font-awesome.min.css', array(), '4.7.0' ); 
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/fonts/font-awesome/css/font-awesome.min.css', array(), '4.7.0' ); 
 	}
 add_action( 'wp_enqueue_scripts', 'enqueue_font_awesome' );
 
