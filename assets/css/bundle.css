@@ -189,11 +189,16 @@ img {
     display: none; }
 
 .mobile.landscape.grayheader header {
-  z-index: 3; }
-  .mobile.landscape.grayheader header .logo {
-    display: block; }
-  .mobile.landscape.grayheader header nav {
-    display: none; }
+  /*
+            z-index: 3;
+            .logo {
+                display: block;
+            }
+            nav {
+                display: none;
+            }
+            */
+  display: none; }
 
 .mobile.landscape .nav {
   bottom: -10px !important; }
@@ -830,8 +835,7 @@ img {
         width: 50%;
         display: table-cell;
         vertical-align: middle;
-        position: relative;
-        overflow: hidden; }
+        position: relative; }
         .book.textimages > .book-container #book .book-grid-two.bottom {
           vertical-align: bottom; }
         .book.textimages > .book-container #book .book-grid-two.top {
@@ -856,28 +860,30 @@ img {
           vertical-align: bottom; }
           .book.textimages > .book-container #book .book-grid-two.bottom-right > div {
             float: right; }
-        .book.textimages > .book-container #book .book-grid-two.quote > div > div {
-          overflow: hidden;
-          padding: 0 110px 0 40px; }
-          .book.textimages > .book-container #book .book-grid-two.quote > div > div > div {
-            max-height: 511px; }
-            .book.textimages > .book-container #book .book-grid-two.quote > div > div > div .quote-text, .book.textimages > .book-container #book .book-grid-two.quote > div > div > div .quote-text p {
-              font-size: 16px;
-              font-family: Poly;
-              line-height: 20px; }
-            .book.textimages > .book-container #book .book-grid-two.quote > div > div > div .quote-text p + p {
-              margin-top: 20px; }
-            .book.textimages > .book-container #book .book-grid-two.quote > div > div > div .quote-source, .book.textimages > .book-container #book .book-grid-two.quote > div > div > div .quote-source p {
-              font-size: 13px;
-              font-family: Lato;
-              font-weight: 900;
-              line-height: 18px;
-              margin-top: 15px; }
-        .book.textimages > .book-container #book .book-grid-two.text > div > div {
-          overflow: hidden;
-          padding: 0 40px; }
-          .book.textimages > .book-container #book .book-grid-two.text > div > div > div {
-            max-height: 511px; }
+        .book.textimages > .book-container #book .book-grid-two.quote {
+          overflow: hidden; }
+          .book.textimages > .book-container #book .book-grid-two.quote > div > div {
+            padding: 0 110px 0 40px; }
+            .book.textimages > .book-container #book .book-grid-two.quote > div > div > div {
+              max-height: 511px; }
+              .book.textimages > .book-container #book .book-grid-two.quote > div > div > div .quote-text, .book.textimages > .book-container #book .book-grid-two.quote > div > div > div .quote-text p {
+                font-size: 16px;
+                font-family: Poly;
+                line-height: 20px; }
+              .book.textimages > .book-container #book .book-grid-two.quote > div > div > div .quote-text p + p {
+                margin-top: 20px; }
+              .book.textimages > .book-container #book .book-grid-two.quote > div > div > div .quote-source, .book.textimages > .book-container #book .book-grid-two.quote > div > div > div .quote-source p {
+                font-size: 13px;
+                font-family: Lato;
+                font-weight: 900;
+                line-height: 18px;
+                margin-top: 15px; }
+        .book.textimages > .book-container #book .book-grid-two.text {
+          overflow: hidden; }
+          .book.textimages > .book-container #book .book-grid-two.text > div > div {
+            padding: 0 40px; }
+            .book.textimages > .book-container #book .book-grid-two.text > div > div > div {
+              max-height: 511px; }
         .book.textimages > .book-container #book .book-grid-two.single > div {
           margin: 0 auto;
           opacity: 1 !important; }

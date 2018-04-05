@@ -125,6 +125,7 @@
     }
     &.grayheader {
         header {
+            /*
             z-index: 3;
             .logo {
                 display: block;
@@ -132,6 +133,8 @@
             nav {
                 display: none;
             }
+            */
+            display: none;
         }
     }
     .nav {

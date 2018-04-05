@@ -145,7 +145,7 @@
 					display: table-cell;
 					vertical-align: middle;
 					position: relative;
-					overflow: hidden;
+					//overflow: hidden;
 					&.bottom {
 						vertical-align: bottom;
 					}
@@ -187,9 +187,9 @@
 						}
 					}
 					&.quote {
+						overflow: hidden;
 						> div {
 							> div {
-								overflow: hidden;
 								padding: 0 110px 0 40px;
 								> div {
 									max-height: 511px;
@@ -213,9 +213,9 @@
 						}
 					}
 					&.text {
+						overflow: hidden;
 						> div {
 							> div {
-								overflow: hidden;
 								padding: 0 40px;
 								> div {
 									max-height: 511px;									
@@ -258,7 +258,7 @@
 						    	}
 						    }
 							> div {
-						    	padding: 0!important;
+								padding: 0!important;
 								img:hover + div {
 									transition: opacity .5s linear;
 									opacity: 1;

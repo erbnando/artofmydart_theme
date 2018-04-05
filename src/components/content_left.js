@@ -105,14 +105,26 @@ class ContentLeft extends Component {
 	}
 
 	getFullSizedCaptions() {
-		if (this.props.content.double_spread_full_sized_image.title || this.props.content.double_spread_full_sized_image.caption) {
-			if (this.props.content.double_spread_full_sized_image.title) {
-				var title = '<h6>' + this.props.content.double_spread_full_sized_image.title + '</h6>';
-			} else {
-				var title = '';
+		if (this.props.content.double_spread_full_sized_image) {
+			if (this.props.content.double_spread_full_sized_image.title || this.props.content.double_spread_full_sized_image.caption) {
+				if (this.props.content.double_spread_full_sized_image.title) {
+					var title = '<h6>' + this.props.content.double_spread_full_sized_image.title + '</h6>';
+				} else {
+					var title = '';
+				}
+				var caption = '<div>' + title + '<p>' + this.props.content.double_spread_full_sized_image.caption + '</p>' + '</div>';
+				return caption
 			}
-			var caption = '<div>' + title + '<p>' + this.props.content.double_spread_full_sized_image.caption + '</p>' + '</div>';
-	 		return caption
+		} else if (this.props.content.double_spread_large_image) {
+			if (this.props.content.double_spread_large_image.title || this.props.content.double_spread_large_image.caption) {
+				if (this.props.content.double_spread_large_image.title) {
+					var title = '<h6>' + this.props.content.double_spread_large_image.title + '</h6>';
+				} else {
+					var title = '';
+				}
+				var caption = '<div>' + title + '<p>' + this.props.content.double_spread_large_image.caption + '</p>' + '</div>';
+				return caption
+			}
 		}
 	}
 
