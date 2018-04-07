@@ -1207,7 +1207,7 @@ img {
             display: table-cell;
             vertical-align: middle; }
             .book.textimages > .book-container #book .book-grid-two > div > div p {
-              margin-bottom: 2px;
+              margin-bottom: 16px;
               line-height: 21px; }
             .book.textimages > .book-container #book .book-grid-two > div > div :last-child {
               margin-bottom: 0; }
@@ -1312,6 +1312,12 @@ img {
   .tablet.portrait > div .book.lastpage > div {
     width: 400px !important;
     box-sizing: border-box; }
+
+.mobile.portrait > div > .book.cover > div:not(.book-nav) #book .title-wrapper h2 {
+  font-size: 4.2vw !important;
+  line-height: 5vw !important;
+  top: 45%;
+  padding: 0 20px !important; }
 
 .mobile.landscape, .mobile.portrait {
   height: 100%;
