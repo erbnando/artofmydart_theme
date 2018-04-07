@@ -130,4 +130,18 @@ img {
 	h2, h3, h4, h6 {
 		font-weight: 700!important;
 	}
+	&.landscape {
+		max-width: 170vh!important;
+		header {
+			height: auto!important;
+			z-index: 5!important;
+			max-width: 170vh!important;
+		}
+	}
+}
+
+.tablet.portrait {
+	#content {
+		margin-top: 60px!important;	
+	}
 }

@@ -762,7 +762,7 @@
 				display: block!important;
 				> div:not(.book-nav) {
 					height: 100%;
-					width: 40%;
+					width: 35%;
 					#book {
 						height: 100%;
 						.img-wrapper {
@@ -776,8 +776,8 @@
 						.title-wrapper {
 							height: 22%!important;
 							h2 {
-								font-size: 2.5vw;
-								line-height: 3vw;
+								font-size: 4.2vh;
+								line-height: 5vh;
 								top: 45%;
 								padding: 0 20px!important;
 							}
@@ -803,17 +803,21 @@
 							    display: table-cell;
 							    padding-left: 20px!important;
 								.book-title {
-									margin-bottom: 3.5vw;
-									font-size: 2.8vw;
+									margin-bottom: 6vh;
+									font-size: 5vh;
+									font-weight: 700!important;
+									margin-top: 0;
 								}
 								.author-title {
-								    font-size: 1.4vw;
-								    line-height: 2vw;
-								    margin-bottom: .25vw;
+									font-size: 2.7vh;
+									line-height: 3vh;
+									font-weight: 700;
+									margin-bottom: 2vh;
 								}
 								.author-name {
-									font-size: 2vw;
-									line-height: 2.7vw;
+									font-size: 3.5vh;
+									line-height: 4vh;
+									margin-bottom: 0;
 								}
 							}
 						}
@@ -1514,12 +1518,12 @@
 								    	vertical-align: middle;
 										padding: 0!important;
 										h5 {
-											font-size: 1.6vw;
-											margin-bottom: .5vw;
+											font-size: 3vh;
+											margin-bottom: .9vh;
 										}
 										p {
-											font-size: 1.6vw;
-    										line-height: 2.2vw;
+											font-size: 3vh;
+    										line-height: 4vh;
 											margin-bottom: 0;
 										}
 										:last-child {
@@ -1541,19 +1545,28 @@
 									> div {
 										display: table-cell;
 										vertical-align: middle;
-										line-height: 2.2vw;
 									    padding-left: 2.5vw !important;
 									    padding-right: 1.5vw !important;
-   										.quote-text, .quote-text p {
-											font-family: Poly;
-											font-size: 2vw;
-											line-height: 2.5vw;
-											margin-bottom: 2vw;
+   										.quote-text {
+											margin-bottom: 3vh;
+											p {
+												font-family: Poly;
+												font-size: 3.5vh;
+												line-height: 4.5vh;
+											}
 										}
-										.quote-source, .quote-source p {
-											font-family: Lato;
-											font-weight: 900;
-											font-size: 2vw;
+										.quote-text p + p {
+											margin-top: 4vh;
+										}
+										.quote-source {
+											margin-top: 3vh;
+											p {
+												font-family: Lato;
+												font-weight: 700;
+												margin-top: 0;
+												font-size: 3.5vh;
+												line-height: 4.5vh;
+											}
 										}
 										span {
 											line-height: inherit;
@@ -1572,7 +1585,7 @@
 				display: block!important;
 				> div:not(.book-nav) {
 					height: 100%;
-					width: 40%;
+					width: 35%;
 					box-sizing: border-box;
 					#book {
 						height: 100%;
@@ -1588,7 +1601,7 @@
 							padding: 40px;
 							text-align: center;
 							p {
-								font-size: 2vw;
+								font-size: 3.5vh;
 								font-family: Poly;
 								font-style: italic;
 							}
@@ -1598,7 +1611,10 @@
 						    bottom: 10px;
 						    left: 0;
 						    right: 0;
-						    text-align: center;
+							text-align: center;
+							h5 {
+								font-weight: 700;
+							}
 						}
 					}
 				}
