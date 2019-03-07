@@ -19,8 +19,8 @@ html {
       font-family: Lato;
       font-weight: bold;
       font-size: 12px;
-      color: white;
-      background-color: black; }
+      color: #fff;
+      background-color: #000; }
       @media only screen and (max-width: 1024px) {
         html body .post-edit-link {
           display: none; } }
@@ -148,7 +148,7 @@ img {
         display: inline-block; }
         .container header nav ul li a {
           font-family: Lato;
-          color: black;
+          color: #000;
           text-decoration: none;
           text-transform: uppercase;
           font-weight: 900;
@@ -528,7 +528,7 @@ img {
   .grid-two p.section-title {
     font-family: Lato;
     font-size: 13px;
-    color: black;
+    color: #000;
     font-weight: 900;
     margin: 0;
     margin-bottom: 30px; }
@@ -595,7 +595,7 @@ img {
               .grid-two.index-home-left #content-left .featured .featured-details div a h3 {
                 font-family: Lato;
                 font-size: 18px;
-                color: black;
+                color: #000;
                 font-weight: 900;
                 margin-bottom: 7px;
                 margin-top: 0;
@@ -629,7 +629,7 @@ img {
       .grid-two:not(.index-home-left) #content-left .posts .post a h3, .grid-two:not(.index-home-left) #content-right .posts .post a h3 {
         font-family: Lato;
         font-size: 18px;
-        color: black;
+        color: #000;
         font-weight: 900;
         margin-top: 0;
         margin-bottom: 5px; }
@@ -643,7 +643,7 @@ img {
     .grid-two:not(.index-home-left) #content-left .posts .post .date, .grid-two:not(.index-home-left) #content-right .posts .post .date {
       font-family: Poly;
       font-size: 13px;
-      color: black;
+      color: #000;
       font-weight: 400;
       margin-top: 2px;
       margin-bottom: 0; }
@@ -826,7 +826,7 @@ img {
           .book.title > div:first-child #book .book-grid-two:last-child div .book-title {
             font-family: Lato;
             font-size: 28px;
-            color: black;
+            color: #000;
             font-weight: 900;
             margin-bottom: 40px; }
           .book.title > div:first-child #book .book-grid-two:last-child div .author-title {
@@ -1941,7 +1941,7 @@ html {
       display: block; }
     html body.book-portrait:after {
       content: 'please turn your device sideways';
-      color: white;
+      color: #fff;
       z-index: 11;
       position: absolute;
       left: 50%;

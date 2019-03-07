@@ -1,7 +1,7 @@
 .book {
 	&.cover {
 		transition: opacity .25s linear;
-		@media only screen and (max-width: 479px) {
+		@media only screen and (max-width: $small-end) {
 			padding: 0 20px!important;
 		}
 		> div:first-child {
@@ -24,7 +24,7 @@
 					    max-height: 391px;
    						vertical-align: bottom;
 						box-sizing: border-box;
-					}			
+					}
 				}
 				.title-wrapper {
 					position: relative;
@@ -90,14 +90,14 @@
 							.book-title {
 								font-family: Lato;
 								font-size: 28px;
-								color: black;
+								color: $black;
 								font-weight: 900;
 								margin-bottom: 40px;
 							}
 							.author-title {
 								font-family: Lato;
 								font-size: 10px;
-								color: #bbb;
+								color: $gray;
 								font-weight: 900;
 								margin-bottom: 4px;
 								text-transform: uppercase;
@@ -207,7 +207,7 @@
 										font-weight: 900;
 										line-height: 18px;
 										margin-top: 15px;
-									}	
+									}
 								}
 							}
 						}
@@ -218,7 +218,7 @@
 							> div {
 								padding: 0 40px;
 								> div {
-									max-height: 511px;									
+									max-height: 511px;
 								}
 							}
 						}
@@ -769,7 +769,7 @@
 	height: 100%;
     box-sizing: border-box;
 	.content {
-        z-index: 2;		
+        z-index: 2;
 	}
 	> div {
 		height: 100%;
@@ -1694,7 +1694,7 @@ html {
 		}
 		&:after {
 		    content: 'please turn your device sideways';
-		    color: white;
+		    color: $white;
 		    z-index: 11;
 		    position: absolute;
 		    left: 50%;
@@ -1706,7 +1706,7 @@ html {
 			font-style: italic;
 			font-size: 22px;
 			line-height: 28px;
-			font-weight: 400; 
+			font-weight: 400;
 		}
 		#app {
 			#container.grayheader {

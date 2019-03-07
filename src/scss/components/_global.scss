@@ -1,7 +1,18 @@
+$black: #000;
+$white: #fff;
+$gray: #bbb;
+
+$small-end: 479px;
+$medium-start: 480px;
+$medium-end: 767px;
+$large-start: 768px;
+$large-end: 1023px;
+$x-large-start: 1024px;
+
 html {
 	height: 100%;
 	width: 100%;
-    overflow-x: hidden; 
+    overflow-x: hidden;
     overflow-y: auto;
 	-webkit-text-size-adjust: 100%;
 	body {
@@ -20,9 +31,9 @@ html {
 			font-family: Lato;
 			font-weight: bold;
 			font-size: 12px;
-			color: white;
-			background-color: black;
-			@media only screen and (max-width: 1024px) {
+			color: $white;
+			background-color: $black;
+			@media only screen and (max-width: $x-large-start) {
 				display: none;
 			}
 		}
@@ -91,7 +102,7 @@ h5 {
 	margin-top: 0;
 	font-family: Lato;
 	font-size: 10px;
-	color: #bbb;
+	color: $gray;
 	font-weight: 900;
 	margin-bottom: 5px;
 	text-transform: uppercase;
@@ -142,6 +153,6 @@ img {
 
 .tablet.portrait {
 	#content {
-		margin-top: 60px!important;	
+		margin-top: 60px!important;
 	}
 }
