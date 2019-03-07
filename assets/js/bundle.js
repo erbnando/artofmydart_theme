@@ -31699,12 +31699,7 @@
 						_react2.default.createElement(
 							'div',
 							null,
-							_react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.props.page.page.content.rendered } }),
-							_react2.default.createElement(
-								'a',
-								{ className: 'page-contact', href: 'http://google.com' },
-								'Contact'
-							)
+							_react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.props.page.page.content.rendered } })
 						)
 					);
 				} else {

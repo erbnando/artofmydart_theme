@@ -28,7 +28,6 @@ class Page extends Component {
 				<div className="content page" id="content">
 					<div>
 						<div dangerouslySetInnerHTML={{__html: this.props.page.page.content.rendered}} />
-						<a className="page-contact" href="http://google.com">Contact</a>
 					</div>
 				</div>
 			);
