@@ -60,7 +60,7 @@ class Menu extends Component {
             <ul className={this.getClasses(this.props.menu.name)}>
                 {this.renderMenu(this.props.menu)}
                 <li className="social-first social">
-                    <a href="http://google.com" target="_blank">
+                    <a href="https://facebook.com" target="_blank">
                         <FontAwesome
                         name='facebook-square'
                         style={{ fontSize: '14px' }}
@@ -68,7 +68,7 @@ class Menu extends Component {
                     </a>
                 </li>
                 <li className="social">
-                    <a href="http://google.com" target="_blank">
+                    <a href="https://instagram.com" target="_blank">
                         <FontAwesome
                         name='instagram'
                         style={{ fontSize: '14px' }}

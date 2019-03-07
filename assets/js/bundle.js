@@ -28661,7 +28661,7 @@
 	                    { className: 'social-first social' },
 	                    _react2.default.createElement(
 	                        'a',
-	                        { href: 'http://google.com', target: '_blank' },
+	                        { href: 'https://facebook.com', target: '_blank' },
 	                        _react2.default.createElement(FontAwesome, {
 	                            name: 'facebook-square',
 	                            style: { fontSize: '14px' }
@@ -28673,7 +28673,7 @@
 	                    { className: 'social' },
 	                    _react2.default.createElement(
 	                        'a',
-	                        { href: 'http://google.com', target: '_blank' },
+	                        { href: 'https://instagram.com', target: '_blank' },
 	                        _react2.default.createElement(FontAwesome, {
 	                            name: 'instagram',
 	                            style: { fontSize: '14px' }
